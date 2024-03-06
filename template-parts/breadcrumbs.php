@@ -1,0 +1,3 @@
+<?php
+custom_breadcrumbs();
+?>
