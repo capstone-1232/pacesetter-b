@@ -9,17 +9,6 @@
  * @package pacesetter
  */
 
-$page_slug = 'pacesetter-edmonton';
-
-// Get the page object by slug and post type
-$page = get_page_by_path($page_slug, OBJECT, 'business');
-
-// Check if the page is found
-if ($page) {
-	// Get the post ID
-	$post_id = $page->ID;
-}
-
 
 ?>
 <!doctype html>
@@ -49,10 +38,10 @@ if ($page) {
 		<div style="background-color: #013562;">
 			<div>
 				<p>
-					<?php echo get_post_meta($post_id, 'hours_mon-fri', true) ?>
+					Mon-Fri: 9:30am - 5:30pm
 				</p>
 				<p>
-					<?php echo get_post_meta($post_id, 'phone_number', true) ?>
+					(780) 483-2005
 				</p>
 
 			</div>
