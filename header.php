@@ -9,6 +9,18 @@
  * @package pacesetter
  */
 
+$page_slug = 'pacesetter-edmonton';
+
+// Get the page object by slug and post type
+$page = get_page_by_path($page_slug, OBJECT, 'business');
+
+// Check if the page is found
+if ($page) {
+	// Get the post ID
+	$post_id = $page->ID;
+}
+
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -36,9 +48,13 @@
 	<div id="page" class="site">
 		<div style="background-color: #013562;">
 			<div>
-				<p><?php echo get_post_meta($post_id, 'hours_mon-fri', true)?> </p>
-				<p><?php echo get_post_meta($post_id, 'phone_number', true)?> </p>
-				
+				<p>
+					<?php echo get_post_meta($post_id, 'hours_mon-fri', true) ?>
+				</p>
+				<p>
+					<?php echo get_post_meta($post_id, 'phone_number', true) ?>
+				</p>
+
 			</div>
 			<div>
 				<?php get_search_form(); ?>
@@ -82,7 +98,8 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Main Menu toggle">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"
+					aria-label="Main Menu toggle">
 					<?php esc_html_e('Primary Menu', 'pacesetter'); ?>
 				</button>
 				<?php
