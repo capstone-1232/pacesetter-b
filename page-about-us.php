@@ -14,19 +14,10 @@
 
 get_header();
 ?>
-<h2>About pacesetter</h2>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam earum culpa dolorem sint deserunt voluptatem totam in praesentium ipsum, quibusdam officiis iste similique facere rem eius sit unde perspiciatis aliquam.</p>
-<img src="" alt="">
 <section>
-    <h3>Our History</h3>
-    <img src="" alt="">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sunt, adipisci in, excepturi officiis numquam sapiente, unde quaerat voluptatum fugiat est natus mollitia quisquam tempore! Nesciunt, obcaecati? Voluptates, consequatur quis.</p>
-</section>
-
-<section>
-    <h3>Meet the owner</h3>
-    <img src="" alt="">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sunt, adipisci in, excepturi officiis numquam sapiente, unde quaerat voluptatum fugiat est natus mollitia quisquam tempore! Nesciunt, obcaecati? Voluptates, consequatur quis. teast test test</p>
+    <h2>About pacesetter</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam earum culpa dolorem sint deserunt voluptatem totam in praesentium ipsum, quibusdam officiis iste similique facere rem eius sit unde perspiciatis aliquam.</p>
+    <img src="img/about-us-firstplaceholder.png" alt="View of the front of the Pacesetter Store">
 </section>
 
 <section>
