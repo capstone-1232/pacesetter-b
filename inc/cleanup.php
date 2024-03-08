@@ -22,3 +22,14 @@ function pacesetter_remove_meta_version() {
     return '';
 }
 add_filter('the_generator', 'pacesetter_remove_meta_version');
+
+function mailtrap($phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 2525;
+    $phpmailer->Username = 'e3b0a56338aa12';
+    $phpmailer->Password = '12d1a7dd594396';
+  }
+  
+  add_action('phpmailer_init', 'mailtrap');
