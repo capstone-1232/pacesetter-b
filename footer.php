@@ -71,6 +71,7 @@ if ($page) {
 					<div>
 						<a href=""><svg fill="#000000" width="36px" height="36px" viewBox="0 0 24 24"
 								xmlns="http://www.w3.org/2000/svg">
+								<title>Facebook Logo</title>
 								<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 								<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 								<g id="SVGRepo_iconCarrier">
@@ -79,9 +80,10 @@ if ($page) {
 									</path>
 								</g>
 							</svg></a>
-						<a href=""><svg fill="#000000" height="36px" width="36px" version="1.1" id="Layer_1"
+						<a href=""><svg fill="#000000" height="36px" width="36px" version="1.1"
 								xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 								viewBox="-143 145 512 512" xml:space="preserve">
+								<title>Instagram Logo</title>
 								<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 								<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 								<g id="SVGRepo_iconCarrier">
@@ -104,6 +106,7 @@ if ($page) {
 						<a href=""><svg fill="#000000" height="36px" width="36px" version="1.1" id="Layer_1"
 								xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 								viewBox="-143 145 512 512" xml:space="preserve">
+								<title>Twitter Logo</title>
 								<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 								<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 								<g id="SVGRepo_iconCarrier">

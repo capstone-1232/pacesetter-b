@@ -24,7 +24,7 @@ for ($i = 0; $i < min(3, count($featured_products)); $i++) {
     <!-- Render product cards -->
         <div>
             <div>
-                <img src="<?php echo esc_url($product_image_url) ?>" alt="<?php echo $short_description ?>">
+                <img src="<?php echo esc_url($product_image_url) ?>" alt="<?php echo $short_description ?>" aria-label="<?php echo "An image of a" . $short_description ?>">
                 <h3><?php echo $product_title ?></h3>
                 <p><?php echo $short_description ?></p>
                 <div>

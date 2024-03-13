@@ -9,26 +9,6 @@
  * @package pacesetter
  */
 
-$page_slug = 'pacesetter-edmonton';
-
-// Get the page object by slug and post type
-$page = get_page_by_path($page_slug, OBJECT, 'business');
-
-// Check if the page is found
-if ($page) {
-	// Get the post ID
-	$post_id = $page->ID;
-
-	// Retrieve meta values
-	$phone_number = get_post_meta($post_id, 'phone_number', true);
-	$address = get_post_meta($post_id, 'address', true);
-	$city = get_post_meta($post_id, 'city', true);
-	$postal_code = get_post_meta($post_id, 'postal_code', true);
-	$province = get_post_meta($post_id, 'province', true);
-	$hours_mon_fri = get_post_meta($post_id, 'hours_mon-fri', true);
-	$hours_sat = get_post_meta($post_id, 'hours_sat', true);
-	$hours_sun = get_post_meta($post_id, 'hours_sun', true);
-}
 
 ?>
 <!doctype html>
@@ -36,12 +16,12 @@ if ($page) {
 
 <head>
 	<title>
-		<?php 
-			echo the_title($before = '', $after = ' | ') .  get_bloginfo("name") . ' - ' . get_bloginfo("description");
-		?>
-
+		<?php bloginfo('name');
+		wp_title(); ?>
 	</title>
 	<meta name="description" content="<?php bloginfo('description'); ?>">
+	<meta name="keywords"
+		content="Ski, Snowboard, Edmonton, Sports, Store, Online, Alberta, Services, Rentals, Events, Experienced, Local, West">
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -57,17 +37,19 @@ if ($page) {
 	<div id="page" class="site">
 		<div style="background-color: #013562;">
 			<div>
-				<p>Mon-Fri:
-					<?php echo $hours_mon_fri; ?>
+				<p>
+					Mon-Fri: 9:30am - 5:30pm
 				</p>
 				<p>
-					<?php echo $phone_number; ?>
+					(780) 483-2005
 				</p>
+
 			</div>
 			<div>
 				<?php get_search_form(); ?>
 				<a href="<?php echo wc_get_cart_url(); ?>">
 					<svg width="33px" height="33px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<title>This is an image of a cart</title>
 						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 						<g id="SVGRepo_iconCarrier">
@@ -79,6 +61,7 @@ if ($page) {
 				</a>
 			</div>
 		</div>
+
 		<a class="skip-link screen-reader-text" href="#primary">
 			<?php esc_html_e('Skip to content', 'pacesetter'); ?>
 		</a>
@@ -104,7 +87,8 @@ if ($page) {
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"
+					aria-label="Main Menu toggle">
 					<?php esc_html_e('Primary Menu', 'pacesetter'); ?>
 				</button>
 				<?php
