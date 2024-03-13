@@ -11,6 +11,7 @@ get_header();
     $event_id = get_the_id();
     $description = get_field('description');
     $location = get_field('location');
+    $is_all_day = get_field('all_day');
     $date_time_start = get_field('date_and_time_start');
     $date_time_end = get_field('date_and_time_end');
     $fee = get_field('fee');
@@ -22,13 +23,14 @@ get_header();
     $phone_number_message = '';
     $email_message = '';
 
+    // Check if the form submission identifier is not set
+    if (!isset($_SESSION['form_submission_identifier'])) {
+        // Initialize an empty array to store event_ids
+        $_SESSION['form_submission_identifier'] = array();
+    }
+
     // Check if the form has been submitted
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-        // Check if the form submission identifier is not set
-        if (!isset($_SESSION['form_submission_identifier'])) {
-            // Initialize an empty array to store event_ids
-            $_SESSION['form_submission_identifier'] = array();
-        }
 
         if (!in_array($event_id, $_SESSION['form_submission_identifier'])) {
             // Add event_id to identifier array
@@ -235,7 +237,7 @@ get_header();
 
                 // Create query args
                 $args = array(
-                    'post_type'      => 'events-test',
+                    'post_type'      => 'events',
                     'posts_per_page' => 3,
                     'tax_query'      => array(
                         'relation' => 'OR',

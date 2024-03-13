@@ -33,3 +33,21 @@ function mailtrap($phpmailer) {
   }
   
   add_action('phpmailer_init', 'mailtrap');
+
+  function my_filter_function() {
+    $filterType = isset($_POST['filterType']) ? $_POST['filterType'] : '';
+    $filterValue = isset($_POST['filterValue']) ? $_POST['filterValue'] : '';
+
+    // Process filters and fetch content based on $filterType and $filterValue
+
+    // For example, assuming you have a filter.php file in your theme folder
+    ob_start();
+    include get_stylesheet_directory() . '/includes/filter.php';
+    $filteredContent = ob_get_clean();
+
+    echo json_encode($filteredContent);
+    exit;
+}
+
+add_action('wp_ajax_my_filter_function', 'my_filter_function');
+add_action('wp_ajax_nopriv_my_filter_function', 'my_filter_function');
