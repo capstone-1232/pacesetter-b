@@ -32,6 +32,8 @@ get_header();
                     <p><?php esc_html(get_field('faq_answer'));?></p>
                 </div>
 
+
+
 <?php }?>
 </section>
 <section>
@@ -126,3 +128,4 @@ get_header();
     <p>Phone, email, fill out our contact form or visit us in person on 167th St.</p>
     <a href="<?php echo get_template_directory_uri()?>/page-contact-us.php"></a>
 </section>
+
