@@ -16,8 +16,12 @@
 
 <head>
 	<title>
-		<?php bloginfo('name');
-		wp_title(); ?>
+		<?php 
+		// bloginfo('name');
+		// wp_title(); 
+
+		echo the_title( $before = '', $after = ' | ' ) . get_bloginfo("name") . ' - ' . get_bloginfo("description");
+		?>
 	</title>
 	<meta name="description" content="<?php bloginfo('description'); ?>">
 	<meta name="keywords"
