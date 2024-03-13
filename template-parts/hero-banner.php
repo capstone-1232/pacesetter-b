@@ -30,7 +30,7 @@ Template Post Type: hero-banner
         // Output the carousel item
         ?>
         <div class="slide <?php echo $active_class; ?>" style="background-image: url('<?php echo esc_url($background_image); ?>');">
-          <div class="slide-content">
+          <div class="slide-content" title="<?php the_content() ?>">
             <h2><?php the_title(); ?></h2>
             <?php the_content(); ?>
             <a href="<?php echo esc_url($call_to_action_url); ?>"><?php echo esc_html($call_to_action); ?></a>
