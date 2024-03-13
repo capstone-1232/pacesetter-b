@@ -20,7 +20,6 @@
 		echo the_title( $before = '', $after = ' | ' ) . get_bloginfo("name") . ' - ' . get_bloginfo("description");
 		?>
 	</title>
-	make
 	<meta name="description" content="<?php bloginfo("description"); ?>">
 	<meta name="keywords"
 		content="Ski, Snowboard, Edmonton, Sports, Store, Online, Alberta, Services, Rentals, Events, Experienced, Local, West">
