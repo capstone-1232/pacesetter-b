@@ -243,6 +243,11 @@ require get_template_directory() . '/inc/cleanup.php';
  */
 require get_template_directory() . '/inc/enqueue.php';
 
+/**
+ * Enqueue filters.
+ */
+require get_template_directory() . '/inc/filter.php';
+
 
 /**
  * Load Jetpack compatibility file.
