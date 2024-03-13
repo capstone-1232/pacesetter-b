@@ -31,12 +31,13 @@
 
 	<!-- Link for compiled css -->
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/main.css" />
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/scss/styles.css" />
 </head>
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
-		<div style="background-color: #013562;">
+		<div class="info-nav">
 			<div>
 				<p>
 					Mon-Fri: 9:30am - 5:30pm

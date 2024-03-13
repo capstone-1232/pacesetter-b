@@ -43,3 +43,11 @@
   text-decoration: none;
   cursor: pointer;
 }/*# sourceMappingURL=main.css.map */
+
+.info-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
