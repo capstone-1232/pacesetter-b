@@ -212,7 +212,9 @@ function pacesetter_search_where($where){
 									echo '</div>';
 								}
 
-
+								function remove_editor_support() {
+									remove_post_type_support('post', 'editor'); }
+									 add_action('init', 'remove_editor_support');
 /**
  * Implement the Custom Header feature.
  */
