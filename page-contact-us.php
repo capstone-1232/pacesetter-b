@@ -49,23 +49,7 @@ We’re happy to help and have our expert staff available during hours of operat
 
 <section>
     <h2>Send us an email!</h2>
-    <form action="$_POST">
-        <div>
-            <div>
-                <label for="name">name:</label>
-                <input type="text" name="name" id="name">
-            </div>
-            <div>
-                <label for="email">email:</label>
-                <input type="email" name="email" id ="email">
-            </div>
-            <div>
-                <label for="message">What you want to say:</label>
-                <textarea name="message" id="message"></textarea>
-            </div>
-            <input type="submit" value="Send">
-        </div>
-    </form>
+    
     <?php  echo do_shortcode('[forminator_form id="139"]'); ?>
 </section>
 <section>
