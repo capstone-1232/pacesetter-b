@@ -1,4 +1,4 @@
-<section class="about_section">
+<section class="about-section">
     <h2>About Pacesetter</h2>
     <p>Pacesetter Ski and Snowboard Store is your premier destination for all things winter sports. With a curated
         selection of top-quality equipment and gear, combined with expert knowledge and personalized customer service,
