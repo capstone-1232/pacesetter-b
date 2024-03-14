@@ -26,20 +26,19 @@ get_header();
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Event handlers for filter buttons
-    var filters = document.querySelectorAll('.events-filter');
-
+    
     // Array to store selected filters
     var selectedFilters = [];
-
+    
     function updateActiveFilters() {
         var xhr = new XMLHttpRequest();
         var filtersJSON = JSON.stringify(selectedFilters);
-
+        
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     document.getElementById('filters').innerHTML = xhr.responseText;
+                    console.log(xhr.responseText);
                 } else {
                     console.error('Error:', xhr.status, xhr.statusText);
                 }
@@ -50,17 +49,16 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.send('action=update_active_list_function&filters=' + encodeURIComponent(filtersJSON));
     }
     updateActiveFilters()
-    
-    // Add event handler for buttons
-    filters.forEach(function (filter) {
-        filter.addEventListener('click', function (event) {
-            event.preventDefault();
 
-            // Get data-filter value
-            var filterType = filter.dataset.filter;
+    // Event handler for filter buttons (using event delegation)
+    document.addEventListener('click', function(event) {
+        // Check if the clicked element has the class '.events-filter'
+        if (event.target && event.target.classList.contains('events-filter')) {
+            event.preventDefault(); // Prevent default link behavior
 
-            // Get data-value value
-            var filterValue = filter.dataset.value;
+            // Get data attributes
+            var filterType = event.target.dataset.filter;
+            var filterValue = event.target.dataset.value;
 
             // Check if the filter type is already present in the array
             var existingFilterIndex = selectedFilters.findIndex(function (item) {
@@ -77,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Call functions
             updateEventsList();
             updateFiltersList();
-            updateActiveFilters()
-        });
+            updateActiveFilters();
+        }
     });
     updateEventsList();
 
@@ -119,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Call functions
             updateEventsList();
             updateFiltersList();
+            updateActiveFilters();
         }
     });
 
