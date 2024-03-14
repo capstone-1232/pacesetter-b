@@ -35,7 +35,6 @@
 
 	<!-- Link for compiled css -->
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/main.css" />
-	<!-- <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/scss/styles.css" /> -->
 </head>
 
 <body <?php body_class(); ?>>
