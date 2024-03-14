@@ -22,7 +22,7 @@ if (have_posts()):
         ?>
         <!-- close php and start html-->
         <article class="flex">
-            <?php echo get_the_post_thumbnail($post->ID, 'blog', 'large'); ?>
+            <img src="<?php echo esc_html(get_field('blog_image'))?>" alt="">
             <div>
 
                 <h3>

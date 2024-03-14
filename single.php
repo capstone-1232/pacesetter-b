@@ -25,11 +25,11 @@ get_header();
              * (where ___ is the post format) and that will be used instead.
              */
             get_template_part( 'content', get_post_format() );?>
-			<div>
-				<h1><?php echo the_title(); ?></h1>
-				<?php echo get_the_post_thumbnail('large');?>
+			<article>
+				<h2><?php echo the_title(); ?></h2>
+                <img src="<?php echo esc_html(get_field('blog_image'))?>" alt="">
 				<p><?php echo get_the_author_meta('display_name');?></p>
-			</div>
+			</article>
 			<p><?php echo the_content() ?></p>
 			<?php
  
@@ -53,7 +53,7 @@ setup_postdata($post); ?>
  <ul> 
         <li>
         <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-		<?php get_the_post_thumbnail($post->ID,'blog')?>
+        <img src="<?php echo esc_html(get_field('blog_image'))?>" alt="">
             <?php the_excerpt('read more'); ?>
         </li>
     </ul>   
