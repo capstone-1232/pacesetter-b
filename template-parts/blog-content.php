@@ -1,4 +1,4 @@
-<section>
+<section class="blog-section">
     <h2>The Blog</h2>
     <img src="" alt="">
     <div>
