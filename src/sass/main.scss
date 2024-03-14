@@ -2,3 +2,14 @@
 @import 'fonts.scss';
 @import 'header.scss';
 @import 'single-events.scss';
+
+.info-nav {
+    background-color: $primary-blue;
+    color: $white;
+
+    font-family: $racing;
+
+    div:last-of-type{
+        display: flex;
+    }
+}
