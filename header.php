@@ -16,14 +16,11 @@
 
 <head>
 	<title>
-		<?php 
-		// bloginfo('name');
-		// wp_title(); 
-
+		<?php
 		echo the_title( $before = '', $after = ' | ' ) . get_bloginfo("name") . ' - ' . get_bloginfo("description");
 		?>
 	</title>
-	<meta name="description" content="<?php bloginfo('description'); ?>">
+	<meta name="description" content="<?php bloginfo("description"); ?>">
 	<meta name="keywords"
 		content="Ski, Snowboard, Edmonton, Sports, Store, Online, Alberta, Services, Rentals, Events, Experienced, Local, West">
 	<meta charset="<?php bloginfo('charset'); ?>">
@@ -38,12 +35,13 @@
 
 	<!-- Link for compiled css -->
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/main.css" />
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/scss/styles.css" />
 </head>
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
-		<div style="background-color: #013562;">
+		<div class="info-nav">
 			<div>
 				<p>
 					Mon-Fri: 9:30am - 5:30pm
@@ -51,7 +49,6 @@
 				<p>
 					(780) 483-2005
 				</p>
-
 			</div>
 			<div>
 				<?php get_search_form(); ?>
