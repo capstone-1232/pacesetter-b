@@ -17,7 +17,7 @@ get_header();
 <section>
     <h2>FAQ</h2>
 
-    
+
 </section>
 
 <?php
