@@ -41,7 +41,7 @@
             ?>
 
             <!-- Render product cards -->
-            <section class="product_card">
+            <div class="product_card">
                 <img src="<?php echo esc_url($product_image_url) ?>" alt="<?php echo $short_description ?>">
                 <h3>
                     <?php echo $product_title ?>
@@ -58,7 +58,7 @@
                     </p>
                 </div>
                 <a href="<?php echo esc_url($product_url); ?>">View Product</a>
-            </section>
+            </div>
         <?php } ?>
 
     <?php } ?>
