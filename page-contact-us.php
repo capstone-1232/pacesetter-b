@@ -56,7 +56,7 @@ We’re happy to help and have our expert staff available during hours of operat
     <h2>FAQs</h2>
     <p>Check out our FAQ page to find common questions</p>
 
-    <a href="<?echo get_template_directory_uri()?>/page-faq.php">FAQ </a>
+    <a href="<?echo home_url('/faq');?>"> FAQs</a>
 </section>
 <?php
 get_footer()
