@@ -41,7 +41,7 @@
             ?>
 
             <!-- Render product cards -->
-            <div class="product_card">
+            <div class="product-card">
                 <img src="<?php echo esc_url($product_image_url) ?>" alt="<?php echo $short_description ?>">
                 <h3>
                     <?php echo $product_title ?>
