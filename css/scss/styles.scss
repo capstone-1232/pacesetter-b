@@ -1,4 +1,9 @@
+@use 'reset';
+@use 'utilities';
 @use 'colors';
+@use 'typography';
+@use 'main';
+@use 'single-events';
 
 .info-nav {
     background-color: aquamarine;
