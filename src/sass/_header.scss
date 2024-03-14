@@ -1,1 +1,24 @@
+@import 'colors';
+@import 'fonts';
 
+.info-nav {
+    background-color: $primary-blue;
+    color: $white;
+    display: flex;
+
+    div:last-of-type{
+        display: flex;
+    }
+
+    p{
+        margin: 0;
+    }
+
+    .search-submit{
+        display: none;
+    }
+}
+
+.site-header{
+    background-color: $primary-yellow;
+}
