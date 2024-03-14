@@ -126,6 +126,6 @@ get_header();
 <section>
     <h3>Still have Questions?</h3>
     <p>Phone, email, fill out our contact form or visit us in person on 167th St.</p>
-    <a href="<?php echo get_template_directory_uri()?>/page-contact-us.php"></a>
+    <a href="<?php echo home_url('/contact-us');?>">Contact Us</a>
 </section>
 

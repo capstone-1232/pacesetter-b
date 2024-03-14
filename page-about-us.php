@@ -36,31 +36,5 @@ get_header();
             ?>
 
 </section>
-<section>
-    <h2>Our History</h2>
-    <!-- loop for the history image and text? -->
-</section>
 
 
-<section>
-    <h3>meet our staff!</h3>
-    <?php
-            $args=array(
-                'post_type' => 'employee',
-                'posts_per_page' => 8,
-                'post_status'=>'publish'
-            );
-            $loop=new WP_Query($args);
-            while ($loop->have_posts()){
-                $loop-> the_post();
-                ?>
-                <div class="col">
-                    <img src="<?php echo esc_html( get_field("employee_image") );?>"/>
-                    <h4><?php echo esc_html(get_field('title'));?></h4>
-                <p><?php echo esc_html(get_field('employee_position'));?></p>
-                </div>
-
-                <?php
-    }
-        ?>
-</section>
