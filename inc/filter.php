@@ -4,35 +4,16 @@ function event_filter_function() {
     if (isset($_POST['filters'])) {
         $filters = json_decode(stripslashes($_POST['filters']), true);
 
-        $tax_queries = array();
+        $meta_queries = array();
 
         // Build tax queries based on selected filters
         foreach ($filters as $filter) {
             if (!empty($filter['filterType'])) {
-                switch ($filter['filterType']) {
-                    case 'time_range':
-                        $tax_queries[] = array(
-                            'key'     => 'tags_time_range',
-                            'value'   => $filter['filterValue'],
-                            'compare' => '=',
-                        );
-                        break;
-                    case 'skill_level':
-                        $tax_queries[] = array(
-                            'key'     => 'tags_skill_level',
-                            'value'   => $filter['filterValue'],
-                            'compare' => '=',
-                        );
-                        break;
-                    case 'location_tag':
-                        $tax_queries[] = array(
-                            'key'     => 'tags_location_tag',
-                            'value'   => $filter['filterValue'],
-                            'compare' => '=',
-                        );
-                        break;
-                    // Add more cases for other filter types if needed
-                }
+                    $meta_queries[] = array(
+                        'key'     => 'tags_' . $filter['filterType'],
+                        'value'   => $filter['filterValue'],
+                        'compare' => 'LIKE',
+                    );
             }
         }
 
@@ -45,13 +26,14 @@ function event_filter_function() {
             'order'          => 'ASC',
         );
 
-        // Add tax_queries to $args if it's not empty
-        if (!empty($tax_queries)) {
-            $args['tax_query'] = array(
-                'relation' => 'AND', // Use 'AND' for events that must have all selected tags
-                $tax_queries, // Include the dynamically generated tax queries
+        // Add meta_queries to $args if it's not empty
+        if (!empty($meta_queries)) {
+            $args['meta_query'] = array(
+                'relation' => 'AND',
+                $meta_queries,
             );
         }
+        // print_r($args);
 
         // Query for related events
         $events_query = new WP_Query($args);
@@ -153,4 +135,81 @@ function remove_filter_list_function() {
 
 add_action('wp_ajax_remove_filter_list_function', 'remove_filter_list_function');
 add_action('wp_ajax_nopriv_remove_filter_list_function', 'remove_filter_list_function');
+
+function update_active_list_function() {
+
+    $filters = [
+        "skill_level" => [
+            "beginner" => "Beginner",
+            "intermediate" => "Intermediate",
+            "advanced" => "Advanced",
+        ],
+        "location_tag" => [
+            "edmonton" => "Edmonton",
+            "calgary" => "Calgary",
+            "banff" => "Banff",
+            "jasper" => "Jasper",
+            "waterton_national_park" => "Waterton National Park",
+            "whistler" => "Whistler"
+        ],
+        "time_range" => [
+            "all_day" => "All day",
+            "morning" => "Morning",
+            "daytime" => "Daytime",
+            "evening" => "Evening",
+            "night" => "Night",
+        ],
+    ];
+
+    // Check if the 'filters' parameter is set in the POST data
+    if (isset($_POST['filters'])) {
+        // Decode the JSON data and store it in the $active_filters array
+        $active_filters = json_decode(stripslashes($_POST['filters']), true);
+
+        print_r($active_filters);
+
+        // Generate the filter buttons
+        foreach ($filters as $filter => $options) {
+            // Replace underscores or dashes with spaces and capitalize the words for the heading
+            $heading = ucwords(str_replace(["_", "-"], " ", $filter));
+            // Add a heading before each button group
+            echo "<h4 class=\"fw-light w-100 text-sm-center text-lg-start\">" .
+                htmlspecialchars($heading) .
+                "</h4>";
+
+            echo '<div class="btn-group mb-3" role="group" aria-label="' .
+                htmlspecialchars($filter) .
+                ' Filter Group">';
+            foreach ($options as $value => $label) {
+                $is_active = in_array(
+                    $value,
+                    $active_filters[$filter] ?? []
+                );
+                $updated_filters = $active_filters;
+
+                if ($is_active) {
+                    $updated_filters[$filter] = array_diff(
+                        $updated_filters[$filter],
+                        [$value]
+                    );
+                    if (empty($updated_filters[$filter])) {
+                        unset($updated_filters[$filter]);
+                    }
+                } else {
+                    $updated_filters[$filter][] = $value;
+                }
+
+                // Output button link
+                echo '<a href="#" class="events-filter btn ' .
+                    ($is_active ? "btn-info" : "btn-outline-info") .
+                    '" data-filter="' . htmlspecialchars($filter) . '" data-value="' . htmlspecialchars($value) . '">' .
+                    htmlspecialchars($label) .
+                    "</a>";
+            }
+            echo "</div>";
+        }
+    }
+}
+add_action('wp_ajax_update_active_list_function', 'update_active_list_function');
+add_action('wp_ajax_nopriv_update_active_list_function', 'update_active_list_function');
 ?>

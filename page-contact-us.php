@@ -57,34 +57,18 @@ get_header();
         </div>
         <p>Have questions about our store, gear, prices and anything in between?</p>
 </section>
-    <section class="email-section">
-        <h2>Send us an email!</h2>
-        <form action="$_POST">
-            <div>
-                <div>
-                    <label for="name">name:</label>
-                    <input type="text" name="name" id="name">
-                </div>
-                <div>
-                    <label for="email">email:</label>
-                    <input type="email" name="email" id="email">
-                </div>
-                <div>
-                    <label for="message">What you want to say:</label>
-                    <textarea name="message" id="message"></textarea>
-                </div>
-                <input type="submit" value="Send">
-            </div>
-        </form>
-        <?php echo do_shortcode('[forminator_form id="139"]'); ?>
-    </section>
-    <section>
-        <h2>FAQs</h2>
-        <p>Check out our FAQ page to find common questions</p>
+
+<section>
+    <h2>Send us an email!</h2>
     
-    <a href="<? echo get_template_directory_uri() ?>/page-faq.php">FAQ </a>
-    </section>
-</main>
+    <?php  echo do_shortcode('[forminator_form id="139"]'); ?>
+</section>
+<section>
+    <h2>FAQs</h2>
+    <p>Check out our FAQ page to find common questions</p>
+
+    <a href="<?echo home_url('/faq');?>"> FAQs</a>
+</section>
 <?php
 get_footer()
     ?>
