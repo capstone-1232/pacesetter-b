@@ -2,7 +2,7 @@
 /** 
  * @package pacesetter
  * 
- * 
+ *
  * 
  * */ 
 get_header()
