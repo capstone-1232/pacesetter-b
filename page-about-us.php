@@ -14,59 +14,50 @@
 
 get_header();
 ?>
-<main>
-    
-    <section class="about-section">
-        <h2>About pacesetter</h2>
-        <?php
-        $args = array(
-            'post_type' => 'about_section',
-            'posts_per_page' => 8,
-            'post_status' => 'publish'
-        );
-        $loop = new WP_Query($args);
-        while ($loop->have_posts()) {
-            $loop->the_post();
-            ?>
-            <div>
-                <img src="<?php echo esc_html(get_field("section_image")); ?>" alt="An image about <?php echo the_title(); ?>"/>
-                <p>
-                    <?php echo esc_html(get_field('about_us_text')); ?>
-                </p>
-            </div>
-    
-            <?php
-        }
-        ?>
-    </section>
-    <section class="staff-section">
-        <h3>Meet our staff!</h3>
-        <?php
-        $args = array(
-            'post_type' => 'employee',
-            'posts_per_page' => 8,
-            'post_status' => 'publish'
-        );
-        $loop = new WP_Query($args);
-        while ($loop->have_posts()) {
-            $loop->the_post();
-            ?>
-            <div class="col">
-                <img src="<?php echo esc_html(get_field("employee_image"));?>" />
-                <h4>
-                    <?php echo esc_html(get_field('title')); ?>
-                </h4>
-                <p>
-                    <?php echo esc_html(get_field('employee_position')); ?>
-                </p>
-            </div>
-    
-            <?php
-        }
-        ?>
-    </section>
-</main>
-
+<h2>About pacesetter</h2>
 <?php
-    get_footer();
-?>
+$args=array(
+                'post_type' => 'about_section',
+                'posts_per_page' => 8,
+                'post_status'=>'publish'
+            );
+            $loop=new WP_Query($args);
+            while ($loop->have_posts()){
+                $loop-> the_post();
+                ?>
+                <div>
+                    <img src="<?php echo esc_html( get_field("section_image") );?>"/>
+                <p><?php echo esc_html(get_field('about_us_text'));?></p>
+                </div>
+
+                <?php
+    }
+        ?>
+</section>
+<section>
+    <h2>Our History</h2>
+    <!-- loop for the history image and text? -->
+</section>
+
+<section>
+    <h3>meet our staff!</h3>
+    <?php
+            $args=array(
+                'post_type' => 'employee',
+                'posts_per_page' => 8,
+                'post_status'=>'publish'
+            );
+            $loop=new WP_Query($args);
+            while ($loop->have_posts()){
+                $loop-> the_post();
+                ?>
+                <div class="col">
+                    <img src="<?php echo esc_html( get_field("employee_image") );?>"/>
+                    <h4><?php echo esc_html(get_field('title'));?></h4>
+                <p><?php echo esc_html(get_field('employee_position'));?></p>
+                </div>
+
+                <?php
+    }
+        ?>
+</section>
