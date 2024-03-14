@@ -14,11 +14,11 @@
 get_header();
 ?>
 
-<section>
-    <h2>FAQ</h2>
-
-
-</section>
+<main>
+    <section class="faq-section">
+        <h2>FAQ</h2>
+    </section>
+</main>
 
 <?php
 get_footer();
