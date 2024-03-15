@@ -28,7 +28,7 @@ get_header();
 			<article>
 				<h2><?php echo the_title(); ?></h2>
                 <img src="<?php echo esc_html(get_field('blog_image'));?>" alt="">
-				<p><?php echo get_the_author_meta('display_name');?></p>
+				<p><?php echo esc_html(get_field('blog_author'));?></p>
 			</article>
 			<p><?php echo esc_html(get_field('blog_entry')); ?></p>
 			<?php

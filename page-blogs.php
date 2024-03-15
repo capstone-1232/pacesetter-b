@@ -32,8 +32,9 @@ if (have_posts()):
                     <?php the_date() ?>
                 </p>
                 <p>
-                    <?php the_excerpt(); ?>
+                    <?php the_excerpt('read more'); ?>
                 </p>
+                <p><?php echo esc_html(get_field('categories')) ?></p>
             </div>
         </article>
         <?php
