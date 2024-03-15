@@ -9,7 +9,7 @@ get_header()
     ?>
 
 
-<h1> Pacesetter Blog</h1>
+<h2> Pacesetter Blog</h2>
 
 <p>Welcome to the Pacesetter Blog</p>
 
