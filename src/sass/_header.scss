@@ -1,24 +1,44 @@
-@import 'colors';
-@import 'fonts';
+@import "colors";
+@import "fonts";
 
 .info-nav {
     background-color: $primary-blue;
     color: $white;
     display: flex;
+    position: relative;
 
-    div:last-of-type{
+    div:last-of-type {
         display: flex;
-    }
-
-    p{
-        margin: 0;
-    }
-
-    .search-submit{
-        display: none;
+        margin-left: auto;
     }
 }
 
-.site-header{
+#main-search.hidden,
+.search-submit{
+    display: none;
+}
+
+.show-search {
+    background: none;
+    border: none;
+
+    svg {
+        color: white;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+#main-search {
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.site-header {
     background-color: $primary-yellow;
 }
