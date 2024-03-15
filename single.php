@@ -27,10 +27,10 @@ get_header();
             get_template_part( 'content', get_post_format() );?>
 			<article>
 				<h2><?php echo the_title(); ?></h2>
-                <img src="<?php echo esc_html(get_field('blog_image'))?>" alt="">
+                <img src="<?php echo esc_html(get_field('blog_image'));?>" alt="">
 				<p><?php echo get_the_author_meta('display_name');?></p>
 			</article>
-			<p><?php echo the_content() ?></p>
+			<p><?php echo esc_html(get_field('blog_entry')); ?></p>
 			<?php
  
             // If comments are open or we have at least one comment, load up the comment template.
