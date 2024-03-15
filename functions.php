@@ -148,7 +148,11 @@ function pacesetter_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'pacesetter_scripts' );
-
+function new_excerpt_more($more) {
+	global $post;
+ return '<a class="moretag" href="'. get_permalink($post->ID) . '"> Read More</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 function pacesetter_search_where($where){
 	global $wpdb;
 	if (is_search())
