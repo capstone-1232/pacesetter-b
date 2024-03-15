@@ -130,7 +130,7 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-        <a href="#"><< Back to Events</a>
+        <a href="<?php echo esc_url(home_url('/events'));?>"><< Back to Events</a>
             <article>
                 <!-- Heading -->
                 <div>

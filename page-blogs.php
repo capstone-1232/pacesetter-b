@@ -9,7 +9,7 @@ get_header()
     ?>
 
 
-<h1> Pacesetter Blog</h1>
+<h2> Pacesetter Blog</h2>
 
 <p>Welcome to the Pacesetter Blog</p>
 
@@ -22,7 +22,7 @@ if (have_posts()):
         ?>
         <!-- close php and start html-->
         <article class="flex">
-            <?php echo get_the_post_thumbnail($post->ID, 'blog', 'large'); ?>
+        <img src="<?php echo esc_html(get_field('blog_image'))?>" alt="">
             <div>
 
                 <h3>
@@ -32,8 +32,9 @@ if (have_posts()):
                     <?php the_date() ?>
                 </p>
                 <p>
-                    <?php the_excerpt(); ?>
+                    <?php the_excerpt('read more'); ?>
                 </p>
+                <p><?php echo esc_html(get_field('categories')) ?></p>
             </div>
         </article>
         <?php
