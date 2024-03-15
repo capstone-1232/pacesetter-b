@@ -5,50 +5,60 @@ Template Post Type: customer-reviews
 */
 ?>
 
-<div id="review-carousel" class="review_slider">
-  <div class="carousel-inner">
+<section class="review-section">
+  <div id="review-carousel" class="review_slider">
+    <div class="carousel-inner">
 
-    <?php
-    $review_query = new WP_Query(array(
-      'post_type' => 'customer-reviews',
-      'posts_per_page' => -1,
-    ));
+      <?php
+      $review_query = new WP_Query(
+        array(
+          'post_type' => 'customer-reviews',
+          'posts_per_page' => -1,
+        )
+      );
 
-    if ($review_query->have_posts()) :
-      $index = 0;
-      while ($review_query->have_posts()) : $review_query->the_post();
-        $active_class = ($index === 0) ? 'active' : '';
+      if ($review_query->have_posts()):
+        $index = 0;
+        while ($review_query->have_posts()):
+          $review_query->the_post();
+          $active_class = ($index === 0) ? 'active' : '';
 
-        // Retrieve meta values
-        $customer_name = get_post_meta(get_the_ID(), 'customer_name', true);
-        $feedback = get_post_meta(get_the_ID(), 'feedback', true);
+          // Retrieve meta values
+          $customer_name = get_post_meta(get_the_ID(), 'customer_name', true);
+          $feedback = get_post_meta(get_the_ID(), 'feedback', true);
 
-        // Output the carousel item
-        ?>
-        <div class="review_slide <?php echo $active_class; ?>">
-          <div class="review_slide-content">
-            <p><?php echo $feedback ?></p>
-            <p>-<?php echo $customer_name?></p>
+          // Output the carousel item
+          ?>
+          <div class="review_slide <?php echo $active_class; ?>">
+            <div class="review_slide-content">
+              <p>
+                <?php echo $feedback ?>
+              </p>
+              <p>-
+                <?php echo $customer_name ?>
+              </p>
+            </div>
           </div>
-        </div>
 
-        <?php
-        $index++;
-      endwhile;
+          <?php
+          $index++;
+        endwhile;
 
-      // Check the number of posts before outputting navigation buttons
-      if ($review_query->post_count > 1) :
+        // Check the number of posts before outputting navigation buttons
+        if ($review_query->post_count > 1):
+          ?>
+          <button class="review_btn review_btn-next">></button>
+          <button class="review_btn review_btn-prev">
+            << /button>
+            <?php endif;
+
+        wp_reset_postdata();
+      endif;
       ?>
-        <button class="review_btn review_btn-next">></button>
-        <button class="review_btn review_btn-prev"><</button>
-      <?php endif;
 
-      wp_reset_postdata();
-    endif;
-    ?>
-
+    </div>
   </div>
-</div>
+</section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -99,51 +109,51 @@ Template Post Type: customer-reviews
 </script>
 
 <style>
-.review_slider {
-  width: 100%;
-  height: 350px;
-  position: relative;
-  overflow: hidden;
-}
+  .review_slider {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+  }
 
-.review_slide {
-  width: 100%;
-  height: 350px;
-  position: absolute;
-  transition: all 0.5s;
-}
+  .review_slide {
+    width: 100%;
+    height: 350px;
+    position: absolute;
+    transition: all 0.5s;
+  }
 
-.review_slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .review_slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.review_btn {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  border: none;
-  border-radius: 50%;
-  z-index: 10;
-  cursor: pointer;
-  background-color: #013652;
-  color: #fff;
-  font-size: 18px;
-}
+  .review_btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    background-color: #013652;
+    color: #fff;
+    font-size: 18px;
+  }
 
-.review_btn:active {
-  transform: scale(1.1);
-}
+  .review_btn:active {
+    transform: scale(1.1);
+  }
 
-.review_btn-prev {
-  top: 45%;
-  left: 2%;
-}
+  .review_btn-prev {
+    top: 45%;
+    left: 2%;
+  }
 
-.review_btn-next {
-  top: 45%;
-  right: 2%;
-}
+  .review_btn-next {
+    top: 45%;
+    right: 2%;
+  }
 </style>

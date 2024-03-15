@@ -17,7 +17,7 @@
 <head>
 	<title>
 		<?php
-		echo the_title( $before = '', $after = ' | ' ) . get_bloginfo("name") . ' - ' . get_bloginfo("description");
+		echo the_title($before = '', $after = ' | ') . get_bloginfo("name") . ' - ' . get_bloginfo("description");
 		?>
 	</title>
 	<meta name="description" content="<?php bloginfo("description"); ?>">
@@ -35,7 +35,6 @@
 
 	<!-- Link for compiled css -->
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/main.css" />
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/scss/styles.css" />
 </head>
 
 <body <?php body_class(); ?>>
@@ -51,7 +50,6 @@
 				</p>
 			</div>
 			<div>
-				<?php get_search_form(); ?>
 				<a href="<?php echo wc_get_cart_url(); ?>">
 					<svg width="33px" height="33px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<title>This is an image of a cart</title>
@@ -64,6 +62,14 @@
 						</g>
 					</svg>
 				</a>
+				<?php get_search_form(); ?>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+					<title>Search icon for magnifying</title>
+					<path fill-rule="evenodd"
+						d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
+						clip-rule="evenodd" />
+				</svg>
+
 			</div>
 		</div>
 
