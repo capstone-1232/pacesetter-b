@@ -8,3 +8,4 @@
         <a class="white-button" href="#">Latest Events ></a>
     </div>
 </section>
+</section>

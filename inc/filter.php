@@ -33,7 +33,6 @@ function event_filter_function() {
                 $meta_queries,
             );
         }
-        // print_r($args);
 
         // Query for related events
         $events_query = new WP_Query($args);
@@ -137,7 +136,6 @@ add_action('wp_ajax_remove_filter_list_function', 'remove_filter_list_function')
 add_action('wp_ajax_nopriv_remove_filter_list_function', 'remove_filter_list_function');
 
 function update_active_list_function() {
-
     $filters = [
         "skill_level" => [
             "beginner" => "Beginner",
@@ -166,50 +164,56 @@ function update_active_list_function() {
         // Decode the JSON data and store it in the $active_filters array
         $active_filters = json_decode(stripslashes($_POST['filters']), true);
 
-        print_r($active_filters);
-
         // Generate the filter buttons
         foreach ($filters as $filter => $options) {
             // Replace underscores or dashes with spaces and capitalize the words for the heading
             $heading = ucwords(str_replace(["_", "-"], " ", $filter));
             // Add a heading before each button group
-            echo "<h4 class=\"fw-light w-100 text-sm-center text-lg-start\">" .
+            echo "<h4 class=\"\">" .
                 htmlspecialchars($heading) .
                 "</h4>";
 
-            echo '<div class="btn-group mb-3" role="group" aria-label="' .
+            echo '<div class="" role="group" aria-label="' .
                 htmlspecialchars($filter) .
                 ' Filter Group">';
             foreach ($options as $value => $label) {
-                $is_active = in_array(
-                    $value,
-                    $active_filters[$filter] ?? []
-                );
+                // Check if the value exists in the active_filters array
+                $is_active = false;
+                foreach ($active_filters as $filter_item) {
+                    if ($filter_item['filterType'] === $filter && $filter_item['filterValue'] === $value) {
+                        $is_active = true;
+                        break;
+                    }
+                }
                 $updated_filters = $active_filters;
 
                 if ($is_active) {
-                    $updated_filters[$filter] = array_diff(
-                        $updated_filters[$filter],
-                        [$value]
-                    );
-                    if (empty($updated_filters[$filter])) {
-                        unset($updated_filters[$filter]);
-                    }
+                    $updated_filters = array_filter($updated_filters, function($item) use ($filter, $value) {
+                        return !($item['filterType'] === $filter && $item['filterValue'] === $value);
+                    });
                 } else {
-                    $updated_filters[$filter][] = $value;
+                    $updated_filters[] = ['filterType' => $filter, 'filterValue' => $value];
                 }
 
                 // Output button link
-                echo '<a href="#" class="events-filter btn ' .
-                    ($is_active ? "btn-info" : "btn-outline-info") .
+                echo '<a href="#" class="events-filter ' .
+                    ($is_active ? "filter-active" : "") .
                     '" data-filter="' . htmlspecialchars($filter) . '" data-value="' . htmlspecialchars($value) . '">' .
                     htmlspecialchars($label) .
                     "</a>";
             }
             echo "</div>";
         }
+        exit;
+    } else {
+        // Handle other cases or provide a default response
+        echo json_encode(['error' => 'Invalid request']);
+        exit;
     }
 }
+
 add_action('wp_ajax_update_active_list_function', 'update_active_list_function');
 add_action('wp_ajax_nopriv_update_active_list_function', 'update_active_list_function');
+
+
 ?>
