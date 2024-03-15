@@ -14,7 +14,9 @@
 get_header();
 ?>
 <section>
-    <h2>Frequently Asked Questions</h2>
+    <main>
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
     <p>Our FAQ page provides answers to common inquiries regarding ski equipment, maintenance, events, and more, ensuring you have a smooth and enjoyable skiing and snowboarding experience.</p>
 </section>
 <section>
@@ -129,3 +131,9 @@ get_header();
     <a href="<?php echo home_url('/contact-us');?>">Contact Us</a>
 </section>
 
+    </section>
+</main>
+
+<?php
+get_footer();
+?>
