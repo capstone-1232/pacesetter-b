@@ -46,6 +46,22 @@
   src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
   font-style: normal;
 }
+.hidden {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 body {
   font-size: 100%;
   line-height: 1.5;
@@ -129,15 +145,36 @@ h3 {
   background-color: #013562;
   color: #FFFFFF;
   display: flex;
+  position: relative;
 }
 .info-nav div:last-of-type {
   display: flex;
+  margin-left: auto;
 }
-.info-nav p {
-  margin: 0;
-}
-.info-nav .search-submit {
+
+#main-search.hidden,
+.search-submit {
   display: none;
+}
+
+.show-search {
+  background: none;
+  border: none;
+}
+.show-search svg {
+  color: white;
+  width: 30px;
+  height: 30px;
+}
+
+#main-search {
+  position: absolute;
+  z-index: 9999;
+  left: 0;
+}
+
+p {
+  margin: 0;
 }
 
 .site-header {
