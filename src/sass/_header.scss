@@ -76,8 +76,14 @@ p {
     background-color: $primary-yellow;
 }
 
-// Main Nav Styling
 
-#site-navigation {
+// Main Nav Styling
+.main-nav {
     display: flex;
+
+    .site-title>a {
+        font-size: 20px;
+    }
 }
+
+

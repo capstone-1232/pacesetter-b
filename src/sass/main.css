@@ -218,8 +218,11 @@ p {
   background-color: #F9D70F;
 }
 
-#site-navigation {
+.main-nav {
   display: flex;
+}
+.main-nav .site-title > a {
+  font-size: 20px;
 }
 
 #eventModal {

@@ -85,27 +85,25 @@
 			<a class="skip-link screen-reader-text" href="#primary">
 				<?php esc_html_e('Skip to content', 'pacesetter'); ?>
 			</a>
-
-			<div class="site-branding">
-				<?php
-				the_custom_logo();
-				if (is_front_page() && is_home()):
-					?>
-					<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-							<?php bloginfo('name'); ?>
-						</a></h1>
+			<div class="main-nav">
+				<div class="site-branding">
 					<?php
-				else:
+					the_custom_logo();
+					if (is_front_page() && is_home()):
+						?>
+						<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+								<?php bloginfo('name'); ?>
+							</a></h1>
+						<?php
+					else:
+						?>
+						<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+								<?php bloginfo('name'); ?>
+							</a></p>
+						<?php
+					endif;
 					?>
-					<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-							<?php bloginfo('name'); ?>
-						</a></p>
-					<?php
-				endif;
-				?>
-			</div><!-- .site-branding -->
-
-			<div>
+				</div><!-- .site-branding -->
 				<nav id="site-navigation" class="main-navigation">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"
 						aria-label="Main Menu toggle">
