@@ -36,7 +36,7 @@ if ($page) {
 
 <footer id="colophon" class="site-footer">
 	<div class="store-info">
-		<div>
+		<div class="footer-flex">
 			<div>
 				<div>
 					<h3>Hours</h3>

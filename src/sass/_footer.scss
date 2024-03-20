@@ -1,7 +1,13 @@
 @import "colors";
 @import "fonts";
 
-footer {
+.site-footer {
     background-color: $primary-blue;
     color: $white;
+    padding: 1rem
+
+}
+.footer-flex {
+    display: flex;
+    flex-wrap: wrap;
 }
