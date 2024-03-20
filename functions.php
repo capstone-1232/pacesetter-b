@@ -185,36 +185,10 @@ function pacesetter_search_where($where){
 								add_filter('posts_join', 'pacesetter_search_join');
 								add_filter('posts_groupby', 'pacesetter_search_groupby');
 
-								function custom_breadcrumbs() {
-									global $post;
-								
-									// Don't display breadcrumbs on the homepage
-									if (is_home()) {
-										return;
-									}
-								
-									echo '<div class="breadcrumbs">';
-									echo '<a href="' . home_url() . '">Home</a>';
-								
-									if (is_category() || is_single()) {
-										echo ' / ';
-										the_category(', ');
-									} elseif (is_page()) {
-										$ancestors = get_post_ancestors($post);
-								
-										foreach ($ancestors as $ancestor) {
-											echo ' / <a href="' . get_permalink($ancestor) . '">' . get_the_title($ancestor) . '</a>';
-										}
-									} elseif (is_search()) {
-										echo ' / Search results for "' . get_search_query() . '"';
-									} elseif (is_404()) {
-										echo ' / 404 Not Found';
-									}
-								
-									echo ' / ';
-									echo get_the_title();
-									echo '</div>';
+								function pacesetter_add_woocommerce_support() {
+									add_theme_support( 'woocommerce' );
 								}
+								add_action( 'after_setup_theme', 'pacesetter_add_woocommerce_support' );
 
 								function remove_editor_support() {
 									remove_post_type_support('post', 'editor'); }
@@ -253,6 +227,11 @@ require get_template_directory() . '/inc/enqueue.php';
  * Enqueue filters.
  */
 require get_template_directory() . '/inc/filter.php';
+
+/**
+ * Enqueue breadcrumbs.
+ */
+require get_template_directory() . '/inc/breadcrumbs.php';
 
 
 /**
