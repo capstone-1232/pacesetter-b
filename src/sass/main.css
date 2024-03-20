@@ -232,12 +232,42 @@ p {
 .site-footer {
   background-color: #013562;
   color: #FFFFFF;
-  padding: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
 }
-
-.footer-flex {
+.site-footer .footer-flex {
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+}
+.site-footer .footer-flex div:first-of-type {
+  margin-right: 1rem;
+}
+.site-footer .footer-flex div div {
+  margin-bottom: 23px;
+}
+.site-footer .footer-flex h3 {
+  margin: 0;
+}
+.site-footer .footer-flex a svg {
+  fill: #FFFFFF;
+}
+.site-footer .footer-flex .site-navigation .menu-main-menu-container #primary-menu {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.site-footer .footer-flex .site-navigation .menu-main-menu-container #primary-menu .menu-item a {
+  text-decoration: none;
+  color: #FFFFFF !important;
+}
+.site-footer .footer-flex .site-navigation .menu-main-menu-container #primary-menu li a:visited {
+  color: #0C67C0;
+}
+@media screen and (min-width: 545px) {
+  .site-footer .flex-secondary {
+    display: flex;
+    flex: auto;
+  }
 }
 
 #eventModal {

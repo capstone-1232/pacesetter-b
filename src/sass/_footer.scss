@@ -4,10 +4,46 @@
 .site-footer {
     background-color: $primary-blue;
     color: $white;
-    padding: 1rem
+    padding: 1rem 1rem 2rem 1rem;
 
+    .footer-flex {
+        display: flex;
+        flex: auto;
+        flex-wrap: wrap;
+        div:first-of-type {
+            margin-right: 1rem
+        }
+        div div {
+            margin-bottom: 23px;
+        }
+
+        h3 {
+            margin: 0;
+        }
+        a svg {
+            fill: $white;
+        }
+
+        .site-navigation .menu-main-menu-container #primary-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            
+            .menu-item a {
+                text-decoration: none;
+                color: $white !important;
+            }
+            li a:visited {
+                color: $lightblue;
+            }
+        }
+    }
+
+    .flex-secondary {
+        @media screen and (min-width: 545px){
+            display: flex;
+            flex: auto;
+        }
+    }
 }
-.footer-flex {
-    display: flex;
-    flex-wrap: wrap;
-}
+

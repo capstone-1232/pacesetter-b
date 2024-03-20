@@ -61,7 +61,7 @@ if ($page) {
 				</div>
 			</div>
 			<div>
-				<div>
+				<div class="flex-secondary">
 					<div>
 						<h3>Phone</h3>
 						<p>
@@ -117,19 +117,21 @@ if ($page) {
 							</svg></a>
 					</div>
 				</div>
-				<nav id="site-navigation" class="main-navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-						<?php esc_html_e('Primary Menu', 'pacesetter'); ?>
-					</button>
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-							'menu_id' => 'primary-menu',
-						)
-					);
-					?>
-				</nav><!-- #site-navigation -->
+				<div>
+					<nav id="site-navigation" class="main-navigation">
+						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+							<?php esc_html_e('Primary Menu', 'pacesetter'); ?>
+						</button>
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-1',
+								'menu_id' => 'primary-menu',
+							)
+						);
+						?>
+					</nav><!-- #site-navigation -->
+				</div>
 			</div>
 		</div>
 	</div>
