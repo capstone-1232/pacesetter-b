@@ -238,6 +238,11 @@ require get_template_directory() . '/inc/breadcrumbs.php';
  */
 require get_template_directory() . '/inc/rating.php';
 
+/**
+ * Enqueue review.
+ */
+require get_template_directory() . '/inc/review.php';
+
 
 /**
  * Load Jetpack compatibility file.

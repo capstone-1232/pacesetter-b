@@ -21,7 +21,7 @@ function render_product_rating_stars($product_id) {
         }
         $output .= '</span>';
     }
-    $output .= "<a href=\"#\">($total_ratings_count)</a>";
+    $output .= "<a href=\"#reviews\">($total_ratings_count)</a>";
     $output .= '</div>';
     
     echo $output;
