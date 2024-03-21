@@ -233,6 +233,16 @@ require get_template_directory() . '/inc/filter.php';
  */
 require get_template_directory() . '/inc/breadcrumbs.php';
 
+/**
+ * Enqueue ratings.
+ */
+require get_template_directory() . '/inc/rating.php';
+
+/**
+ * Enqueue review.
+ */
+require get_template_directory() . '/inc/review.php';
+
 
 /**
  * Load Jetpack compatibility file.
