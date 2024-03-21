@@ -14,10 +14,18 @@
     border-width: 0;
 }
 
-.relative-container {
+.relative {
     position: relative;
 }
 
-.absolute-element {
+.absolute {
     position: absolute;
+}
+
+.sticky{
+    position: sticky;
+}
+
+.overflow-hidden{
+    overflow: hidden;
 }

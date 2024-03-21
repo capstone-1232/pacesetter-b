@@ -62,12 +62,20 @@
   border-width: 0;
 }
 
-.relative-container {
+.relative {
   position: relative;
 }
 
-.absolute-element {
+.absolute {
   position: absolute;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 body {
@@ -164,7 +172,7 @@ h3 {
 }
 
 .operation-hours {
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .site-search {
@@ -220,9 +228,44 @@ p {
 
 .main-nav {
   display: flex;
+  position: relative;
+  align-items: center;
 }
-.main-nav .site-title > a {
-  font-size: 20px;
+.main-nav .site-title a {
+  font-size: 24px;
+  font-family: "racing_sans_oneregular", sans-serif;
+  text-decoration: none;
+  color: #000000;
+  padding-left: 10px;
+}
+
+.toggle-nav {
+  margin-left: auto;
+}
+.toggle-nav button {
+  background: none;
+  border: none;
+}
+.toggle-nav svg {
+  width: 35px;
+  height: 35px;
+}
+
+.toggle-menu {
+  height: 100vh;
+  width: 100vw;
+  background-color: #FFFFFF;
+  position: absolute;
+  left: 0;
+  z-index: 999;
+}
+.toggle-menu h2 {
+  text-align: center;
+}
+.toggle-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 #eventModal {
