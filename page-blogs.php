@@ -32,12 +32,15 @@ if (have_posts()):
                     <?php the_date() ?>
                 </p>
                 <p>
-                    <?php the_excerpt('read more'); ?>
+                    <?php echo esc_html(get_field('excerpt')); ?>
                 </p>
                 <p><?php echo esc_html(get_field('categories')) ?></p>
             </div>
         </article>
         <?php
     endwhile;
-endif;
+else:
+echo"<p>Sorry, no Blogs available!</p>";?>
+
+<?php endif;
 ?>
