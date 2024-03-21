@@ -1,26 +1,38 @@
 console.log("js connected"); // sanity check, remove in final
 
+var $j = jQuery.noConflict();
+
+$j(document).ready(function(){
+    console.log("JQUERY connected")
+
+    $j("#show-search").click(function(){
+        $j("#main-search").toggle({
+            done: function() {
+                $j(".search-submit").hide();
+                $j(".cart-link").toggle();
+                $j(".operation-hours").toggle();
+                $j(".nav-utils").toggleClass("full-width");
+            },
+        });
+    });
+
+    // Toggle mobile dropdown menu
+    $j(".main-nav-toggle").click(function(){
+        $j(".toggle-menu").toggle("fold");
+        $j(".main-nav-toggle .open").toggleClass("hidden");
+        $j(".main-nav-toggle .close").toggleClass("hidden");
+
+        // Makes document unscrollable if menu dropdown visible.
+        $j("html").toggleClass("overflow-hidden");
+    });
+
+});
+
 let searchBtn = document.getElementById("show-search");
 let searchField = document.getElementById("main-search");
 let submitBtn = document.querySelector(".search-submit");
 let searchForm = document.querySelector(".search-form");
 let mainNavToggle = document.querySelector(".main-nav-toggle");
-
-// Search Field toggle for mobile
-searchBtn.addEventListener("click", () => {
-    if (searchField.classList.contains("hidden")) {
-        document.querySelector("#main-search .search-field").placeholder = "Search Pacesetter..."
-        searchField.classList.toggle("hidden");
-
-        document.querySelector(".search-submit").classList.add("hidden");
-        document.querySelector(".search-section").classList.toggle("absolute");
-
-        document.querySelector(".cart-link").classList.toggle("hidden");
-    } else {
-        console.log("Search searched");
-
-    }
-});
 
 // toggles search bar closed if user clicks outsidse of it
 document.addEventListener('click', (evt) => {
@@ -35,13 +47,4 @@ document.addEventListener('click', (evt) => {
     }
 });
 
-// toggles mega dropdown for mobile
-mainNavToggle.addEventListener('click', (evt) => {
-    console.log("Main Nav Toggle Clicked");
-    document.querySelector(".toggle-menu").classList.toggle("hidden");
 
-    document.querySelector(".main-nav-toggle .open").classList.toggle("hidden");
-    document.querySelector(".main-nav-toggle .close").classList.toggle("hidden");
-
-    document.querySelector("html").classList.toggle("overflow-hidden");
-});
