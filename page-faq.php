@@ -31,8 +31,8 @@ get_header();
                 ?>
                 <div>
                     <h4><?php echo esc_html(get_field('title'));?></h4>
-                    <p><?php esc_html(get_field('common_answer'));?></p>
-                    <a href="<?php esc_html(get_field('question_guide'));?>"></a>
+                    <p><?php esc_html(get_field('question_answer'));?></p>
+                    <a href="<?php esc_html(get_field('question_guide'));?>">Read more</a>
                 </div>
 
 
