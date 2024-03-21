@@ -30,8 +30,10 @@ get_header();
                 $loop-> the_post();
                 ?>
                 <div>
+                <div>
                     <h4><?php echo esc_html(get_field('title'));?></h4>
-                    <p><?php esc_html(get_field('question_answer'));?></p>
+                    <p><?php echo esc_html(get_field('common_answer'));?></p>
+                </div>
                     <a href="<?php esc_html(get_field('question_guide'));?>">Read more</a>
                 </div>
 
