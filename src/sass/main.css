@@ -78,6 +78,10 @@
   overflow: hidden;
 }
 
+.full-width {
+  width: 100%;
+}
+
 body {
   font-size: 100%;
   line-height: 1.5;
@@ -162,12 +166,12 @@ h3 {
   color: #FFFFFF;
   display: flex;
   position: relative;
+  justify-content: space-between;
   height: 53px;
   align-items: center;
 }
 .info-nav div:last-of-type {
   display: flex;
-  margin-left: auto;
   align-items: center;
 }
 
