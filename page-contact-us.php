@@ -67,7 +67,7 @@ get_header();
     <h2>FAQs</h2>
     <p>Check out our FAQ page to find common questions</p>
 
-    <a href="<?echo home_url('/faq');?>"> FAQs</a>
+    <a href="<?php echo home_url('/faq');?>"> FAQs</a>
 </section>
 <?php
 get_footer()
