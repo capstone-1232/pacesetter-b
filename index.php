@@ -14,6 +14,7 @@
 
 get_header();
 ?>
+<h1>NICK THIS IS THE PAGE DISPLAYING</h1>
 
 	<main id="primary" class="site-main">
 

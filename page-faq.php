@@ -11,13 +11,37 @@
  *
  * @package pacesetter
  */
+$pdf_file= get_field('question_guide');
 get_header();
+
 ?>
 <section>
     <main>
     <section class="faq-section">
         <h2>Frequently Asked Questions</h2>
     <p>Our FAQ page provides answers to common inquiries regarding ski equipment, maintenance, events, and more, ensuring you have a smooth and enjoyable skiing and snowboarding experience.</p>
+</section>
+<section>
+    <h3>Commonly Asked Questions</h3>
+    <?php $args=array(
+                'post_type' => 'common_questions',
+                'post_status'=>'publish'
+            );
+            $loop=new WP_Query($args);
+            while ($loop->have_posts()){
+                $loop-> the_post();
+                ?>
+                <div>
+                <div>
+                    <h4><?php echo the_title();?></h4>
+                    <p><?php echo esc_html(get_field('common_answer'));?></p>
+            
+                    <a href="<?php echo esc_url($pdf_file['url']); ?>" target="_blank" >Read more</a>
+                </div>
+
+
+
+<?php }?>
 </section>
 <section>
     <h3>Skis and Poles</h3>
@@ -31,7 +55,7 @@ get_header();
                 ?>
                 <div>
                     <h4><?php echo esc_html(get_field('title'));?></h4>
-                    <p><?php esc_html(get_field('faq_answer'));?></p>
+                    <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
 
@@ -50,7 +74,7 @@ get_header();
                 ?>
                 <div>
                     <h4><?php echo esc_html(get_field('title'));?></h4>
-                    <p><?php esc_html(get_field('faq_answer'));?></p>
+                    <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
 <?php }?>
@@ -68,7 +92,7 @@ get_header();
                 ?>
                 <div>
                     <h4><?php echo esc_html(get_field('title'));?></h4>
-                    <p><?php esc_html(get_field('faq_answer'));?></p>
+                    <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
 <?php }?>
@@ -85,7 +109,7 @@ get_header();
                 ?>
                 <div>
                     <h4><?php echo esc_html(get_field('title'));?></h4>
-                    <p><?php esc_html(get_field('faq_answer'));?></p>
+                    <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
 <?php }?>
@@ -102,7 +126,7 @@ get_header();
                 ?>
                 <div>
                     <h4><?php echo esc_html(get_field('title'));?></h4>
-                    <p><?php esc_html(get_field('faq_answer'));?></p>
+                    <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
 <?php }?>
@@ -119,7 +143,7 @@ get_header();
                 ?>
                 <div>
                     <h4><?php echo esc_html(get_field('title'));?></h4>
-                    <p><?php esc_html(get_field('faq_answer'));?></p>
+                    <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
 <?php }?>
