@@ -33,7 +33,7 @@ if (have_posts()):
                 </p>
                 <div>
                 <p>
-                    <?php echo esc_html(get_field('excerpt')); ?>
+                    <?php the_excerpt(); ?>
                 </p>
 
                     <p><?php echo esc_html(get_field('categories')) ?></p>
