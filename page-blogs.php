@@ -31,16 +31,36 @@ if (have_posts()):
                 <p>
                     <?php the_date() ?>
                 </p>
+                <div>
                 <p>
                     <?php echo esc_html(get_field('excerpt')); ?>
                 </p>
-                <p><?php echo esc_html(get_field('categories')) ?></p>
+
+                    <p><?php echo esc_html(get_field('categories')) ?></p>
+                </div>
             </div>
         </article>
         <?php
     endwhile;
-else:
-echo"<p>Sorry, no Blogs available!</p>";?>
+endif;?>
 
-<?php endif;
-?>
+<?php $args=array(
+                'post_type' => 'posts',
+                'post_status'=>'publish'
+            );
+            $loop=new WP_Query($args);
+            while ($loop->have_posts()){
+                $loop-> the_post();
+                ?>
+                <div>
+                <div>
+                    <h3><?php echo the_title();?></h3>
+                    <p><?php echo the_date();?></p>
+                    <p><?php the_excerpt();?></p>
+                    <p><?php echo esc_html(get_field('categories'))?></p>
+            
+                </div>
+
+
+
+<?php }?>

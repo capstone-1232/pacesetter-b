@@ -11,7 +11,9 @@
  *
  * @package pacesetter
  */
+$pdf_file= get_field('question_guide');
 get_header();
+
 ?>
 <section>
     <main>
@@ -30,9 +32,11 @@ get_header();
                 $loop-> the_post();
                 ?>
                 <div>
-                    <h4><?php echo esc_html(get_field('title'));?></h4>
-                    <p><?php esc_html(get_field('common_answer'));?></p>
-                    <a href="<?php esc_html(get_field('question_guide'));?>"></a>
+                <div>
+                    <h4><?php echo the_title();?></h4>
+                    <p><?php echo esc_html(get_field('common_answer'));?></p>
+            
+                    <a href="<?php echo esc_url($pdf_file['url']); ?>" target="_blank" >Read more</a>
                 </div>
 
 
