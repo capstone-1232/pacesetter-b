@@ -32,11 +32,50 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
         'rating' => $rating,
     );
 
-    // Create the review
-    $review_id = wc_create_review($product_id, $review_data);
+    // Insert the review as a comment
+    $commentdata = array(
+        'comment_post_ID'      => $product_id,
+        'comment_author'       => $name,
+        'comment_content'      => $comment,
+        'user_id'              => 0,
+        'comment_approved'     => 1, // Auto-approve the comment
+        'comment_author_IP'    => $_SERVER['REMOTE_ADDR'],
+        'comment_agent'        => $_SERVER['HTTP_USER_AGENT'],
+        'comment_date'         => current_time('mysql'),
+        'comment_date_gmt'     => current_time('mysql', 1),
+        'rating'               => $rating // Add the rating to comment meta
+    );
 
-    // Check if the review was successfully submitted
-    if ($review_id) {
+    // Insert the comment into the database
+    $comment_id = wp_insert_comment($commentdata);
+
+    if ($comment_id) {
+        // Add the rating to the comment meta
+        add_comment_meta($comment_id, 'rating', $rating);
+    
+        // Increment the review count for the corresponding rating
+        $ratings_count = get_post_meta($product_id, '_wc_rating_count', true);
+        if (isset($ratings_count[$rating])) {
+            $ratings_count[$rating]++;
+        } else {
+            // If the rating is not found, initialize it with count 1
+            $ratings_count[$rating] = 1;
+        }
+    
+        // Update the '_wc_rating_count' meta with the modified ratings count array
+        update_post_meta($product_id, '_wc_rating_count', $ratings_count);
+    
+        // Calculate the new average rating
+        $total_ratings_count = array_sum($ratings_count);
+        $total_score = 0;
+        foreach ($ratings_count as $rating_value => $count) {
+            $total_score += $rating_value * $count;
+        }
+        $new_average_rating = $total_score / $total_ratings_count;
+    
+        // Update the '_wc_average_rating' meta with the new average rating
+        update_post_meta($product_id, '_wc_average_rating', $new_average_rating);
+    
         // Redirect back to the product page after submission
         wp_redirect(get_the_permalink($product_id) . '#reviews');
         exit;
@@ -144,52 +183,10 @@ custom_product_breadcrumbs();
         </div>
     </section>
     <section id="reviews">
-        <div>
-        <h3>Customer Reviews</h3>
-        <?php
-        // Get review query
-        $args = array(
-            'post_type'      => 'product',
-            'post_status'    => 'publish',
-            'posts_per_page' => 2,
-            'orderby'        => 'date',
-            'order'          => 'DESC',
-            'meta_query'     => array(
-                array(
-                    'key'     => 'rating',
-                    'value'   => 0,
-                    'compare' => '>',
-                ),
-            ),
-        );
-        $reviews = get_comments($args);
-        // render reviews
-        if ($reviews) {
-            foreach ($reviews as $review) {
-                $rating   = intval(get_comment_meta($review->comment_ID, 'rating', true));
-                $title    = get_comment_meta($review->comment_ID, 'title', true);
-                $comment  = $review->comment_content;
-                $author   = $review->comment_author;
-                $datetime = strtotime($review->comment_date);
-                $date     = date('F j, Y', $datetime);
-                ?>
-                
-                <div>
-                    <?php render_review_rating_stars($rating)?>
-                    <h5><?php echo $title?></h5>
-                    <div>
-                        <p><?php echo $author?></p>
-                        <p><?php echo $date?></p>
-                    </div>
-                    <p><?php echo $comment?></p>
-                </div>
-
-                <?php
-            }
-        } else {
-            echo '<p>No reviews found for this product.</p>';
-        }
-        ?>
+        <div id="CustomerReviews">
+            <h3>Customer Reviews</h3>
+            <div id="reviewsContainer">
+            </div>
         </div>
         <div>
             <p>Average Customer Review</p>
@@ -235,34 +232,70 @@ custom_product_breadcrumbs();
     </section>
 </main>
 <script>
-    // // Get the modal element
-    // var modal = document.getElementById('reviewModal');
+    document.addEventListener('DOMContentLoaded', function () {
+        var offset = 2;
+        const productID = <?php echo $product_id?>;
 
-    // // Get the button that opens the modal
-    // var btn = document.getElementById("openReviewModal");
+        function updateReviews() {
+        var xhr = new XMLHttpRequest();
+        
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    document.getElementById('reviewsContainer').innerHTML = xhr.responseText;
+                } else {
+                    console.error('Error:', xhr.status, xhr.statusText);
+                }
+            }
+        };
+        xhr.open('POST', ajax_object.ajax_url, true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.send('action=fetch_reviews&offset=' + offset + '&product_id=' + productID);
+    }
+    updateReviews();
 
-    // // Get the <span> element that closes the modal
-    // var span = document.getElementsByClassName("close")[0];
+    // Event handler for filter buttons (using event delegation)
+    document.addEventListener('click', function(event) {
+        // Check if the clicked element has the class '.events-filter'
+        if (event.target && event.target.classList.contains('view-more-btn')) {
+            event.preventDefault();
 
-    // // When the user clicks the button, open the modal
-    // btn.onclick = function() {
-    //     modal.style.display = "block";
-    // }
+            // Increment offset
+            offset = offset + 2;
 
-    // // When the user clicks on <span> (x), close the modal
-    // span.onclick = function() {
-    //     modal.style.display = "none";
-    // }
+            // Call functions
+            updateReviews()
 
-    // // When the user clicks anywhere outside of the modal, close it
-    // window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // }
-    //     document.getElementById('rating').addEventListener('click', function(event) {
-    //     event.preventDefault();
-    // });
+        }
+    });
+    updateEventsList();
+    });
+
+    // Get the modal element
+    var modal = document.getElementById('reviewModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("openReviewModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
 </script>
 <?php

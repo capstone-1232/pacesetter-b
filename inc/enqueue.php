@@ -18,7 +18,8 @@ function enqueue_custom_scripts() {
   // Enqueue your custom script with jQuery as a dependency
   wp_enqueue_script('events-form-submission-script', get_template_directory_uri() . '/js/events-modal.js', array('jquery'), null, true);
 
-  // Enqueue scripts for page styling
+  // Enqueue your custom script with jQuery as a dependency
+  wp_enqueue_script('back-to-top-script', get_template_directory_uri() . '/js/back-to-top.js', array('jquery'), null, true);
 
   // Pass data to the script
   wp_localize_script('events-form-submission-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
