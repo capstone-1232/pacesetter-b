@@ -23,7 +23,7 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 function enqueue_styles_scripts() {
   wp_enqueue_script('jquery');
 
-  // Enqueue Javascript for styling
+  // Enqueue Javascript for styling,with jQuery
   wp_enqueue_script('styles-scripts', get_template_directory_uri() . '/js/styles-utils.js', array('jquery'), '1.0.0', true, true);
 }
 
