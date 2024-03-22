@@ -3,7 +3,7 @@ function render_product_rating_stars($product_id) {
     // Get the product rating data
     $product_rating = get_post_meta($product_id, '_wc_average_rating', true);
     $ratings_count = get_post_meta($product_id, '_wc_rating_count', true);
-    $total_ratings_count = array_sum($ratings_count);
+    $total_ratings_count = $ratings_count ? array_sum($ratings_count) : 0;
     
     // Convert the rating to a number between 0 and 5
     $rating = round(floatval($product_rating), 0, PHP_ROUND_HALF_UP);

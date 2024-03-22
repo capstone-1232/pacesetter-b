@@ -23,6 +23,7 @@
         <div class="category-links">
             <?php
             $exclude_category = get_term_by('name', 'basics', 'product_cat');
+            // $exclude_category = get_term_by('name', 'uncategorized', 'product_cat');
 
             $args = array(
                 'taxonomy'   => 'product_cat',

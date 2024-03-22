@@ -239,12 +239,12 @@ require get_template_directory() . '/inc/breadcrumbs.php';
 require get_template_directory() . '/inc/rating.php';
 
 /**
- * Enqueue ratings.
+ * Enqueue reviews.
  */
 require get_template_directory() . '/inc/more-review.php';
 
 /**
- * Enqueue ratings.
+ * Enqueue products.
  */
 require get_template_directory() . '/inc/products.php';
 

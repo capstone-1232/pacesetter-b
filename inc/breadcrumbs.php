@@ -15,7 +15,7 @@ function custom_breadcrumbs() {
         the_category(', ');
     } elseif (is_page()) {
         $ancestors = get_post_ancestors($post);
-        $ancestors = array_reverse($ancestors); // Reverse the array
+        $ancestors = array_reverse($ancestors);
 
         foreach ($ancestors as $ancestor) {
             echo ' / <a href="' . get_permalink($ancestor) . '">' . get_the_title($ancestor) . '</a>';
