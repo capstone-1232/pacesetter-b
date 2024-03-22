@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     document.getElementById('filters').innerHTML = xhr.responseText;
-                    console.log(xhr.responseText);
                 } else {
                     console.error('Error:', xhr.status, xhr.statusText);
                 }

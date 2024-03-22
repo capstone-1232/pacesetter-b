@@ -33,7 +33,7 @@ if ($page) {
 	$hours_sun = get_post_meta($post_id, 'hours_sun', true);
 }
 ?>
-
+<button id="backToTopBtn">Back to Top</button>
 <footer id="colophon" class="site-footer">
 	<div class="store-info">
 		<div class="footer-flex">
