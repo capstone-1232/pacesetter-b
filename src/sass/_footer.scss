@@ -1,0 +1,79 @@
+@import "colors";
+@import "fonts";
+
+.site-footer {
+    background-color: $primary-blue;
+    color: $white;
+    padding: 1rem 2rem 2rem 2rem;
+
+    .footer-flex {
+        display: flex;
+        flex-wrap: wrap;
+
+        div:first-of-type div {
+            margin: 1rem 2rem 2rem 0;
+        }
+
+        .flex-secondary div:first-of-type{
+            padding-bottom: 2rem;
+        }
+
+        h3 {
+            margin: 0;
+        }
+        a svg {
+            fill: $white;
+        }
+
+        .footer-nav {
+            width: 100%;
+            margin-top: 1rem;
+
+            .site-navigation .menu-main-menu-container #primary-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                
+                .menu-item a {
+                    text-decoration: none;
+                    color: $white !important;
+                }
+                li a:visited {
+                    color: $lightblue;
+                }
+            }
+
+        }
+    }
+
+    @media screen and (min-width: 367px) {
+        .flex-secondary div:first-of-type{
+            margin-top: 1rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    @media screen and (min-width: 700px){
+        .footer-flex {
+            justify-content: space-around;
+            gap: 3rem;
+
+            .flex-secondary {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+    
+                > div {
+                    width: auto;
+                }
+            }
+
+        }
+        .footer-nav {
+            width: 40%;
+            margin-top: 0;
+            margin-left: auto;
+        }
+    }
+}
+
