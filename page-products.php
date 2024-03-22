@@ -30,7 +30,7 @@
                 'order'      => 'ASC',
                 'hide_empty' => false,
                 'exclude'    => array($exclude_category->term_id),
-                'parent'     => 0, // Set to 0 to retrieve only top-level categories
+                'parent'     => 0,
             );
 
             $categories = get_terms($args);

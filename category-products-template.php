@@ -37,18 +37,18 @@ Template Name: Products Category Page Template
         </div>
         <img src="<?php echo esc_url($banner_image);?>" alt="">
         </div>
+        <?php get_template_part('template-parts/breadcrumbs'); ?>
         <div class="filters"></div>
         <div id="removeFilterList"></div>
         <div id="products">
         <?php
-        get_template_part('template-parts/breadcrumbs');
         $args = array(
             'post_type' => 'product',
             'tax_query' => array(
                 array(
                     'taxonomy' => 'product_cat',
                     'field' => 'slug',
-                    'terms' => 'mens-snowboards', // Slug of the category
+                    'terms' => $current_slug,
                 ),
             ),
         );
@@ -79,7 +79,7 @@ Template Name: Products Category Page Template
             wp_reset_postdata();
         } else {
             // No products found
-            echo 'No products found in the "mens-snowboards" category.';
+            echo 'No products found in the "' . $category_title . '" category.';
         }
         ?>
         </div>
@@ -87,11 +87,3 @@ Template Name: Products Category Page Template
 </div>
 
 <?php get_footer(); ?>
-
-<?php
-// Helper function to get category image URL
-function get_category_image_url($category_id) {
-    $category_image_id = get_term_meta($category_id, 'thumbnail_id', true);
-    return $category_image_id ? wp_get_attachment_url($category_image_id) : '';
-}
-?>
