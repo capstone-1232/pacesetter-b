@@ -26,25 +26,19 @@ $j(document).ready(function(){
         $j("html").toggleClass("overflow-hidden");
     });
 
+    // check if user clicks outside of search bar to close it
+    $j(document).on("click", function(evt){
+        let targetElement = $j(".search-section");
+        if (!targetElement.is(evt.target) && targetElement.has(evt.target).length === 0) {
+            $j("#main-search").hide({
+                done: function() {
+                    $j(".cart-link").show();
+                    $j(".operation-hours").show();
+                    $j(".nav-utils").removeClass("full-width");
+                },
+            });
+        }
+    });
+
 });
-
-let searchBtn = document.getElementById("show-search");
-let searchField = document.getElementById("main-search");
-let submitBtn = document.querySelector(".search-submit");
-let searchForm = document.querySelector(".search-form");
-let mainNavToggle = document.querySelector(".main-nav-toggle");
-
-// toggles search bar closed if user clicks outsidse of it
-document.addEventListener('click', (evt) => {
-    const searchSection = document.querySelector('.search-section');
-    const clickedInside = searchSection.contains(evt.target);
-
-    if (!clickedInside && !searchField.classList.contains("hidden")) {
-        console.log("user clicked outside search");
-        searchField.classList.toggle("hidden");
-        document.querySelector(".search-section").classList.remove("absolute");
-        document.querySelector(".cart-link").classList.remove("hidden");
-    }
-});
-
 
