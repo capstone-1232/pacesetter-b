@@ -37,7 +37,7 @@ if ($page) {
 <footer id="colophon" class="site-footer">
 	<div class="store-info">
 		<div>
-			<div class="hours">
+			<section class="hours">
 				<h3>Hours</h3>
 				<p>Mon-Fri:
 					<?php echo $hours_mon_fri; ?>
@@ -48,8 +48,8 @@ if ($page) {
 				<p>Sun:
 					<?php echo $hours_sun; ?>
 				</p>
-			</div>
-			<div class="location">
+			</section>
+			<section class="location">
 				<h3>Location</h3>
 				<p>
 					<?php echo $address; ?>,
@@ -57,15 +57,15 @@ if ($page) {
 				<p>
 					<?php echo $city . ', ' . $province . ' ' . $postal_code; ?>
 				</p>
-			</div>
+			</section>
 		</div>
 		<div class="flex-secondary">
-			<div class="phone">
+			<section class="phone">
 				<h3>Phone</h3>
 				<p>
 					<?php echo $phone_number; ?>
 				</p>
-			</div>
+			</section>
 			<div class="social-media">
 				<a href=""><svg fill="#000000" width="36px" height="36px" viewBox="0 0 24 24"
 						xmlns="http://www.w3.org/2000/svg">
