@@ -77,6 +77,13 @@ h3 {
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
 }
 
+a {
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.625rem, 0.45rem + 0.875vw, 1.5rem);
+}
+
 .hidden {
   display: none;
 }
@@ -374,7 +381,7 @@ p {
   color: #FFFFFF !important;
 }
 .site-footer .store-info .footer-nav .site-navigation .menu-main-menu-container #primary-menu li a:visited {
-  color: #0C67C0;
+  color: unset !important;
 }
 .site-footer .store-info .footer-nav .site-navigation .menu-toggle, .site-footer .store-info .footer-nav .main-navigation.toggled ul {
   display: flex;

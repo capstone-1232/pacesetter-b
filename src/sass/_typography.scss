@@ -26,3 +26,10 @@ h3 {
     font-weight: 600;
     font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
 }
+
+a {
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: clamp(0.625rem, 0.45rem + 0.875vw, 1.5rem);
+}
