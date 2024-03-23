@@ -369,7 +369,6 @@ p {
   grid-column: 1/-1;
   grid-row: 3/-1;
   width: 100%;
-  margin-top: 1rem;
 }
 .site-footer .store-info .footer-nav .main-navigation {
   display: block;
@@ -438,6 +437,7 @@ p {
   .site-footer .store-info .footer-nav {
     grid-column: 2/-1;
     grid-row: 2/-1;
+    margin-top: 2rem;
   }
   .site-footer .store-info a svg {
     min-height: 60px;
@@ -457,6 +457,12 @@ p {
 @media screen and (min-width: 900px) {
   .site-footer {
     padding: 3rem;
+  }
+  .site-footer .store-info .footer-nav {
+    margin-top: 3rem;
+  }
+  .site-footer .store-info .footer-nav .main-navigation .menu-main-menu-container #primary-menu {
+    gap: 2rem 4rem;
   }
 }
 #eventModal {

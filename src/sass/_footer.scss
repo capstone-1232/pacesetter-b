@@ -48,7 +48,6 @@
             grid-column: 1/-1;
             grid-row: 3/-1;
             width: 100%;
-            margin-top: 1rem;
     
             .main-navigation {
                 display: block;
@@ -138,6 +137,7 @@
             .footer-nav {
                 grid-column: 2/-1;
                 grid-row: 2/-1;
+                margin-top: 2rem;
             }
 
             a svg {
@@ -161,6 +161,14 @@
 @media screen and (min-width: 900px){
     .site-footer {
         padding: 3rem;
+
+        .store-info .footer-nav {
+            margin-top: 3rem;
+
+            .main-navigation .menu-main-menu-container #primary-menu {
+                gap: 2rem 4rem;
+            }
+        }
     }
 }
 
