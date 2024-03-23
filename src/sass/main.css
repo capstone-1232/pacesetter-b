@@ -81,7 +81,7 @@ a {
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-size: clamp(0.625rem, 0.45rem + 0.875vw, 1.5rem);
+  font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
 }
 
 .hidden {
@@ -371,26 +371,23 @@ p {
   width: 100%;
   margin-top: 1rem;
 }
-.site-footer .store-info .footer-nav .site-navigation .menu-main-menu-container #primary-menu {
+.site-footer .store-info .footer-nav .main-navigation {
+  display: block;
+}
+.site-footer .store-info .footer-nav .main-navigation .menu-toggle {
+  display: none;
+}
+.site-footer .store-info .footer-nav .main-navigation .menu-main-menu-container #primary-menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
-.site-footer .store-info .footer-nav .site-navigation .menu-main-menu-container #primary-menu .menu-item a {
+.site-footer .store-info .footer-nav .main-navigation .menu-main-menu-container #primary-menu .menu-item a {
   text-decoration: none;
   color: #FFFFFF !important;
 }
-.site-footer .store-info .footer-nav .site-navigation .menu-main-menu-container #primary-menu li a:visited {
+.site-footer .store-info .footer-nav .main-navigation .menu-main-menu-container #primary-menu li a:visited {
   color: unset !important;
-}
-.site-footer .store-info .footer-nav .site-navigation .menu-toggle, .site-footer .store-info .footer-nav .main-navigation.toggled ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.site-footer .store-info .footer-nav .site-navigation .menu-toggle li a, .site-footer .store-info .footer-nav .main-navigation.toggled ul li a {
-  color: white;
-  text-decoration: none;
 }
 @media screen and (min-width: 380px) {
   .site-footer .store-info {
