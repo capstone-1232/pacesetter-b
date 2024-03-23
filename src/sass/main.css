@@ -339,6 +339,8 @@ p {
 }
 .site-footer .store-info a svg {
   fill: #FFFFFF;
+  min-height: 36px;
+  min-width: 36px;
 }
 .site-footer .store-info div:first-of-type {
   grid-column: 1/-1;
@@ -374,6 +376,15 @@ p {
 .site-footer .store-info .footer-nav .site-navigation .menu-main-menu-container #primary-menu li a:visited {
   color: #0C67C0;
 }
+.site-footer .store-info .footer-nav .site-navigation .menu-toggle, .site-footer .store-info .footer-nav .main-navigation.toggled ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.site-footer .store-info .footer-nav .site-navigation .menu-toggle li a, .site-footer .store-info .footer-nav .main-navigation.toggled ul li a {
+  color: white;
+  text-decoration: none;
+}
 @media screen and (min-width: 380px) {
   .site-footer .store-info {
     grid-template-columns: repeat(2, 1fr);
@@ -389,11 +400,16 @@ p {
     grid-row: 1/3;
   }
   .site-footer .store-info .flex-secondary .phone {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
   }
   .site-footer .store-info .footer-nav {
     grid-column: 1/-1;
     grid-row: 3/-1;
+  }
+  .site-footer .store-info a svg {
+    min-height: 43px;
+    min-width: 43px;
+    margin: 0 0.2;
   }
 }
 @media screen and (min-width: 700px) {
@@ -418,6 +434,11 @@ p {
   .site-footer .store-info .footer-nav {
     grid-column: 2/-1;
     grid-row: 2/-1;
+  }
+  .site-footer .store-info a svg {
+    min-height: 60px;
+    min-width: 60px;
+    margin: 0 0.5rem;
   }
 }
 
