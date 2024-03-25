@@ -244,6 +244,11 @@ require get_template_directory() . '/inc/rating.php';
 require get_template_directory() . '/inc/more-review.php';
 
 /**
+ * Enqueue functions for mobile navbar.
+ */
+require get_template_directory() . '/inc/mobile-nav.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {

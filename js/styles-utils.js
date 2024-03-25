@@ -3,12 +3,17 @@ console.log("js connected"); // sanity check, remove in final
 var $j = jQuery.noConflict();
 
 $j(document).ready(function(){
-    console.log("JQUERY connected")
+    console.log("JQUERY connected") // sanity check, remove in final
+    
+    // on load behaviours
+    $j(".search-submit").hide();
+    $j(".category-select a").on("click", function(evt) {
+        evt.preventDefault();
+    });
 
     $j("#show-search").click(function(){
         $j("#main-search").toggle({
             done: function() {
-                $j(".search-submit").hide();
                 $j(".cart-link").toggle();
                 $j(".operation-hours").toggle();
                 $j(".nav-utils").toggleClass("full-width");
@@ -27,6 +32,7 @@ $j(document).ready(function(){
     });
 
     // check if user clicks outside of search bar to close it
+    // Might refactor later to have a close button on left side of search bar as well
     $j(document).on("click", function(evt){
         let targetElement = $j(".search-section");
         if (!targetElement.is(evt.target) && targetElement.has(evt.target).length === 0) {
@@ -38,6 +44,27 @@ $j(document).ready(function(){
                 },
             });
         }
+    });
+
+    // get subcategories through ajax
+    $j(".category-select").on("click", function() {
+        console.log("clicked a category");
+
+        $j.ajax({
+            url: ajax_object.ajax_url,
+            type: "POST",
+            data: {
+                action: "subcategory",
+                category: $j(this)[0].textContent,
+            },
+            success: function(response) {
+                $j(".subcategories").html(response);
+            },
+            error: function(response) {
+                console.log("error" + response);
+            }
+        });
+
     });
 
 });

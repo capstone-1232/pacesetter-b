@@ -123,19 +123,7 @@
 						<div class="toggle-menu hidden">
 							<h2>Products</h2>
 
-							<?php
-
-							$menu = wp_get_nav_menu_items('18');
-							echo "<ul>";
-							foreach ($menu as $link) {
-								echo "<li>";
-								echo "<a href=\"$link->url\">$link->title</a>";
-								echo "</li>";
-							}
-							echo "</ul>";
-
-							?>
-							<div class="categories billboard">
+							<div class="categories billboard container">
 								<?php
 
 								$product_categories = get_terms(
@@ -144,42 +132,31 @@
 										'hide_empty' => false,
 									)
 								);
-
-								// echo "<pre>";
-								// print_r($product_categories);
-								// echo "</pre>";
 								
 								foreach ($product_categories as $category) {
 									if ($category->parent == 0 && $category->slug != "uncategorized") {
+										echo "<div class=\"category-select\">";
 										echo "<a href=\"" . get_term_link($category) . "\">" . $category->name . "</a>";
+										echo "</div>";
 									}
 								}
 
 								?>
 							</div>
+							
+							<div class="subcategories slide-over"></div>
 
-							<div class="subcategories slide-over">
-								<?php
-								$parent_category_id = 19;
+							<?php
+							$menu = wp_get_nav_menu_items('18');
+							echo "<ul>";
+							foreach ($menu as $link) {
+								echo "<li>";
+								echo "<a href=\"$link->url\">$link->title</a>";
+								echo "</li>";
+							}
+							echo "</ul>";
+							?>
 
-								$subcategories = get_terms(
-									array(
-										'taxonomy' => 'product_cat',
-										'hide_empty' => false,
-										'parent' => $parent_category_id
-									)
-								);
-
-								foreach ($subcategories as $subcategory) {
-									echo "<a href=\"" . get_term_link($subcategory) . "\">" . $subcategory->name . "</a>";
-								}
-
-								// echo "<pre>";
-								// print_r($subcategories);
-								// echo "</pre>";
-								
-								?>
-							</div>
 						</div>
 
 					</nav>

@@ -124,5 +124,20 @@ p {
     }
 }
 
+.billboard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+
+    .category-select{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 52px;
+        background-color: yellow;
+    }
+}
 
 
