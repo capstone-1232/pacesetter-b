@@ -1,6 +1,11 @@
 <?php
 function enqueue_styles() {
+  // Enqueue main stylesheet
   wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/src/sass/main.css', array(), null);
+
+  // Enqueue animations stylesheet
+  wp_enqueue_style('animations', get_stylesheet_directory_uri() . '/src/sass/animations.css', array(), null);
+
 }
 add_action('wp_enqueue_scripts', 'enqueue_styles');
 

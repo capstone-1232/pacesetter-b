@@ -23,9 +23,16 @@ $j(document).ready(function(){
 
     // Toggle mobile dropdown menu
     $j(".main-nav-toggle").click(function(){
-        $j(".toggle-menu").toggle("fold");
+        $j(".toggle-menu").slideToggle();
         $j(".main-nav-toggle .open").toggleClass("hidden");
         $j(".main-nav-toggle .close").toggleClass("hidden");
+        $j(".right-column").removeClass("shown");
+        $j(".column-container").removeClass("flex-container");
+        $j(".left-column").removeClass("squished");
+        $j(".subcategories").html("");
+
+
+
 
         // Makes document unscrollable if menu dropdown visible.
         $j("html").toggleClass("overflow-hidden");
@@ -50,6 +57,12 @@ $j(document).ready(function(){
     $j(".category-select").on("click", function() {
         console.log("clicked a category");
 
+        $j(".subcategories").html("<div class=\"flex-container justify-center\" style=\"margin-top:100%\"><div class=\"loader\"></div></div>");
+        $j(".toggle-menu").addClass("flex-container");
+        $j(".left-column").addClass("squished");
+        $j(".right-column").addClass("shown");
+        $j(".column-container").addClass("flex-container");
+
         $j.ajax({
             url: ajax_object.ajax_url,
             type: "POST",
@@ -65,6 +78,14 @@ $j(document).ready(function(){
             }
         });
 
+    });
+
+    $j(".right-column button").on("click", function() {
+        $j(".toggle-menu").removeClass("flex-container");
+        $j(".left-column").removeClass("squished");
+        $j(".right-column").removeClass("shown");
+        $j(".column-container").removeClass("flex-container");
+        $j(".subcategories").html("");
     });
 
 });

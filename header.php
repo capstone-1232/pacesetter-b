@@ -73,7 +73,7 @@
 							<div id="main-search" class="hidden">
 								<?php get_search_form(); ?>
 							</div>
-							<button type="button" id="show-search" class="show-search">
+							<button type="button" id="show-search" class="show-search unstyle-btn">
 								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 									stroke-width="1.5" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round"
@@ -120,43 +120,57 @@
 							</svg>
 
 						</button>
-						<div class="toggle-menu hidden">
-							<h2>Products</h2>
+						<div class="toggle-menu hidden full-width">
+							<div class="column-container full-width container relative">
+								<div class="left-column">
+									<h2>Products</h2>
+									<div class="categories billboard">
+										<?php
 
-							<div class="categories billboard container">
-								<?php
+										$product_categories = get_terms(
+											array(
+												'taxonomy' => 'product_cat',
+												'hide_empty' => false,
+											)
+										);
 
-								$product_categories = get_terms(
-									array(
-										'taxonomy' => 'product_cat',
-										'hide_empty' => false,
-									)
-								);
-								
-								foreach ($product_categories as $category) {
-									if ($category->parent == 0 && $category->slug != "uncategorized") {
-										echo "<div class=\"category-select\">";
-										echo "<a href=\"" . get_term_link($category) . "\">" . $category->name . "</a>";
-										echo "</div>";
+										foreach ($product_categories as $category) {
+											if ($category->parent == 0 && $category->slug != "uncategorized") {
+												echo "<div class=\"category-select\">";
+												echo "<a href=\"" . get_term_link($category) . "\">" . $category->name . "</a>";
+												echo "</div>";
+											}
+										}
+
+										?>
+									</div>
+									<?php
+									$menu = wp_get_nav_menu_items('18');
+									echo "<ul class=\"navlinks\">";
+									foreach ($menu as $link) {
+										if ($link->title != "Products") {
+											echo "<li>";
+											echo "<a href=\"$link->url\">$link->title</a>";
+											echo "</li>";
+										}
 									}
-								}
-
-								?>
+									echo "</ul>";
+									?>
+								</div>
+								<div class="right-column slide-over">
+									<button type="button" class="unstyle-btn">
+										Close
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+											stroke-width="1.5" stroke="currentColor">
+											<title>Close Button symbol</title>
+											<path stroke-linecap="round" stroke-linejoin="round"
+												d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+										</svg>
+									</button>
+									<div class="subcategories">
+									</div>
+								</div>
 							</div>
-							
-							<div class="subcategories slide-over"></div>
-
-							<?php
-							$menu = wp_get_nav_menu_items('18');
-							echo "<ul>";
-							foreach ($menu as $link) {
-								echo "<li>";
-								echo "<a href=\"$link->url\">$link->title</a>";
-								echo "</li>";
-							}
-							echo "</ul>";
-							?>
-
 						</div>
 
 					</nav>

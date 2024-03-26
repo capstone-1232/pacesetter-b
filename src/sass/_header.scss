@@ -1,5 +1,6 @@
 @import "colors";
 @import "fonts";
+@import "typography";
 
 // Info nav styling
 .info-nav {
@@ -8,7 +9,7 @@
     display: flex;
     position: relative;
     justify-content: space-between;
-    height: 53px;
+    height: 50px;
     align-items: center;
 
     div:last-of-type {
@@ -40,14 +41,11 @@
     height: 100%;
 }
 
-
 .show-search {
-    background: none;
-    border: none;
     z-index: 15;
 
     svg {
-        color: black;
+        color: $white;
         width: 30px;
         height: 30px;
     }
@@ -81,12 +79,16 @@ p {
     display: flex;
     position: relative;
     align-items: center;
+    height: 50px;
 
-    .site-title a{
-        font-size: 24px;
-        font-family: $racing;
+    a {
         text-decoration: none;
         color: $black;
+    }
+
+    .site-title a {
+        font-size: 24px;
+        font-family: $racing;
         padding-left: 10px;
     }
 }
@@ -100,44 +102,147 @@ p {
     }
 
     svg {
-    width: 35px;
-    height: 35px;
+        width: 35px;
+        height: 35px;
     }
 }
 
 .toggle-menu {
-    height: 100vh;
+    height: 85vh;
     width: 100vw;
     background-color: $white;
     position: absolute;
     left: 0;
-    z-index:999;
+    z-index: 999;
+    overflow: hidden;
+
+    transform: perspective(400px) rotateY(0deg); /* Set initial rotation */
+    transition: transform 0.5s ease; /* Add smooth transition */
 
     h2 {
         text-align: center;
     }
 
-    ul{
+    ul {
         list-style: none;
         padding: 0;
-        margin: 0;
+    }
+    a {
+        font-weight: 600;
     }
 }
 
-.billboard{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    column-gap: 20px;
-    row-gap: 20px;
+.billboard {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 
-    .category-select{
+    .category-select {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 52px;
         background-color: yellow;
+        width: 49%;
+        margin-bottom: 3%;
+    }
+
+    a {
+        font-family: $racing;
     }
 }
 
+.column-container {
+    height: 100%;
+}
 
+.navlinks {
+    width: 60%;
+    margin: 0.5rem auto 0 auto;
+
+    li {
+        width: 100%;
+    }
+
+    a {
+        width: 100%;
+        display: block;
+        padding: 0.4rem;
+        border-bottom: 1px solid $primary-blue;
+    }
+}
+
+.left-column {
+    width: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.left-column.squished {
+    width: 50%;
+    // overflow-y: scroll;
+
+    .billboard {
+        flex-flow: unset;
+        flex-direction: column;
+    }
+
+    .category-select {
+        width: 100%;
+        height: 37px;
+    }
+
+    .navlinks {
+        width: 80%;
+    }
+}
+
+.right-column {
+    position: absolute;
+    right: -100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    background-color: $white;
+
+    box-shadow: -4px 0px 4px rgba($primary-blue, 0.5);
+    transition: right 0.5s ease-in-out;
+
+    .subcategories {
+        width: 80%;
+        align-items: center;
+    }
+
+    button {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    ul {
+        width: 95%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    a {
+        display: block;
+        width: 100%;
+        padding: 1rem 0;
+        border-bottom: 1px solid $primary-blue;
+        font-family: $racing;
+        text-align: center;
+    }
+}
+
+.right-column.shown {
+    position: relative;
+    right: -2.5%;
+    overflow-y: scroll;
+}
