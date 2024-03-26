@@ -3,7 +3,7 @@ function fetch_products() {
     
     $offset = $_POST['offset'] ? $_POST['offset'] : 12;
     $category_slug = $_POST['current_slug'];
-
+    $filters = $_POST['filters'] ? json_decode(stripslashes($_POST['filters']), true) :'';
 
     $args = array(
         'post_type' => 'product',
@@ -16,6 +16,46 @@ function fetch_products() {
             ),
         ),
     );
+    
+    if ($filters) {
+        foreach ($filters as $filter) {
+            $filterType = $filter['filterType'];
+            $filterValue = $filter['filterValue'];
+            if ($filterType == 'brand') {
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'brands',
+                        'field' => 'name',
+                        'terms' => $filterValue,
+                        'operator' => 'IN',
+                    );
+            }
+            if ($filterType == 'length') {
+                list($min, $max) = explode('-', $filterValue);
+                $min = intval($min);
+                $max = intval($max);
+                $terms_in_range = range($min, $max);
+                if (!empty($terms_in_range)) {
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'pa_size',
+                        'field' => 'slug',
+                        'terms' => $terms_in_range,
+                        'operator' => 'IN',
+                    );
+                }
+            }
+            if ($filterType == 'price_range') {
+                $price_values = explode('-', $filterValue);
+                if (!empty($price_values)) {
+                    $args['meta_query'][] = array(
+                        'key' => '_price',
+                        'value' => $price_values,
+                        'type' => 'NUMERIC',
+                        'compare' => 'BETWEEN',
+                    );
+                }
+            }
+        }
+    }
     
     $products_query = new WP_Query($args);
 
@@ -46,7 +86,7 @@ function fetch_products() {
         wp_reset_postdata();
     } else {
         // No products found
-        echo 'No products found in the "' . $current_slug . '" category.';
+        echo 'No products found in the "' . $category_slug . '" category.';
     }
     echo ($product && $offset < $total_products) ? "<button id=\"view-more-btn\" class=\"view-more-btn\">View More Reviews</button>" : "";
     exit;
@@ -55,3 +95,181 @@ function fetch_products() {
 // Hook the AJAX handler to WordPress
 add_action('wp_ajax_fetch_products', 'fetch_products');
 add_action('wp_ajax_nopriv_fetch_products', 'fetch_products');
+
+
+// product filter function
+function product_list_filter() {
+    if (isset($_POST['filters'])) {
+        $filters = json_decode(stripslashes($_POST['filters']), true);
+
+        $meta_queries = array();
+
+        // Build tax queries based on selected filters
+        foreach ($filters as $filter) {
+            if (!empty($filter['filterType'])) {
+                    $meta_queries[] = array(
+                        'key'     => 'tags_' . $filter['filterType'],
+                        'value'   => $filter['filterValue'],
+                        'compare' => 'LIKE',
+                    );
+            }
+        }
+
+        // Initialize your $args array here
+        $args = array(
+            'post_type'      => 'products',
+            'post_status'    => 'publish',
+            'meta_key'       => 'date_and_time_start',
+            'orderby'        => 'meta_value',
+            'order'          => 'ASC',
+        );
+
+        // Add meta_queries to $args if it's not empty
+        if (!empty($meta_queries)) {
+            $args['meta_query'] = array(
+                'relation' => 'AND',
+                $meta_queries,
+            );
+        }
+
+        // Query for related products
+        $products_query = new WP_Query($args);
+        echo "<div class=\"related-products__wrapper\">";
+        if ($products_query->have_posts()) {
+            while ($products_query->have_posts()) {
+                $products_query->the_post();
+            }
+
+            // Restore global post data
+            wp_reset_postdata();
+        } else {
+            // No related products found
+            echo 'No products found.';
+        }
+        exit;
+    } else {
+        // Handle other cases or provide a default response
+        echo json_encode(['error' => 'Invalid request']);
+        exit;
+    }
+}
+
+add_action('wp_ajax_product_list_filter', 'product_list_filter');
+add_action('wp_ajax_nopriv_product_list_filter', 'product_list_filter');
+
+function remove_product_filter_list_function() {
+    if (isset($_POST['filters'])) {
+        $filters = json_decode(stripslashes($_POST['filters']), true);
+
+        // Build tax queries based on selected filters
+        foreach ($filters as $filter) {
+            if (!empty($filter['filterType']) && !empty($filter['filterValue'])) :?>
+            <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>"><?php echo ucfirst($filter['filterValue']); ?> X</a>
+        <?php
+        endif;
+    }
+        exit;
+    } else {
+        // Handle other cases or provide a default response
+        echo json_encode(['error' => 'Invalid request']);
+        exit;
+    }
+}
+
+add_action('wp_ajax_remove_product_filter_list_function', 'remove_product_filter_list_function');
+add_action('wp_ajax_nopriv_remove_product_filter_list_function', 'remove_product_filter_list_function');
+
+function update_active_product_list_function() {
+    $filters = [
+        "length" => [
+            "150-155" => "150-155cm",
+            "156-160" => "156-160cm",
+            "161-165" => "161-165cm",
+            "166-170" => "166-170cm",
+            "171-175" => "171-175cm",
+            "176-180" => "176-180cm",
+            "181-185" => "181-185cm",
+            "186-190" => "186-190cm",
+            "191-195" => "191-195cm",
+            "196-999" => "196cm+",
+        ],
+        "brand" => [
+            "burton" => "Burton",
+            "lib_tech" => "Lib Tech",
+            "gnu" => "GNU",
+            "never_summer" => "Never Summer",
+            "k2" => "K2",
+            "ride" => "Ride",
+            "rossignol" => "Rossignol",
+            "salomon" => "Salomon",
+            "arbor" => "Arbor",
+            "capita" => "Capita",
+        ],
+        "price_range" => [
+            "0-200" => "Under $200",
+            "200-400" => "$200 - $400",
+            "400-600" => "$400 - $600",
+            "600-800" => "$600 - $800",
+            "800-1000" => "$800 - $1000",
+            "1000-99999" => "$1000 and above",
+        ]
+    ];
+
+    // Check if the 'filters' parameter is set in the POST data
+    if (isset($_POST['filters'])) {
+        // Decode the JSON data and store it in the $active_filters array
+        $active_filters = json_decode(stripslashes($_POST['filters']), true);
+
+        // Generate the filter buttons
+        foreach ($filters as $filter => $options) {
+            // Replace underscores or dashes with spaces and capitalize the words for the heading
+            $heading = ucwords(str_replace(["_", "-"], " ", $filter));
+            // Add a heading before each button group
+            echo "<h4 class=\"\">" .
+                htmlspecialchars($heading) .
+                "</h4>";
+
+            echo '<div class="" role="group" aria-label="' .
+                htmlspecialchars($filter) .
+                ' Filter Group">';
+            foreach ($options as $value => $label) {
+                // Check if the value exists in the active_filters array
+                $is_active = false;
+                foreach ($active_filters as $filter_item) {
+                    if ($filter_item['filterType'] === $filter && $filter_item['filterValue'] === $value) {
+                        $is_active = true;
+                        break;
+                    }
+                }
+                $updated_filters = $active_filters;
+
+                if ($is_active) {
+                    $updated_filters = array_filter($updated_filters, function($item) use ($filter, $value) {
+                        return !($item['filterType'] === $filter && $item['filterValue'] === $value);
+                    });
+                } else {
+                    $updated_filters[] = ['filterType' => $filter, 'filterValue' => $value];
+                }
+
+                // Output button link
+                echo '<a href="#" class="products-filter ' .
+                    ($is_active ? "filter-active" : "") .
+                    '" data-filter="' . htmlspecialchars($filter) . '" data-value="' . htmlspecialchars($value) . '">' .
+                    htmlspecialchars($label) .
+                    "</a>";
+            }
+            echo "</div>";
+        }
+        exit;
+    } else {
+        // Handle other cases or provide a default response
+        echo json_encode(['error' => 'Invalid request']);
+        exit;
+    }
+}
+
+add_action('wp_ajax_update_active_product_list_function', 'update_active_product_list_function');
+add_action('wp_ajax_nopriv_update_active_product_list_function', 'update_active_product_list_function');
+
+
+?>

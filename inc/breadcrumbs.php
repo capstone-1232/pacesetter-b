@@ -34,6 +34,8 @@ function custom_breadcrumbs() {
 function custom_product_breadcrumbs() {
     global $post;
 
+    $first_breadcrumb = ['snowboards', 'skis', 'apparel', 'gear'];
+
     echo '<div class="breadcrumbs">';
     echo '<a href="' . home_url() . '">Home</a>';
     echo ' / <a href="' . esc_url(home_url('/products')) . '">Products</a>';
@@ -45,7 +47,7 @@ function custom_product_breadcrumbs() {
         if (!empty($product_cats)) {
             // Array to store breadcrumbs
             $breadcrumbs = array();
-
+        
             foreach ($product_cats as $product_cat) {
                 $page = get_posts(array(
                     'name'        => $product_cat->slug,
@@ -54,12 +56,19 @@ function custom_product_breadcrumbs() {
                     'numberposts' => 1
                 ));
                 $page_url = get_permalink($page[0]->ID);
-                // Add the current category to breadcrumbs
-                $breadcrumbs[] = '<a href="' . $page_url . '">' . $product_cat->name . '</a>';
+                
+                // Check if the slug is in the $first_breadcrumb array
+                if (in_array($product_cat->slug, $first_breadcrumb)) {
+                    // If yes, add it to position 0 of the breadcrumbs array
+                    array_unshift($breadcrumbs, '<a href="' . $page_url . '">' . $product_cat->name . '</a>');
+                } else {
+                    // Otherwise, add it normally
+                    $breadcrumbs[] = '<a href="' . $page_url . '">' . $product_cat->name . '</a>';
+                }
             }
 
             // Output breadcrumbs in reverse order
-            foreach (array_reverse($breadcrumbs) as $breadcrumb) {
+            foreach ($breadcrumbs as $breadcrumb) {
                 echo ' / ' . $breadcrumb;
             }
         }
