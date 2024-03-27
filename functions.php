@@ -149,8 +149,10 @@ function pacesetter_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'pacesetter_scripts' );
 function new_excerpt_more($more) {
-	global $post;
- return '<a class="moretag" href="'. get_permalink($post->ID) . '"> Read More</a>';
+    global $post;
+    error_log('Debug: new_excerpt_more function called.'); // Debugging line
+    error_log('Post ID: ' . $post->ID); // Debugging line
+    return '<a class="moretag" href="'. get_permalink($post->ID) . '"> Read More</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 function pacesetter_search_where($where){
@@ -242,7 +244,10 @@ require get_template_directory() . '/inc/rating.php';
  * Enqueue ratings.
  */
 require get_template_directory() . '/inc/more-review.php';
-
+/**
+ * Enqueue readmore
+ */
+require get_template_directory() . '/inc/read_more.php';
 /**
  * Load Jetpack compatibility file.
  */
