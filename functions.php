@@ -241,13 +241,18 @@ require get_template_directory() . '/inc/breadcrumbs.php';
 require get_template_directory() . '/inc/rating.php';
 
 /**
- * Enqueue ratings.
+ * Enqueue reviews.
  */
 require get_template_directory() . '/inc/more-review.php';
 /**
  * Enqueue readmore
  */
 require get_template_directory() . '/inc/read_more.php';
+/**
+ * Enqueue products.
+ */
+require get_template_directory() . '/inc/products.php';
+
 /**
  * Load Jetpack compatibility file.
  */

@@ -22,15 +22,16 @@
 
         <div class="category-links">
             <?php
-            $exclude_category = get_term_by('name', 'basics', 'product_cat');
+            $exclude_category_basics = get_term_by('name', 'basics', 'product_cat');
+            $exclude_category_uncategorized = get_term_by('name', 'uncategorized', 'product_cat');
 
             $args = array(
                 'taxonomy'   => 'product_cat',
                 'orderby'    => 'name',
                 'order'      => 'ASC',
                 'hide_empty' => false,
-                'exclude'    => array($exclude_category->term_id),
-                'parent'     => 0, // Set to 0 to retrieve only top-level categories
+                'exclude'    => array($exclude_category_basics->term_id, $exclude_category_uncategorized->term_id),
+                'parent'     => 0,
             );
 
             $categories = get_terms($args);
