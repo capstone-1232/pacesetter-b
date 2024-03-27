@@ -1,8 +1,9 @@
-<?php function new_excerpt_more($more) {
-    global $post;
-    error_log('Debug: new_excerpt_more function called.'); // Debugging line
-    error_log('Post ID: ' . $post->ID); // Debugging line
-    return '<a class="moretag" href="'. get_permalink($post->ID) . '"> Read More</a>';
+<?php function wpdocs_excerpt_more( $more ) {
+    return sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
+          esc_url( get_permalink( get_the_ID() ) ),
+          sprintf( __( 'Read More %s', 'wpdocs' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
+    );
 }
-add_filter('excerpt_more', 'new_excerpt_more');
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
 ?>
