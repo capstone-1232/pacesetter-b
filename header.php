@@ -123,7 +123,7 @@
 						<div class="toggle-menu hidden full-width">
 							<div class="column-container full-width container relative">
 								<div class="left-column">
-									<h2>Products</h2>
+									<h2>Product</h2>
 									<div class="categories billboard">
 										<?php
 
@@ -135,6 +135,7 @@
 										);
 
 										foreach ($product_categories as $category) {
+
 											if ($category->parent == 0 && $category->slug != "uncategorized") {
 												echo "<div class=\"category-select\">";
 												echo "<a href=\"" . get_term_link($category) . "\">" . $category->name . "</a>";
@@ -144,31 +145,54 @@
 
 										?>
 									</div>
+									<div>
+										<?php
+
+										$menu = wp_get_nav_menu_items('18');
+										echo "<ul class=\"navlinks\">";
+										foreach ($menu as $link) {
+											if ($link->title != "Products") {
+												echo "<li>";
+												echo "<a href=\"$link->url\">$link->title</a>";
+												echo "</li>";
+											}
+										}
+										echo "</ul>";
+
+										?>
+									</div>
+								</div>
+								<div class="right-column hidden">
+									<button type="button">
+										Close
+									</button>
+
 									<?php
-									$menu = wp_get_nav_menu_items('18');
-									echo "<ul class=\"navlinks\">";
-									foreach ($menu as $link) {
-										if ($link->title != "Products") {
-											echo "<li>";
-											echo "<a href=\"$link->url\">$link->title</a>";
-											echo "</li>";
+
+									foreach ($product_categories as $category) {
+										$subcategories = get_terms(
+											array(
+												'taxonomy' => 'product_cat',
+												'hide_empty' => false,
+												'parent' => $category->term_id,
+											)
+										);
+
+										if ($category->parent == 0 && $category->slug != "uncategorized") {
+											echo "<div class=\"subcategories " . $category->name . " hidden\">";
+											echo "<ul class=\"subcategory-list\">";
+
+											foreach ($subcategories as $subcat) {
+												$link = get_term_link($subcat);
+												$name = $subcat->name;
+												echo "<li><a href=\"$link\">$name</a></li>";
+											}
+
+											echo "</div>";
+											echo "</ul>";
 										}
 									}
-									echo "</ul>";
 									?>
-								</div>
-								<div class="right-column slide-over">
-									<button type="button" class="unstyle-btn">
-										Close
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-											stroke-width="1.5" stroke="currentColor">
-											<title>Close Button symbol</title>
-											<path stroke-linecap="round" stroke-linejoin="round"
-												d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
-										</svg>
-									</button>
-									<div class="subcategories">
-									</div>
 								</div>
 							</div>
 						</div>

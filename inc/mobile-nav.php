@@ -23,5 +23,6 @@ function get_subcategory()
     $subcategories_list .= '</ul>';
 
     echo $subcategories_list;
+    
     wp_die();
 }
