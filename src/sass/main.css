@@ -607,8 +607,9 @@ p {
   padding: 1rem;
 }
 .banner-text .banner-text-1 .svg, .banner-text .banner-text-2 .svg {
+  width: 64px;
   grid-row: 2/3;
-  margin: 1rem auto;
+  align-items: center;
 }
 .banner-text .banner-text-1 h3, .banner-text .banner-text-2 h3 {
   grid-row: 1/2;
@@ -620,6 +621,7 @@ p {
 }
 .banner-text .banner-text-1 p, .banner-text .banner-text-2 p {
   grid-row: 3/-1;
+  margin: 1rem 0;
 }
 
 @media screen and (min-width: 700px) {
