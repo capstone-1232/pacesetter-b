@@ -101,6 +101,13 @@ $short_description = $product->get_short_description();
 $product_description = $product->get_description();
 $product_price = $product->get_price();
 $attributes = $product->get_attributes();
+$product_brands = wp_get_post_terms($product_id, 'brands');
+
+if (!empty($product_brands) && !is_wp_error($product_brands)) {
+    $product_brand = $product_brands[0];
+    $brand_name = $product_brands[0]->name;
+    $brand_logo_url = get_field('brand_logo', $product_brand);
+}
 
 get_header(); 
 custom_product_breadcrumbs();
@@ -129,7 +136,7 @@ custom_product_breadcrumbs();
         <div>
             <div>
                 <p>Legendary Performance</p>
-                <p>Brand name</p>
+                <img src="<?php echo $brand_logo_url; ?>" alt="Product logo for <?php echo $brand_name; ?>">
             </div>
             <div>
                 <?php
@@ -152,19 +159,27 @@ custom_product_breadcrumbs();
                     <p><?php echo $product_price?></p>
                     <div>
                     <?php
-                    // Display each attribute and its terms
-                    foreach ( $attributes as $attribute ) {
-                        $attribute_name = $attribute->get_name();
-                        $options = $attribute->get_options();
-                        echo '<div>';
-                        echo '<h4>' . esc_html( $attribute_name ) . '</h4>';
-                        if ($attribute_name == "Size") {
-                            echo "<a href=\"#\">Size Guide</a>";
-                        }
-                        echo '</div>';
-                        
-                        foreach ( $options as $option_id => $option ) {
-                            echo '<label><input type="radio" name="attribute_' . esc_attr( sanitize_title( $attribute_name ) ) . '" value="' . esc_attr( $option_id ) . '">' . esc_html( $option ) . '</label><br>';
+                    if($attributes) {
+                        foreach ($attributes as $attribute) {
+                            if ($attribute->is_taxonomy()) {
+                                $taxonomy = $attribute->get_terms();
+                            }
+                            $attribute_name = $attribute->get_name();
+                            $cleaned_attribute_name = str_replace('pa_', '', $attribute_name);
+                            $cleaned_and_capitalized_attribute_name = ucwords($cleaned_attribute_name);
+                            echo '<div>';
+                            echo '<h4>' . esc_html($cleaned_and_capitalized_attribute_name) . '</h4>';
+                            if ($cleaned_and_capitalized_attribute_name == "Size") {
+                                echo "<a href=\"#\">Size Guide</a>";
+                            }
+                            echo '</div>';
+                            
+                            foreach ($taxonomy as $term) {
+                                // Use term name instead of slug
+                                $term_name = $term->name;
+                                $term_slug = $term->slug;
+                                echo '<label><input type="radio" name="attribute_' . esc_attr(sanitize_title($attribute_name)) . '" value="' . esc_attr($term_slug) . '">' . esc_html($term_name) . '</label><br>';
+                            }
                         }
                     }
                     ?>
@@ -173,7 +188,7 @@ custom_product_breadcrumbs();
                         <a href="">Ask us a Question</a>
                         <a href="">Product Care Guides</a>
                     </div>
-            </div>
+                </div>
         </div>
     </section>
     <section>

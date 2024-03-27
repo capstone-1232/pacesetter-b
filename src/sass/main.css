@@ -77,6 +77,10 @@ h3 {
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
 }
 
+
+html {
+  scroll-behavior: smooth;
+
 a {
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
