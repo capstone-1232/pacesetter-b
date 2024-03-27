@@ -5,7 +5,7 @@ Template Post Type: hero-banner
 */
 ?>
 
-<div id="hero-carousel" class="slider">
+<section id="hero-carousel" class="slider">
   <div class="carousel-inner">
 
     <?php
@@ -65,7 +65,7 @@ Template Post Type: hero-banner
     ?>
 
   </div>
-</div>
+  </section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
