@@ -99,6 +99,26 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.send('action=event_filter_function&filters=' + encodeURIComponent(filtersJSON));
     }
 
+    // Function to update filter list with selected filters
+    function updateFiltersList() {
+        var xhr = new XMLHttpRequest();
+        var filtersJSON = JSON.stringify(selectedFilters);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    document.getElementById('removeFilterList').innerHTML = xhr.responseText;
+                } else {
+                    console.error('Error:', xhr.status, xhr.statusText);
+                }
+            }
+        };
+
+        xhr.open('POST', ajax_object.ajax_url, true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.send('action=remove_filter_list_function&filters=' + encodeURIComponent(filtersJSON));
+    }
+
     // Attach event listener to document for event delegation
     document.addEventListener('click', function(event) {
         // Check if the clicked element has the class '.events-filter-remove'
@@ -119,26 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
             updateActiveFilters();
         }
     });
-
-    // Function to update filter list with selected filters
-    function updateFiltersList() {
-        var xhr = new XMLHttpRequest();
-        var filtersJSON = JSON.stringify(selectedFilters);
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    document.getElementById('removeFilterList').innerHTML = xhr.responseText;
-                } else {
-                    console.error('Error:', xhr.status, xhr.statusText);
-                }
-            }
-        };
-
-        xhr.open('POST', ajax_object.ajax_url, true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-        xhr.send('action=remove_filter_list_function&filters=' + encodeURIComponent(filtersJSON));
-    }
 
 });
 

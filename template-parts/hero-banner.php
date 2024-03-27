@@ -20,6 +20,8 @@ Template Post Type: hero-banner
         $active_class = ($index === 0) ? 'active' : '';
 
         // Retrieve field values
+        $title = get_field('subheading');
+        $tag_line = get_field('tag_line');
         $call_to_action = get_field( 'call_to_action');
         $call_to_action_url = get_field( 'call_to_action_url');
         $call_to_action_2 = get_field( 'call_to_action_2');
@@ -30,9 +32,9 @@ Template Post Type: hero-banner
         // Output the carousel item
         ?>
         <div class="slide <?php echo $active_class; ?>" style="background-image: url('<?php echo esc_url($background_image); ?>');">
-          <div class="slide-content" title="<?php the_content() ?>">
-            <h2><?php the_title(); ?></h2>
-            <?php the_content(); ?>
+          <div class="slide-content">
+            <h2><?php echo $title; ?></h2>
+            <p><?php echo $tag_line; ?></p>
             <a href="<?php echo esc_url($call_to_action_url); ?>"><?php echo esc_html($call_to_action); ?></a>
             <?php if ($call_to_action_2):?>
               <a href="<?php echo esc_url($call_to_action_url_2); ?>"><?php echo esc_html($call_to_action_2); ?></a>

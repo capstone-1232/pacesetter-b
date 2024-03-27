@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
+ * The template for displaying faq pages
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -11,7 +11,7 @@
  *
  * @package pacesetter
  */
-$pdf_file= get_field('question_guide');
+
 get_header();
 
 ?>
@@ -36,7 +36,7 @@ get_header();
                     <h4><?php echo the_title();?></h4>
                     <p><?php echo esc_html(get_field('common_answer'));?></p>
             
-                    <a href="<?php echo esc_url($pdf_file['url']); ?>" target="_blank" >Read more</a>
+                    <a href="<?php echo esc_url(get_field('question_guide')); ?>" target="_blank" >Read more</a>
                 </div>
 
 
