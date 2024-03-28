@@ -65,7 +65,7 @@ Template Post Type: hero-banner
     ?>
 
   </div>
-  </section>
+</section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -137,21 +137,21 @@ Template Post Type: hero-banner
 <style>
 .slider {
   width: 100%;
-  height: 350px;
+  height: 400px;
   position: relative;
   overflow: hidden;
 }
 
 .slide {
   width: 100%;
-  height: 350px;
+  height: 400px;
   position: absolute;
   transition: all 0.5s;
 }
 
 .slide img {
   width: 100%;
-  height: 100%;
+  max-height: 400px;
   object-fit: cover;
 }
 
