@@ -2,6 +2,11 @@
 @import "fonts";
 @import "typography";
 
+
+.desktop-nav {
+    display: none;
+}
+
 // Info nav styling
 .info-nav {
     background-color: $primary-blue;
@@ -239,4 +244,45 @@ p {
         font-family: $racing;
         text-align: center;
     }
+}
+
+// Desktop styling
+
+@media screen and (min-width: 768px) {
+    .desktop-nav {
+        display: flex;
+    }
+
+    .toggle-menu,
+    .toggle-nav {
+        display: none;
+    }
+
+    .main-nav{
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .navlinks{
+        width: unset;
+        display: flex;
+    }
+    
+    .nav-utils{
+        flex-direction: row-reverse;
+    }
+
+    #main-search {
+        display: block;
+    }
+
+    .category-dropdown{
+        position: absolute;
+        bottom: 0;
+        background-color: $white;
+        z-index: 99;
+    }
+
+    .dropdown-toggle:hover 
+
 }

@@ -196,8 +196,47 @@
 								</div>
 							</div>
 						</div>
-
 					</nav>
+					<nav class="desktop-nav">
+						<div class="navlinks">
+							<?php
+							$menu = wp_get_nav_menu_items('18');
+							foreach ($menu as $link) {
+								if ($link->title != "Products"){
+									echo "<a href=\"$link->url\" class=\"dropdown-toggle\">$link->title</a>";
+								} else {
+									echo "<a href=\"$link->url\">$link->title</a>";
+								}
+							}
+							?>
+						</div>
+					</nav>
+					<div class="category-dropdown absolute">
+						<?php
+							foreach ($product_categories as $category) {
+								if ($category->parent == 0 && $category->slug != "uncategorized") {
+									$subcategories = get_terms(
+										array(
+											'taxonomy' => 'product_cat',
+											'hide_empty' => false,
+											'parent' => $category->term_id,
+										)
+									);
+
+									echo "<div class=\"category-select\">";
+									echo "<a href=\"" . get_term_link($category) . "\">" . $category->name . "</a>";
+									echo "<ul>";
+									foreach ($subcategories as $subcat) {
+										$link = get_term_link($subcat);
+										$name = $subcat->name;
+										echo "<li><a href=\"$link\">$name</a></li>";
+									}
+									echo "</ul>";
+									echo "</div>";
+								}		
+							}
+						?>
+					</div>
 				</div>
 			</div>
 	</header><!-- #masthead -->
