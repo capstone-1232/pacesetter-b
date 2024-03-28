@@ -22,20 +22,20 @@ $j(document).ready(function () {
     });
 
     // Toggle mobile dropdown menu
-    $j(".main-nav-toggle").click(function () {
+    $j(".main-nav-toggle").on("click", function () {
         $j(".toggle-menu").slideToggle();
         $j(".main-nav-toggle .open").toggleClass("hidden");
         $j(".main-nav-toggle .close").toggleClass("hidden");
-        $j(".right-column").removeClass("shown");
+        $j(".right-column").hide("fold");
         $j(".column-container").removeClass("flex-container");
         $j(".left-column").removeClass("squished");
-        // $j(".subcategories").html("");
+
 
 
 
 
         // Makes document unscrollable if menu dropdown visible.
-        // $j("html").toggleClass("overflow-hidden");
+        $j("body").toggleClass("overflow-hidden");
     });
 
     // check if user clicks outside of search bar to close it
@@ -66,10 +66,14 @@ $j(document).ready(function () {
     })
 
     $j(".right-column button").on("click", function() {
-        $j(".left-column").removeClass("squished");
-        // $j(".right-column").removeClass("shown");
-        $j(".right-column").hide("fold");
-        $j(".column-container").removeClass("flex-container");
+        $j(".right-column").hide({
+            done: function() {
+                $j(".left-column").removeClass("squished");
+                $j(".column-container").removeClass("flex-container");
+            }
+        });
+        // $j(".left-column").removeClass("squished");
+        // $j(".column-container").removeClass("flex-container");
     });
 
 });

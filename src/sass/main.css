@@ -324,6 +324,7 @@ p {
 }
 
 .toggle-menu {
+  height: 85vh;
   width: 100vw;
   background-color: #FFFFFF;
   position: absolute;
@@ -345,8 +346,10 @@ p {
 
 .billboard {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   justify-content: space-between;
+  height: 126px;
+  overflow-x: scroll;
 }
 .billboard .category-select {
   display: flex;
@@ -355,7 +358,7 @@ p {
   height: 52px;
   background-color: yellow;
   width: 49%;
-  margin-bottom: 3%;
+  margin: 0 3% 3% 0;
 }
 .billboard a {
   font-family: "racing_sans_oneregular", sans-serif;
@@ -388,8 +391,8 @@ p {
   width: 50%;
 }
 .left-column.squished .billboard {
-  flex-flow: unset;
-  flex-direction: column;
+  flex-direction: row;
+  height: 164px;
 }
 .left-column.squished .category-select {
   width: 100%;
@@ -404,12 +407,14 @@ p {
   align-items: center;
   width: 50%;
   background-color: #FFFFFF;
-  box-shadow: -4px 0px 4px rgba(1, 53, 98, 0.5);
+  box-shadow: -4px 0px 0px rgba(1, 53, 98, 0.5);
   transition: right 0.5s ease-in-out;
 }
 .right-column .subcategories {
-  width: 80%;
+  padding: 10%;
   align-items: center;
+  height: 70vh;
+  overflow-y: scroll;
 }
 .right-column button {
   padding: 1rem;

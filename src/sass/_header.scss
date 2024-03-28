@@ -108,7 +108,7 @@ p {
 }
 
 .toggle-menu {
-    // height: 100vh;
+    height: 85vh;
     width: 100vw;
     background-color: $white;
     position: absolute;
@@ -133,8 +133,10 @@ p {
 
 .billboard {
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     justify-content: space-between;
+    height: 126px;
+    overflow-x: scroll;
 
     .category-select {
         display: flex;
@@ -143,7 +145,7 @@ p {
         height: 52px;
         background-color: yellow;
         width: 49%;
-        margin-bottom: 3%;
+        margin: 0 3% 3% 0;
     }
 
     a {
@@ -181,8 +183,8 @@ p {
     // overflow-y: scroll;
 
     .billboard {
-        flex-flow: unset;
-        flex-direction: column;
+        flex-direction: row;
+        height: 164px;
     }
 
     .category-select {
@@ -201,12 +203,16 @@ p {
     width: 50%;
     background-color: $white;
 
-    box-shadow: -4px 0px 4px rgba($primary-blue, 0.5);
+    box-shadow: -4px 0px 0px rgba($primary-blue, 0.5);
     transition: right 0.5s ease-in-out;
 
     .subcategories {
-        width: 80%;
+        // width: 70%;
+        // margin: 0 auto;
+        padding: 10%;
         align-items: center;
+        height: 70vh;
+        overflow-y: scroll;
     }
 
     button {
