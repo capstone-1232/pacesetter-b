@@ -240,6 +240,7 @@ a {
 .info-nav div:last-of-type {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 .operation-hours {
