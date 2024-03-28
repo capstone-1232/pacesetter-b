@@ -16,28 +16,97 @@
         grid-template-rows: repeat(3, auto);
         padding: 1rem;
 
-        .svg {
+        svg {
+            display: block;
+            margin: 0 auto;
+            align-items: center;
             width: 64px;
             grid-row: 2/3;
             align-items: center;
         }
         h3 {
+            display: block;
             grid-row: 1/2;
-            width: 70%; 
+            width: 80%;
+            max-width: 300px;
             margin: 1rem auto;
             text-align: center;
             padding-bottom: 0.25rem;
             border-bottom: 2px solid $orange;
         }
         p {
+            max-width: 500px;
             grid-row: 3/-1;
-            margin: 1rem 0;
+            margin: 1rem auto;
+            
         }
     }
 }
 
 @media screen and (min-width: 700px) {
     .banner-text {
+        .banner-text-1, .banner-text-2 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            align-items: center;
+    
+            svg {
+                align-items: center;
+                grid-column: 1/2;
+                grid-row: 1/ span 2;
+                width: 80px;
+                height: 80px;
+            }
+
+            h3 {
+                display: block;
+                grid-column: 2/-1;
+                grid-row: 1/2;
+                max-width: 300px;
+                margin: 1rem 0;
+                text-align: left;
+                padding-bottom: 0.25rem;
+                border-bottom: 2px solid $orange;
+            }
+
+            p {
+                grid-column: 2/-1;
+                grid-row: 2/-1;
+                margin: unset;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+
+
+}
+
+@media screen and (min-width: 897px) {
+    .banner-text {
         display: flex;
+
+        .banner-text-1 {
+            width: 50%;
+            padding: 1rem 3rem 1rem 1rem;
+            h3 {
+                max-width: unset;
+            }
+        }
+        .banner-text-2 {
+            width: 50%;
+            padding: 1rem 3rem 1rem 1rem;
+            h3 {
+                max-width: unset;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .banner-text .banner-text-1 svg, .banner-text .banner-text-2 svg {
+        width: 80px;
+        height: 80px;
     }
 }

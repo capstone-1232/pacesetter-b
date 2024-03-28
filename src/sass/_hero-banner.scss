@@ -1,0 +1,35 @@
+@import 'colors';
+@import 'typography';
+@import 'fonts';
+
+#hero-carousel.slider .carousel-inner .slide {
+    background-image: center / cover no-repeat;
+
+    .slide-content {
+        padding: 2rem 1rem 4rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto 5rem auto;
+
+        h2 {
+            color: $darkbluebtn;
+        }
+        p {
+            color: $primary-blue;
+            margin-bottom: 3rem;
+        }
+        a {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+        }
+        a:first-of-type {
+            background-color: $primary-yellow;
+            color: $black;
+            margin-right: 0.5rem;
+        }
+        a:nth-of-type(2) {
+            background-color: $darkbluebtn;
+            color: $white;
+        }
+    }
+}

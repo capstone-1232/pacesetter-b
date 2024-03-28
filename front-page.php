@@ -54,7 +54,7 @@ get_header();
 							points="146.568,389.529 124.947,357.897 92.307,379.997 114.026,411.772 "></polygon>
 					</g>
 				</svg>
-				<h3>Excellent customer service</h3>
+				<h3>Excellent Customer Service</h3>
 				<p>Whether you're seeking assistance with a product, need help navigating our services, or simply want to share your experience, we're here to help.
 				</p>
 			</div>
@@ -108,7 +108,7 @@ get_header();
 						</path>
 					</g>
 				</svg>
-				<h3>Custom fittings</h3>
+				<h3>Custom Fittings</h3>
 				<p>Our expert team is here to ensure that your ski equipment fits you like a glove, providing optimal comfort, performance, and safety on the slopes.</p>
 			</div>
 		</div>
