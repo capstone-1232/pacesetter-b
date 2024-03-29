@@ -3,6 +3,7 @@
 
 .banner-text {
     color: $white;
+    border-bottom: 12px solid $primary-yellow;
     .banner-text-1 {
         background-color: $secondary-blue;
     }
@@ -22,7 +23,6 @@
             align-items: center;
             width: 64px;
             grid-row: 2/3;
-            align-items: center;
         }
         h3 {
             display: block;

@@ -20,7 +20,7 @@ get_header();
 		<?php get_template_part('template-parts/hero-banner'); ?>
 		<div class="banner-text">
 			<div class="banner-text-1">
-				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+				<svg class="banner-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" width="64px"
 					height="64px" fill="#000000">
 					<title>Satisfaction guaranteed, hand serving three stars for customer service.</title>
@@ -59,7 +59,7 @@ get_header();
 				</p>
 			</div>
 			<div class="banner-text-2">
-				<svg height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+				<svg class="banner-svg" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
 					fill="#000000">
 					<title>A picture of of a set of skis with ski poles upright</title>
