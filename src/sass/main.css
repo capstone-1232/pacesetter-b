@@ -745,6 +745,7 @@ a {
 }
 .banner-text {
   color: #FFFFFF;
+  border-bottom: 12px solid #F9D70F;
 }
 .banner-text .banner-text-1 {
   background-color: #01509D;
@@ -949,6 +950,8 @@ a {
   border-radius: 0.25rem;
   background-color: #F9D70F;
   color: #000000;
+  margin-left: auto;
+  margin-right: 0;
 }
 .featured-products a.yellow-btn svg {
   margin-left: 0.25rem;
@@ -1097,6 +1100,8 @@ a {
   border-radius: 0.25rem;
   background-color: #FFFFFF;
   color: #000000;
+  margin-left: auto;
+  margin-right: 0;
 }
 .landing-page-events .landing-page-events-text a.white-button svg {
   margin-left: 0.25rem;
