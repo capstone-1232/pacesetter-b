@@ -41,23 +41,3 @@ html {
 .container {
     margin: 2rem 1rem;
 }
-
-a.btn {
-    position: unset;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    max-width: fit-content !important;
-    width: unset;
-    height: unset;
-    text-decoration: none;
-    padding: 0.45rem 0.75rem;
-    border-radius: 0.25rem !important;
-    
-    svg {
-        margin-left: 0.25rem;
-        max-width: 0.9rem;
-        max-height: 0.9rem;
-    }
-}
