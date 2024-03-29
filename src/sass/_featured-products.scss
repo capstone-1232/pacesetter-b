@@ -1,0 +1,10 @@
+@import 'colors';
+@import 'typography';
+@import 'fonts';
+
+.featured-products {
+    a.yellow-btn {
+        background-color: $primary-yellow;
+        color: $black;
+    }
+}

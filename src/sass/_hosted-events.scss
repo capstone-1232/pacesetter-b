@@ -1,0 +1,43 @@
+@import 'colors';
+@import 'typography';
+@import 'fonts';
+
+.landing-page-events {
+    padding: 6rem 0 4rem 0;
+    position: relative;
+
+    background-image: url('https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/landing-page-events-smbg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1 !important;
+
+    img {
+        border-top-right-radius: 130px;
+        border-bottom-left-radius: 130px;
+        position: absolute;
+        left: -3rem;
+        height: 190px;
+        margin-right: 48px;
+        z-index: 0 !important;
+    }
+
+    .landing-page-events-text {
+        padding: 0.5rem 1rem 1.5rem 1rem;
+        margin: 7rem 0.65rem 0 0.65rem;
+        color: $white;
+        background: rgb(12,103,192);
+        background: linear-gradient(180deg, rgba(12,103,192,1) 0%, rgba(1,80,157,1) 100%);
+        z-index: 1000 !important;
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a.white-button {
+            background-color: $white;
+            color: $black;
+        }
+    }
+
+}
