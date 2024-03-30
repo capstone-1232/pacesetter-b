@@ -211,7 +211,7 @@
 							?>
 						</div>
 					</nav>
-					<div class="category-dropdown absolute">
+					<div class="category-dropdown absolute hidden">
 						<?php
 							foreach ($product_categories as $category) {
 								if ($category->parent == 0 && $category->slug != "uncategorized") {
