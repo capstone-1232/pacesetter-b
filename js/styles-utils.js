@@ -13,29 +13,25 @@ $j(document).ready(function () {
 
     $j("#show-search").click(function () {
         $j("#main-search").toggle({
-            done: function () {
-                $j(".cart-link").toggle();
-                $j(".operation-hours").toggle();
-                $j(".nav-utils").toggleClass("full-width");
+            start: function () {
+                $j(".cart-link").hide("fold");
+                $j(".operation-hours").hide("fold");
+                // $j(".nav-utils").toggleClass("full-width");
             },
         });
     });
 
     // Toggle mobile dropdown menu
-    $j(".main-nav-toggle").click(function () {
+    $j(".main-nav-toggle").on("click", function () {
         $j(".toggle-menu").slideToggle();
         $j(".main-nav-toggle .open").toggleClass("hidden");
         $j(".main-nav-toggle .close").toggleClass("hidden");
-        $j(".right-column").removeClass("shown");
+        $j(".right-column").hide("fold");
         $j(".column-container").removeClass("flex-container");
         $j(".left-column").removeClass("squished");
-        // $j(".subcategories").html("");
-
-
-
 
         // Makes document unscrollable if menu dropdown visible.
-        // $j("html").toggleClass("overflow-hidden");
+        $j("body").toggleClass("overflow-hidden");
     });
 
     // check if user clicks outside of search bar to close it
@@ -44,15 +40,18 @@ $j(document).ready(function () {
         let targetElement = $j(".search-section");
         if (!targetElement.is(evt.target) && targetElement.has(evt.target).length === 0) {
             $j("#main-search").hide({
-                done: function () {
-                    $j(".cart-link").show();
-                    $j(".operation-hours").show();
-                    $j(".nav-utils").removeClass("full-width");
-                },
+                start: function () {
+                    // $j(".nav-utils").removeClass("full-width");
+                    $j(".cart-link").show("fold");
+                    $j(".operation-hours").show("fold");
+                }
             });
+            // $j(".cart-link").show();
+            // $j(".operation-hours").show();
         }
     });
 
+    // Toggles open subcategory menu and double column layout switch on tap
     $j(".category-select").on("click", function () {
         $j(".subcategories").hide("fold");
 
@@ -65,11 +64,16 @@ $j(document).ready(function () {
 
     })
 
+    // closes right column on button click
     $j(".right-column button").on("click", function() {
-        $j(".left-column").removeClass("squished");
-        // $j(".right-column").removeClass("shown");
-        $j(".right-column").hide("fold");
-        $j(".column-container").removeClass("flex-container");
+        $j(".right-column").hide({
+            done: function() {
+                $j(".left-column").removeClass("squished");
+                $j(".column-container").removeClass("flex-container");
+            }
+        });
+        // $j(".left-column").removeClass("squished");
+        // $j(".column-container").removeClass("flex-container");
     });
 
 });
