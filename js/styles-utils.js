@@ -53,27 +53,39 @@ $j(document).ready(function () {
 
     // Toggles open subcategory menu and double column layout switch on tap
     $j(".category-select").on("click", function () {
-        $j(".subcategories").hide("fold");
 
-        $j(".right-column").show();
-        $j(".left-column").addClass("squished");
+
         $j(".column-container").addClass("flex-container");
 
-        let queryStr = ".subcategories." + $j(this).text();
-        $j(queryStr).toggle("slide");
+        $j(".left-column").addClass("squished", {
+            duration: "200",
+            easing: "easeInOutExpo",
+        });
 
+        $j(".right-column").show("fold");
+
+        let queryStr = ".subcategories." + $j(this).text();
+
+        if (!$j(this).hasClass("selected")){
+            $j(".category-select").removeClass("selected");
+
+            $j(".subcategories").hide("fold");
+            $j(queryStr).toggle("slide");
+        }
+
+        $j($j(this)).addClass("selected");
     })
 
     // closes right column on button click
     $j(".right-column button").on("click", function() {
+        $j(".category-select").removeClass("selected");
+
         $j(".right-column").hide({
             done: function() {
                 $j(".left-column").removeClass("squished");
                 $j(".column-container").removeClass("flex-container");
             }
         });
-        // $j(".left-column").removeClass("squished");
-        // $j(".column-container").removeClass("flex-container");
     });
 
 });

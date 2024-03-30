@@ -2,6 +2,7 @@
 @import 'fonts.scss';
 @import 'typography.scss';
 @import 'utilities.scss';
+@import 'animations.scss';
 
 @import 'header.scss';
 @import 'footer.scss';
@@ -9,3 +10,5 @@
 @import 'single-products.scss';
 @import '_front-page.scss';
 @import '_hosted-event.scss';
+
+@import 'overrides.scss';
