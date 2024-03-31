@@ -12,7 +12,6 @@ Template Name: Products Category Template
         
         // Get the current page slug
         $current_slug = basename(get_permalink());
-        echo $current_slug;
         $current_url = get_permalink();
 
         // Get the WooCommerce product category based on the slug

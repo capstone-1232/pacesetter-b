@@ -37,61 +37,142 @@ Template Name: Products Category Page Template
         </div>
         <img src="<?php echo esc_url($banner_image);?>" alt="">
         </div>
-        <div class="filters"></div>
+        <?php get_template_part('template-parts/breadcrumbs'); ?>
+        <div id="filters"></div>
         <div id="removeFilterList"></div>
         <div id="products">
-        <?php
-        get_template_part('template-parts/breadcrumbs');
-        $args = array(
-            'post_type' => 'product',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'product_cat',
-                    'field' => 'slug',
-                    'terms' => 'mens-snowboards', // Slug of the category
-                ),
-            ),
-        );
-        
-        $products_query = new WP_Query($args);
-        
-        // Now you can loop through the products
-        if ($products_query->have_posts()) {
-            while ($products_query->have_posts()) {
-                $products_query->the_post();
-                $product_id = $products_query->ID;
-                $product_image_url = get_the_post_thumbnail_url($product_id, 'full');
-                $product_price = $product->get_price();
-                $product_url = get_permalink($product_id);
-                $in_stock = $product->is_in_stock() ? 'In Stock <svg fill="#000000" width="16px" height="16px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>checkmark</title> <path d="M16 3c-7.18 0-13 5.82-13 13s5.82 13 13 13 13-5.82 13-13-5.82-13-13-13zM23.258 12.307l-9.486 9.485c-0.238 0.237-0.623 0.237-0.861 0l-0.191-0.191-0.001 0.001-5.219-5.256c-0.238-0.238-0.238-0.624 0-0.862l1.294-1.293c0.238-0.238 0.624-0.238 0.862 0l3.689 3.716 7.756-7.756c0.238-0.238 0.624-0.238 0.862 0l1.294 1.294c0.239 0.237 0.239 0.623 0.001 0.862z"></path> </g></svg>' : 'Out of Stock <svg fill="#000000" width="16px" height="16px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>cancel</title> <path d="M16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13zM21.961 12.209c0.244-0.244 0.244-0.641 0-0.885l-1.328-1.327c-0.244-0.244-0.641-0.244-0.885 0l-3.761 3.761-3.761-3.761c-0.244-0.244-0.641-0.244-0.885 0l-1.328 1.327c-0.244 0.244-0.244 0.641 0 0.885l3.762 3.762-3.762 3.76c-0.244 0.244-0.244 0.641 0 0.885l1.328 1.328c0.244 0.244 0.641 0.244 0.885 0l3.761-3.762 3.761 3.762c0.244 0.244 0.641 0.244 0.885 0l1.328-1.328c0.244-0.244 0.244-0.641 0-0.885l-3.762-3.76 3.762-3.762z"></path> </g></svg>';
-                // Render products
-                ?>
-                <a href="<?php echo $product_url?>">
-                    <div>
-                        <img src="<?php echo $product_image_url?>" alt="">
-                        <h3><?php the_title();?></h3>
-                        <?php echo $in_stock?>
-                        <p>$<?php echo $product_price?></p>
-                    </div>
-                </a>
-                <?php
-            }
-            wp_reset_postdata();
-        } else {
-            // No products found
-            echo 'No products found in the "mens-snowboards" category.';
-        }
-        ?>
         </div>
     </main>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        offset = 12;
+        currentSlug = "<?php echo $current_slug?>";
 
+        // Array to store selected filters
+        var selectedFilters = [];
+
+        function updateProducts() {
+            var xhr = new XMLHttpRequest();
+            var filtersJSON = JSON.stringify(selectedFilters);
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('products').innerHTML = xhr.responseText;
+                    } else {
+                        console.error('Error:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+            xhr.open('POST', ajax_object.ajax_url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            xhr.send('action=fetch_products&offset=' + offset + '&current_slug=' + currentSlug + '&filters=' + encodeURIComponent(filtersJSON));
+        }
+        updateProducts();
+        
+        function updateActiveFilters() {
+            var xhr = new XMLHttpRequest();
+            var filtersJSON = JSON.stringify(selectedFilters);
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('filters').innerHTML = xhr.responseText;
+                    } else {
+                        console.error('Error:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+            xhr.open('POST', ajax_object.ajax_url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            xhr.send('action=update_active_product_list_function&filters=' + encodeURIComponent(filtersJSON));
+        }
+        updateActiveFilters()
+
+        // Function to update filter list with selected filters
+        function updateFiltersList() {
+            var xhr = new XMLHttpRequest();
+            var filtersJSON = JSON.stringify(selectedFilters);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('removeFilterList').innerHTML = xhr.responseText;
+                    } else {
+                        console.error('Error:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+
+            xhr.open('POST', ajax_object.ajax_url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            xhr.send('action=remove_product_filter_list_function&filters=' + encodeURIComponent(filtersJSON));
+        }
+
+        // Event handler for filter buttons (using event delegation)
+        document.addEventListener('click', function(event) {
+            // Check if the clicked element has the class '.events-filter'
+            if (event.target && event.target.classList.contains('products-filter')) {
+                event.preventDefault(); // Prevent default link behavior
+
+                // Get data attributes
+                var filterType = event.target.dataset.filter;
+                var filterValue = event.target.dataset.value;
+
+                // Check if the filter type is already present in the array
+                var existingFilterIndex = selectedFilters.findIndex(function (item) {
+                    return item.filterType === filterType;
+                });
+
+                // If present, replace the value; otherwise, add a new entry
+                if (existingFilterIndex !== -1) {
+                    selectedFilters[existingFilterIndex].filterValue = filterValue;
+                } else {
+                    selectedFilters.push({ filterType: filterType, filterValue: filterValue });
+                }
+
+                // Call functions
+                updateProducts();
+                updateFiltersList();
+                updateActiveFilters();
+            }
+        });
+
+        // Attach event listener to document for event delegation
+        document.addEventListener('click', function(event) {
+            // Check if the clicked element has the class '.events-filter-remove'
+            if (event.target && event.target.classList.contains('product-filter-remove')) {
+                event.preventDefault(); // Prevent default link behavior
+
+                // Access data attributes
+                var filterType = event.target.getAttribute('data-filter');
+                var filterValue = event.target.getAttribute('data-value');
+
+                selectedFilters = selectedFilters.filter(function(item) {
+                    return item.filterType !== filterType || item.filterValue !== filterValue;
+                });
+
+                // Call functions
+                updateProducts();
+                updateFiltersList();
+                updateActiveFilters();
+            }
+        });
+
+        // Event handler for filter buttons (using event delegation)
+        document.addEventListener('click', function(event) {
+            // Check if the clicked element has the class '.events-filter'
+            if (event.target && event.target.classList.contains('view-more-btn')) {
+                event.preventDefault();
+
+                // Increment offset
+                offset = offset + 12;
+
+                // Call functions
+                updateProducts()
+            }
+        });
+    });
+</script>
 <?php get_footer(); ?>
-
-<?php
-// Helper function to get category image URL
-function get_category_image_url($category_id) {
-    $category_image_id = get_term_meta($category_id, 'thumbnail_id', true);
-    return $category_image_id ? wp_get_attachment_url($category_image_id) : '';
-}
-?>
