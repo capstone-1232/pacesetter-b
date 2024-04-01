@@ -11,7 +11,7 @@ $j(document).ready(function () {
         evt.preventDefault();
     });
     $j(".dropdown-menu").toggle();
-    
+
 
     if ($j(window).width() < 768) {
         $j("#show-search").click(function () {
@@ -97,6 +97,14 @@ $j(document).ready(function () {
     $j(".dropdown-toggle").on("click", function (evt) {
         evt.preventDefault();
         $j(".dropdown-menu").slideToggle();
+
+        // rotates chevron svg on click
+        var transformValue = $j(".dropdown-toggle svg").attr("transform");
+        if (transformValue === "rotate(180)") {
+            $j(".dropdown-toggle svg").attr("transform", "rotate(0)");
+        } else {
+            $j(".dropdown-toggle svg").attr("transform", "rotate(180)");
+        }
     });
 
     $j(".search-field").on("click", function () {
