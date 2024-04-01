@@ -1,4 +1,4 @@
-<section class="basic-products">
+<section class="container basic-products">
     <h2>New to the Slopes? <span>Get the basics here!</span></h2>
     <?php
     // Get product category ID for "basics"
