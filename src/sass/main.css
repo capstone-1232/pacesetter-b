@@ -1292,4 +1292,7 @@ a {
   font-family: "poppinslight";
   src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
   font-style: normal;
+}
+.basic-products h2 span {
+  display: block;
 }/*# sourceMappingURL=main.css.map */
