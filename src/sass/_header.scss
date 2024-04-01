@@ -7,6 +7,11 @@
     display: none;
 }
 
+.info-nav,
+.main-nav{
+    z-index: 10;
+}
+
 // Info nav styling
 .info-nav {
     background-color: $primary-blue;
@@ -26,6 +31,7 @@
 
 .operation-hours {
     margin-left: 10px;
+    min-width: fit-content;
 }
 
 .site-search {
@@ -48,7 +54,7 @@
 }
 
 .show-search {
-    z-index: 15;
+    z-index: 9;
 
     svg {
         color: $white;
@@ -119,7 +125,7 @@ p {
     background-color: $white;
     position: absolute;
     left: 0;
-    z-index: 999;
+    z-index: 9;
 
     transform: perspective(400px) rotateY(0deg); /* Set initial rotation */
     transition: transform 0.5s ease; /* Add smooth transition */
@@ -250,14 +256,26 @@ p {
 
 // Desktop styling
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     .desktop-nav {
         display: flex;
+        height: 100%;
     }
 
     .toggle-menu,
     .toggle-nav {
         display: none;
+    }
+
+    .info-nav{
+        div:last-of-type {
+            justify-content: right;
+        }
+
+        #main-search,
+        #main-search.hidden {
+            display: block;
+        }
     }
 
     .main-nav{
@@ -268,21 +286,93 @@ p {
     .navlinks{
         width: unset;
         display: flex;
+        align-items: center;
+        margin: unset;
+        white-space: nowrap;
+        overflow: hidden;
+
+        a{
+            border: unset;
+            padding: 1rem;
+
+            &:hover{
+                background-color: $white;
+            }
+        }
     }
     
     .nav-utils{
         flex-direction: row-reverse;
     }
 
-    #main-search {
-        display: block;
-    }
-
     .category-dropdown{
         position: absolute;
         bottom: 0;
         background-color: $white;
-        z-index: 99;
+        z-index: 9;
     }
 
+    .dropdown-menu{
+        top: 50px;
+        left: 0;
+        z-index: 9;
+        background-color: $white;
+        width: 100%;
+        display: flex;
+        // overflow-x: scroll;
+        box-shadow: 7px 0px 5px $primary-blue;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        &>div{
+            padding: 1rem;
+            width: 25%;
+        }
+
+        .underline{
+            display: block;
+            width: 90%;
+            height: 4px;
+            position: relative;
+            left: 10%;
+            background-color: $primary-yellow;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+            border-radius: 0.5rem;
+
+            &:hover{
+                background-color: $primary-yellow;
+            }
+
+            a{
+                padding: 0.5rem 2rem 0.5rem 3rem;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .dropdown-toggle{
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            span{
+                display: flex;
+                align-items: center;
+            }
+
+            svg{
+                width: 20px;
+                height: auto;
+            }
+        }
+    }
 }

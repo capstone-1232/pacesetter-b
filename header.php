@@ -87,7 +87,7 @@
 				<a class="skip-link screen-reader-text" href="#primary">
 					<?php esc_html_e('Skip to content', 'pacesetter'); ?>
 				</a>
-				<div class="main-nav">
+				<div class="main-nav relative">
 					<div class="site-branding">
 						<?php
 						the_custom_logo();
@@ -202,41 +202,42 @@
 							<?php
 							$menu = wp_get_nav_menu_items('18');
 							foreach ($menu as $link) {
-								if ($link->title != "Products"){
-									echo "<a href=\"$link->url\" class=\"dropdown-toggle\">$link->title</a>";
+								if ($link->title == "Products"){
+									echo "<a href=\"$link->url\" class=\"dropdown-toggle\">$link->title <span><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m19.5 8.25-7.5 7.5-7.5-7.5\" /></svg></span></a>";
+									echo "";
 								} else {
 									echo "<a href=\"$link->url\">$link->title</a>";
 								}
 							}
 							?>
 						</div>
+						<div class="dropdown-menu absolute">
+							<?php
+								foreach ($product_categories as $category) {
+									if ($category->parent == 0 && $category->slug != "uncategorized") {
+										$subcategories = get_terms(
+											array(
+												'taxonomy' => 'product_cat',
+												'hide_empty' => false,
+												'parent' => $category->term_id,
+											)
+										);
+	
+										echo "<div>";
+										echo "<h3><a href=\"" . get_term_link($category) . "\">" . $category->name . "</a><span class=\"underline\"><span></h3>";
+										echo "<ul>";
+										foreach ($subcategories as $subcat) {
+											$link = get_term_link($subcat);
+											$name = $subcat->name;
+											echo "<li><a href=\"$link\">$name</a></li>";
+										}
+										echo "</ul>";
+										echo "</div>";
+									}		
+								}
+							?>
+						</div>
 					</nav>
-					<div class="category-dropdown absolute hidden">
-						<?php
-							foreach ($product_categories as $category) {
-								if ($category->parent == 0 && $category->slug != "uncategorized") {
-									$subcategories = get_terms(
-										array(
-											'taxonomy' => 'product_cat',
-											'hide_empty' => false,
-											'parent' => $category->term_id,
-										)
-									);
-
-									echo "<div class=\"category-select\">";
-									echo "<a href=\"" . get_term_link($category) . "\">" . $category->name . "</a>";
-									echo "<ul>";
-									foreach ($subcategories as $subcat) {
-										$link = get_term_link($subcat);
-										$name = $subcat->name;
-										echo "<li><a href=\"$link\">$name</a></li>";
-									}
-									echo "</ul>";
-									echo "</div>";
-								}		
-							}
-						?>
-					</div>
 				</div>
 			</div>
 	</header><!-- #masthead -->

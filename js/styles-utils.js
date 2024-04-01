@@ -10,16 +10,19 @@ $j(document).ready(function () {
     $j(".category-select a").on("click", function (evt) {
         evt.preventDefault();
     });
+    $j(".dropdown-menu").toggle();
+    
 
-    $j("#show-search").click(function () {
-        $j("#main-search").toggle({
-            start: function () {
-                $j(".cart-link").hide("fold");
-                $j(".operation-hours").hide("fold");
-                // $j(".nav-utils").toggleClass("full-width");
-            },
+    if ($j(window).width() < 768) {
+        $j("#show-search").click(function () {
+            $j("#main-search").toggle({
+                start: function () {
+                    $j(".cart-link").hide("fold");
+                    $j(".operation-hours").hide("fold");
+                },
+            });
         });
-    });
+    }
 
     // Toggle mobile dropdown menu
     $j(".main-nav-toggle").on("click", function () {
@@ -29,6 +32,7 @@ $j(document).ready(function () {
         $j(".right-column").hide("fold");
         $j(".column-container").removeClass("flex-container");
         $j(".left-column").removeClass("squished");
+        $j(".category-select").removeClass("selected");
 
         // Makes document unscrollable if menu dropdown visible.
         $j("body").toggleClass("overflow-hidden");
@@ -39,15 +43,17 @@ $j(document).ready(function () {
     $j(document).on("click", function (evt) {
         let targetElement = $j(".search-section");
         if (!targetElement.is(evt.target) && targetElement.has(evt.target).length === 0) {
-            $j("#main-search").hide({
-                start: function () {
-                    // $j(".nav-utils").removeClass("full-width");
-                    $j(".cart-link").show("fold");
-                    $j(".operation-hours").show("fold");
-                }
-            });
-            // $j(".cart-link").show();
-            // $j(".operation-hours").show();
+
+            if ($j(window).width() < 768) {
+                $j("#main-search").hide({
+                    start: function () {
+                        $j(".cart-link").show("fold");
+                        $j(".operation-hours").show("fold");
+                    }
+                });
+            } else {
+                $j(".nav-utils").removeClass("full-width", 500);
+            }
         }
     });
 
@@ -66,7 +72,7 @@ $j(document).ready(function () {
 
         let queryStr = ".subcategories." + $j(this).text();
 
-        if (!$j(this).hasClass("selected")){
+        if (!$j(this).hasClass("selected")) {
             $j(".category-select").removeClass("selected");
 
             $j(".subcategories").hide("fold");
@@ -77,15 +83,24 @@ $j(document).ready(function () {
     })
 
     // closes right column on button click
-    $j(".right-column button").on("click", function() {
+    $j(".right-column button").on("click", function () {
         $j(".category-select").removeClass("selected");
 
         $j(".right-column").hide({
-            done: function() {
+            done: function () {
                 $j(".left-column").removeClass("squished");
                 $j(".column-container").removeClass("flex-container");
             }
         });
+    });
+
+    $j(".dropdown-toggle").on("click", function (evt) {
+        evt.preventDefault();
+        $j(".dropdown-menu").slideToggle();
+    });
+
+    $j(".search-field").on("click", function () {
+        $j(".nav-utils").addClass("full-width", 500);
     });
 
 });
