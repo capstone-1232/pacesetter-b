@@ -1,3 +1,5 @@
+@import "colors";
+
 html {
     scroll-behavior: smooth;
   }
@@ -55,4 +57,20 @@ html {
 
 .justify-center{
     justify-content: center;
+}
+
+.offset-underline{
+    display: block;
+    width: 90%;
+    height: 4px;
+    position: relative;
+    left: 10%;
+    background-color: $primary-yellow;
+}
+
+.straight-underline{
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $primary-yellow;
 }
