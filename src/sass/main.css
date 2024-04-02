@@ -903,13 +903,13 @@ p {
 }
 .billboard .category-select.selected {
   background-color: #013562;
-  animation-name: inline-uu8xhta;
+  animation-name: inline-uisg6kc;
   animation-duration: 0.3s;
 }
 .billboard .category-select.selected a {
   color: #FFFFFF;
 }
-@keyframes inline-uu8xhta {
+@keyframes inline-uisg6kc {
   from {
     background-color: #F9D70F;
   }
