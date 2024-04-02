@@ -800,7 +800,7 @@ a {
 }
 .event-menu div {
   display: flex;
-  width: 48%;
+  width: 100%;
   border: 2px solid #FC7804;
   border-radius: 5px;
   align-items: center;
@@ -813,7 +813,7 @@ a {
 }
 
 .event-filters {
-  display: none;
+  background-color: white;
 }
 
 .related-events__wrapper {
@@ -832,9 +832,6 @@ a {
   font-size: 20px;
   font-weight: 600;
   margin: 0.5rem 0;
-}
-.related-events__wrapper div > p {
-  display: none;
 }
 .related-events__wrapper div div:first-of-type {
   display: flex;
@@ -1032,13 +1029,13 @@ a {
 }
 .billboard .category-select.selected {
   background-color: #013562;
-  animation-name: inline-u7x2mnn;
+  animation-name: inline-u0bnxjs;
   animation-duration: 0.3s;
 }
 .billboard .category-select.selected a {
   color: #FFFFFF;
 }
-@keyframes inline-u7x2mnn {
+@keyframes inline-u0bnxjs {
   from {
     background-color: #F9D70F;
   }

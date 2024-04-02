@@ -11,7 +11,7 @@
 
     div{
         display: flex;
-        width: 48%;
+        width: 100%;
         border: 2px solid $orange;
         border-radius: 5px;
         align-items: center;
@@ -25,9 +25,8 @@
     }
 }
 
-// temp
 .event-filters{
-    display: none;
+    background-color: white;
 }
 
 .related-events__wrapper {
@@ -49,10 +48,6 @@
     }
 
     div{
-
-        &>p{
-            display: none;
-        }
 
         div:first-of-type{
             display: flex;

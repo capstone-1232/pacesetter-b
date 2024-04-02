@@ -11,6 +11,7 @@ $j(document).ready(function () {
         evt.preventDefault();
     });
     $j(".dropdown-menu").toggle();
+    $j(".event-filters").hide();
 
 
     if ($j(window).width() < 768) {
@@ -94,6 +95,8 @@ $j(document).ready(function () {
         });
     });
 
+
+    // toggles dropdown menu
     $j(".dropdown-toggle").on("click", function (evt) {
         evt.preventDefault();
         $j(".dropdown-menu").slideToggle();
@@ -107,8 +110,17 @@ $j(document).ready(function () {
         }
     });
 
+    // expand search bar when activated in desktop
     $j(".search-field").on("click", function () {
         $j(".nav-utils").addClass("full-width", 500);
+    });
+
+    // toggles slideover filter menu
+    $j(".filter-toggle").on("click", function () {
+        console.log("filters clicked");
+        $j(".event-filters").animate({
+            width: "toggle",
+        }, 200);
     });
 
 });
