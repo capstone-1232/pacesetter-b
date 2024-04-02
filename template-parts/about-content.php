@@ -5,7 +5,7 @@
         we strive to elevate your skiing and snowboarding experience to new heights. Whether you're a seasoned pro or
         hitting the slopes for the first time, trust Pacesetter to outfit you for adventure in style and comfort.</p>
     <div class="links">
-        <a href="/about-us">Read More</a>
-        <a href="/contact-us">Contact Us</a>
+        <a class="orange-btn" href="/about-us">Read More</a>
+        <a class="white-btn" href="/contact-us">Contact Us</a>
     </div>
 </section>
