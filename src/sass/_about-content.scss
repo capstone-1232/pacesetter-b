@@ -14,8 +14,8 @@
     &::before {
         content: '';
         position: absolute;
-        top: -60;
-        left: 0;
+        top: -60px;
+        left: 0px;
         width: 100%;
         min-height: 24%;
         background-color: $primary-blue;
@@ -28,8 +28,8 @@
     &::after {
         content: '';
         position: absolute;
-        bottom: -20;
-        left: 0;
+        bottom: -30px;
+        left: 0px;
         width: 100%;
         min-height: 24%;
         background-color: $secondary-blue;
@@ -40,7 +40,7 @@
 
     h2 {
         position: absolute;
-        top: -30;
+        top: -30px;
         z-index: 10;
         margin: 1rem;
     }
@@ -51,7 +51,7 @@
         justify-content: center;
         gap: 1.5rem;
         position: absolute;
-        bottom: -15;
+        bottom: -15px;
         z-index: 10;
 
         a.orange-btn, a.white-btn {
@@ -84,10 +84,8 @@
     }
 }
 
-// @media screen and (min-width: 330px) {
+// @media screen and (min-width: 520px) {
 //     .front-page-about {
-//         p {
-//             padding: 5rem 2rem;
-//         }
+        
 //     }
 // }

@@ -30,7 +30,7 @@
         padding: 0.5rem 1.5rem 1.5rem 1.5rem;
         margin: 0 1rem;
         position: absolute;
-        top: 250;
+        top: 250px;
         color: $white;
         background: rgb(12,103,192);
         background: linear-gradient(180deg, rgba(12,103,192,1) 0%, rgba(1,80,157,1) 100%);
@@ -79,12 +79,12 @@
 
         .landing-page-events-text {
             position: absolute;
-            top: 320;
-            right: 1;
+            top: 320px;
+            right: 1px;
         }
 
         img {
-            top: 120;
+            top: 120px;
         }
     }
 }
@@ -95,8 +95,8 @@
             border-top-right-radius: 160px;
             border-bottom-left-radius: 160px;
             position: absolute;
-            left: -3;
-            right: -3;
+            left: -3px;
+            right: -3px;
             width: 140%;
             max-height: 350px;
             object-fit: cover;
@@ -106,8 +106,8 @@
 
         .landing-page-events-text {
             position: absolute;
-            top: 320;
-            right: 4;
+            top: 320px;
+            right: 4px;
             margin-right: 10%;
             margin-left: auto;
         }
@@ -119,8 +119,8 @@
 
         .landing-page-events-text {
             position: absolute;
-            top: 280;
-            right: 4;
+            top: 280px;
+            right: 4px;
         }
     }
 }
@@ -135,12 +135,12 @@
 
         img {
             max-height: 450px;
-            top: 145;
+            top: 145px;
         }
         .landing-page-events-text {
             position: absolute;
-            top: 350;
-            right: 4;
+            top: 350px;
+            right: 4px;
         }
     }
 }
