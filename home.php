@@ -5,7 +5,7 @@
 get_header();
 ?>
 
-<main>
+<main class="blog">
 
     <h2> Pacesetter Blog</h2>
     
@@ -39,8 +39,9 @@ get_header();
                     <h3><?php the_title(); ?></h3>
                     <p><?php the_date(); ?></p>
                     <div>
-                        <p><?php get_the_excerpt('read more'); ?></p>
+                    <p><?php the_excerpt(); ?></p>
                         <!-- Filter button for each post -->
+                        <a href="<?php the_permalink(); ?>"class="read-more-button">Read More</a>
                         <div class="post-filter-buttons">
                             <?php foreach ($post_categories as $post_category) : ?>
                                 <button class="filter-button" data-category="<?php echo $post_category->slug; ?>"><?php echo $post_category->name; ?></button>
