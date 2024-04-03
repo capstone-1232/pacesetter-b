@@ -52,4 +52,22 @@
 }
 
 
+article{
+    position: relative;
+
+    &>div:first-of-type{
+        margin-top: 232px;
+    }
+
+    img{
+        height: 204px;
+        width: 100%;
+        object-fit: cover;
+        top: -216px;
+        position: absolute;
+    }
+}
+
+
+
 

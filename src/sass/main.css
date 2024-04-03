@@ -1025,6 +1025,21 @@ a {
   cursor: pointer;
 }
 
+article {
+  position: relative;
+}
+article > div:first-of-type {
+  margin-top: 232px;
+}
+article img {
+  height: 204px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: -216px;
+  position: absolute;
+}
+
 .review-modal {
   display: none;
   position: fixed;
