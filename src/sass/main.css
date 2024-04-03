@@ -1031,6 +1031,18 @@ article {
 article > div:first-of-type {
   margin-top: 232px;
 }
+article > div:first-of-type > p {
+  display: none;
+}
+article > div:nth-of-type(2) div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+}
+article > div:nth-of-type(2) div:last-of-type {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-top: 3px solid #F9D70F;
+}
 article img {
   height: 204px;
   width: 100%;
@@ -1038,6 +1050,80 @@ article img {
      object-fit: cover;
   top: -216px;
   position: absolute;
+}
+
+.rsvp-toggle {
+  position: fixed;
+  z-index: 8;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FC7804;
+  width: 60%;
+  color: #FFFFFF;
+  box-shadow: 0px 2px 10px rgba(1, 53, 98, 0.25);
+}
+
+.rsvp-share-event {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.rsvp-panel {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  background-color: #F9D70F;
+}
+.rsvp-panel h2 {
+  font-family: "racing_sans_oneregular", sans-serif;
+  text-align: center;
+  margin: 0;
+}
+.rsvp-panel p {
+  text-align: center;
+  color: #027F9A;
+  font-weight: 600;
+}
+.rsvp-panel form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+.rsvp-panel form label {
+  font-weight: 600;
+}
+.rsvp-panel form input {
+  border: none;
+  border-radius: 5px;
+  height: 2.25rem;
+}
+.rsvp-panel form > button {
+  background-color: #FC7804;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  height: 2.25rem;
+  margin-top: 1rem;
+  position: fixed;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 2px 10px rgba(1, 53, 98, 0.25);
+}
+.rsvp-panel button {
+  background: none;
+  border: none;
+  display: block;
+  margin-left: auto;
+}
+.rsvp-panel button svg {
+  width: 40px;
+  height: 40px;
 }
 
 .review-modal {

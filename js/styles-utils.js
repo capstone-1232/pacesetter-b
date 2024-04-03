@@ -11,6 +11,10 @@ $j(document).ready(function () {
         evt.preventDefault();
     });
     $j(".dropdown-menu").toggle();
+    $j(".rsvp-panel").hide();
+    $j(".rsvp-toggle").button();
+    $j(".rsvp-panel>button").button();
+
     // $j(".event-filters").hide();
 
 
@@ -125,6 +129,20 @@ $j(document).ready(function () {
         } else {
             console.log("filters clicked desktop");
         }
+    });
+
+    $j(".rsvp-toggle").on("click", function() {
+        console.log("rsvp toggle clicked");
+
+        if ($j(".rsvp-panel").is(":visible")) {
+            $j(".rsvp-panel#myForm").submit();
+        } else {
+            $j(".rsvp-panel").show("slide");
+        }
+    });
+
+    $j(".rsvp-panel>div>button:first-of-type").on("click", function() {
+        $j(".rsvp-panel").hide("slide");
     });
 
 });
