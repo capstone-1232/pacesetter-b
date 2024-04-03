@@ -1509,6 +1509,7 @@ a {
   .front-page-about::before {
     top: -5.3125rem;
     min-height: 20%;
+    z-index: 1;
   }
   .front-page-about::after {
     width: 0px;
@@ -1517,33 +1518,39 @@ a {
   .front-page-about h2 {
     top: -7%;
   }
-  .front-page-about .about-content {
+  .front-page-about .about-flex {
     display: flex;
     transform: skewY(-5deg);
+  }
+  .front-page-about .about-flex .about-content {
     background-color: #01509D;
-  }
-  .front-page-about .about-content div:first-of-type {
-    padding: 3rem 2rem 6rem 2rem;
     width: 50%;
+    padding: 3rem 2rem 6rem 2rem;
   }
-  .front-page-about .about-content div:first-of-type p {
+  .front-page-about .about-flex .about-content p {
     transform: skewY(5deg);
     background-image: unset;
-    padding: 2rem 0 1rem 0;
+    padding: 2rem 0;
   }
-  .front-page-about .about-content div:first-of-type .links {
+  .front-page-about .about-flex .about-content .links {
     transform: skewY(5deg);
     position: relative;
     width: 100%;
     padding: 0;
   }
-  .front-page-about .about-content .about-image {
+  .front-page-about .about-flex .about-image {
+    position: absolute;
+    top: -5.3125rem;
+    right: 0;
+    bottom: 0;
     width: 50%;
+    height: 100%;
     background-image: url("https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/inside-store.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 4rem;
+    padding: 2rem 0 4rem 0;
+    border-top-left-radius: 5rem;
     z-index: 10;
   }
 }
