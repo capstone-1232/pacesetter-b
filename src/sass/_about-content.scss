@@ -161,7 +161,7 @@
             }
             .about-image {
                 position: absolute;
-                top: -5.3125rem;
+                top: -2rem;
                 right: 0;
                 bottom: 0;
                 width: 50%;
@@ -171,7 +171,6 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 padding: 2rem 0 4rem 0;
-                // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
                 border-top-left-radius: 5rem;
                 z-index: 10;
             }
