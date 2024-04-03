@@ -11,10 +11,10 @@ $j(document).ready(function () {
         evt.preventDefault();
     });
     $j(".dropdown-menu").toggle();
-    $j(".event-filters").hide();
+    // $j(".event-filters").hide();
 
 
-    if ($j(window).width() < 768) {
+    if (window.matchMedia("(max-width: 768px)").matches) {
         $j("#show-search").click(function () {
             $j("#main-search").toggle({
                 start: function () {
@@ -45,7 +45,7 @@ $j(document).ready(function () {
         let targetElement = $j(".search-section");
         if (!targetElement.is(evt.target) && targetElement.has(evt.target).length === 0) {
 
-            if ($j(window).width() < 768) {
+            if (window.matchMedia("(max-width: 768px)").matches) {
                 $j("#main-search").hide({
                     start: function () {
                         $j(".cart-link").show("fold");
@@ -117,10 +117,14 @@ $j(document).ready(function () {
 
     // toggles slideover filter menu
     $j(".filter-toggle").on("click", function () {
-        console.log("filters clicked");
-        $j(".event-filters").animate({
-            width: "toggle",
-        }, 200);
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            console.log("filters clicked mobile");
+            $j(".event-filters").animate({
+                width: "toggle",
+            }, 200);
+        } else {
+            console.log("filters clicked desktop");
+        }
     });
 
 });

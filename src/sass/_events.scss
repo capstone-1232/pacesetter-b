@@ -27,12 +27,12 @@
 
 .event-filters{
     background-color: white;
+    display: none;
 }
 
 .related-events__wrapper {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
-    border-bottom: 4px solid $primary-yellow;
 
     img{
         border-radius: 5px;
@@ -47,16 +47,30 @@
         margin: 0.5rem 0;
     }
 
-    div{
+    &>div{
+        margin-bottom: 1rem;
+        padding-bottom: 2rem;
+        border-bottom: 4px solid $primary-yellow;
+    }
+
+    .text-content {
+        display: flex;
+        flex-direction: column;
 
         div:first-of-type{
             display: flex;
             justify-content: space-between;
         }
 
-        div:nth-of-type(2) p{
-            display: block;
-            margin: 1rem 0;
+        .flip{
+            div:first-of-type{
+                display: block;
+                margin: 1rem 0;
+            }
+
+            &>p{
+                display: none;
+            }
         }
     }
 
@@ -83,5 +97,85 @@
         padding: 0.5rem 0;
         background-color: $orange;
         border-radius: 5px;
+    }
+}
+
+@media screen and (min-width: 1024px){
+
+    .event-menu{
+        div{
+            border: none;
+
+            &>p {
+                font-family: $racing;
+            }
+
+            &>svg{
+                display: none;
+            }
+        }
+    }
+
+    .event-filters {
+        position: inherit;
+    }
+
+    .related-events__wrapper{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin-top: 4rem;
+
+        img {
+            height: 284px;
+        }
+
+        &>div{
+            width: 49%;
+            box-shadow: 0px 0px 10px rgba($primary-blue, 0.5);
+            border: none;
+            margin-top: 1rem;
+        }
+
+        .text-content {
+            display: flex;
+            // height: 100%;
+            padding: 0 1rem;
+            
+            &>div:first-of-type p{
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+
+        }
+
+        .flip {
+            display: flex;
+
+            &>div{
+                width: 70%;
+            }
+        }
+
+        ul{
+            margin-top: 1rem;
+            padding: 1rem 0;
+            justify-content: center;
+            border-top: 3px solid $orange;
+        }
+
+        a {
+            background-color: $primary-yellow;
+            color: $primary-blue;
+            margin: 0 auto;
+            margin-top: 1rem;
+            width: 25%;
+            height: fit-content;
+
+            &:hover {
+                background-color: $orange;
+                color: $white;
+            }
+        }
     }
 }
