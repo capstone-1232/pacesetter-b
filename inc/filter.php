@@ -72,7 +72,8 @@ function event_filter_function() {
                 ?>
                 <div class="">
                     <img src="<?php echo $post_img; ?>" alt="">
-                    <h3><?php echo $event_title; ?></h3>
+                    <div class="text-content">
+                    <h2><?php echo $event_title; ?></h2>
                     <div>
                         <p><?php echo $formatted_date_start ?></p>
                         <p><?php echo $time_of_day; ?></p>
@@ -84,6 +85,7 @@ function event_filter_function() {
                             echo '<li class="event-tag">'.$time_range_label.'</li>';
                         echo '</ul>';
                     ?>
+                    <div class="flip">
                     <div>
                         <p><?php echo substr($description, 0, 250); ?>...</p>
                     </div>
@@ -91,6 +93,8 @@ function event_filter_function() {
                     <p><?php echo $capacity ?></p>
                     <a href="<?php echo $post_url ?>">View Event
                     </a>
+                    </div>
+                    </div>
                 </div>
                 <?php
             }
