@@ -1400,7 +1400,6 @@ a {
 .front-page-about {
   margin: 8rem 0;
   background: rgb(1, 53, 98);
-  background: linear-gradient(180deg, rgb(1, 53, 98) 29%, rgb(1, 80, 157) 69%);
   color: #FFFFFF;
   position: relative;
   overflow: visible;
@@ -1410,10 +1409,10 @@ a {
 .front-page-about::before {
   content: "";
   position: absolute;
-  top: -60px;
+  top: -3.75rem;
   left: 0px;
   width: 100%;
-  min-height: 24%;
+  min-height: 25%;
   background-color: #013562;
   transform-origin: top right;
   transform: skewY(-4deg);
@@ -1422,10 +1421,10 @@ a {
 .front-page-about::after {
   content: "";
   position: absolute;
-  bottom: -30px;
+  bottom: -10%;
   left: 0px;
   width: 100%;
-  min-height: 24%;
+  min-height: 25%;
   background-color: #01509D;
   transform-origin: bottom left;
   transform: skewY(4deg);
@@ -1433,9 +1432,9 @@ a {
 }
 .front-page-about h2 {
   position: absolute;
-  top: -30px;
+  top: -11%;
   z-index: 10;
-  margin: 1rem;
+  margin: 1rem 2rem;
 }
 .front-page-about .links {
   width: 100%;
@@ -1443,7 +1442,7 @@ a {
   justify-content: center;
   gap: 1.5rem;
   position: absolute;
-  bottom: -15px;
+  bottom: -8%;
   z-index: 10;
 }
 .front-page-about .links a.orange-btn, .front-page-about .links a.white-btn {
@@ -1470,5 +1469,138 @@ a {
   background-position: center;
   background-color: #01509D;
   padding: 4rem 2rem;
-  height: 326px;
+}
+
+@media screen and (min-width: 412px) {
+  .front-page-about::after {
+    bottom: -12%;
+    min-height: 30%;
+  }
+}
+@media screen and (min-width: 455px) {
+  .front-page-about .links {
+    bottom: -10%;
+  }
+}
+@media screen and (min-width: 526px) {
+  .front-page-about::before {
+    top: -5rem;
+    min-height: 30%;
+  }
+  .front-page-about::after {
+    bottom: -12%;
+    min-height: 30%;
+  }
+  .front-page-about h2 {
+    top: -10%;
+  }
+  .front-page-about .links {
+    bottom: -10%;
+  }
+  .front-page-about p {
+    padding: 6rem 2rem;
+  }
+}
+@media screen and (min-width: 685px) {
+  .front-page-about {
+    padding: 0;
+    background-color: #FFFFFF;
+  }
+  .front-page-about::before {
+    top: -5.3125rem;
+    min-height: 20%;
+  }
+  .front-page-about::after {
+    width: 0px;
+    height: 0px;
+  }
+  .front-page-about h2 {
+    top: -7%;
+  }
+  .front-page-about .about-content {
+    display: flex;
+    transform: skewY(-5deg);
+    background-color: #01509D;
+  }
+  .front-page-about .about-content div:first-of-type {
+    padding: 3rem 2rem 6rem 2rem;
+    width: 50%;
+  }
+  .front-page-about .about-content div:first-of-type p {
+    transform: skewY(5deg);
+    background-image: unset;
+    padding: 2rem 0 1rem 0;
+  }
+  .front-page-about .about-content div:first-of-type .links {
+    transform: skewY(5deg);
+    position: relative;
+    width: 100%;
+    padding: 0;
+  }
+  .front-page-about .about-content .about-image {
+    width: 50%;
+    background-image: url("https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/inside-store.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 4rem;
+    z-index: 10;
+  }
+}
+@media screen and (min-width: 845px) {
+  .front-page-about::before {
+    top: -28%;
+    min-height: 24%;
+  }
+  .front-page-about h2 {
+    top: -10%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .front-page-about::before {
+    top: -30%;
+    min-height: 24%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .front-page-about::before {
+    top: -32%;
+    min-height: 25%;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .front-page-about::before {
+    top: -33%;
+    min-height: 26%;
+  }
+  .front-page-about .about-content div:first-of-type {
+    padding: 3rem 2rem 5rem 2rem;
+  }
+}
+@media screen and (min-width: 1385px) {
+  .front-page-about::before {
+    top: -36%;
+    min-height: 27%;
+  }
+}
+@media screen and (min-width: 1635px) {
+  .front-page-about::before {
+    top: -39%;
+    min-height: 28%;
+  }
+}
+@media screen and (min-width: 1715px) {
+  .front-page-about::before {
+    top: -41%;
+    min-height: 30%;
+  }
+}
+@media screen and (min-width: 1810px) {
+  .front-page-about::before {
+    top: -43%;
+    min-height: 32%;
+  }
+  .front-page-about .about-content div:first-of-type {
+    padding: 4rem 3rem 6rem 2rem;
+  }
 }/*# sourceMappingURL=main.css.map */

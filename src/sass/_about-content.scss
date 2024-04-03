@@ -5,7 +5,7 @@
 .front-page-about {
     margin: 8rem 0;
     background: rgb(1,53,98);
-    background: linear-gradient(180deg, rgba(1,53,98,1) 29%, rgba(1,80,157,1) 69%);
+    //background: linear-gradient(180deg, rgba(1,53,98,1) 29%, rgba(1,80,157,1) 69%);
     color: $white;
     position: relative;
     overflow: visible;
@@ -14,10 +14,10 @@
     &::before {
         content: '';
         position: absolute;
-        top: -60px;
+        top: -3.75rem;
         left: 0px;
         width: 100%;
-        min-height: 24%;
+        min-height: 25%;
         background-color: $primary-blue;
         transform-origin: top right;
         transform: skewY(-4deg);
@@ -28,10 +28,10 @@
     &::after {
         content: '';
         position: absolute;
-        bottom: -30px;
+        bottom: -10%;
         left: 0px;
         width: 100%;
-        min-height: 24%;
+        min-height: 25%;
         background-color: $secondary-blue;
         transform-origin: bottom left;
         transform: skewY(4deg);
@@ -40,9 +40,9 @@
 
     h2 {
         position: absolute;
-        top: -30px;
+        top: -11%;
         z-index: 10;
-        margin: 1rem;
+        margin: 1rem 2rem;
     }
 
     .links {
@@ -51,7 +51,7 @@
         justify-content: center;
         gap: 1.5rem;
         position: absolute;
-        bottom: -15px;
+        bottom: -8%;
         z-index: 10;
 
         a.orange-btn, a.white-btn {
@@ -80,12 +80,178 @@
         background-position: center;
         background-color: $secondary-blue;
         padding: 4rem 2rem;
-        height: 326px;
+        // min-height: 326px;
     }
 }
 
-// @media screen and (min-width: 520px) {
-//     .front-page-about {
+@media screen and (min-width: 412px) {
+    .front-page-about {
+        &::after {
+            bottom: -12%;
+            min-height: 30%;
+        }
+    }
+}
+
+@media screen and (min-width: 455px) {
+    .front-page-about {
+        .links {
+            bottom: -10%;
+        }
+    }
+}
+
+@media screen and (min-width: 526px) {
+    .front-page-about {
+        &::before {
+            top: -5rem;
+            min-height: 30%;
+        }
+        &::after {
+            bottom: -12%;
+            min-height: 30%;
+        }
+        h2 {
+            top: -10%;
+        }
+        .links {
+            bottom: -10%;
+        }
+        p {
+            padding: 6rem 2rem;
+        }
+    }
+}
+
+@media screen and (min-width: 685px) {
+    .front-page-about {
+        padding: 0;
+        background-color: $white;
         
-//     }
-// }
+        &::before {
+            top: -5.3125rem;
+            min-height: 20%;
+        }
+        &::after {
+            width: 0px;
+            height: 0px;
+        }
+        h2 {
+            top: -7%;
+        }
+        .about-content {
+            display: flex;
+            transform: skewY(-5deg);
+            background-color: $secondary-blue;
+
+            div:first-of-type {
+                padding: 3rem 2rem 6rem 2rem;
+                width: 50%;
+                p {
+                    transform: skewY(5deg);
+                    background-image: unset;
+                    padding: 2rem 0 1rem 0;
+                }
+                .links {
+                    transform: skewY(5deg);
+                    position: relative;
+                    width: 100%;
+                    padding: 0;
+                }
+            }
+            .about-image {
+                width: 50%;
+                background-image: url('https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/inside-store.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding-bottom: 4rem;
+                z-index: 10;
+            }
+            
+            
+        }
+    }
+}
+
+@media screen and (min-width: 845px) {
+    .front-page-about {
+        &::before {
+            top: -28%;
+            min-height: 24%;
+        }
+        h2 {
+            top: -10%;
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .front-page-about {
+        &::before {
+            top: -30%;
+            min-height: 24%;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .front-page-about {
+        &::before {
+            top: -32%;
+            min-height: 25%;
+        }
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .front-page-about {
+        &::before {
+            top: -33%;
+            min-height: 26%;
+        }
+        .about-content {
+            div:first-of-type {
+                padding: 3rem 2rem 5rem 2rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1385px) {
+    .front-page-about {
+        &::before {
+            top: -36%;
+            min-height: 27%;
+        }
+    }
+}
+@media screen and (min-width: 1635px) {
+    .front-page-about {
+        &::before {
+            top: -39%;
+            min-height: 28%;
+        }
+    }
+}
+@media screen and (min-width: 1715px) {
+    .front-page-about {
+        &::before {
+            top: -41%;
+            min-height: 30%;
+        }
+    }
+}
+@media screen and (min-width: 1810px) {
+    .front-page-about {
+        &::before {
+            top: -43%;
+            min-height: 32%;
+        }
+        .about-content {
+            div:first-of-type {
+                padding: 4rem 3rem 6rem 2rem;
+            }
+        }
+    }
+}
