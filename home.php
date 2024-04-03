@@ -39,7 +39,7 @@ get_header();
                     <h3><?php the_title(); ?></h3>
                     <p><?php the_date(); ?></p>
                     <div>
-                    <p><?php the_excerpt(); ?></p>
+                    <p><?php echo substr(get_field('blog_entry'),0,150) ?> ...</p>
                         <!-- Filter button for each post -->
                         <a href="<?php the_permalink(); ?>"class="read-more-button">Read More</a>
                         <div class="post-filter-buttons">
