@@ -1,0 +1,26 @@
+@import 'colors';
+@import 'typography';
+@import 'fonts';
+
+.featured-products {
+    a.yellow-btn {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        max-width: fit-content;
+        text-decoration: none;
+        padding: 0.45rem 0.75rem;
+        border-radius: 0.25rem;
+        background-color: $primary-yellow;
+        color: $black;
+        margin-left: auto;
+        margin-right: 0;
+
+        svg {
+            margin-left: 0.25rem;
+            max-width: 0.9rem;
+            max-height: 0.9rem;
+        }
+    }
+}

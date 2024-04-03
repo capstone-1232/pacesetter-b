@@ -20,7 +20,7 @@ get_header();
 		<?php get_template_part('template-parts/hero-banner'); ?>
 		<div class="banner-text">
 			<div class="banner-text-1">
-				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+				<svg class="banner-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" width="64px"
 					height="64px" fill="#000000">
 					<title>Satisfaction guaranteed, hand serving three stars for customer service.</title>
@@ -54,12 +54,12 @@ get_header();
 							points="146.568,389.529 124.947,357.897 92.307,379.997 114.026,411.772 "></polygon>
 					</g>
 				</svg>
-				<h3>Excellent customer service</h3>
+				<h3>Excellent Customer Service</h3>
 				<p>Whether you're seeking assistance with a product, need help navigating our services, or simply want to share your experience, we're here to help.
 				</p>
 			</div>
 			<div class="banner-text-2">
-				<svg height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+				<svg class="banner-svg" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
 					fill="#000000">
 					<title>A picture of of a set of skis with ski poles upright</title>
@@ -108,7 +108,7 @@ get_header();
 						</path>
 					</g>
 				</svg>
-				<h3>Custom fittings</h3>
+				<h3>Custom Fittings</h3>
 				<p>Our expert team is here to ensure that your ski equipment fits you like a glove, providing optimal comfort, performance, and safety on the slopes.</p>
 			</div>
 		</div>
