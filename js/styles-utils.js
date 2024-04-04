@@ -11,9 +11,12 @@ $j(document).ready(function () {
         evt.preventDefault();
     });
     $j(".dropdown-menu").toggle();
-    $j(".rsvp-panel").hide();
     $j(".rsvp-toggle").button();
     $j(".rsvp-panel>button").button();
+
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+        $j(".rsvp-panel").hide();
+    }
 
     // $j(".event-filters").hide();
 

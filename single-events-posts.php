@@ -134,7 +134,7 @@ get_header();
             RSVP
         </button>
         <a href="<?php echo esc_url(home_url('/events'));?>"><< Back to Events</a>
-            <article class="container">
+            <article class="container event-details">
                 <!-- Heading -->
                 <div>
                     <h2><?php the_title(); ?></h2>
