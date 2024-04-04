@@ -33,10 +33,7 @@ get_header();
 			<p><?php echo esc_html(get_field('blog_entry')); ?></p>
 			<?php
  
-            // If comments are open or we have at least one comment, load up the comment template.
-            if ( comments_open() || get_comments_number() ) :
-                comments_template();
-			endif;
+            
  
         // End the loop.
         endwhile;

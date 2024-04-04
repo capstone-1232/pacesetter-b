@@ -251,7 +251,7 @@ require get_template_directory() . '/inc/read_more.php';
 /**
  * Enqueue products.
  */
-require get_template_directory() . '/inc/products.php';
+// require get_template_directory() . '/inc/products.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -261,3 +261,4 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 
+?>
