@@ -1,0 +1,21 @@
+@use "colors";
+@use "fonts";
+
+.blog-entry {
+   background-color: $orange;
+   article {
+    padding: 1.5rem;
+    border-bottom: 3px solid black;
+   }
+   h3{
+    font-size: 3rem;
+   }
+   .read-more-button {
+    padding: 1rem;
+    background-color: $secondary-yellow ;
+   }
+//    .filter-button{
+
+//    }
+
+}

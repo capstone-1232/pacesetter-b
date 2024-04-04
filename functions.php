@@ -251,7 +251,7 @@ require get_template_directory() . '/inc/read_more.php';
 /**
  * Enqueue products.
  */
-require get_template_directory() . '/inc/products.php';
+// require get_template_directory() . '/inc/products.php';
 
 /**
  * Enqueue functions for mobile navbar.
@@ -266,3 +266,4 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 
+?>

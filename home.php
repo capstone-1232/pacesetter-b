@@ -5,7 +5,7 @@
 get_header();
 ?>
 
-<main>
+<main class="blog">
 
     <h2> Pacesetter Blog</h2>
     
@@ -16,8 +16,7 @@ get_header();
         <button class="filter-button" data-category="all">All</button>
         <?php
         // Retrieve unique categories
-        $categories = get_terms(array(
-            'taxonomy' => 'category',
+        $categories = get_categories(array(
             'hide_empty' => true,
         ));
         foreach ($categories as $category) {
@@ -30,17 +29,24 @@ get_header();
     if (have_posts()):
         while (have_posts()):
             the_post();
-            //this is the content being looped
+            // Get post categories
+            $post_categories = get_the_category();
             ?>
             <!-- close php and start html-->
-            <article class="flex blog-post" data-categories="<?php echo esc_attr(get_field('categories')); ?>">
+            <article class="flex blog-post">
                 <img src="<?php echo esc_html(get_field('blog_image')); ?>" alt="">
                 <div>
                     <h3><?php the_title(); ?></h3>
                     <p><?php the_date(); ?></p>
                     <div>
-                        <p><?php the_excerpt('read more'); ?></p>
-                        <p><?php echo esc_html(get_field('categories')); ?></p>
+                    <p><?php echo substr(get_field('blog_entry'),0,150) ?> ...</p>
+                        <!-- Filter button for each post -->
+                        <a href="<?php the_permalink(); ?>"class="read-more-button">Read More</a>
+                        <div class="post-filter-buttons">
+                            <?php foreach ($post_categories as $post_category) : ?>
+                                <button class="filter-button" data-category="<?php echo $post_category->slug; ?>"><?php echo $post_category->name; ?></button>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -60,7 +66,7 @@ get_header();
             button.addEventListener('click', function() {
                 const category = this.getAttribute('data-category');
                 blogPosts.forEach(post => {
-                    if (category === 'all' || post.getAttribute('data-categories').includes(category)) {
+                    if (category === 'all' || post.querySelector('.post-filter-buttons').querySelector('[data-category="' + category + '"]')) {
                         post.style.display = 'flex';
                     } else {
                         post.style.display = 'none';
