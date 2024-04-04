@@ -58,7 +58,7 @@
                             <?php echo $in_stock ?>
                         </p>
                     </div>
-                    <a href="<?php echo esc_url($product_url); ?>">View Product</a>
+                    <a class="card-button" href="<?php echo esc_url($product_url); ?>">View Product</a>
                 </div>
             <?php } ?>
     </div>
