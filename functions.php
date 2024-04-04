@@ -247,7 +247,7 @@ require get_template_directory() . '/inc/more-review.php';
 /**
  * Enqueue readmore
  */
-require get_template_directory() . '/inc/read_more.php';
+// require get_template_directory() . '/inc/read_more.php';
 /**
  * Enqueue products.
  */

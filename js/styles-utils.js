@@ -134,19 +134,21 @@ $j(document).ready(function () {
         }
     });
 
-    $j(".rsvp-toggle").on("click", function() {
-        console.log("rsvp toggle clicked");
-
-        if ($j(".rsvp-panel").is(":visible")) {
-            $j(".rsvp-panel#myForm").submit();
-        } else {
-            $j(".rsvp-panel").show("slide");
-        }
-    });
-
-    $j(".rsvp-panel>div>button:first-of-type").on("click", function() {
-        $j(".rsvp-panel").hide("slide");
-    });
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+        $j(".rsvp-toggle").on("click", function() {
+            console.log("rsvp toggle clicked");
+    
+            if ($j(".rsvp-panel").is(":visible")) {
+                $j(".rsvp-panel#myForm").submit();
+            } else {
+                $j(".rsvp-panel").show("slide");
+            }
+        });
+    
+        $j(".rsvp-panel>div>button:first-of-type").on("click", function() {
+            $j(".rsvp-panel").hide("slide");
+        });
+    }
 
 });
 

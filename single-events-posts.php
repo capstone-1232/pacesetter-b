@@ -237,7 +237,9 @@ get_header();
                 </aside>
             </article>
             <!-- Related Events -->
-        <section>
+        <section class="related-events">
+            <div class="container">
+            <div class="rectangle-graphic"></div>
             <h2>Related Events</h2>
             <?php
             global $post;
@@ -301,6 +303,7 @@ get_header();
                 echo 'No tags found for the event.';
             }
             ?>
+            </div>
         </section>
         <!-- Modal for when RSVP'd -->
         <div id="eventModal" class="event-modal <?php echo (!in_array($event_id, $_SESSION['form_submission_identifier'])) ? "hidden" : "" ?>">
