@@ -1,0 +1,14 @@
+@import 'colors';
+
+// this is where the mixins for animations will be
+
+@mixin background-change($duration) {
+    $name: inline-#{unique-id()};
+  
+    @keyframes #{$name} {
+      @content;
+    }
+  
+    animation-name: $name;
+    animation-duration: $duration;
+  }

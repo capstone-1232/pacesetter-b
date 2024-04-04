@@ -1,0 +1,17 @@
+@import "colors";
+@import "animations";
+
+// this is for animations and transitions for elements (ie. button clicked, etc.)
+
+.billboard .category-select.selected {
+    background-color: $primary-blue;
+
+    a {
+        color: $white;
+    }
+
+    @include background-change(0.3s){
+        from {background-color: $primary-yellow}
+        to {background-color: $primary-blue; color: $white}
+    }
+}
