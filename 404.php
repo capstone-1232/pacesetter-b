@@ -26,10 +26,9 @@ get_header();
 					<li><a href="<?php echo home_url();?>"> Home </a></li>|
 					<li><a href="<?php echo home_url('/products');?>">Products </a></li>|
 					<li><a href="<?php echo home_url('/events');?>">Events </a></li>|
-					<li><a href="<?php echo home_url('/home');?>">Blog </a></li>
+					<li><a href="<?php echo home_url('/blogs');?>">Blog </a></li>
 				</ul>
-				</ul>
-				</ul>
+				
 
 					
 

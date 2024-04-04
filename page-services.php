@@ -109,5 +109,5 @@ $content = get_the_content();
 
 </main><!-- #main -->
 <?php
-get_sidebar();
+
 get_footer();
