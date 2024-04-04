@@ -1,4 +1,4 @@
-<section class="container products">
+<section class="container products basics">
     <div class="products-flex">
         <h2>New to the Slopes? <span>Get the basics here!</span></h2>
         <?php
