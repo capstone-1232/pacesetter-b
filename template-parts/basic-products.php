@@ -50,7 +50,7 @@
                     <p>
                         <?php echo $short_description ?>
                     </p>
-                    <div>
+                    <div class="product-status">
                         <p>$
                             <?php echo $product_price ?>
                         </p>
