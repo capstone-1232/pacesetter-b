@@ -1,6 +1,11 @@
 <?php
 function enqueue_styles() {
+  // Enqueue main stylesheet
   wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/src/sass/main.css', array(), null);
+
+  // Enqueue animations stylesheet
+  wp_enqueue_style('animations', get_stylesheet_directory_uri() . '/src/sass/animations.css', array(), null);
+
 }
 add_action('wp_enqueue_scripts', 'enqueue_styles');
 
@@ -22,10 +27,19 @@ function enqueue_custom_scripts() {
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
 function enqueue_styles_scripts() {
+  // Enqueue jQuery
   wp_enqueue_script('jquery');
 
+  // Enqueue jQuery UI
+  wp_enqueue_script('jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', array('jquery'), '1.12.1', true);
+  
   // Enqueue Javascript for styling,with jQuery
   wp_enqueue_script('styles-scripts', get_template_directory_uri() . '/js/styles-utils.js', array('jquery'), '1.0.0', true, true);
+  
+  // AJAX to dynamically select subcategory on button click
+  wp_localize_script('styles-scripts', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_styles_scripts');
+
+?>
