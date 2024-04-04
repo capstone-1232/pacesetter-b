@@ -3,32 +3,38 @@
 @import 'fonts';
 
 .landing-page-events {
-    padding: 6rem 0 4rem 0;
+    padding: 6rem 0 10rem 0;
     position: relative;
 
+    width: 100%;
+    height: 600px;
     background-image: url('https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/landing-page-events-smbg.png');
-    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: -1 !important;
+    background-position: center;
 
     img {
-        border-top-right-radius: 130px;
-        border-bottom-left-radius: 130px;
+        border-top-right-radius: 8.125rem;
+        border-bottom-left-radius: 8.125rem;
         position: absolute;
         left: -3rem;
-        height: 190px;
+        width: 100%;
+        max-height: 325px;
+        object-fit: cover;
         margin-right: 48px;
-        z-index: 0 !important;
+        order: 1;
     }
 
     .landing-page-events-text {
-        padding: 0.5rem 1rem 1.5rem 1rem;
-        margin: 7rem 0.65rem 0 0.65rem;
+        max-width: 550px;
+        padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+        margin: 0 1rem;
+        position: absolute;
+        top: 250px;
         color: $white;
         background: rgb(12,103,192);
         background: linear-gradient(180deg, rgba(12,103,192,1) 0%, rgba(1,80,157,1) 100%);
-        z-index: 1000 !important;
+        order: 2;
 
         p {
             margin-bottom: 1.5rem;
@@ -55,5 +61,95 @@
             }
         }
     }
+}
 
+@media screen and (min-width: 380px) {
+    .landing-page-events {
+        height: 650px;
+    }
+}
+
+@media screen and (min-width: 440px) {
+    .landing-page-events {
+        height: 700px;
+        background-image: url('https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/landing-page-events-bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        .landing-page-events-text {
+            position: absolute;
+            top: 320px;
+            right: 1px;
+        }
+
+        img {
+            top: 120px;
+        }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .landing-page-events {
+        img {
+            border-top-right-radius: 160px;
+            border-bottom-left-radius: 160px;
+            position: absolute;
+            left: -3px;
+            right: -3px;
+            width: 140%;
+            max-height: 350px;
+            object-fit: cover;
+            margin-right: unset;
+            order: 1;
+        }
+
+        .landing-page-events-text {
+            position: absolute;
+            top: 320px;
+            right: 4px;
+            margin-right: 10%;
+            margin-left: auto;
+        }
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .landing-page-events {
+
+        .landing-page-events-text {
+            position: absolute;
+            top: 280px;
+            right: 4px;
+        }
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .landing-page-events {
+        height: 800px;
+        background-image: url('https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/landing-page-events-lgbg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        img {
+            max-height: 450px;
+            top: 145px;
+        }
+        .landing-page-events-text {
+            position: absolute;
+            top: 350px;
+            right: 4px;
+        }
+    }
+}
+
+@media screen and (min-width: 1600px){
+    .landing-page-events {
+        height: 50vw;
+        img {
+            max-height: 550px;
+        }
+    }
 }
