@@ -2,34 +2,144 @@
 @import 'typography';
 @import 'fonts';
 
-#hero-carousel.slider .carousel-inner .slide {
-    background-image: center / cover no-repeat;
+#hero-carousel.slider {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
 
-    .slide-content {
-        padding: 2rem 1rem 4rem 1rem;
-        max-width: 1200px;
-        margin: 0 auto 5rem auto;
+    .carousel-inner {
+        .btn-prev {
+            display: none;
+            top: 45%;
+            left: 2%;
+        }
+        .btn-next {
+            display: none;
+            top: 45%;
+            right: 2%;
+        }
+        .btn {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            z-index: 10;
+            cursor: pointer;
+            background-color: #013652;
+            color: #fff;
+            font-size: 18px;
+        }
+        .btn:active {
+            transform: scale(1.1);
+        }
+        .slide {
+            width: 100%;
+            height: 450px;
+            position: absolute;
+            transition: all 0.5s;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
 
-        h2 {
-            color: $darkbluebtn;
+            img {
+                width: 100%;
+                height: 450px;
+                object-fit: cover;
+            }
+        
+            .slide-content {
+                padding: 2rem 1rem;
+                max-width: 1200px;
+                margin: 0 auto 2rem auto;
+        
+                h2 {
+                    max-width: 82%;
+                    color: $darkbluebtn;
+                    margin: 2.5rem 0;
+                }
+                p {
+                    max-width: 82%;
+                    color: $primary-blue;
+                    margin: 3rem 0;
+                }
+                .call-to-action {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 2rem 0;
+                    gap: 0.5rem;
+        
+                    a {
+                        text-decoration: none;
+                        padding: 0.5rem 1rem;
+                        border-radius: 0.25rem;
+                    }
+                    a:first-of-type {
+                        background-color: $primary-yellow;
+                        color: $black;
+                    }
+                    a:nth-of-type(2) {
+                        background-color: $darkbluebtn;
+                        color: $white;
+                    }
+                }
+            }
         }
-        p {
-            color: $primary-blue;
-            margin-bottom: 3rem;
+    } 
+} 
+
+@media screen and (min-width: 500px) {
+    #hero-carousel.slider .carousel-inner {
+        .btn-prev, .btn-next {
+            display: block;
         }
-        a {
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
+        .slide {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        
+            .slide-content {
+                padding: 2rem 6rem;
+
+                h2 {
+                    max-width: 70%;
+                    margin: 1.25rem 0;
+                }
+                p {
+                    max-width: 70%;
+                    margin: 1.25rem 0;
+                }
+
+                .call-to-action {
+                    gap: 1.5rem;
+
+                    a {
+                        padding: 0.5rem 1.05rem;
+                    }
+                }
+            }
         }
-        a:first-of-type {
-            background-color: $primary-yellow;
-            color: $black;
-            margin-right: 0.5rem;
-        }
-        a:nth-of-type(2) {
-            background-color: $darkbluebtn;
-            color: $white;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #hero-carousel.slider .carousel-inner {
+        .slide {
+            .slide-content {
+
+                h2 {
+                    max-width: 55%;
+                }
+                p {
+                    max-width: 50%;
+                }
+
+                .call-to-action {
+                    gap: 2rem;
+                }
+            }
         }
     }
 }

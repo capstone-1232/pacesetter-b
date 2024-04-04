@@ -1,0 +1,54 @@
+@import 'colors';
+@import 'typography';
+@import 'fonts';
+
+.products {
+    .products-flex {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 calc(33.33% - 1rem);
+        margin-bottom: 2rem;
+        justify-content: space-around;
+        gap: 1rem;
+
+        h2 {
+            display: flex;
+            flex-wrap: wrap;
+            min-width: 100%;
+        }
+        .product-card {
+            min-width: 142px;
+            box-shadow: 1px 1px 1rem rgb(0 0 0 / 0.25);
+            border-radius: 0.25rem;
+            background-color: $white;
+            padding: 1rem;
+
+            img {
+                margin: 0 auto;
+                max-width: 112px;
+                height: auto;
+            }
+        }
+    }
+
+    a.yellow-btn {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        max-width: fit-content;
+        text-decoration: none;
+        padding: 0.45rem 0.75rem;
+        border-radius: 0.25rem;
+        background-color: $primary-yellow;
+        color: $black;
+        margin-left: auto;
+        margin-right: 0;
+
+        svg {
+            margin-left: 0.25rem;
+            max-width: 0.9rem;
+            max-height: 0.9rem;
+        }
+    }
+}
