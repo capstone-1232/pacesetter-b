@@ -1537,7 +1537,7 @@ a {
     background-size: cover;
   }
   #hero-carousel.slider .carousel-inner .slide .slide-content {
-    padding: 2rem 6rem;
+    padding: 2rem 6rem !important;
   }
   #hero-carousel.slider .carousel-inner .slide .slide-content h2 {
     max-width: 70%;
@@ -1808,30 +1808,50 @@ a {
   src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
   font-style: normal;
 }
+.featured {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.basics {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.products {
+  margin: 2rem;
+}
 .products .products-flex {
   display: flex;
   flex-wrap: wrap;
-  flex: 0 0 calc(33.33% - 1rem);
   margin-bottom: 2rem;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 1rem;
 }
 .products .products-flex h2 {
-  display: flex;
-  flex-wrap: wrap;
   min-width: 100%;
 }
 .products .products-flex .product-card {
-  min-width: 142px;
+  width: 100%;
+  max-width: 325px;
   box-shadow: 1px 1px 1rem rgba(0, 0, 0, 0.25);
-  border-radius: 0.25rem;
+  border-radius: 0.45rem;
   background-color: #FFFFFF;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 .products .products-flex .product-card img {
   margin: 0 auto;
-  max-width: 112px;
-  height: auto;
+  max-width: calc(100% - 2rem);
+  max-height: 40%;
+}
+.products .products-flex .product-card .card-button {
+  background-color: #01509D;
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  border-radius: 0.25rem;
+  margin: auto auto 0 auto;
 }
 .products a.yellow-btn {
   display: flex;
@@ -1854,6 +1874,16 @@ a {
   max-height: 0.9rem;
 }
 
+@media screen and (min-width: 420px) {
+  .products .products-flex .product-card {
+    flex: 1 0 calc(50% - 1rem);
+  }
+}
+@media screen and (min-width: 600px) {
+  .products .products-flex .product-card {
+    flex: 1 0 calc(33.33% - 1rem);
+  }
+}
 body {
   font-size: 100%;
   line-height: 1.5;
@@ -1978,7 +2008,7 @@ a {
 }
 .landing-page-events .landing-page-events-text {
   max-width: 550px;
-  padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 0.5rem 1.5rem 1.5rem 1.5rem !important;
   margin: 0 1rem;
   position: absolute;
   top: 250px;
