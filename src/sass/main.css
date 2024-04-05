@@ -2525,6 +2525,8 @@ a {
 }
 .blog .intro {
   background-image: url("../img/snow-background-texture.webp") cover/center;
+  border-bottom: 8px solid #013562;
+  box-shadow: 0px 10px 5px #000000;
 }
 .blog .intro h2 {
   font-family: "racing_sans_oneregular", sans-serif;
@@ -2533,17 +2535,18 @@ a {
           text-decoration: underline #F9D70F 5px;
   text-underline-offset: 5px;
 }
-.blog .intro div {
+.blog .intro .intro-buttons {
   display: flex;
+  padding: 1rem 3rem;
   gap: 1rem;
 }
-.blog .intro .fitler-button {
+.blog .intro .filter-button {
   background-color: #01509D;
   color: #FFFFFF;
   padding: 0.5rem;
   border-radius: 5px;
 }
-.blog .intro .fitler-button:hover {
+.blog .intro .filter-button:hover {
   background-color: #FFFFFF;
   color: #01509D;
 }
@@ -2553,13 +2556,29 @@ a {
 }
 .blog article .flex {
   display: flex;
+  flex-direction: column;
 }
 .blog article h3 {
   font-size: 3rem;
 }
+.blog article img {
+  border-radius: 10px;
+  width: 100%;
+}
+.blog article .post-filter-buttons {
+  display: flex;
+  gap: 1rem;
+}
 .blog article .post-filter-buttons .read-more-button {
   padding: 1rem;
   background-color: #FDC504;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.blog article .post-filter-buttons .filter-button {
+  padding: 1rem;
+  background-color: #FFFFFF;
+  color: black;
   border-radius: 5px;
 }
 .blog article:nth-of-type(even) div {

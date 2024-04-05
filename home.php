@@ -14,7 +14,7 @@ get_header();
 </div>
 
     <!-- Filter buttons -->
-    <div id="filter-buttons">
+    <div id="filter-buttons" class="intro-buttons">
         <button class="filter-button" data-category="all">All</button>
         <?php
         // Retrieve unique categories
@@ -35,7 +35,7 @@ get_header();
             $post_categories = get_the_category();
             ?>
             <!-- close php and start html-->
-            <article class="flex blog-post">
+            <article class="blog-post">
                 <img src="<?php echo esc_html(get_field('blog_image')); ?>" alt="">
                 <div>
                     <h3><?php the_title(); ?></h3>
