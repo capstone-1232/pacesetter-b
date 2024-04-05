@@ -1,4 +1,4 @@
-<section class="container products">
+<section class="container products basics">
     <div class="products-flex">
         <h2>New to the Slopes? <span>Get the basics here!</span></h2>
         <?php
@@ -50,7 +50,7 @@
                     <p>
                         <?php echo $short_description ?>
                     </p>
-                    <div>
+                    <div class="product-status">
                         <p>$
                             <?php echo $product_price ?>
                         </p>
@@ -58,7 +58,7 @@
                             <?php echo $in_stock ?>
                         </p>
                     </div>
-                    <a href="<?php echo esc_url($product_url); ?>">View Product</a>
+                    <a class="card-button" href="<?php echo esc_url($product_url); ?>">View Product</a>
                 </div>
             <?php } ?>
     </div>
