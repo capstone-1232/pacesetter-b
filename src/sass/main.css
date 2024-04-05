@@ -1472,6 +1472,31 @@ a {
   padding: 1rem 0 2rem 0;
 }
 
+@media screen and (min-width: 1024px) {
+  .faq-section p {
+    width: 60%;
+  }
+  .common-questions-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+  }
+  .accordion-sections {
+    width: 85%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+  }
+  .accordion-sections h4 {
+    margin-top: 1rem;
+  }
+  .accordion-sections .faq-question {
+    grid-column: 1/3;
+  }
+}
 body {
   font-size: 100%;
   line-height: 1.5;

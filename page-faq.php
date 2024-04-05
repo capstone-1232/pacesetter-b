@@ -25,9 +25,9 @@ get_header();
             </div>
         </section>
         <section>
+            <h3 class="h2">Most Common Questions</h3>
             <div class="gradient-background">
-                <div class="container">
-                    <h3 class="h2">Most Common Questions</h3>
+                <div class="container common-questions-section">
                     <?php $args = array(
                         'post_type' => 'common_questions',
                         'post_status' => 'publish'
@@ -54,6 +54,7 @@ get_header();
             <section>
                 <h3 class="h2">Skis and Poles</h3>
                 <div>
+                <div class="accordion">
                     <?php $args = array(
                         'post_type' => 'ski_faq',
                         'post_status' => 'publish'
@@ -62,7 +63,7 @@ get_header();
                     while ($loop->have_posts()) {
                         $loop->the_post();
                         ?>
-                        <div class="accordion">
+                        
                             <h4>
                                 <?php the_title(); ?>
                             </h4>
@@ -71,8 +72,9 @@ get_header();
                                     <?php echo esc_html(get_field('faq_answer')); ?>
                                 </p>
                             </div>
-                        </div>
+                        
                     <?php } ?>
+                    </div>
                 </div>
             </section>
             <section>

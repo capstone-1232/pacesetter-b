@@ -148,11 +148,17 @@ $j(document).ready(function () {
     
     }
 
+    var icons = {
+        header: "ui-icon-plusthick",
+        activeHeader: "ui-icon-minusthick"
+    };
+
     // set ups accordions
     $j(".accordion").accordion({
         collapsible: true,
         active: false,
-        heightStyle: "content",
+        heightStyle: "auto",
+        icons: icons,
     });
 
     $j(window).scroll(function() {

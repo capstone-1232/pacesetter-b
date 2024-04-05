@@ -103,3 +103,35 @@
     }
 }
 
+@media screen and (min-width: 1024px) {
+    
+    .faq-section{
+
+        p{
+            width: 60%;
+        }
+    }
+
+    .common-questions-section{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        column-gap: 2rem;
+
+    }
+
+    .accordion-sections{
+        width: 85%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+
+        h4{
+            margin-top: 1rem;
+        }
+
+        .faq-question{
+            grid-column: 1/3;
+        }
+    }
+}
