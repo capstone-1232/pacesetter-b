@@ -2,28 +2,51 @@
 @import "fonts";
 
 .blog {
-   background-color: $orange;
    .intro{
+      background-image: ;
       h2{
          font-family: $racing;
-         text-decoration: underline;
+         font-size: 4rem;
+         text-decoration: underline $primary-yellow 5px;
          text-underline-offset: 5px;
+   }
+   div{
+      display: flex;
+      gap: 1rem;
+   }
+   .fitler-button{
+      background-color:$secondary-blue;
+      color: $white;
+      padding: 0.5rem;
+      border-radius: 5px;
+   }
+   .fitler-button:hover{
+      background-color: $white;
+      color: $secondary-blue;
    }
    }
    article {
     padding: 1.5rem;
     border-bottom: 3px solid black;
+    .flex{
+      display: flex;
+    }
+    h3{
+       font-size: 3rem;
+      }
+      .post-filter-buttons{
+         .read-more-button {
+            padding: 1rem;
+            background-color: $secondary-yellow ;
+            border-radius: 5px;
+            
+         }
+      }
    }
-   h3{
-    font-size: 3rem;
+   article:nth-of-type(even){
+     div{
+      order:-1;
+     }
    }
-   .read-more-button {
-    padding: 1rem;
-    background-color: $secondary-yellow ;
-    border-radius: 5px;
-   }
-//    .filter-button{
-
-//    }
 
 }

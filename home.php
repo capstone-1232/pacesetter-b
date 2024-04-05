@@ -43,8 +43,8 @@ get_header();
                     <div>
                     <p><?php echo substr(get_field('blog_entry'),0,150) ?> ...</p>
                         <!-- Filter button for each post -->
-                        <a href="<?php the_permalink(); ?>"class="read-more-button">Read More</a>
                         <div class="post-filter-buttons">
+                            <a href="<?php the_permalink(); ?>"class="read-more-button">Read More</a>
                             <?php foreach ($post_categories as $post_category) : ?>
                                 <button class="filter-button" data-category="<?php echo $post_category->slug; ?>"><?php echo $post_category->name; ?></button>
                             <?php endforeach; ?>
