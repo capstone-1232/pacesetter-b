@@ -30,8 +30,11 @@ function enqueue_styles_scripts() {
   // Enqueue jQuery
   wp_enqueue_script('jquery');
 
+  // Enqueue jQuery UI CSS
+  wp_enqueue_style( 'jquery-ui-css', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css', array('jquery'), '1.13.2', true);
+
   // Enqueue jQuery UI
-  wp_enqueue_script('jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', array('jquery'), '1.12.1', true);
+  wp_enqueue_script('jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js', array('jquery'), '1.13.2', true);
   
   // Enqueue Javascript for styling,with jQuery
   wp_enqueue_script('styles-scripts', get_template_directory_uri() . '/js/styles-utils.js', array('jquery'), '1.0.0', true, true);
