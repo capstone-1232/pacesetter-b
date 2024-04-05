@@ -1,8 +1,15 @@
-@use "colors";
-@use "fonts";
+@import "colors";
+@import "fonts";
 
 .blog {
    background-color: $orange;
+   .intro{
+      h2{
+         font-family: $racing;
+         text-decoration: underline;
+         text-underline-offset: 5px;
+   }
+   }
    article {
     padding: 1.5rem;
     border-bottom: 3px solid black;
@@ -13,6 +20,7 @@
    .read-more-button {
     padding: 1rem;
     background-color: $secondary-yellow ;
+    border-radius: 5px;
    }
 //    .filter-button{
 

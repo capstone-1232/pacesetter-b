@@ -6,10 +6,12 @@ get_header();
 ?>
 
 <main class="blog">
-
+<section>
+<div class="intro">
     <h2> Pacesetter Blog</h2>
     
-    <p>Welcome to the Pacesetter Blog</p>
+    <p>Welcome to the blog! From gear reviews and expert tips to destination spotlights and community stories, our blog is your go-to resource for all things powder.</p>
+</div>
 
     <!-- Filter buttons -->
     <div id="filter-buttons">
@@ -54,6 +56,7 @@ get_header();
         endwhile;
     endif;
     ?>
+</section>
 
 </main>
 
