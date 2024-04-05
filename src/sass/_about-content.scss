@@ -3,7 +3,8 @@
 @import 'fonts';
 
 .front-page-about {
-    margin: 8rem 0;
+    max-width: 1920px;
+    margin: 10rem auto;
     background: rgb(1,53,98);
     color: $white;
     position: relative;
@@ -79,7 +80,6 @@
         background-position: center;
         background-color: $secondary-blue;
         padding: 4rem 2rem;
-        // min-height: 326px;
     }
 }
 
@@ -162,16 +162,15 @@
             .about-image {
                 position: absolute;
                 overflow: visible;
-                top: -3.5rem;
+                // top: -3.5rem;
                 right: 0;
                 width: 50%;
-                height: 110%;
+                height: 100%;
                 background-image: url('https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/inside-store.jpg');
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                padding: 3rem 0 10rem 0;
-                border-top-left-radius: 5rem;
+                // padding: 3rem 0 10rem 0;
                 z-index: 10;
             }
         } 
@@ -225,7 +224,7 @@
 @media screen and (min-width: 1385px) {
     .front-page-about {
         &::before {
-            top: -36%;
+            top: -35%;
             min-height: 27%;
         }
     }
@@ -233,7 +232,7 @@
 @media screen and (min-width: 1635px) {
     .front-page-about {
         &::before {
-            top: -39%;
+            top: -37%;
             min-height: 28%;
         }
     }
@@ -241,7 +240,7 @@
 @media screen and (min-width: 1715px) {
     .front-page-about {
         &::before {
-            top: -41%;
+            top: -39%;
             min-height: 30%;
         }
     }
@@ -249,7 +248,7 @@
 @media screen and (min-width: 1810px) {
     .front-page-about {
         &::before {
-            top: -43%;
+            top: -42%;
             min-height: 32%;
         }
         .about-content {
