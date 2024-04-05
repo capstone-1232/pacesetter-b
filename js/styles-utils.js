@@ -148,17 +148,11 @@ $j(document).ready(function () {
     
     }
 
-    var icons = {
-        header: "ui-icon-plusthick",
-        activeHeader: "ui-icon-minusthick"
-    };
-
     // set ups accordions
     $j(".accordion").accordion({
         collapsible: true,
         active: false,
         heightStyle: "auto",
-        icons: icons,
     });
 
     $j(window).scroll(function() {
@@ -173,6 +167,11 @@ $j(document).ready(function () {
     $j('#backToTopBtn').click(function() {
         $j('html, body').animate({scrollTop: 0}, 'fast');
         return false;
+    });
+
+    $j(".ui-accordion-header").on("click", function(evt){
+        $j(".ui-accordion-header .plus-icon").toggleClass("hidden");
+        $j(".ui-accordion-header .minus-icon").toggleClass("hidden");
     });
 });
 
