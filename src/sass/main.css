@@ -1962,6 +1962,11 @@ a {
     padding: 1rem 0;
   }
 }
+@media screen and (min-width: 934px) {
+  .products .products-flex .product-card .card-button {
+    max-width: 55%;
+  }
+}
 @media screen and (min-width: 1050px) {
   .basics {
     max-width: 1920px;
