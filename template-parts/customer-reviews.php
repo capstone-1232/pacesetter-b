@@ -6,6 +6,7 @@ Template Post Type: customer-reviews
 ?>
 
 <section class="review-section">
+  <h2>Customer Reviews</h2>
   <div id="review-carousel" class="review_slider">
     <div class="carousel-inner">
 
@@ -31,10 +32,10 @@ Template Post Type: customer-reviews
           ?>
           <div class="review_slide <?php echo $active_class; ?>">
             <div class="review_slide-content">
-              <p>
+              <p class="feedback">
                 <?php echo $feedback ?>
               </p>
-              <p>-
+              <p class="customer-name">-
                 <?php echo $customer_name ?>
               </p>
             </div>
@@ -47,9 +48,24 @@ Template Post Type: customer-reviews
         // Check the number of posts before outputting navigation buttons
         if ($review_query->post_count > 1):
           ?>
-          <button class="review_btn review_btn-next">></button>
+          <button class="review_btn review_btn-next">
+            <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                viewBox="0 0 491.1 491.1" xml:space="preserve">
+              <g>
+                <path d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5
+                  c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"/>
+              </g>
+            </svg>
+          </button>
           <button class="review_btn review_btn-prev">
-            << /button>
+            <svg class="svg-flip" fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+              viewBox="0 0 491.1 491.1" xml:space="preserve">
+              <g>
+                <path d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5
+                  c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"/>
+              </g>
+            </svg>
+          </button>
             <?php endif;
 
         wp_reset_postdata();
@@ -109,19 +125,7 @@ Template Post Type: customer-reviews
 </script>
 
 <style>
-  .review_slider {
-    width: 100%;
-    height: 350px;
-    position: relative;
-    overflow: hidden;
-  }
 
-  .review_slide {
-    width: 100%;
-    height: 350px;
-    position: absolute;
-    transition: all 0.5s;
-  }
 
   .review_slide img {
     width: 100%;
@@ -129,31 +133,4 @@ Template Post Type: customer-reviews
     object-fit: cover;
   }
 
-  .review_btn {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-    border: none;
-    border-radius: 50%;
-    z-index: 10;
-    cursor: pointer;
-    background-color: #013652;
-    color: #fff;
-    font-size: 18px;
-  }
-
-  .review_btn:active {
-    transform: scale(1.1);
-  }
-
-  .review_btn-prev {
-    top: 45%;
-    left: 2%;
-  }
-
-  .review_btn-next {
-    top: 45%;
-    right: 2%;
-  }
 </style>
