@@ -3,7 +3,7 @@
 
 .blog {
    .intro{
-      background-image: url("../img/snow-background-texture.webp") ;
+      background-image: url("../img/snow-background-texture.webp") cover/center;
       h2{
          font-family: $racing;
          font-size: 4rem;

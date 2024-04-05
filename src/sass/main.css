@@ -2524,7 +2524,7 @@ a {
   font-style: normal;
 }
 .blog .intro {
-  background-image: url("../img/snow-background-texture.webp");
+  background-image: url("../img/snow-background-texture.webp") cover/center;
 }
 .blog .intro h2 {
   font-family: "racing_sans_oneregular", sans-serif;
