@@ -77,15 +77,15 @@ h3 {
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
 }
 
-
-html {
-  scroll-behavior: smooth;
-
 a {
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .hidden {
@@ -547,6 +547,522 @@ p {
   cursor: pointer;
 }
 
+.services__banner-container {
+  background-color: #01509D;
+}
+.services__banner-container .services__main-container {
+  color: #FFFFFF;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.services__banner-container .services__main-container p {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+}
+.services__banner-container .services__main-container h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  border-bottom: 1.5px solid #F9D70F;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+.services__banner-container .services__main-container h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.services__banner-container .services__main-container h4 {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.services__banner-container .services__main-container p.sub-text {
+  font-size: 0.625rem;
+  border-bottom: 2.5px solid #FFFFFF;
+}
+.services__banner-container .services__main-container .content-container {
+  padding: 1rem;
+  width: 55%;
+}
+.services__banner-container .services__main-container .content-container .cost-container p {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.services__banner-container .services__main-container .img-container {
+  padding: 1rem 1rem 4rem 1rem;
+  background-color: #013562;
+  width: 45%;
+}
+.services__banner-container .services__bottom-banner-container {
+  background-color: #01509D;
+  color: #FFFFFF;
+  max-width: 1440px;
+  margin: 0 auto;
+  flex-flow: column-reverse;
+  margin-bottom: 0;
+  padding-top: 5.25rem;
+  padding-bottom: 5.25rem;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(2) {
+  padding: 1rem;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(2) > div {
+  margin-bottom: 0.2rem;
+  border-bottom: 3px solid #FC7804;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(2) > div + p {
+  margin-bottom: 1rem;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(2) > div > div:nth-child(1) {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(1) figure {
+  margin: 0;
+  width: 80%;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(1) figure img {
+  border-top-right-radius: 90px;
+}
+.services__banner-container .services__bottom-banner-container ul {
+  margin-left: 0;
+  padding-left: 1rem;
+}
+
+.services {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.services p {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.services .services__container:nth-of-type(1), .services .services__container:nth-of-type(2) {
+  font-weight: 500;
+}
+.services .services__container:nth-of-type(1) > div, .services .services__container:nth-of-type(2) > div {
+  padding: 1rem;
+}
+.services .services__container:nth-of-type(1) > div div, .services .services__container:nth-of-type(2) > div div {
+  margin: 0.2rem 0 0 0;
+}
+.services .services__container:nth-of-type(1) > div div + p, .services .services__container:nth-of-type(2) > div div + p {
+  margin-top: 0.2rem;
+}
+.services .services__container:nth-of-type(1) h4, .services .services__container:nth-of-type(2) h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+.services .services__container:nth-of-type(1) p.sub-text, .services .services__container:nth-of-type(2) p.sub-text {
+  font-size: 0.625rem;
+  border-bottom: 3px solid #01509D;
+  margin-bottom: 0.2rem;
+}
+.services .services__container:nth-of-type(1) p br, .services .services__container:nth-of-type(2) p br {
+  display: none;
+}
+.services .services__container:nth-of-type(2) {
+  margin-bottom: 0;
+}
+.services .services__container:nth-of-type(2) .hidden-container {
+  display: none;
+}
+.services .services__designed-container {
+  background-color: #FC7804;
+}
+.services .services__designed-container .services__designed-container {
+  font-weight: 500;
+}
+.services .services__designed-container .services__designed-container > div {
+  padding: 0 1rem 0 1rem;
+}
+.services .services__designed-container .services__designed-container h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+.services .services__designed-container .services__designed-container p.sub-text {
+  font-size: 0.625rem;
+  border-bottom: 3px solid #01509D;
+  margin-bottom: 0.2rem;
+}
+.services .services__designed-container .services__designed-container:nth-of-type(2) {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+.services .services__designed-container .services__designed-container:nth-of-type(2) h5 {
+  font-weight: 500;
+  text-decoration: underline;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 0;
+}
+.services .services__container:nth-of-type(4), .services .services__container:nth-of-type(5) {
+  font-weight: 500;
+}
+.services .services__container:nth-of-type(4) > div, .services .services__container:nth-of-type(5) > div {
+  padding: 1rem;
+}
+.services .services__container:nth-of-type(4) > div div, .services .services__container:nth-of-type(5) > div div {
+  margin: 0.2rem 0 0 0;
+}
+.services .services__container:nth-of-type(4) > div div + p, .services .services__container:nth-of-type(5) > div div + p {
+  margin-top: 0.2rem;
+}
+.services .services__container:nth-of-type(4) h4, .services .services__container:nth-of-type(5) h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  border-bottom: 3px solid #01509D;
+}
+.services .services__container:nth-of-type(4) p.sub-text, .services .services__container:nth-of-type(5) p.sub-text {
+  font-size: 0.625rem;
+  margin-bottom: 0.2rem;
+}
+.services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2), .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+  text-align: center;
+  font-weight: 600;
+}
+.services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(3) + p {
+  margin-top: 1rem;
+}
+.services .services__container:nth-of-type(5) > div:nth-child(2) p {
+  margin-bottom: 0.5rem;
+}
+.services .services__container:nth-of-type(5) > div:nth-child(2) div:nth-child(1) {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 781px) {
+  .services__banner-container .services__main-container p,
+  .services__banner-container .services__main-container li {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  .services__banner-container .services__main-container h1 {
+    font-size: 4rem;
+    border-bottom: 4px solid #F9D70F;
+    width: 75%;
+    margin-bottom: 2rem;
+  }
+  .services__banner-container .services__main-container h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .services__banner-container .services__main-container h4 {
+    font-size: 2.25rem;
+  }
+  .services__banner-container .services__main-container p.sub-text {
+    width: 90%;
+    font-size: 1.125rem;
+    border-bottom: 4px solid #FFFFFF;
+  }
+  .services__banner-container .services__main-container .content-container {
+    padding: 1rem;
+  }
+  .services__banner-container .services__main-container .content-container .cost-container p {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .services__banner-container .services__main-container .img-container {
+    padding: 7rem 1rem 1rem 1rem;
+  }
+  .services__banner-container .services__main-container .img-container h3,
+  .services__banner-container .services__main-container .img-container p {
+    width: 70%;
+    margin-left: 4rem;
+  }
+  .services__banner-container .services__bottom-banner-container {
+    flex-flow: row;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(2) p + p {
+    font-size: 1.75rem;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(2) > div > div:nth-child(1) {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(2) > div > div:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(1) figure {
+    margin: 0;
+    width: auto;
+    padding: 2rem;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(1) figure img {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+  }
+  .services__banner-container .services__bottom-banner-container ul li {
+    margin-bottom: 0.5rem;
+  }
+  .services p {
+    font-size: 1.25rem;
+  }
+  .services .services__container:nth-of-type(1) {
+    margin-bottom: 0;
+  }
+  .services .services__container:nth-of-type(1) > div div + p, .services .services__container:nth-of-type(2) > div div + p {
+    margin-top: 0.5rem;
+  }
+  .services .services__container:nth-of-type(1) h4, .services .services__container:nth-of-type(2) h4 {
+    font-size: 2rem;
+  }
+  .services .services__container:nth-of-type(1) p.sub-text, .services .services__container:nth-of-type(2) p.sub-text {
+    font-size: 1rem;
+    border-bottom: 4px solid #01509D;
+  }
+  .services .services__container:nth-of-type(1) p.sub-text + p, .services .services__container:nth-of-type(2) p.sub-text + p {
+    margin-top: 0.5rem;
+  }
+  .services .services__container:nth-of-type(1) p br, .services .services__container:nth-of-type(2) p br {
+    display: none;
+  }
+  .services .services__container:nth-of-type(1) .hidden-container, .services .services__container:nth-of-type(2) .hidden-container {
+    display: unset;
+  }
+  .services .services__designed-container .services__designed-container > div {
+    padding: 0 1rem 0 1rem;
+  }
+  .services .services__designed-container .services__designed-container h4 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .services .services__designed-container .services__designed-container p.sub-text {
+    font-size: 1rem;
+    border-bottom: 4px solid #01509D;
+  }
+  .services .services__designed-container .services__designed-container p.sub-text + p {
+    margin-top: 0.5rem;
+  }
+  .services .services__designed-container .services__designed-container:nth-of-type(2) {
+    width: 70%;
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  .services .services__designed-container .services__designed-container:nth-of-type(2) h5 {
+    font-size: 2.625rem;
+  }
+  .services .services__designed-container .services__designed-container:nth-of-type(2) p:not(div + p) {
+    font-size: 1.5rem;
+  }
+  .services .services__container:nth-of-type(4) h4, .services .services__container:nth-of-type(5) h4 {
+    font-size: 2rem;
+    border-bottom: 4px solid #01509D;
+  }
+  .services .services__container:nth-of-type(4) h4 + p, .services .services__container:nth-of-type(5) h4 + p {
+    margin-top: 0.5rem;
+  }
+  .services .services__container:nth-of-type(4) p.sub-text, .services .services__container:nth-of-type(5) p.sub-text {
+    font-size: 1rem;
+  }
+  .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2), .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+    text-align: left;
+    padding-left: 4rem;
+  }
+  .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(3) + p {
+    margin-top: 1rem;
+  }
+  .services .services__container:nth-of-type(5) > div:nth-child(2) p {
+    margin-bottom: 0.5rem;
+  }
+  .services .services__container:nth-of-type(5) > div:nth-child(2) div:nth-child(1) {
+    font-weight: 600;
+  }
+}
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem);
+}
+
+.front-page .banner h2 {
+  font-family: "Racing Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Racing Sans One", sans-serif;
+  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
+}
+
+h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
+}
+
+a {
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
+}
+
+/*! Generated by Font Squirrel (https://www.fontsquirrel.com) on March 14, 2024 */
+@font-face {
+  font-family: "racing_sans_oneregular";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/racingsansone-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/montserrat-variablefont_wght-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_italic";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/montserrat-italic-variablefont_wght-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsbold";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-bold-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsregular";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinssemibold";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-semibold-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsmedium";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-medium-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinslight";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
+  font-style: normal;
+}
+.review-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.review-section .review_slider {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+.review-section .review_slider .carousel-inner .review_slide {
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  transition: all 0.5s;
+}
+.review-section .review_slider .carousel-inner .review_slide .review_slide-content {
+  max-width: 70%;
+  margin: 0 auto;
+}
+.review-section .review_slider .carousel-inner .review_slide .review_slide-content .feedback {
+  margin-bottom: 1.5rem;
+}
+.review-section .review_slider .carousel-inner .review_slide .review_slide-content .customer-name {
+  text-align: right;
+}
+.review-section .review_slider .carousel-inner .review_btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+  color: #FC7804;
+}
+.review-section .review_slider .carousel-inner .review_btn svg {
+  fill: #FC7804;
+  max-width: 20px;
+  max-height: 20px;
+}
+.review-section .review_slider .carousel-inner .review_btn .svg-flip {
+  transform: rotate(180deg);
+}
+.review-section .review_slider .carousel-inner .review_btn:active {
+  transform: scale(1.1);
+}
+.review-section .review_slider .carousel-inner .review_btn-prev {
+  top: 18%;
+  left: -1%;
+}
+.review-section .review_slider .carousel-inner .review_btn-next {
+  top: 18%;
+  right: -1%;
+}
+
+@media screen and (min-width: 420px) {
+  .review-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .review-section .review_slider {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+  }
+  .review-section .review_slider .carousel-inner .review_btn-prev {
+    top: 18%;
+    left: 1%;
+  }
+  .review-section .review_slider .carousel-inner .review_btn-next {
+    top: 18%;
+    right: 1%;
+  }
+}
+@media screen and (min-width: 500px) {
+  .review-section .review_slider .carousel-inner .review_btn-prev {
+    top: 15%;
+    left: 3%;
+  }
+  .review-section .review_slider .carousel-inner .review_btn-next {
+    top: 15%;
+    right: 3%;
+  }
+}
+@media screen and (min-width: 500px) {
+  .review-section .review_slider .carousel-inner .review_btn {
+    width: 50px;
+    height: 50px;
+    padding: 12px 10px 10px 10px;
+    align-items: center;
+  }
+  .review-section .review_slider .carousel-inner .review_btn svg {
+    fill: #FC7804;
+    max-width: 25px;
+    max-height: 25px;
+  }
+}
 /*! Generated by Font Squirrel (https://www.fontsquirrel.com) on March 14, 2024 */
 @font-face {
   font-family: "racing_sans_oneregular";

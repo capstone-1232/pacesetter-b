@@ -80,6 +80,7 @@ function event_filter_function() {
                     <?php
                     $tags = get_the_tags();
                         echo '<ul>';
+                            echo '<li class="event-tag">'.$skill_level_label.'</li>';
                             echo '<li class="event-tag">'.$location_tag_label.'</li>';
                             echo '<li class="event-tag">'.$time_range_label.'</li>';
                         echo '</ul>';

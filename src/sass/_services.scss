@@ -1,0 +1,394 @@
+@import "colors";
+
+.services__banner-container {
+  background-color: $secondary-blue;
+  .services__main-container {
+    color: $white;
+    max-width: 1440px;
+    margin: 0 auto;
+    p {
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 0;
+      border-bottom: 1.5px solid $primary-yellow;
+      width: 50%;
+      margin-bottom: 2rem;
+    }
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    h4 {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    p.sub-text {
+      font-size: 0.625rem;
+      border-bottom: 2.5px solid $white;
+    }
+
+    .content-container {
+      padding: 1rem;
+      width: 55%;
+      .cost-container {
+        p {
+          font-size: 0.875rem;
+          font-weight: 600;
+        }
+      }
+    }
+    .img-container {
+      padding: 1rem 1rem 4rem 1rem;
+      background-color: $primary-blue;
+      width: 45%;
+    }
+  }
+  .services__bottom-banner-container {
+    background-color: $secondary-blue;
+    color: $white;
+    max-width: 1440px;
+    margin: 0 auto;
+    flex-flow: column-reverse;
+    margin-bottom: 0;
+    padding-top: 5.25rem;
+    padding-bottom: 5.25rem;
+    & > div:nth-child(2) {
+      padding: 1rem;
+      & > div {
+        margin-bottom: 0.2rem;
+        border-bottom: 3px solid $orange;
+        + p {
+          margin-bottom: 1rem;
+        }
+        & > div:nth-child(1) {
+          font-weight: 600;
+          font-size: 1rem;
+        }
+      }
+    }
+    & > div:nth-child(1) {
+      figure {
+        margin: 0;
+        width: 80%;
+        img {
+          border-top-right-radius: 90px;
+        }
+      }
+    }
+    ul {
+      margin-left: 0;
+      padding-left: 1rem;
+    }
+  }
+}
+
+.services {
+  max-width: 1440px;
+  margin: 0 auto;
+  p {
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  .services__ {
+    &container:nth-of-type(1),
+    &container:nth-of-type(2) {
+      font-weight: 500;
+      > div {
+        padding: 1rem;
+        div {
+          margin: 0.2rem 0 0 0;
+          & + p {
+            margin-top: 0.2rem;
+          }
+        }
+      }
+      h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+      }
+      p.sub-text {
+        font-size: 0.625rem;
+        border-bottom: 3px solid $secondary-blue;
+        margin-bottom: 0.2rem;
+      }
+      p br {
+        display: none;
+      }
+    }
+    &container:nth-of-type(2) {
+      margin-bottom: 0;
+      .hidden-container {
+        display: none;
+      }
+    }
+    &designed-container {
+      background-color: $orange;
+      .services__designed-container {
+        font-weight: 500;
+        > div {
+          padding: 0 1rem 0 1rem;
+        }
+        h4 {
+          font-size: 1rem;
+          font-weight: 600;
+          margin: 0;
+        }
+        p.sub-text {
+          font-size: 0.625rem;
+          border-bottom: 3px solid $secondary-blue;
+          margin-bottom: 0.2rem;
+        }
+        &:nth-of-type(2) {
+          font-weight: 600;
+          font-size: 0.875rem;
+          h5 {
+            font-weight: 500;
+            text-decoration: underline;
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+    &container:nth-of-type(4),
+    &container:nth-of-type(5) {
+      font-weight: 500;
+      > div {
+        padding: 1rem;
+        div {
+          margin: 0.2rem 0 0 0;
+          & + p {
+            margin-top: 0.2rem;
+          }
+        }
+      }
+      h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+        border-bottom: 3px solid $secondary-blue;
+      }
+      p.sub-text {
+        font-size: 0.625rem;
+        margin-bottom: 0.2rem;
+      }
+    }
+    &container:nth-of-type(5) {
+      > div:nth-child(1) {
+        & > div:nth-child(3) > div:nth-child(2),
+        & > div:nth-child(2) > div:nth-child(2) {
+          text-align: center;
+          font-weight: 600;
+        }
+
+        & > div:nth-child(3) + p {
+          margin-top: 1rem;
+        }
+      }
+      > div:nth-child(2) {
+        p {
+          margin-bottom: 0.5rem;
+        }
+        div:nth-child(1) {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 781px) {
+  .services__banner-container {
+    .services__main-container {
+      p,
+      li {
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+      h1 {
+        font-size: 4rem;
+        border-bottom: 4px solid $primary-yellow;
+        width: 75%;
+        margin-bottom: 2rem;
+      }
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      h4 {
+        font-size: 2.25rem;
+      }
+
+      p.sub-text {
+        width: 90%;
+        font-size: 1.125rem;
+        border-bottom: 4px solid $white;
+      }
+
+      .content-container {
+        padding: 1rem;
+        .cost-container {
+          p {
+            font-size: 1.25rem;
+            font-weight: 600;
+          }
+        }
+      }
+      .img-container {
+        padding: 7rem 1rem 1rem 1rem;
+        h3,
+        p {
+          width: 70%;
+          margin-left: 4rem;
+        }
+      }
+    }
+    .services__bottom-banner-container {
+      flex-flow: row;
+      & > div:nth-child(2) {
+        p + p {
+          font-size: 1.75rem;
+        }
+        & > div {
+          & > div:nth-child(1) {
+            font-weight: 600;
+            font-size: 2rem;
+          }
+          & > div:nth-child(2) {
+            font-size: 1.5rem;
+            font-weight: 500;
+          }
+        }
+      }
+      & > div:nth-child(1) {
+        figure {
+          margin: 0;
+          width: auto;
+          padding: 2rem;
+          img {
+            border-top-right-radius: 0px;
+            border-top-left-radius: 90px;
+            border-bottom-right-radius: 90px;
+          }
+        }
+      }
+      ul {
+        li {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .services {
+    p {
+      font-size: 1.25rem;
+    }
+    .services__ {
+      &container:nth-of-type(1) {
+        margin-bottom: 0;
+      }
+      &container:nth-of-type(1),
+      &container:nth-of-type(2) {
+        > div {
+          div {
+            & + p {
+              margin-top: 0.5rem;
+            }
+          }
+        }
+        h4 {
+          font-size: 2rem;
+        }
+        p.sub-text {
+          font-size: 1rem;
+          border-bottom: 4px solid $secondary-blue;
+          & + p {
+            margin-top: 0.5rem;
+          }
+        }
+        p br {
+          display: none;
+        }
+        .hidden-container {
+          display: unset;
+        }
+      }
+      &designed-container {
+        .services__designed-container {
+          > div {
+            padding: 0 1rem 0 1rem;
+          }
+          h4 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
+          }
+          p.sub-text {
+            font-size: 1rem;
+            border-bottom: 4px solid $secondary-blue;
+            & + p {
+              margin-top: 0.5rem;
+            }
+          }
+          &:nth-of-type(2) {
+            width: 70%;
+            margin: 0 auto;
+            font-weight: 600;
+            font-size: 0.875rem;
+            h5 {
+              font-size: 2.625rem;
+            }
+            p:not(div + p) {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+      &container:nth-of-type(4),
+      &container:nth-of-type(5) {
+        h4 {
+          font-size: 2rem;
+          border-bottom: 4px solid $secondary-blue;
+          & + p {
+            margin-top: 0.5rem;
+          }
+        }
+        p.sub-text {
+          font-size: 1rem;
+        }
+      }
+      &container:nth-of-type(5) {
+        > div:nth-child(1) {
+          & > div:nth-child(3) > div:nth-child(2),
+          & > div:nth-child(2) > div:nth-child(2) {
+            text-align: left;
+            padding-left: 4rem;
+          }
+
+          & > div:nth-child(3) + p {
+            margin-top: 1rem;
+          }
+        }
+        > div:nth-child(2) {
+          p {
+            margin-bottom: 0.5rem;
+          }
+          div:nth-child(1) {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,13 @@
-@import 'colors.scss';
-@import 'fonts.scss';
-@import 'typography.scss';
-@import 'utilities.scss';
+@import "colors.scss";
+@import "fonts.scss";
+@import "typography.scss";
+@import "utilities.scss";
 
-@import 'header.scss';
-@import 'footer.scss';
-@import 'single-events.scss';
-@import 'single-products.scss';
-@import '_front-page.scss';
-@import '_hosted-event.scss';
+@import "header.scss";
+@import "footer.scss";
+@import "single-events.scss";
+@import "single-products.scss";
+@import "services.scss";
+@import "customer-reviews.scss";
+@import "_front-page.scss";
+@import "_hosted-event.scss";

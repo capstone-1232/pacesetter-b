@@ -16,9 +16,7 @@
 
 <head>
 	<title>
-		<?php
-		echo the_title($before = '', $after = ' | ') . get_bloginfo("name") . ' - ' . get_bloginfo("description");
-		?>
+    <?php woocommerce_page_title(); ?> | Pacesetter
 	</title>
 	<meta name="description" content="<?php bloginfo("description"); ?>">
 	<meta name="keywords"
@@ -125,8 +123,7 @@
 
 							<?php
 
-							$menu_object = wp_get_nav_menu_object('main-menu');
-							$menu = wp_get_nav_menu_items($menu_object->term_id);
+							$menu = wp_get_nav_menu_items('18');
 							echo "<ul>";
 							foreach ($menu as $link) {
 								echo "<li>";
