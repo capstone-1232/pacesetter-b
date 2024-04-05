@@ -7,59 +7,64 @@
     padding-top: 2rem;
     .yellow-bg {
         position: relative;
-        background-color: $primary-yellow;
+        background-color: $light-yellow;
         clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
-        padding-bottom: calc(30vh);
+        padding-bottom: calc(35vh);
         padding-top: 1rem;
         z-index: 0;
+        h2 {
+            padding-left: 1rem;
+        }
         .content {
-            h2 {
-                padding-left: 1rem;
-            }
-            .blog-view-flex {
-                div {
-                    position: relative;
-                    padding: 1rem;
-                    p {
-                        padding-bottom: 1.5rem;
-                    }
+            div {
+                position: relative;
+                padding: 1rem;
+                p {
+                    padding-bottom: 1.5rem;
+                }
 
-                    .blog-view-btn {
-                        position: absolute;
-                        bottom: -15%;
-                        right: 1rem;
+                .blog-view-btn {
+                    position: absolute;
+                    bottom: -15%;
+                    right: 1rem;
 
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: space-around;
-                        align-items: center;
-                        max-width: fit-content;
-                        text-decoration: none;
-                        padding: 0.45rem 0.75rem;
-                        border-radius: 0.25rem;
-                        background-color: $darkbluebtn;
-                        color: $white;
-                        margin-left: auto;
-                        margin-right: 0;
-                        z-index: 1;
-            
-                        svg {
-                            fill: $white;
-                            margin-left: 0.25rem;
-                            max-width: 0.9rem;
-                            max-height: 0.9rem;
-                        }
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    align-items: center;
+                    max-width: fit-content;
+                    text-decoration: none;
+                    padding: 0.45rem 0.75rem;
+                    border-radius: 0.25rem;
+                    background-color: $darkbluebtn;
+                    color: $white;
+                    margin-left: auto;
+                    margin-right: 0;
+                    z-index: 1;
+        
+                    svg {
+                        fill: $white;
+                        margin-left: 0.25rem;
+                        max-width: 0.9rem;
+                        max-height: 0.9rem;
                     }
                 }
             }
+            img {
+                width: 100%;
+                max-height: 400px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                border-top-right-radius: 100px;
+            }
         }
-        img {
-            width: 100%;
-            max-height: 400px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            border-top-right-radius: 100px;
+    }
+}
+@media screen and (min-width: 360px) {
+    .landing-page-blog {
+        .yellow-bg {
+            padding-bottom: calc(38vh);
         }
     }
 }
@@ -67,9 +72,54 @@
 @media screen and (min-width: 400px) {
     .landing-page-blog {
         .yellow-bg {
-            padding-bottom: calc(26vh);
-            img {
-                width: 80%;
+            padding-bottom: calc(35vh);
+            .content {
+                img {
+                    width: 80%;
+                    height: 50%;
+                    margin-top: 10%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .landing-page-blog {
+
+        .yellow-bg {
+            padding-bottom: 4rem;
+            padding-top: 3rem;
+            h2 {
+            max-width: 1150px;
+            margin: 1rem auto;
+            }
+            .content {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row-reverse;
+                gap: 2rem;
+                max-width: 1150px;
+                margin: 0 auto;
+                padding: 1rem;
+
+                div {
+                    width: calc(50% - 2rem);
+                    padding: 0;
+                    p {
+                        padding-bottom: unset;
+                    }
+                    .blog-view-btn {
+                        position: relative;
+                    }
+                }
+                img {
+                    position: relative;
+                    width: calc(50%);
+                    height: 100%;
+                    margin-top: 0;
+                    border-bottom-left-radius: 100px;
+                }
             }
         }
     }
