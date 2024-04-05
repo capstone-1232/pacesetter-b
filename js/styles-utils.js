@@ -13,6 +13,7 @@ $j(document).ready(function () {
     $j(".dropdown-menu").toggle();
     $j(".rsvp-toggle").button();
     $j(".rsvp-panel>button").button();
+    $j('#backToTopBtn').hide();
 
     if (window.matchMedia("(max-width: 1024px)").matches) {
         $j(".rsvp-panel").hide();
@@ -145,10 +146,27 @@ $j(document).ready(function () {
             }
         });
     
-        $j(".rsvp-panel>div>button:first-of-type").on("click", function() {
-            $j(".rsvp-panel").hide("slide");
-        });
     }
 
+    // set ups accordions
+    $j(".accordion").accordion({
+        collapsible: true,
+        active: false,
+        heightStyle: "content",
+    });
+
+    $j(window).scroll(function() {
+        var scrollPoint = 200; // replace with the point you're interested in
+        if ($j(this).scrollTop() > scrollPoint) {
+            $j('#backToTopBtn').show("fade");
+        } else {
+            $j('#backToTopBtn').hide("fade");
+        }
+    });
+
+    $j('#backToTopBtn').click(function() {
+        $j('html, body').animate({scrollTop: 0}, 'fast');
+        return false;
+    });
 });
 
