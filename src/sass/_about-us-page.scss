@@ -1,1 +1,67 @@
+@import 'colors';
+@import 'typography';
+@import 'fonts';
 
+.about-pacesetter {
+    h2 {
+        font-family: "Racing Sans One", sans-serif;
+        font-style: normal;
+        color: $header-blue;
+        max-width: 50%;
+        margin-left: 1rem;
+    }
+    .about-content:nth-child(even) {
+        div {
+            padding: 0 1rem;
+        }
+        img {
+            max-width: 350px;
+            margin: 0 auto;
+            max-height: 400px;
+            padding: 1rem;
+        }
+    }
+    .about-content:nth-child(odd) {
+        background-color: $secondary-blue;
+        clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0% 100%);
+        padding: 2rem 0 0 0;
+        margin-top: 3rem;
+
+        div {
+            color: $white;
+            padding: 1rem 1rem 2rem 1rem;
+        }
+        img {
+            max-width: 100%;
+            margin-left: 0;
+            margin-bottom: 0;
+            float: unset;
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .about-pacesetter {
+        .about-content:nth-child(even) {
+            display: flex;
+            flex-wrap: wrap;
+            div {
+                width: calc(50% - 2rem);
+                padding: 1rem;
+            }
+        }
+
+        .about-content:nth-child(odd) {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            div {
+                width: calc(50% - 1rem);
+                padding: 1rem;
+            }
+            img {
+                max-width: calc(50% - 1rem);
+            }
+        }
+    }
+}
