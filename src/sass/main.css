@@ -2523,7 +2523,10 @@ a {
   src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
   font-style: normal;
 }
-.blog .intro ba h2 {
+.blog .intro {
+  background-image: url("../img/snow-background-texture.webp");
+}
+.blog .intro h2 {
   font-family: "racing_sans_oneregular", sans-serif;
   font-size: 4rem;
   -webkit-text-decoration: underline #F9D70F 5px;
