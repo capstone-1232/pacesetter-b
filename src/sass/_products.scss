@@ -54,6 +54,7 @@
                 position: absolute;
                 bottom: 1rem;
                 left: 1rem;
+                font-size: clamp(0.75rem, 0.7rem + 0.25vw, 1rem);
             }
         }
     }
@@ -175,7 +176,7 @@
         .products-flex {
             .product-card {
                 .card-button {
-                    max-width: 55%;
+                    max-width: 50%;
                 }
             }
         }
