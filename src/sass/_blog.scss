@@ -3,9 +3,9 @@
 
 .blog {
    .intro{
-      background-image: url("../img/snow-background-texture.webp") cover/center;
+      background-image: url("../img/snow-background-texture.webp") cover;
       border-bottom: 8px solid $primary-blue;
-      box-shadow: 0px 10px  5px $black;
+      box-shadow: 0px 0px 10px rgba(1, 53, 98, 0.5);
       h2{
          font-family: $racing;
          font-size: 4rem;
@@ -22,6 +22,7 @@
          color: $white;
          padding: 0.5rem;
          border-radius: 5px;
+         width: calc(50% - 3rem);
       }
       .filter-button:hover{
          background-color: $white;
@@ -29,40 +30,44 @@
       }
    }
    article {
-    padding: 1.5rem;
-    border-bottom: 3px solid black;
-    .flex{
-      display: flex;
-      flex-direction: column;
-    }
-    h3{
-       font-size: 3rem;
-      }
-      img{
-         border-radius: 10px;
-         width: 100%;
-      }
-      .post-filter-buttons{
+      padding: 1.5rem;
+      border-bottom: 3px solid black;
+      .flex{
          display: flex;
-         gap: 1rem;
-         .read-more-button {
-            padding: 1rem;
-            background-color: $secondary-yellow ;
-            border-radius: 5px;
-            color: $white;
-         }
-         .filter-button{
-            padding: 1rem;
-            background-color: $white;
-            color:black;
-            border-radius: 5px;
-         }
+         flex-direction: column;
       }
+      h3{
+         font-size: 3rem;
+         }
+      img{
+            border-radius: 10px;
+            width: 100%;
+            aspect-ratio: 1;
+         }
+         .post-filter-buttons{
+            display: flex;
+            gap: 1rem;
+            .read-more-button {
+               padding: 1rem;
+               background-color: $secondary-yellow ;
+               border-radius: 5px;
+               color: $white;
+            }
+            .filter-button{
+               padding: 1rem;
+               background-color: $white;
+               color:black;
+               border-radius: 5px;
+            }
+         }
    }
+   
+}
+@media screen and (min-width:500px) {
+   
    article:nth-of-type(even){
      div{
       order:-1;
      }
    }
-
 }
