@@ -25,13 +25,15 @@ get_header();
         $loop->the_post();
         ?>
         <div class="about-content">
-            <div>
-                <h3><?php the_title()?></h3>
-                <p>
-                    <?php echo esc_html(get_field('about_us_text')); ?>
-                </p>
+            <div class="about-max-width">
+                <div>
+                    <h3><?php the_title()?></h3>
+                    <p>
+                        <?php echo esc_html(get_field('about_us_text')); ?>
+                    </p>
+                </div>
+                <img src="<?php echo esc_html(get_field("section_image")); ?>" />
             </div>
-            <img src="<?php echo esc_html(get_field("section_image")); ?>" />
         </div>
 
         <?php
