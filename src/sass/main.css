@@ -1815,6 +1815,7 @@ a {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
+  font-size: clamp(0.75rem, 0.7rem + 0.25vw, 1rem);
 }
 .products a.yellow-btn {
   display: flex;
@@ -1911,7 +1912,7 @@ a {
 }
 @media screen and (min-width: 934px) {
   .products .products-flex .product-card .card-button {
-    max-width: 55%;
+    max-width: 50%;
   }
 }
 @media screen and (min-width: 1050px) {
@@ -3001,11 +3002,6 @@ a {
   }
 }
 @media screen and (min-width: 700px) {
-  .about-pacesetter h2 {
-    max-width: 1920px;
-    margin-left: auto;
-    margin-right: auto;
-  }
   .about-pacesetter .about-content:nth-child(odd) {
     -webkit-clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
             clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
@@ -3031,5 +3027,12 @@ a {
     padding-right: 1rem;
     border-top-right-radius: 100px;
     border-bottom-left-radius: 100px;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .about-pacesetter h2 {
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }/*# sourceMappingURL=main.css.map */
