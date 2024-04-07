@@ -9,10 +9,9 @@ get_header();
 <section>
 <div class="intro">
     <h2> Pacesetter Blog</h2>
-    
+    <span class="offset-underline"></span>
     <p>Welcome to the blog! From gear reviews and expert tips to destination spotlights and community stories, our blog is your go-to resource for all things powder.</p>
-</div>
-
+    
     <!-- Filter buttons -->
     <div id="filter-buttons" class="intro-buttons">
         <button class="filter-button" data-category="all">All</button>
@@ -26,7 +25,8 @@ get_header();
         }
         ?>
     </div>
-
+</div>
+    
     <?php
     if (have_posts()):
         while (have_posts()):

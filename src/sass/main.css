@@ -3085,16 +3085,17 @@ a {
   font-style: normal;
 }
 .blog .intro {
-  background-image: url("../img/snow-background-texture.webp") cover;
+  background-image: url("../img/snow-background-texture.webp");
   border-bottom: 8px solid #013562;
   box-shadow: 0px 0px 10px rgba(1, 53, 98, 0.5);
 }
 .blog .intro h2 {
   font-family: "racing_sans_oneregular", sans-serif;
   font-size: 4rem;
-  -webkit-text-decoration: underline #F9D70F 5px;
-          text-decoration: underline #F9D70F 5px;
-  text-underline-offset: 5px;
+  margin-bottom: 0.5rem;
+}
+.blog .intro p {
+  font-weight: 100;
 }
 .blog .intro .intro-buttons {
   display: flex;
@@ -3109,6 +3110,10 @@ a {
   width: calc(50% - 3rem);
 }
 .blog .intro .filter-button:hover {
+  background-color: #FFFFFF;
+  color: #01509D;
+}
+.blog .intro .filter-button:active {
   background-color: #FFFFFF;
   color: #01509D;
 }
@@ -3146,7 +3151,11 @@ a {
 }
 
 @media screen and (min-width: 500px) {
-  article:nth-of-type(even) div {
+  .blog .flex {
+    display: flex;
+    flex-direction: row;
+  }
+  .blog article:nth-of-type(even) div {
     order: -1;
   }
 }
