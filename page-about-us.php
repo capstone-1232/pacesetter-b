@@ -10,8 +10,8 @@
 
 get_header();
 ?>
-<section>
-    <h2>About pacesetter</h2>
+<section class="about-pacesetter">
+    <h2>About Pacesetter <span class="offset-underline"></span></h2>
     <?php
     $args = array(
         'post_type' => 'about_section',
@@ -24,12 +24,16 @@ get_header();
     while ($loop->have_posts()) {
         $loop->the_post();
         ?>
-        <div>
-            <img src="<?php echo esc_html(get_field("section_image")); ?>" />
-            <h3><?php the_title()?></h3>
-            <p>
-                <?php echo esc_html(get_field('about_us_text')); ?>
-            </p>
+        <div class="about-content">
+            <div class="about-max-width">
+                <div>
+                    <h3><?php the_title()?></h3>
+                    <p>
+                        <?php echo esc_html(get_field('about_us_text')); ?>
+                    </p>
+                </div>
+                <img src="<?php echo esc_html(get_field("section_image")); ?>" />
+            </div>
         </div>
 
         <?php
