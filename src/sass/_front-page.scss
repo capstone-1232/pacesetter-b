@@ -105,8 +105,13 @@
 }
 
 @media screen and (min-width: 1000px) {
-    .banner-text .banner-text-1 svg, .banner-text .banner-text-2 svg {
-        width: 80px;
-        height: 80px;
+    .banner-text {
+        max-width: 1920px;
+        margin: 0 auto;
+        .banner-text-1 svg, .banner-text .banner-text-2 svg {
+            width: 80px;
+            height: 80px;
+        }
     }
+    
 }
