@@ -1,0 +1,376 @@
+@import "colors";
+@import "fonts";
+@import "typography";
+
+
+.desktop-nav {
+    display: none;
+}
+
+.info-nav,
+.main-nav{
+    z-index: 10;
+}
+
+// Info nav styling
+.info-nav {
+    background-color: $primary-blue;
+    color: $white;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+
+    div:last-of-type {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+}
+
+.operation-hours {
+    margin-left: 10px;
+    min-width: fit-content;
+}
+
+.site-search {
+    display: flex;
+}
+
+#main-search.hidden,
+.search-submit {
+    display: none;
+}
+
+.search-section {
+    align-items: center;
+    // margin: 5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.show-search {
+    z-index: 9;
+
+    svg {
+        color: $white;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+#main-search {
+    width: 100%;
+    height: 37px;
+    margin-left: 5px;
+
+    .search-form {
+        width: 100%;
+        height: 37px;
+    }
+    .search-field {
+        width: 100%;
+        height: 37px;
+    }
+}
+
+p {
+    margin: 0;
+}
+
+.site-header {
+    background-color: $primary-yellow;
+}
+
+// Main Nav Styling
+.main-nav {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 50px;
+
+    a {
+        text-decoration: none;
+        color: $black;
+    }
+
+    .site-title a {
+        font-size: 24px;
+        font-family: $racing;
+        padding-left: 10px;
+    }
+}
+
+.toggle-nav {
+    margin-left: auto;
+
+    button {
+        background: none;
+        border: none;
+    }
+
+    svg {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+.toggle-menu {
+    height: 85vh;
+    width: 100vw;
+    background-color: $white;
+    position: absolute;
+    left: 0;
+    z-index: 9;
+
+    transform: perspective(400px) rotateY(0deg); /* Set initial rotation */
+    transition: transform 0.5s ease; /* Add smooth transition */
+
+    h2 {
+        text-align: center;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    a {
+        font-weight: 600;
+    }
+}
+
+.billboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 126px;
+    overflow-x: scroll;
+
+    .category-select {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 52px;
+        background-color: yellow;
+        width: 49%;
+        margin-right: 16px
+    }
+
+    a {
+        font-family: $racing;
+    }
+}
+
+.column-container {
+    height: 100%;
+}
+
+.navlinks {
+    width: 60%;
+    margin: 0.5rem auto 0 auto;
+
+    li {
+        width: 100%;
+    }
+
+    a {
+        width: 100%;
+        display: block;
+        padding: 0.4rem;
+        border-bottom: 1px solid $primary-blue;
+    }
+}
+
+.left-column {
+    width: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.left-column.squished {
+    width: 50%;
+    // overflow-y: scroll;
+
+    .billboard {
+        flex-direction: row;
+        height: 164px;
+    }
+
+    .category-select {
+        width: 100%;
+        height: 37px;
+        margin-right: unset;
+        margin-bottom: 5px;
+    }
+
+    .navlinks {
+        width: 80%;
+    }
+}
+
+.right-column {
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    background-color: $white;
+
+    box-shadow: -4px 0px 0px rgba($primary-blue, 0.5);
+    transition: right 0.5s ease-in-out;
+
+    .subcategories {
+        padding: 10%;
+        align-items: center;
+        height: 70vh;
+        overflow-y: scroll;
+    }
+
+    button {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    ul {
+        width: 95%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    a {
+        display: block;
+        width: 100%;
+        padding: 1rem 0;
+        border-bottom: 1px solid $primary-blue;
+        font-family: $racing;
+        text-align: center;
+    }
+}
+
+// Desktop styling
+
+@media screen and (min-width: 1024px) {
+    .desktop-nav {
+        display: flex;
+        height: 100%;
+    }
+
+    .toggle-menu,
+    .toggle-nav {
+        display: none;
+    }
+
+    .info-nav{
+        padding: 0.5rem;
+        height: unset;
+
+        div:last-of-type {
+            justify-content: right;
+        }
+
+        #main-search,
+        #main-search.hidden {
+            display: block;
+        }
+    }
+
+    .main-nav{
+        justify-content: space-between;
+        position: relative;
+        z-index: 9999;
+    }
+
+    .navlinks{
+        width: unset;
+        display: flex;
+        align-items: center;
+        margin: unset;
+        white-space: nowrap;
+        overflow: hidden;
+
+        a{
+            border: unset;
+            padding: 1rem;
+
+            &:hover{
+                background-color: $white;
+            }
+
+            &.dropdown-toggle{
+                display: flex;
+                align-items: center;
+                height: 100%;
+        
+                svg{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+    
+    .nav-utils{
+        flex-direction: row-reverse;
+    }
+
+    .category-dropdown{
+        position: absolute;
+        bottom: 0;
+        background-color: $white;
+        z-index: 9;
+    }
+
+    .dropdown-menu{
+        top: 50px;
+        left: 0;
+        z-index: 9;
+        background-color: $white;
+        width: 100%;
+        display: flex;
+        // overflow-x: scroll;
+        box-shadow: 0px 5px 10px $primary-blue;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        &>div{
+            padding: 1rem;
+            width: 25%;
+        }
+
+        .underline{
+            display: block;
+            width: 90%;
+            height: 4px;
+            position: relative;
+            left: 10%;
+            background-color: $primary-yellow;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+            border-radius: 0.5rem;
+
+            &:hover{
+                background-color: $primary-yellow;
+            }
+
+            a{
+                padding: 0.5rem 2rem 0.5rem 3rem;
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}

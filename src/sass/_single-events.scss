@@ -1,0 +1,280 @@
+@import "colors";
+@import "fonts";
+
+#eventModal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease;
+    opacity: 1;
+    visibility: visible;
+
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+        // transition: opacity 0.3s ease-in-out;
+    }
+
+    .event-modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+
+        .event-modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 1.25rem;
+            font-weight: bold;
+            svg {
+                width: 42px;
+                transition: 0.5s ease;
+                &:hover {
+                    transform: translateY(-3px);
+                }
+            }
+
+            &:hover,
+            &:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.event-details {
+    position: relative;
+
+    & > div:first-of-type {
+        margin-top: 232px;
+
+        & > p {
+            display: none;
+        }
+    }
+
+    & > div:nth-of-type(2) {
+        div:first-of-type {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        div:last-of-type {
+            margin: 1rem 0;
+            padding: 1rem 0;
+            border-top: 3px solid $primary-yellow;
+        }
+    }
+
+    img {
+        height: 204px;
+        width: 100%;
+        object-fit: cover;
+        top: -216px;
+        position: absolute;
+    }
+}
+
+.rsvp-toggle {
+    position: fixed;
+    z-index: 8;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $orange;
+    width: 60%;
+    color: $white;
+    box-shadow: 0px 2px 10px rgba($primary-blue, 0.25);
+}
+
+.rsvp-share-event {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.rsvp-panel {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 11;
+    bottom: 0;
+    left: 0;
+    background-color: $primary-yellow;
+
+    h2 {
+        font-family: $racing;
+        text-align: center;
+        margin: 0;
+    }
+
+    p {
+        text-align: center;
+        color: $turqoise;
+        font-weight: 600;
+    }
+
+    form {
+        & > div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.5rem;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            height: 2.25rem;
+        }
+
+        & > button {
+            background-color: $orange;
+            color: $white;
+            border: none;
+            border-radius: 5px;
+            height: 2.25rem;
+            margin-top: 1rem;
+            position: fixed;
+            bottom: 2%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 2px 10px rgba($primary-blue, 0.25);
+        }
+    }
+
+    button {
+        background: none;
+        border: none;
+        display: block;
+        margin-left: auto;
+
+        svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .event-details {
+        display: grid;
+        grid-template-columns: 1fr 25%;
+        gap: 20px;
+        margin-bottom: 6rem;
+
+        & > div:first-of-type {
+            margin-top: unset;
+            grid-row: 1;
+            grid-column: 1;
+        }
+
+        & > div:nth-of-type(2) {
+            grid-column: 1;
+            grid-row: 1;
+            margin-top: 6rem;
+
+            div:first-of-type{
+                font-weight: 500;
+            }
+
+            div:last-of-type {
+                border-top: 3px solid $primary-blue;
+            }
+        }
+
+        img {
+            position: unset;
+            grid-column: 1;
+            grid-row: 2;
+            height: 459px;
+            border-radius: 20px;
+        }
+    }
+
+    .rsvp-toggle {
+        display: none;
+
+        & + a {
+            display: block;
+            width: 95%;
+            margin: 1rem auto 0 auto;
+            color: $turqoise;
+        }
+    }
+
+    .rsvp-panel {
+        position: sticky;
+        display: block;
+        grid-column: 2;
+        grid-row: 1;
+        width: 100%;
+        height: unset;
+        padding: 1rem;
+        border-radius: 10px 0 0 10px;
+        box-shadow: 0px 0px 5px rgba($primary-blue, 0.25);
+
+        & > .container {
+            width: unset;
+
+            & > button:first-of-type {
+                display: none;
+            }
+        }
+
+        #myForm {
+            margin-top: 1rem;
+
+            & > button {
+                position: unset;
+                transform: unset;
+                box-shadow: unset;
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+
+        h2,
+        p {
+            text-align: left;
+        }
+    }
+
+    .related-events {
+        position: relative;
+        height: 20rem;
+
+        .rectangle-graphic {
+            background-color: $primary-yellow;
+            transform: rotate(3deg);
+            position: absolute;
+            height: 150%;
+            width: 1800px;
+            top: 0;
+            left: -20%;
+            z-index: -1;
+        }
+
+        h2 {
+            font-family: $racing;
+        }
+    }
+
+    #backToTopBtn{
+        display: none;
+    }
+}

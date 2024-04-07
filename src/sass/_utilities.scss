@@ -1,0 +1,76 @@
+@import "colors";
+
+html {
+    scroll-behavior: smooth;
+  }
+
+.hidden {
+    display: none;
+}
+
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.sticky{
+    position: sticky;
+}
+
+.overflow-hidden{
+    overflow: hidden;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.unstyle-btn {
+    background: none;
+    border: none;
+}
+
+.flex-container{
+    display: flex;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.offset-underline{
+    display: block;
+    width: 90%;
+    height: 4px;
+    position: relative;
+    left: 10%;
+    background-color: $primary-yellow;
+}
+
+.straight-underline{
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $primary-yellow;
+}
