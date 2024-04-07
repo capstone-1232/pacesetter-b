@@ -53,12 +53,16 @@
             color: $black;
             margin-left: auto;
             margin-right: 0;
+            cursor: pointer;
 
             svg {
-                margin-left: 0.25rem;
-                max-width: 0.9rem;
-                max-height: 0.9rem;
+                margin-left: 0.3rem;
+                width: 1rem;
+                height: 1rem;
             }
+        }
+        a.white-button:hover {
+            background-color: $secondary-yellow;
         }
     }
 }
@@ -110,6 +114,13 @@
             right: 4px;
             margin-right: 10%;
             margin-left: auto;
+
+            a.white-button {
+                svg {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
+            }
         }
     }
 }
@@ -134,7 +145,7 @@
         background-position: center;
 
         img {
-            max-height: 450px;
+            max-height: 425px;
             top: 145px;
         }
         .landing-page-events-text {
@@ -147,7 +158,10 @@
 
 @media screen and (min-width: 1600px){
     .landing-page-events {
-        height: 50vw;
+        height: 1000px;
+        max-width: 1920px;
+        margin: 0 auto;
+        padding: 12rem 0;
         img {
             max-height: 550px;
         }
