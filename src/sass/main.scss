@@ -2,12 +2,20 @@
 @import "fonts.scss";
 @import "typography.scss";
 @import "utilities.scss";
+@import "animations.scss";
 
 @import "header.scss";
 @import "footer.scss";
+@import "events.scss";
 @import "single-events.scss";
 @import "single-products.scss";
-@import "services.scss";
+@import "faq.scss";
+@import "hero-banner.scss";
+@import "front-page.scss";
+@import "products";
+@import "hosted-events.scss";
+@import "about-content.scss";
 @import "customer-reviews.scss";
-@import "_front-page.scss";
-@import "_hosted-event.scss";
+@import "landing-blog-content.scss";
+@import "about-us-page.scss";
+@import "services.scss";

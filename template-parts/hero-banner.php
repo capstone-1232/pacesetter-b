@@ -5,7 +5,7 @@ Template Post Type: hero-banner
 */
 ?>
 
-<div id="hero-carousel" class="slider">
+<section id="hero-carousel" class="slider">
   <div class="carousel-inner">
 
     <?php
@@ -35,10 +35,12 @@ Template Post Type: hero-banner
           <div class="slide-content">
             <h2><?php echo $title; ?></h2>
             <p><?php echo $tag_line; ?></p>
-            <a href="<?php echo esc_url($call_to_action_url); ?>"><?php echo esc_html($call_to_action); ?></a>
-            <?php if ($call_to_action_2):?>
-              <a href="<?php echo esc_url($call_to_action_url_2); ?>"><?php echo esc_html($call_to_action_2); ?></a>
-              <?php endif;?>
+            <div class="call-to-action">
+              <a href="<?php echo esc_url($call_to_action_url); ?>"><?php echo esc_html($call_to_action); ?></a>
+              <?php if ($call_to_action_2):?>
+                <a href="<?php echo esc_url($call_to_action_url_2); ?>"><?php echo esc_html($call_to_action_2); ?></a>
+                <?php endif;?>
+            </div>
           </div>
         </div>
 
@@ -65,7 +67,7 @@ Template Post Type: hero-banner
     ?>
 
   </div>
-</div>
+</section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -135,53 +137,7 @@ Template Post Type: hero-banner
 </script>
 
 <style>
-.slider {
-  width: 100%;
-  height: 350px;
-  position: relative;
-  overflow: hidden;
-}
 
-.slide {
-  width: 100%;
-  height: 350px;
-  position: absolute;
-  transition: all 0.5s;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.btn {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  border: none;
-  border-radius: 50%;
-  z-index: 10;
-  cursor: pointer;
-  background-color: #013652;
-  color: #fff;
-  font-size: 18px;
-}
-
-.btn:active {
-  transform: scale(1.1);
-}
-
-.btn-prev {
-  top: 45%;
-  left: 2%;
-}
-
-.btn-next {
-  top: 45%;
-  right: 2%;
-}
 
 .carousel-dots {
   position: absolute;

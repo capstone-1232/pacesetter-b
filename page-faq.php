@@ -33,7 +33,7 @@ get_header();
                 ?>
                 <div>
                 <div>
-                    <h4><?php echo the_title();?></h4>
+                    <h4><?php  the_title();?></h4>
                     <p><?php echo esc_html(get_field('common_answer'));?></p>
             
                     <a href="<?php echo esc_url(get_field('question_guide')); ?>" target="_blank" >Read more</a>
@@ -54,7 +54,7 @@ get_header();
                 $loop-> the_post();
                 ?>
                 <div>
-                    <h4><?php echo esc_html(get_field('title'));?></h4>
+                    <h4><?php the_title();?></h4>
                     <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
@@ -73,7 +73,7 @@ get_header();
                 $loop-> the_post();
                 ?>
                 <div>
-                    <h4><?php echo esc_html(get_field('title'));?></h4>
+                    <h4><?php the_title();?></h4>
                     <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
@@ -91,7 +91,7 @@ get_header();
                 $loop-> the_post();
                 ?>
                 <div>
-                    <h4><?php echo esc_html(get_field('title'));?></h4>
+                    <h4><?php the_title();?></h4>
                     <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
@@ -108,7 +108,7 @@ get_header();
                 $loop-> the_post();
                 ?>
                 <div>
-                    <h4><?php echo esc_html(get_field('title'));?></h4>
+                    <h4><?php the_title();?></h4>
                     <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
@@ -125,7 +125,7 @@ get_header();
                 $loop-> the_post();
                 ?>
                 <div>
-                    <h4><?php echo esc_html(get_field('title'));?></h4>
+                    <h4><?php the_title();?></h4>
                     <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
@@ -142,7 +142,7 @@ get_header();
                 $loop-> the_post();
                 ?>
                 <div>
-                    <h4><?php echo esc_html(get_field('title'));?></h4>
+                    <h4><?php the_title();?></h4>
                     <p><?php echo esc_html(get_field('faq_answer'));?></p>
                 </div>
 
