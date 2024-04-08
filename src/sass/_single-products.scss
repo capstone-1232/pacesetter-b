@@ -1,36 +1,790 @@
-.review-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-  
-    /* Modal content */
-    &-content {
-      background-color: #fefefe;
-      margin: 10% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-  
-      /* Close button */
-      .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-  
+@import "colors";
+@import "fonts";
+
+.product {
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .container-narrow {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .breadcrumbs {
+    padding: 0 1rem;
+    margin-bottom: 0.2rem;
+    font-style: italic;
+    font-family: $poppins;
+    span {
+      font-weight: 700;
+    }
+    a {
+      text-decoration: none;
+      color: $turqoise;
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+  }
+  .grid-container {
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .brand {
+      grid-row: 1 /2;
+      grid-column: 3 / -1;
+      opacity: 0.25;
+    }
+    .heading {
+      grid-column: 1/-1;
+      grid-row: 2 / 3;
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0;
+      }
+      span {
+        display: block;
+        width: 95%;
+        height: 4px;
+        position: relative;
+        left: 5%;
+        background-color: $secondary-yellow;
+      }
+    }
+    .slogan {
+      grid-column: 2 / -1;
+      grid-row: 3/4;
+      font-style: italic;
+      margin-left: auto;
+    }
+    .product-rating {
+      grid-row: 4/5;
+      grid-column: 1 / -1;
+      display: flex;
+      margin-bottom: 0.3rem;
+      span {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        svg {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+      a {
+        color: $primary-blue;
+        font-size: 0.75rem;
+        font-family: $poppins;
+        align-self: end;
+        text-decoration: none;
+        margin-left: 0.2rem;
+      }
+    }
+    .stock-check {
+      grid-row: 5/6;
+      grid-column: 1/-1;
+      color: $turqoise;
+      margin-bottom: 0.5rem;
+      font-family: $poppins;
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+    img:first-of-type {
+      grid-row: 6/7;
+      grid-column: 1/-1;
+      box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.25);
+    }
+    .price {
+      grid-row: 7/8;
+      grid-column: 1/-1;
+      font-size: 2rem;
+      font-family: $poppins;
+      border-top: 4px solid $secondary-yellow;
+      margin-top: 1rem;
+      span {
+        font-size: 0.825rem;
+        font-style: italic;
+      }
+    }
+    .attributes {
+      grid-row: 8/9;
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      h4 {
+        margin: 0;
+        font-size: 1rem;
+        font-family: $poppins;
+        font-weight: 600;
+      }
+      a {
+        font-size: 0.875rem;
+        color: $turqoise;
+        font-style: italic;
+        text-decoration: none;
+        font-family: $poppins;
         &:hover,
-        &:focus {
-          color: black;
-          text-decoration: none;
+        &:active {
+          text-decoration: underline;
+        }
+      }
+    }
+    .attribute-values {
+      grid-row: 9 / 10;
+      grid-column: 1/-1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-bottom: 4px solid $secondary-yellow;
+      padding-bottom: 1rem;
+      label {
+        background-color: $turqoise;
+        font-size: 0.875rem;
+        font-family: $poppins;
+        padding: 0.4rem 0.5rem 0.3rem 0.5rem;
+        color: $white;
+        border-radius: 5px;
+        &:hover {
           cursor: pointer;
+        }
+        input[type="radio"] {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+        }
+      }
+    }
+    .description {
+      grid-row: 10 / 11;
+      grid-column: 1 / -1;
+      margin: 0.5rem 0;
+    }
+    .questions {
+      grid-row: 11 / 12;
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+      a {
+        font-family: $poppins;
+        color: $turqoise;
+        text-decoration: none;
+        font-style: italic;
+        &:hover,
+        &:active {
+          text-decoration: underline;
         }
       }
     }
   }
-  
+  .snow-texture {
+    position: relative;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    .background-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.3);
+      mix-blend-mode: lighten;
+      filter: blur(10px);
+    }
+  }
+  #productFeatures {
+    z-index: 3;
+    .heading {
+      position: relative;
+      grid-row: 1 / 2;
+      grid-column: 1 / -1;
+      background: linear-gradient(
+        90deg,
+        $secondary-yellow,
+        rgba(255, 255, 255, 0) 100%
+      );
+      padding: 2rem;
+      h3 {
+        font-family: $racing;
+        font-style: italic;
+        font-size: 1.5rem;
+        margin: 0;
+        color: $primary-blue;
+      }
+      span {
+        display: block;
+        width: 60%;
+        height: 4px;
+        position: relative;
+        left: 5%;
+        background-color: $primary-blue;
+      }
+    }
+    .feature-content {
+      position: relative;
+      z-index: 2;
+      padding: 1rem;
+      p {
+        margin-bottom: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+      strong {
+        font-family: $racing;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+      ul {
+        margin-left: 1.5rem;
+        padding-left: 0;
+        margin-bottom: 0.5;
+        li {
+          font-size: 0.75rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  #reviews {
+    position: relative;
+    z-index: 2;
+    .grid-container {
+      padding-top: 2rem;
+      background-color: $white;
+      .heading {
+        grid-column: 1 / -1;
+        grid-row: 1/2;
+        h3 {
+          text-align: center;
+          font-size: 1.25rem;
+          font-family: $racing;
+        }
+        h3 + span {
+          display: block;
+          width: 50%;
+          height: 2px;
+          position: relative;
+          left: 5%;
+          margin: 0 auto;
+          background-color: $secondary-yellow;
+        }
+      }
+      .average-review {
+        margin-top: 1rem;
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+        p:nth-of-type(2) {
+          font-size: 1rem;
+          font-family: $poppins;
+          span {
+            font-weight: 700;
+            color: $turqoise;
+          }
+        }
+      }
+      .review-button {
+        grid-column: 3 / -1;
+        display: flex;
+        align-items: end;
+        button {
+          font-size: 0.875rem;
+          font-family: $poppins;
+          background-color: $orange;
+          color: $white;
+          padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+          transition: 0.5s ease;
+          border: none;
+          line-height: 1.5;
+          border-radius: 5px;
+          &:hover,
+          &:active {
+            background-color: $turqoise;
+            cursor: pointer;
+          }
+        }
+      }
+      > span {
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+        display: block;
+        width: 100%;
+        height: 2px;
+        position: relative;
+        margin: 0 auto;
+        background-color: $secondary-yellow;
+        margin: 1rem 0;
+      }
+      .reviews-container {
+        grid-column: 1 / -1;
+        grid-row: 4 / 5;
+        padding-bottom: 4rem;
+        > div {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          border-bottom: 3px solid $secondary-yellow;
+          margin-bottom: 1rem;
+          .review-rating {
+            width: 100%;
+          }
+          h5 {
+            margin: 0;
+            font-weight: 700;
+            width: 50%;
+            font-family: $poppins;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+          }
+          .comment {
+            width: 100%;
+            margin-bottom: 1rem;
+          }
+        }
+
+        > button {
+          width: 100%;
+          font-family: $racing;
+          padding: 1.5rem 0 1rem 0;
+          font-size: 1rem;
+          color: $primary-blue;
+          background: linear-gradient(0deg, $secondary-yellow, $white 100%);
+          border: none;
+          transition: background-position 0.5s ease;
+          background-size: 100% 120%;
+          background-position: 0 0;
+
+          &:hover,
+          &:active {
+            background-position: 0 80%; /* Move the background to the right */
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .review-modal-desktop {
+    display: none;
+  }
+  .review-modal {
+    &-mobile {
+      transition: left 0.3s ease;
+      left: -110%;
+    }
+    &-mobile,
+    &-desktop {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      box-shadow: 4px 0 4px rgba(0, 0, 0, 0.25);
+      z-index: 1000;
+      /* Modal content */
+      .review-modal-content {
+        position: relative;
+        z-index: 1000;
+        background-color: #fefefe;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-yellow;
+
+        .form-content {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          justify-content: center;
+          h2 {
+            font-family: $racing;
+            font-size: 1.5rem;
+            text-align: center;
+            width: 100%;
+          }
+
+          form {
+            &#reviewForm {
+              div.custom-form-comment {
+                textarea#comment {
+                  height: 150px;
+                }
+              }
+            }
+            div {
+              margin-bottom: 1rem;
+              label {
+                font-family: $poppins;
+                font-weight: 600;
+                font-size: 1rem;
+                display: block;
+              }
+              input,
+              textarea,
+              select {
+                width: 100%;
+                border-radius: 5px;
+                border: none;
+                box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.2);
+                &:not(textarea) {
+                  height: 2rem;
+                }
+              }
+            }
+            .form-submit {
+              display: flex;
+              justify-content: center;
+              button {
+                width: 60%;
+                font-weight: 700;
+                font-family: $poppins;
+                background-color: $orange;
+                transition: 0.5s ease;
+                border: none;
+                padding: 1rem;
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+                &:hover {
+                  background-color: $turqoise;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      /* Close button */
+      .close {
+        color: #aaa;
+        float: right;
+        filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+        path {
+          transition: 0.5s ease;
+        }
+        &:hover,
+        &:active {
+          cursor: pointer;
+          path {
+            fill: black;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 781px) {
+  .product {
+    .breadcrumbs {
+      margin-top: 3rem;
+      font-size: 1.25rem;
+      a {
+        font-size: 1.25rem;
+      }
+    }
+    .grid-container {
+      grid-template-columns: 67% 1fr 1fr;
+      grid-auto-rows: min-content;
+      .heading {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        margin-right: 2rem;
+        h2 {
+          font-size: 2rem;
+          text-align: center;
+        }
+        span {
+          width: 80%;
+          left: 20%;
+        }
+      }
+      img:first-of-type {
+        grid-column: 1 / 2;
+        grid-row: 2 / 9;
+        width: 50%;
+        min-width: 500px;
+        justify-self: center;
+        align-self: center;
+        margin-right: 2rem;
+      }
+      .slogan {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        align-self: end;
+      }
+      .brand {
+        align-self: end;
+        width: 80%;
+        justify-self: end;
+      }
+      .product-rating {
+        margin-top: 2rem;
+        grid-column: 2 / -1;
+        grid-row: 2 / 3;
+        span {
+          width: 2rem;
+          height: 2rem;
+          svg {
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+        a {
+          font-size: 1.5rem;
+        }
+      }
+      .stock-check {
+        grid-column: 2 / -1;
+        grid-row: 3 / 4;
+        font-size: 2rem;
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+      .description {
+        grid-column: 2 / -1;
+        grid-row: 4 / 5;
+        font-size: 1.25rem;
+      }
+      .price {
+        grid-column: 2 / -1;
+        grid-row: 5 / 6;
+        padding-top: 1rem;
+        font-size: 2.5rem;
+        span {
+          font-size: 1.5rem;
+        }
+      }
+      .attributes {
+        grid-column: 2 / -1;
+        grid-row: 6 / 7;
+        h4 {
+          font-size: 1.5rem;
+        }
+        a {
+          font-size: 1.25rem;
+        }
+      }
+      .attribute-values {
+        grid-column: 2 / -1;
+        grid-row: 7 / 8;
+        label {
+          font-size: 1.25rem;
+        }
+      }
+      .questions {
+        grid-column: 2 / -1;
+        grid-row: 8 / 9;
+        margin-top: 1rem;
+      }
+    }
+    #productFeatures {
+      .heading {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        h3 {
+          font-size: 3rem;
+        }
+        span {
+          left: 30px;
+          width: 260px;
+        }
+      }
+      .container {
+        margin-bottom: 6rem;
+      }
+
+      .feature-content {
+        margin-bottom: 2rem;
+        p,
+        ul li {
+          font-size: 1.25rem;
+        }
+        strong {
+          font-size: 2.5rem;
+        }
+      }
+    }
+    #reviews {
+      > .container-narrow {
+        padding-top: 6rem;
+        background-color: $primary-yellow;
+        -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+
+        > .container-narrow {
+          background-color: $orange;
+          -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+          padding-top: 2rem;
+        }
+      }
+      .grid-container {
+        -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+        background-color: $white;
+        gap: 0 1rem;
+        padding-top: 4rem;
+        // box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        .heading {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+          margin-right: 0;
+          padding-right: 2rem;
+          h3 {
+            font-size: 3rem;
+          }
+          h3 + span {
+            width: 410px;
+            left: 50px;
+            height: 4px;
+          }
+        }
+        .average-review {
+          grid-column: 2 / -1;
+          grid-row: 1 / 2;
+          p:nth-of-type(1) {
+            font-size: 1.5rem;
+          }
+          p:nth-of-type(2) {
+            font-size: 2rem;
+          }
+          .product-rating {
+            margin-top: 0;
+          }
+        }
+        .review-button {
+          grid-column: 2 / -1;
+          grid-row: 2 / 3;
+          align-self: center;
+          display: block;
+          button {
+            width: 100%;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+          }
+        }
+        > span {
+          display: none;
+        }
+        .reviews-container {
+          grid-column: 1 / 2;
+          grid-row: 3 / 4;
+          padding: 0 2rem 6rem 2rem;
+          > div {
+            margin-bottom: 1.5rem;
+            .review-rating {
+              span {
+                width: 2rem;
+                height: 2rem;
+                svg {
+                  width: 2rem;
+                  height: 2rem;
+                }
+              }
+            }
+            h5 {
+              font-size: 1.5rem;
+            }
+            p {
+              font-size: 1.25rem;
+            }
+          }
+          > button {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    .review-modal-mobile {
+      display: none;
+    }
+    .review-modal-desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 0;
+      transition: 0.5s ease;
+      opacity: 0;
+      visibility: hidden;
+      .review-modal-content {
+        padding: 20px;
+        width: 50%;
+        max-width: 800px;
+        height: 95vh;
+        max-height: 600px;
+        background-color: $primary-yellow;
+        border-radius: 20px;
+
+        .form-content {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          justify-content: center;
+          > div {
+            width: 90%;
+          }
+          h2 {
+            font-family: $racing;
+            font-size: 1.5rem;
+            text-align: center;
+            width: 100%;
+          }
+
+          form {
+            &#reviewForm {
+              div.custom-form-comment {
+                textarea#comment {
+                  height: 150px;
+                }
+              }
+            }
+            div {
+              margin-bottom: 1rem;
+              label {
+                font-family: $poppins;
+                font-weight: 600;
+                font-size: 1rem;
+                display: block;
+              }
+              input,
+              textarea,
+              select {
+                width: 100%;
+                border-radius: 5px;
+                border: none;
+                box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.2);
+                &:not(textarea) {
+                  height: 2rem;
+                }
+              }
+            }
+            .form-submit {
+              display: flex;
+              justify-content: center;
+              button {
+                width: 60%;
+                font-weight: 700;
+                font-family: $poppins;
+                background-color: $orange;
+                transition: 0.5s ease;
+                border: none;
+                padding: 1rem;
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+                &:hover {
+                  background-color: $turqoise;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
