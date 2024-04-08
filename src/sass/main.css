@@ -1416,30 +1416,29 @@ a {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0), #0C67C0, rgba(255, 255, 255, 0));
 }
 
-.accordion .ui-accordion-header,
-.accordion .ui-accordion-content {
+.faq .accordion .ui-accordion-header,
+.faq .accordion .ui-accordion-content {
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.accordion h4 {
+.faq .accordion h4 {
   margin-bottom: 0;
 }
-.accordion .ui-accordion-header {
+.faq .accordion .ui-accordion-header {
   background: #0C67C0;
   color: #ffffff;
   padding: 0.5rem 1rem;
 }
-.accordion .ui-accordion-content {
+.faq .accordion .ui-accordion-content {
   padding: 0.5rem 1.5rem;
 }
-
-.accordion-sections > section {
+.faq .accordion-sections > section {
   margin-bottom: 3rem;
 }
-.accordion-sections > section > h3 {
+.faq .accordion-sections > section > h3 {
   margin-bottom: 0;
 }
-.accordion-sections .plus-icon,
-.accordion-sections .minus-icon {
+.faq .accordion-sections .plus-icon,
+.faq .accordion-sections .minus-icon {
   display: none;
 }
 
@@ -1506,39 +1505,39 @@ a {
     flex-shrink: 0;
     height: auto;
   }
-  .accordion-sections {
+  .faq .accordion-sections {
     width: 85%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     -moz-column-gap: 2rem;
          column-gap: 2rem;
   }
-  .accordion-sections h4 {
+  .faq .accordion-sections h4 {
     margin-top: 1rem;
   }
-  .accordion-sections .faq-question {
+  .faq .accordion-sections .faq-question {
     grid-column: 1/3;
   }
-  .accordion-sections svg {
+  .faq .accordion-sections svg {
     width: 30px;
     height: auto;
   }
-  .accordion-sections .ui-accordion-header-active .plus-icon {
+  .faq .accordion-sections .ui-accordion-header-active .plus-icon {
     display: none;
   }
-  .accordion-sections .ui-accordion-header-active .minus-icon {
+  .faq .accordion-sections .ui-accordion-header-active .minus-icon {
     display: block;
   }
-  .accordion-sections .ui-accordion-header {
+  .faq .accordion-sections .ui-accordion-header {
     display: flex;
   }
-  .accordion-sections .ui-accordion-header .toggled-icon {
+  .faq .accordion-sections .ui-accordion-header .toggled-icon {
     margin-left: auto;
   }
-  .accordion-sections .plus-icon {
+  .faq .accordion-sections .plus-icon {
     display: block;
   }
-  .accordion-sections .minus-icon {
+  .faq .accordion-sections .minus-icon {
     display: none;
   }
 }
@@ -2377,11 +2376,15 @@ a {
   }
 }
 .taxonomy-product h1 {
-  margin-top: 0.5rem;
+  margin-top: 0;
+  padding-top: 0.5rem;
   text-align: center;
 }
+.taxonomy-product .page-banner {
+  background-color: rgba(2, 127, 154, 0.25);
+}
 .taxonomy-product .breadcrumbs {
-  margin-bottom: 1rem;
+  margin: 0.5rem 0 1rem 0;
 }
 .taxonomy-product .breadcrumbs > a {
   color: #027F9A;
@@ -2392,10 +2395,10 @@ a {
 .taxonomy-product .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;
+  grid-auto-rows: auto;
   -moz-column-gap: 1rem;
        column-gap: 1rem;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
 }
 .taxonomy-product .grid-container .show-filters {
   grid-column: 1/2;
@@ -2406,7 +2409,7 @@ a {
 }
 .taxonomy-product .grid-container .removeFilterList {
   grid-column: 1/-1;
-  grid-row: 2/-1;
+  grid-row: 2/2;
 }
 .taxonomy-product .show-filters {
   display: flex;
@@ -2428,20 +2431,137 @@ a {
   border-radius: 5px;
 }
 .taxonomy-product .product-filters {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  background-color: white;
+  padding: 1rem 1rem 10rem 1rem;
+  overflow-y: scroll;
+}
+.taxonomy-product .product-filters > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.taxonomy-product .product-filters > div:first-of-type p {
+  font-family: "poppinsbold", sans-serif;
+  font-size: 1.5rem;
+}
+.taxonomy-product .product-filters > div:first-of-type button {
+  padding: 0;
+  background: none;
+  border: none;
+}
+.taxonomy-product .product-filters > div:first-of-type svg {
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+}
+.taxonomy-product .product-filters > button {
+  position: fixed;
+  background-color: #F9D70F;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.8rem 2.5rem;
+  border: none;
+  box-shadow: 0 4px 4px rgba(1, 53, 98, 0.5);
+  font-family: "poppinsbold", sans-serif;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.taxonomy-product .removeFilterList {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 5px;
+}
+.taxonomy-product .removeFilterList .products-filter-remove {
+  text-decoration: none;
+  display: block;
+  border: 1px solid #FC7803;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #000000;
+}
+.taxonomy-product .removeFilterList .products-filter-remove > span {
+  color: #FC7803;
+}
+.taxonomy-product .accordion {
+  border-bottom: 2px solid #013562;
+}
+.taxonomy-product .accordion .ui-accordion-header {
+  color: #000000;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.taxonomy-product .accordion .ui-accordion-header > .ui-accordion-header-icon {
   display: none;
+}
+.taxonomy-product .accordion svg {
+  width: 30px;
+  height: auto;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+.taxonomy-product .accordion .ui-accordion-header-active svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}
+.taxonomy-product .accordion .ui-accordion-content {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+  padding-bottom: 1rem;
+}
+.taxonomy-product .accordion .ui-accordion-content > div {
+  width: 45%;
+  flex: 1 0 auto;
+  border: 2px solid #FC7803;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.taxonomy-product .accordion .ui-accordion-content label {
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  padding: 0.5rem 0;
+}
+.taxonomy-product .accordion .ui-accordion-content input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.taxonomy-product #products {
+  margin-bottom: 2rem;
 }
 .taxonomy-product #products.grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   -moz-column-gap: 1rem;
        column-gap: 1rem;
+  margin-top: 1.5rem;
 }
 .taxonomy-product #products > a {
   border-radius: 5px;
+  text-decoration: none;
+  color: #027F9A;
 }
 .taxonomy-product #products > a div {
   box-shadow: 0 0 4px rgba(1, 53, 98, 0.5);
   border-radius: 5px;
+  padding: 0.5rem;
+}
+.taxonomy-product #products > a h3,
+.taxonomy-product #products > a p {
+  color: #000000;
 }
 .taxonomy-product #products > a img {
   border-radius: 5px;

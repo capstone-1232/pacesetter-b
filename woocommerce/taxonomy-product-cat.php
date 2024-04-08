@@ -20,7 +20,7 @@ get_template_part('template-parts/woocommerce-header');
 global $post
 ?>
 
-<div id="primary" class="content-area taxonomy-product container">
+<div id="primary" class="content-area taxonomy-product">
 	<main id="main" class="site-main" role="main">
 		<?php
 		// Get the current category object
@@ -74,7 +74,9 @@ global $post
 		<?php } else {
 			get_template_part('template-parts/category-banner');
 		}
+		echo "<div class=\"container\">";
 		get_template_part('template-parts/breadcrumbs');
+		echo "</div>";
 
 		if ($child_categories && !is_wp_error($child_categories)) {
 			echo "<div>";
@@ -97,7 +99,7 @@ global $post
 			}
 			echo "</div>";
 		} else { ?>
-			<div class="grid-container">
+			<div class="grid-container container">
 				<div class="show-filters">
 					<p>Filters</p>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -107,6 +109,15 @@ global $post
 					</svg>
 				</div>
 				<div id="filters" class="product-filters">
+					<div>
+						<p>Filters</p>
+						<button type="button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke-width="1.5" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+							</svg>
+						</button>
+					</div>
+
 					<?php
 					$filters = [
 						"length" => [
@@ -145,20 +156,26 @@ global $post
 						]
 					];
 
+
 					foreach ($filters as $filter_name => $options) {
 						$filter_display_name = ucwords(str_replace('_', ' ', $filter_name));
-						echo "<h3>$filter_display_name</h3>";
+						echo "<div class=\"accordion $filter_name\">";
+						echo "<h3>$filter_display_name <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m19.5 8.25-7.5 7.5-7.5-7.5\" /></svg></h3>";
 						echo "<div>";
 						foreach ($options as $value => $label) {
+							echo "<div>";
 							echo "<input type='radio' name='$filter_name' value='$value' id='$value'>";
 							echo "<label for='$value'>$label</label>";
+							echo "</div>";
 						}
+						echo "</div>";
 						echo "</div>";
 					}
 					?>
 
+					<button type="button">Show Results</button>
 				</div>
-				<div id="removeFilterList"></div>
+				<div id="removeFilterList" class="removeFilterList"></div>
 				<div class="sort-by">
 					<select name="sort_by" id="sort_by">
 						<option value="default">Sort by</option>

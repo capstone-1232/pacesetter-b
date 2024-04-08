@@ -5,6 +5,13 @@ var $j = jQuery.noConflict();
 $j(document).ready(function () {
     console.log("JQUERY connected") // sanity check, remove in final
 
+    // on load color variables based on colors in css
+    const colTurqoise = "#027F9A";
+    const colPrimaryBlue= "#013562";
+    const colStrongOrange = "#FC7803";
+    const colBlack = "#000";
+    const colWhite = "#fff";
+
     // on load behaviours
     $j(".search-submit").hide();
     $j(".category-select a").on("click", function (evt) {
@@ -12,15 +19,14 @@ $j(document).ready(function () {
     });
     $j(".dropdown-menu").toggle();
     $j(".rsvp-toggle").button();
-    $j(".rsvp-panel>button").button();
+    $j(".rsvp-panel div>button").button();
     $j('#backToTopBtn').hide();
 
+    // mobile only on load behaviours
     if (window.matchMedia("(max-width: 1024px)").matches) {
         $j(".rsvp-panel").hide();
+        $j(".product-filters").hide();
     }
-
-    // $j(".event-filters").hide();
-
 
     if (window.matchMedia("(max-width: 768px)").matches) {
         $j("#show-search").click(function () {
@@ -140,21 +146,25 @@ $j(document).ready(function () {
             console.log("rsvp toggle clicked");
     
             if ($j(".rsvp-panel").is(":visible")) {
-                $j(".rsvp-panel#myForm").submit();
+                $j(".rsvp-panel #myForm").submit();
             } else {
                 $j(".rsvp-panel").show("slide");
             }
         });
-    
+
+        $j(".rsvp-panel div>button").on("click", function() {
+            $j(".rsvp-panel").hide("slide");
+        });
     }
 
-    // set ups accordions
-    $j(".accordion").accordion({
+    // set ups jQuery UI accordions
+    $j(".faq .accordion, .product-filters .accordion").accordion({
         collapsible: true,
         active: false,
-        heightStyle: "auto",
+        heightStyle: "content",
     });
 
+    // Shows back to top button when user scrolls past a certain point
     $j(window).scroll(function() {
         var scrollPoint = 200; // replace with the point you're interested in
         if ($j(this).scrollTop() > scrollPoint) {
@@ -164,14 +174,51 @@ $j(document).ready(function () {
         }
     });
 
+    // Scrolls back to top of page when back to top button is clicked
     $j('#backToTopBtn').click(function() {
         $j('html, body').animate({scrollTop: 0}, 'fast');
         return false;
     });
 
+    // Toggles plus and minus icons on faq accordion headers
     $j(".ui-accordion-header").on("click", function(evt){
         $j(".ui-accordion-header .plus-icon").toggleClass("hidden");
         $j(".ui-accordion-header .minus-icon").toggleClass("hidden");
     });
+
+    // Toggles products filter menu on mobile
+    $j(".show-filters, .product-filters div:first-of-type>button, .product-filters>button").on("click", function() {
+        $j(".product-filters").toggle("slide");
+    })
+
+    // Toggles style of filter option to show it is applied
+    $j(".ui-accordion-content>div").on("click", function() {
+        $j(this).parent().find(">div").css({
+            "background-color": colWhite,
+            "color": colBlack,
+            "border": "2px solid " + colStrongOrange,
+        });
+        
+        $j(this).css({
+            "background-color": colTurqoise,
+            "color": "#fff",
+            "border": "2px solid " + colPrimaryBlue,
+        });
+    });
+
+    // Toggles style of filter items back to unchecked when filter is removed
+    $j(".removeFilterList").on("click", ".products-filter-remove", function() {
+        let filterText = $j(this).attr("data-value");
+        $j(".ui-accordion-content>div input").each(function() {
+            if ($j(this).val() == filterText) {
+                $j(this).parent().css({
+                    "background-color": colWhite,
+                    "color": colBlack,
+                    "border": "2px solid " + colStrongOrange,
+                });
+            }
+        });
+    });
+
 });
 
