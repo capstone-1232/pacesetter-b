@@ -40,8 +40,8 @@ get_header();
                 <div>
                     <h3><?php the_title(); ?></h3>
                     <p><?php the_date(); ?></p>
-                    <div>
                     <p><?php echo substr(get_field('blog_entry'),0,150) ?> ...</p>
+                    
                         <!-- Filter button for each post -->
                         <div class="post-filter-buttons">
                             <a href="<?php the_permalink(); ?>"class="read-more-button">Read More</a>
@@ -49,7 +49,7 @@ get_header();
                                 <button class="filter-button" data-category="<?php echo $post_category->slug; ?>"><?php echo $post_category->name; ?></button>
                             <?php endforeach; ?>
                         </div>
-                    </div>
+                    
                 </div>
             </article>
             <?php
