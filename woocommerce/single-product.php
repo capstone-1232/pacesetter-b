@@ -8,10 +8,10 @@
 
 <?php
 
-require_once ABSPATH . 'wp-admin/includes/plugin.php';
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-    include_once( WC()->plugin_path() . '/includes/wc-template-functions.php' );
-}
+// require_once ABSPATH . 'wp-admin/includes/plugin.php';
+// if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+//     include_once( WC()->plugin_path() . '/includes/wc-template-functions.php' );
+// }
 
  global $product;
 
@@ -107,6 +107,7 @@ if (!empty($product_brands) && !is_wp_error($product_brands)) {
     $product_brand = $product_brands[0];
     $brand_name = $product_brands[0]->name;
     $brand_logo_url = get_field('brand_logo', $product_brand);
+    $brand_slogan = get_field('brand_slogan', $product_brand);
 }
 
 get_header(); 
@@ -135,7 +136,7 @@ custom_product_breadcrumbs();
         </div>
         <div>
             <div>
-                <p>Legendary Performance</p>
+                <p><?php echo $brand_slogan?></p>
                 <img src="<?php echo $brand_logo_url; ?>" alt="Product logo for <?php echo $brand_name; ?>">
             </div>
             <div>

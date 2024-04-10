@@ -6,7 +6,7 @@ Template Name: Products Category Page Template
 
 <?php get_header(); ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area category-products-template">
     <main id="main" class="site-main" role="main">
         <?php 
         

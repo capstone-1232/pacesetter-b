@@ -4,6 +4,7 @@ function fetch_products() {
     $offset = $_POST['offset'] ? $_POST['offset'] : 12;
     $category_slug = $_POST['current_slug'];
     $filters = $_POST['filters'] ? json_decode(stripslashes($_POST['filters']), true) :'';
+    $sort_by = $_POST['sort_by'] ? $_POST['sort_by'] :'';
 
     $args = array(
         'post_type' => 'product',
@@ -16,6 +17,32 @@ function fetch_products() {
             ),
         ),
     );
+
+    // Handle different sorting options
+switch ($sort_by) {
+    case 'price_high_to_low':
+        $args['meta_key'] = '_price';
+        $args['orderby'] = 'meta_value_num';
+        $args['order'] = 'DESC';
+        break;
+    case 'price_low_to_high':
+        $args['meta_key'] = '_price';
+        $args['orderby'] = 'meta_value_num';
+        $args['order'] = 'ASC';
+        break;
+    case 'newest':
+        $args['orderby'] = 'date';
+        $args['order'] = 'DESC';
+        break;
+    case 'oldest':
+        $args['orderby'] = 'date';
+        $args['order'] = 'ASC';
+        break;
+    default:
+        $args['orderby'] = 'date';
+        $args['order'] = 'DESC';
+        break;
+}
     
     if ($filters) {
         foreach ($filters as $filter) {
@@ -162,12 +189,21 @@ function remove_product_filter_list_function() {
         $filters = json_decode(stripslashes($_POST['filters']), true);
 
         // Build tax queries based on selected filters
-        foreach ($filters as $filter) {
-            if (!empty($filter['filterType']) && !empty($filter['filterValue'])) :?>
-            <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>"><?php echo ucfirst($filter['filterValue']); ?> X</a>
-        <?php
-        endif;
-    }
+        foreach ($filters as $filter): ?>
+            <?php if ($filter['filterType'] == "price_range"): ?>
+                <?php if ($filter['filterValue'] == '1000-99999'): ?>
+                    <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>">$1000 & above <span>X</span></a>
+                <?php elseif ($filter['filterValue'] == '0-200'): ?>
+                    <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>">Under $200 <span>X</span></a>
+                <?php else: ?>
+                    <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>">$<?php echo ucfirst($filter['filterValue']); ?> <span>X</span></a>
+                <?php endif; ?>
+            <?php elseif ($filter['filterType'] == "length"): ?>
+                <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>"><?php echo ucfirst($filter['filterValue']); ?>cm <span>X</span></a>
+            <?php elseif (!empty($filter['filterType']) && !empty($filter['filterValue'])): ?>
+                <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>"><?php echo ucfirst($filter['filterValue']); ?> <span>X</span></a>
+            <?php endif; ?>
+        <?php endforeach;
         exit;
     } else {
         // Handle other cases or provide a default response
@@ -180,6 +216,8 @@ add_action('wp_ajax_remove_product_filter_list_function', 'remove_product_filter
 add_action('wp_ajax_nopriv_remove_product_filter_list_function', 'remove_product_filter_list_function');
 
 function update_active_product_list_function() {
+    
+
     $filters = [
         "length" => [
             "150-155" => "150-155cm",
@@ -194,15 +232,17 @@ function update_active_product_list_function() {
             "196-999" => "196cm+",
         ],
         "brand" => [
-            "burton" => "Burton",
-            "lib_tech" => "Lib Tech",
-            "gnu" => "GNU",
-            "never_summer" => "Never Summer",
+            "dynastar" => "Dynastar",
+            "armada" => "Armada",
+            "black-crows" => "Black Crows",
+            "blizzard" => "Blizard",
             "k2" => "K2",
-            "ride" => "Ride",
+            "smith" => "Smith",
             "rossignol" => "Rossignol",
             "salomon" => "Salomon",
-            "arbor" => "Arbor",
+            "fischer" => "Fischer",
+            "stockli" => "Stöckli",
+            "volkl" => "Völkl",
             "capita" => "Capita",
         ],
         "price_range" => [
@@ -211,7 +251,7 @@ function update_active_product_list_function() {
             "400-600" => "$400 - $600",
             "600-800" => "$600 - $800",
             "800-1000" => "$800 - $1000",
-            "1000-99999" => "$1000 and above",
+            "1000-99999" => "$1000 & above",
         ]
     ];
 

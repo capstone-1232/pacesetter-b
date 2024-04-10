@@ -251,7 +251,7 @@ require get_template_directory() . '/inc/more-review.php';
 /**
  * Enqueue products.
  */
-// require get_template_directory() . '/inc/products.php';
+require get_template_directory() . '/inc/products.php';
 
 /**
  * Enqueue functions for mobile navbar.

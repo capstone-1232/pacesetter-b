@@ -105,6 +105,7 @@ Template Post Type: customer-reviews
     setInterval(function () {
       changeReviewSlide(curreview_slide + 1);
     }, 5000);
+    changeReviewSlide(curreview_slide - 1);
 
     // Function to change the review_slide
     function changeReviewSlide(newreview_slide) {
