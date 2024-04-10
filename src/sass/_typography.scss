@@ -47,6 +47,10 @@ a {
         font-weight: 600;
         font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
     }
+    li {
+        text-decoration: none;
+        list-style-type: none;
+    }
     a {
         font-family: "Poppins", sans-serif;
         font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem);
