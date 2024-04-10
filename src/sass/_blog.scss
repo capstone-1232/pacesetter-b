@@ -75,6 +75,7 @@
                padding: 1rem;
                font-weight: bold;
                background-color: $secondary-yellow ;
+               border: 5px solid $secondary-yellow;
                border-radius: 5px;
                color: $black;
                text-decoration: none;
@@ -174,7 +175,6 @@ max-width: 1700px;
             overflow-x: auto;
             position: relative;
             scrollbar-color: $primary-blue;
-            scrollbar-width: thin;
             -ms-overflow-style: none;
           }
           
@@ -230,7 +230,7 @@ max-width: 1700px;
             padding: 1rem;
             text-align: left;
             flex-shrink: 0;
-            width: 40%;
+            width: 60%;
             img{ 
                border-radius: 8px;
                width: 80%;

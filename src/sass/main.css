@@ -3501,6 +3501,7 @@ a {
   padding: 1rem;
   font-weight: bold;
   background-color: #FDC504;
+  border: 5px solid #FDC504;
   border-radius: 5px;
   color: #000000;
   text-decoration: none;
@@ -3591,7 +3592,6 @@ a {
   overflow-x: auto;
   position: relative;
   scrollbar-color: #013562;
-  scrollbar-width: thin;
   -ms-overflow-style: none;
 }
 .blog-display .related .card-container .pseduo-track {
@@ -3637,7 +3637,7 @@ a {
   padding: 1rem;
   text-align: left;
   flex-shrink: 0;
-  width: 40%;
+  width: 60%;
 }
 .blog-display .related .card-container .blog-card img {
   border-radius: 8px;
@@ -4088,6 +4088,7 @@ a {
   padding: 1rem !important;
   font-weight: bold !important;
   background-color: #FDC504 !important;
+  border: 5px solid #FDC504 !important;
   border-radius: 5px !important;
   color: #000000 !important;
   text-decoration: none !important;
