@@ -6,13 +6,14 @@ get_header();
 ?>
 
 <main class="blog">
-
+<section>
+<div class="intro">
     <h2> Pacesetter Blog</h2>
+    <span class="offset-underline"></span>
+    <p>Welcome to the blog! From gear reviews and expert tips to destination spotlights and community stories, our blog is your go-to resource for all things powder.</p>
     
-    <p>Welcome to the Pacesetter Blog</p>
-
     <!-- Filter buttons -->
-    <div id="filter-buttons">
+    <div id="filter-buttons" class="intro-buttons">
         <button class="filter-button" data-category="all">All</button>
         <?php
         // Retrieve unique categories
@@ -24,7 +25,8 @@ get_header();
         }
         ?>
     </div>
-
+</div>
+    
     <?php
     if (have_posts()):
         while (have_posts()):
@@ -33,27 +35,28 @@ get_header();
             $post_categories = get_the_category();
             ?>
             <!-- close php and start html-->
-            <article class="flex blog-post">
+            <article class="blog-post">
                 <img src="<?php echo esc_html(get_field('blog_image')); ?>" alt="">
                 <div>
                     <h3><?php the_title(); ?></h3>
                     <p><?php the_date(); ?></p>
-                    <div>
                     <p><?php echo substr(get_field('blog_entry'),0,150) ?> ...</p>
+                    
                         <!-- Filter button for each post -->
-                        <a href="<?php the_permalink(); ?>"class="read-more-button">Read More</a>
                         <div class="post-filter-buttons">
+                            <a href="<?php the_permalink(); ?>"class="read-more-button">Read More</a>
                             <?php foreach ($post_categories as $post_category) : ?>
                                 <button class="filter-button" data-category="<?php echo $post_category->slug; ?>"><?php echo $post_category->name; ?></button>
                             <?php endforeach; ?>
                         </div>
-                    </div>
+                    
                 </div>
             </article>
             <?php
         endwhile;
     endif;
     ?>
+</section>
 
 </main>
 
