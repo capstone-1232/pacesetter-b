@@ -64,10 +64,17 @@
             background-color: $orange;
             color: $white;
         }
+        a.orange-btn:hover {
+            background-color: $offwhite;
+            color: $darkbluebtn;
+        }
 
         a.white-btn {
             background-color: $white;
             color: $black;
+        }
+        a.white-btn:hover {
+            background-color: $light-yellow;
         }
     }
 
