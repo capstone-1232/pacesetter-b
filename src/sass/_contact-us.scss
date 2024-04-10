@@ -27,9 +27,9 @@
     .section-flex{
         display: flex;
         flex-direction: column;
-        .email{
+        .email{ 
             background-color: $primary-blue;
-            position: relative;
+            position: relative; 
             color: $white;
             .contact-form{
                 width:70%;
@@ -52,9 +52,10 @@
         }
         .or{
             position: absolute;
-            text-align: center;
             z-index: 10;
             bottom: -5px;
+            left: 50%;
+            right:50%;
         }
         .faq-section{
             background-color: $secondary-blue;
@@ -86,6 +87,7 @@
     }
     .map{
         text-align: right;
+        padding: 1rem;
 
     }
     }
@@ -102,7 +104,14 @@
                 .faq-section{
                     width: 50%;
                 }
-
+                .or{
+                    position: absolute;
+                    right: 5px;
+                    top: 50%;
+                    bottom: 50%;
+                    left:97.5%
+                }
+ 
             }
         }
     }
