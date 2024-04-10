@@ -28,6 +28,9 @@
 .event-filters{
     background-color: white;
     display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 .related-events__wrapper {

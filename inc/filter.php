@@ -163,13 +163,15 @@ function update_active_list_function() {
         $active_filters = json_decode(stripslashes($_POST['filters']), true);
 
         // Generate the filter buttons
+        echo "<div class=\"accordion\">";
+        echo "<button type=\"button\" class=\"close\">Close</button>";
         foreach ($filters as $filter => $options) {
             // Replace underscores or dashes with spaces and capitalize the words for the heading
             $heading = ucwords(str_replace(["_", "-"], " ", $filter));
             // Add a heading before each button group
             echo "<h4 class=\"\">" .
                 htmlspecialchars($heading) .
-                "</h4>";
+                "ADASDSADADA</h4>";
 
             echo '<div class="" role="group" aria-label="' .
                 htmlspecialchars($filter) .
@@ -202,6 +204,7 @@ function update_active_list_function() {
             }
             echo "</div>";
         }
+        echo "</div>";
         exit;
     } else {
         // Handle other cases or provide a default response

@@ -22,7 +22,6 @@ get_template_part('template-parts/woocommerce-header'); ?>
     $shop_page_id = wc_get_page_id( 'shop' );
     $featured_image_url = get_the_post_thumbnail_url( $shop_page_id, 'full' );
     ?>
-
     <div class="page-banner" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')">
         <h1><?php woocommerce_page_title(); ?></h1>
     </div>

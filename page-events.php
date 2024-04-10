@@ -11,14 +11,14 @@ get_header();
 
 ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area events">
     <main id="main" class="site-main container" role="main">
         <section class="banner">
             <h2>Events <span class="offset-underline"></span></h2>
             <p>All our events are free!</p>
         </section>
         <section>
-            <div class="relative">
+            <div>
                 <h3 class="sr-only">Filters</h3>
                 <div class="event-menu">
                     <div class="filter-toggle">
@@ -30,10 +30,10 @@ get_header();
                         </svg>
                     </div>
                 </div>
-                <div id="filters" class="event-filters absolute">
+                <div id="filters" class="event-filters">
+                    <div class="loader"></div>
                 </div>
                 <div class="sort">
-
                 </div>
             </div>
             <div id="removeFilterList"></div>

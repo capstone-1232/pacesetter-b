@@ -158,11 +158,32 @@ $j(document).ready(function () {
     }
 
     // set ups jQuery UI accordions
-    $j(".faq .accordion, .product-filters .accordion").accordion({
+    $j(".faq .accordion, .product-filters .accordion, .events .accordion").accordion({
         collapsible: true,
         active: false,
         heightStyle: "content",
     });
+
+    // set ups jQuery UI accordion for ajax event filter
+    var targetNode = $j('.events-filters')[0];
+    var config = { childList: true, characterData: true, subtree: true };
+
+
+    var callback = function (mutationsList, observer) {
+        for (var mutation of mutationsList) {
+            if (mutation.type === 'childList' || mutation.type === 'characterData') {
+                // Initialize the accordion on any new .accordion elements
+                $j(mutation.target).find('.accordion').accordion({
+                    collapsible: true,
+                    active: false,
+                    heightStyle: "content",
+                });
+            }
+        }
+    };
+
+    var observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
 
     // Shows back to top button when user scrolls past a certain point
     $j(window).scroll(function () {
@@ -248,9 +269,9 @@ $j(document).ready(function () {
         });
 
         // toggles style of filter option to show it is applied
-        $j(".taxonomy-product .ui-accordion-content").on("change", function() {
+        $j(".taxonomy-product .ui-accordion-content").on("change", function () {
             let hasChecked = false;
-            $j(this).find("input").each(function() {
+            $j(this).find("input").each(function () {
                 if ($j(this).prop("checked") == true) {
                     hasChecked = true;
                 }
