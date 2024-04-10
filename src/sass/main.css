@@ -3455,6 +3455,7 @@ a {
 }
 .blog .intro .filter-button {
   background-color: #01509D;
+  border: 3px solid #01509D;
   font-weight: bold;
   color: #FFFFFF;
   padding: 0.5rem;
@@ -3464,6 +3465,7 @@ a {
 .blog .intro .filter-button:hover {
   background-color: #FFFFFF;
   color: #01509D;
+  border: 3px solid #01509D;
   cursor: pointer;
 }
 .blog .intro .filter-button:active {

@@ -26,6 +26,7 @@
       }
       .filter-button{
          background-color:$secondary-blue;
+         border: 3px solid $secondary-blue;
          font-weight: bold;
          color: $white;
          padding: 0.5rem;
@@ -35,6 +36,7 @@
       .filter-button:hover{
          background-color: $white;
          color: $secondary-blue;
+         border: 3px solid $secondary-blue;
          cursor: pointer;
       }
       .filter-button:active{
