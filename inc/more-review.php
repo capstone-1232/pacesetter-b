@@ -26,7 +26,6 @@ function fetch_reviews() {
     if ($reviews) {
         foreach ($reviews as $review) {
             $rating   = intval(get_comment_meta($review->comment_ID, 'rating', true));
-            $title    = get_comment_meta($review->comment_ID, 'title', true);
             $comment  = $review->comment_content;
             $author   = $review->comment_author;
             $datetime = strtotime($review->comment_date);
@@ -35,12 +34,9 @@ function fetch_reviews() {
             
             <div>
                 <?php render_review_rating_stars($rating)?>
-                <h5><?php echo $title?></h5>
-                <div>
-                    <p><?php echo $author?></p>
-                    <p><?php echo $date?></p>
-                </div>
-                <p><?php echo $comment?></p>
+                <h5><?php echo $author?></h5>
+                <p class="date"><?php echo $date?></p>
+                <p class="comment"><?php echo $comment?></p>
             </div>
 
             <?php
