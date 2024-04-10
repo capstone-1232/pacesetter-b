@@ -251,17 +251,6 @@ require get_template_directory() . '/inc/more-review.php';
 /**
  * Enqueue products.
  */
-require get_template_directory() . '/inc/products.php';
-/**
- * Enqueue draft event.
- */
-require get_template_directory() . '/inc/draft-event.php';
-
-/**
- * Enqueue search results.
- */
-require get_template_directory() . '/inc/search-results.php';
-=======
 // require get_template_directory() . '/inc/products.php';
 
 /**

@@ -86,7 +86,6 @@ a {
   font-weight: 600;
   font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
 }
-
 #hero-carousel.slider .carousel-inner .slide .slide-content h2 {
   font-family: "Racing Sans One", sans-serif;
   font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
@@ -714,6 +713,18 @@ p {
   grid-column: 1/-1;
   grid-row: 1/2;
 }
+.site-footer .store-info div:first-of-type svg {
+  transition: 0.5s ease;
+}
+.site-footer .store-info div:first-of-type svg path {
+  transition: 0.5s ease;
+}
+.site-footer .store-info div:first-of-type svg:hover {
+  fill: #FDC504;
+}
+.site-footer .store-info div:first-of-type svg:hover path {
+  fill: #FDC504;
+}
 .site-footer .store-info .hours {
   margin-bottom: 1.5rem;
 }
@@ -805,6 +816,42 @@ p {
     min-width: 60px;
     margin: 0 0.5rem;
   }
+}
+
+button#backToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001;
+  background-color: #F9D70F;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  max-width: 100px;
+  max-height: 100px;
+  min-height: 50px;
+  min-width: 50px;
+  height: 5rem;
+  width: 5rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+button#backToTopBtn svg {
+  width: 100%;
+  height: auto;
+}
+button#backToTopBtn svg path {
+  transition: 0.5s ease;
+}
+button#backToTopBtn:hover {
+  background-color: #016ad0;
+}
+button#backToTopBtn:hover svg path {
+  fill: #F9D70F;
+}
+button#backToTopBtn:focus {
+  outline: none;
 }
 
 @media screen and (min-width: 750px) {
@@ -1127,6 +1174,406 @@ a {
   cursor: pointer;
 }
 
+@font-face {
+  font-family: "racing_sans_oneregular";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/racingsansone-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/montserrat-variablefont_wght-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_italic";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/montserrat-italic-variablefont_wght-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsbold";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-bold-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsregular";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinssemibold";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-semibold-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsmedium";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-medium-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinslight";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
+  font-style: normal;
+}
+.product .container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.product .container-narrow {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.product .breadcrumbs {
+  padding: 0 1rem;
+  margin-bottom: 0.2rem;
+  font-style: italic;
+  font-family: "poppinsregular", sans-serif;
+}
+.product .breadcrumbs span {
+  font-weight: 700;
+}
+.product .breadcrumbs a {
+  text-decoration: none;
+  color: #027F9A;
+}
+.product .breadcrumbs a:hover, .product .breadcrumbs a:active {
+  text-decoration: underline;
+}
+.product .grid-container {
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.product .grid-container .brand {
+  grid-row: 1/2;
+  grid-column: 3/-1;
+  opacity: 0.25;
+}
+.product .grid-container .heading {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+}
+.product .grid-container .heading h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+.product .grid-container .heading span {
+  display: block;
+  width: 95%;
+  height: 4px;
+  position: relative;
+  left: 5%;
+  background-color: #FDC504;
+}
+.product .grid-container .slogan {
+  grid-column: 2/-1;
+  grid-row: 3/4;
+  font-style: italic;
+  margin-left: auto;
+}
+.product .grid-container .product-rating {
+  grid-row: 4/5;
+  grid-column: 1/-1;
+  display: flex;
+  margin-bottom: 0.3rem;
+}
+.product .grid-container .product-rating span {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+.product .grid-container .product-rating span svg {
+  width: 1rem;
+  height: 1rem;
+}
+.product .grid-container .product-rating a {
+  color: #013562;
+  font-size: 0.75rem;
+  font-family: "poppinsregular", sans-serif;
+  align-self: end;
+  text-decoration: none;
+  margin-left: 0.2rem;
+}
+.product .grid-container .stock-check {
+  grid-row: 5/6;
+  grid-column: 1/-1;
+  color: #027F9A;
+  margin-bottom: 0.5rem;
+  font-family: "poppinsregular", sans-serif;
+}
+.product .grid-container .stock-check svg {
+  width: 1rem;
+  height: 1rem;
+}
+.product .grid-container img:first-of-type {
+  grid-row: 6/7;
+  grid-column: 1/-1;
+  box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.25);
+}
+.product .grid-container .price {
+  grid-row: 7/8;
+  grid-column: 1/-1;
+  font-size: 2rem;
+  font-family: "poppinsregular", sans-serif;
+  border-top: 4px solid #FDC504;
+  margin-top: 1rem;
+}
+.product .grid-container .price span {
+  font-size: 0.825rem;
+  font-style: italic;
+}
+.product .grid-container .attributes {
+  grid-row: 8/9;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+}
+.product .grid-container .attributes h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "poppinsregular", sans-serif;
+  font-weight: 600;
+}
+.product .grid-container .attributes a {
+  font-size: 0.875rem;
+  color: #027F9A;
+  font-style: italic;
+  text-decoration: none;
+  font-family: "poppinsregular", sans-serif;
+}
+.product .grid-container .attributes a:hover, .product .grid-container .attributes a:active {
+  text-decoration: underline;
+}
+.product .grid-container .attribute-values {
+  grid-row: 9/10;
+  grid-column: 1/-1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 4px solid #FDC504;
+  padding-bottom: 1rem;
+}
+.product .grid-container .attribute-values label {
+  background-color: #027F9A;
+  font-size: 0.875rem;
+  font-family: "poppinsregular", sans-serif;
+  padding: 0.4rem 0.5rem 0.3rem 0.5rem;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+.product .grid-container .attribute-values label:hover {
+  cursor: pointer;
+}
+.product .grid-container .attribute-values label input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.product .grid-container .description {
+  grid-row: 10/11;
+  grid-column: 1/-1;
+  margin: 0.5rem 0;
+}
+.product .grid-container .questions {
+  grid-row: 11/12;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+.product .grid-container .questions a {
+  font-family: "poppinsregular", sans-serif;
+  color: #027F9A;
+  text-decoration: none;
+  font-style: italic;
+}
+.product .grid-container .questions a:hover, .product .grid-container .questions a:active {
+  text-decoration: underline;
+}
+.product .snow-texture {
+  position: relative;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+}
+.product .snow-texture .background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  mix-blend-mode: lighten;
+  filter: blur(10px);
+}
+.product #productFeatures {
+  z-index: 3;
+}
+.product #productFeatures .heading {
+  position: relative;
+  grid-row: 1/2;
+  grid-column: 1/-1;
+  background: linear-gradient(90deg, #FDC504, rgba(255, 255, 255, 0) 100%);
+  padding: 2rem;
+}
+.product #productFeatures .heading h3 {
+  font-family: "racing_sans_oneregular", sans-serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #013562;
+}
+.product #productFeatures .heading span {
+  display: block;
+  width: 60%;
+  height: 4px;
+  position: relative;
+  left: 5%;
+  background-color: #013562;
+}
+.product #productFeatures .feature-content {
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+}
+.product #productFeatures .feature-content p {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.product #productFeatures .feature-content strong {
+  font-family: "racing_sans_oneregular", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+.product #productFeatures .feature-content ul {
+  margin-left: 1.5rem;
+  padding-left: 0;
+  margin-bottom: 0.5;
+}
+.product #productFeatures .feature-content ul li {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.product #reviews {
+  position: relative;
+  z-index: 2;
+}
+.product #reviews .grid-container {
+  padding-top: 2rem;
+  background-color: #FFFFFF;
+}
+.product #reviews .grid-container .heading {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+}
+.product #reviews .grid-container .heading h3 {
+  text-align: center;
+  font-size: 1.25rem;
+  font-family: "racing_sans_oneregular", sans-serif;
+}
+.product #reviews .grid-container .heading h3 + span {
+  display: block;
+  width: 50%;
+  height: 2px;
+  position: relative;
+  left: 5%;
+  margin: 0 auto;
+  background-color: #FDC504;
+}
+.product #reviews .grid-container .average-review {
+  margin-top: 1rem;
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+.product #reviews .grid-container .average-review p:nth-of-type(2) {
+  font-size: 1rem;
+  font-family: "poppinsregular", sans-serif;
+}
+.product #reviews .grid-container .average-review p:nth-of-type(2) span {
+  font-weight: 700;
+  color: #027F9A;
+}
+.product #reviews .grid-container .review-button {
+  grid-column: 3/-1;
+  display: flex;
+  align-items: end;
+}
+.product #reviews .grid-container .review-button button {
+  font-size: 0.875rem;
+  font-family: "poppinsregular", sans-serif;
+  background-color: #FC7804;
+  color: #FFFFFF;
+  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+  transition: 0.5s ease;
+  border: none;
+  line-height: 1.5;
+  border-radius: 5px;
+}
+.product #reviews .grid-container .review-button button:hover, .product #reviews .grid-container .review-button button:active {
+  background-color: #027F9A;
+  cursor: pointer;
+}
+.product #reviews .grid-container > span {
+  grid-column: 1/-1;
+  grid-row: 3/4;
+  display: block;
+  width: 100%;
+  height: 2px;
+  position: relative;
+  margin: 0 auto;
+  background-color: #FDC504;
+  margin: 1rem 0;
+}
+.product #reviews .grid-container .reviews-container {
+  grid-column: 1/-1;
+  grid-row: 4/5;
+  padding-bottom: 4rem;
+}
+.product #reviews .grid-container .reviews-container > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 3px solid #FDC504;
+  margin-bottom: 1rem;
+}
+.product #reviews .grid-container .reviews-container > div .review-rating {
+  width: 100%;
+}
+.product #reviews .grid-container .reviews-container > div h5 {
+  margin: 0;
+  font-weight: 700;
+  width: 50%;
+  font-family: "poppinsregular", sans-serif;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+.product #reviews .grid-container .reviews-container > div .comment {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.product #reviews .grid-container .reviews-container > button {
+  width: 100%;
+  font-family: "racing_sans_oneregular", sans-serif;
+  padding: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  color: #013562;
+  background: linear-gradient(0deg, #FDC504, #FFFFFF 100%);
+  border: none;
+  transition: background-position 0.5s ease;
+  background-size: 100% 120%;
+  background-position: 0 0;
+}
+.product #reviews .grid-container .reviews-container > button:hover, .product #reviews .grid-container .reviews-container > button:active {
+  background-position: 0 80%; /* Move the background to the right */
+  cursor: pointer;
+}
+.product .review-modal-desktop {
 .event-details {
   position: relative;
 }
@@ -1321,34 +1768,767 @@ a {
 }
 .review-modal {
   display: none;
+}
+.product .review-modal-mobile {
+  transition: left 0.3s ease;
+  left: -110%;
+}
+.product .review-modal-mobile, .product .review-modal-desktop {
   position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
   width: 100%;
+  top: 0;
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 0 4px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
   /* Modal content */
-}
-.review-modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
   /* Close button */
 }
-.review-modal-content .close {
+.product .review-modal-mobile .review-modal-content, .product .review-modal-desktop .review-modal-content {
+  position: relative;
+  z-index: 1000;
+  background-color: #fefefe;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #F9D70F;
+}
+.product .review-modal-mobile .review-modal-content .form-content, .product .review-modal-desktop .review-modal-content .form-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+.product .review-modal-mobile .review-modal-content .form-content h2, .product .review-modal-desktop .review-modal-content .form-content h2 {
+  font-family: "racing_sans_oneregular", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%;
+}
+.product .review-modal-mobile .review-modal-content .form-content form#reviewForm div.custom-form-comment textarea#comment, .product .review-modal-desktop .review-modal-content .form-content form#reviewForm div.custom-form-comment textarea#comment {
+  height: 150px;
+}
+.product .review-modal-mobile .review-modal-content .form-content form div, .product .review-modal-desktop .review-modal-content .form-content form div {
+  margin-bottom: 1rem;
+}
+.product .review-modal-mobile .review-modal-content .form-content form div label, .product .review-modal-desktop .review-modal-content .form-content form div label {
+  font-family: "poppinsregular", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+}
+.product .review-modal-mobile .review-modal-content .form-content form div input,
+.product .review-modal-mobile .review-modal-content .form-content form div textarea,
+.product .review-modal-mobile .review-modal-content .form-content form div select, .product .review-modal-desktop .review-modal-content .form-content form div input,
+.product .review-modal-desktop .review-modal-content .form-content form div textarea,
+.product .review-modal-desktop .review-modal-content .form-content form div select {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.2);
+}
+.product .review-modal-mobile .review-modal-content .form-content form div input:not(textarea),
+.product .review-modal-mobile .review-modal-content .form-content form div textarea:not(textarea),
+.product .review-modal-mobile .review-modal-content .form-content form div select:not(textarea), .product .review-modal-desktop .review-modal-content .form-content form div input:not(textarea),
+.product .review-modal-desktop .review-modal-content .form-content form div textarea:not(textarea),
+.product .review-modal-desktop .review-modal-content .form-content form div select:not(textarea) {
+  height: 2rem;
+}
+.product .review-modal-mobile .review-modal-content .form-content form .form-submit, .product .review-modal-desktop .review-modal-content .form-content form .form-submit {
+  display: flex;
+  justify-content: center;
+}
+.product .review-modal-mobile .review-modal-content .form-content form .form-submit button, .product .review-modal-desktop .review-modal-content .form-content form .form-submit button {
+  width: 60%;
+  font-weight: 700;
+  font-family: "poppinsregular", sans-serif;
+  background-color: #FC7804;
+  transition: 0.5s ease;
+  border: none;
+  padding: 1rem;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.product .review-modal-mobile .review-modal-content .form-content form .form-submit button:hover, .product .review-modal-desktop .review-modal-content .form-content form .form-submit button:hover {
+  background-color: #027F9A;
+  cursor: pointer;
+}
+.product .review-modal-mobile .close, .product .review-modal-desktop .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
-  font-weight: bold;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
 }
-.review-modal-content .close:hover, .review-modal-content .close:focus {
-  color: black;
-  text-decoration: none;
+.product .review-modal-mobile .close path, .product .review-modal-desktop .close path {
+  transition: 0.5s ease;
+}
+.product .review-modal-mobile .close:hover, .product .review-modal-mobile .close:active, .product .review-modal-desktop .close:hover, .product .review-modal-desktop .close:active {
   cursor: pointer;
+}
+.product .review-modal-mobile .close:hover path, .product .review-modal-mobile .close:active path, .product .review-modal-desktop .close:hover path, .product .review-modal-desktop .close:active path {
+  fill: black;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 781px) {
+  .product .breadcrumbs {
+    margin-top: 3rem;
+    font-size: 1.25rem;
+  }
+  .product .breadcrumbs a {
+    font-size: 1.25rem;
+  }
+  .product .grid-container {
+    grid-template-columns: 67% 1fr 1fr;
+    grid-auto-rows: min-content;
+  }
+  .product .grid-container .heading {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-right: 2rem;
+  }
+  .product .grid-container .heading h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .product .grid-container .heading span {
+    width: 80%;
+    left: 20%;
+  }
+  .product .grid-container img:first-of-type {
+    grid-column: 1/2;
+    grid-row: 2/9;
+    width: 50%;
+    min-width: 500px;
+    justify-self: center;
+    align-self: center;
+    margin-right: 2rem;
+  }
+  .product .grid-container .slogan {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    align-self: end;
+  }
+  .product .grid-container .brand {
+    align-self: end;
+    width: 80%;
+    justify-self: end;
+  }
+  .product .grid-container .product-rating {
+    margin-top: 2rem;
+    grid-column: 2/-1;
+    grid-row: 2/3;
+  }
+  .product .grid-container .product-rating span {
+    width: 2rem;
+    height: 2rem;
+  }
+  .product .grid-container .product-rating span svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  .product .grid-container .product-rating a {
+    font-size: 1.5rem;
+  }
+  .product .grid-container .stock-check {
+    grid-column: 2/-1;
+    grid-row: 3/4;
+    font-size: 2rem;
+  }
+  .product .grid-container .stock-check svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  .product .grid-container .description {
+    grid-column: 2/-1;
+    grid-row: 4/5;
+    font-size: 1.25rem;
+  }
+  .product .grid-container .price {
+    grid-column: 2/-1;
+    grid-row: 5/6;
+    padding-top: 1rem;
+    font-size: 2.5rem;
+  }
+  .product .grid-container .price span {
+    font-size: 1.5rem;
+  }
+  .product .grid-container .attributes {
+    grid-column: 2/-1;
+    grid-row: 6/7;
+  }
+  .product .grid-container .attributes h4 {
+    font-size: 1.5rem;
+  }
+  .product .grid-container .attributes a {
+    font-size: 1.25rem;
+  }
+  .product .grid-container .attribute-values {
+    grid-column: 2/-1;
+    grid-row: 7/8;
+  }
+  .product .grid-container .attribute-values label {
+    font-size: 1.25rem;
+  }
+  .product .grid-container .questions {
+    grid-column: 2/-1;
+    grid-row: 8/9;
+    margin-top: 1rem;
+  }
+  .product #productFeatures .heading {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+  }
+  .product #productFeatures .heading h3 {
+    font-size: 3rem;
+  }
+  .product #productFeatures .heading span {
+    left: 30px;
+    width: 260px;
+  }
+  .product #productFeatures .container {
+    margin-bottom: 6rem;
+  }
+  .product #productFeatures .feature-content {
+    margin-bottom: 2rem;
+  }
+  .product #productFeatures .feature-content p,
+  .product #productFeatures .feature-content ul li {
+    font-size: 1.25rem;
+  }
+  .product #productFeatures .feature-content strong {
+    font-size: 2.5rem;
+  }
+  .product #reviews > .container-narrow {
+    padding-top: 6rem;
+    background-color: #F9D70F;
+    -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+  }
+  .product #reviews > .container-narrow > .container-narrow {
+    background-color: #FC7804;
+    -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+    padding-top: 2rem;
+  }
+  .product #reviews .grid-container {
+    -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+    background-color: #FFFFFF;
+    gap: 0 1rem;
+    padding-top: 4rem;
+  }
+  .product #reviews .grid-container .heading {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-right: 0;
+    padding-right: 2rem;
+  }
+  .product #reviews .grid-container .heading h3 {
+    font-size: 3rem;
+  }
+  .product #reviews .grid-container .heading h3 + span {
+    width: 410px;
+    left: 50px;
+    height: 4px;
+  }
+  .product #reviews .grid-container .average-review {
+    grid-column: 2/-1;
+    grid-row: 1/2;
+  }
+  .product #reviews .grid-container .average-review p:nth-of-type(1) {
+    font-size: 1.5rem;
+  }
+  .product #reviews .grid-container .average-review p:nth-of-type(2) {
+    font-size: 2rem;
+  }
+  .product #reviews .grid-container .average-review .product-rating {
+    margin-top: 0;
+  }
+  .product #reviews .grid-container .review-button {
+    grid-column: 2/-1;
+    grid-row: 2/3;
+    align-self: center;
+    display: block;
+  }
+  .product #reviews .grid-container .review-button button {
+    width: 100%;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  .product #reviews .grid-container > span {
+    display: none;
+  }
+  .product #reviews .grid-container .reviews-container {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    padding: 0 2rem 6rem 2rem;
+  }
+  .product #reviews .grid-container .reviews-container > div {
+    margin-bottom: 1.5rem;
+  }
+  .product #reviews .grid-container .reviews-container > div .review-rating span {
+    width: 2rem;
+    height: 2rem;
+  }
+  .product #reviews .grid-container .reviews-container > div .review-rating span svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  .product #reviews .grid-container .reviews-container > div h5 {
+    font-size: 1.5rem;
+  }
+  .product #reviews .grid-container .reviews-container > div p {
+    font-size: 1.25rem;
+  }
+  .product #reviews .grid-container .reviews-container > button {
+    font-size: 2rem;
+  }
+  .product .review-modal-mobile {
+    display: none;
+  }
+  .product .review-modal-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    transition: 0.5s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .product .review-modal-desktop .review-modal-content {
+    padding: 20px;
+    width: 50%;
+    max-width: 800px;
+    height: 95vh;
+    max-height: 600px;
+    background-color: #F9D70F;
+    border-radius: 20px;
+  }
+  .product .review-modal-desktop .review-modal-content .form-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+  }
+  .product .review-modal-desktop .review-modal-content .form-content > div {
+    width: 90%;
+  }
+  .product .review-modal-desktop .review-modal-content .form-content h2 {
+    font-family: "racing_sans_oneregular", sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+  .product .review-modal-desktop .review-modal-content .form-content form#reviewForm div.custom-form-comment textarea#comment {
+    height: 150px;
+  }
+  .product .review-modal-desktop .review-modal-content .form-content form div {
+    margin-bottom: 1rem;
+  }
+  .product .review-modal-desktop .review-modal-content .form-content form div label {
+    font-family: "poppinsregular", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+  }
+  .product .review-modal-desktop .review-modal-content .form-content form div input,
+  .product .review-modal-desktop .review-modal-content .form-content form div textarea,
+  .product .review-modal-desktop .review-modal-content .form-content form div select {
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.2);
+  }
+  .product .review-modal-desktop .review-modal-content .form-content form div input:not(textarea),
+  .product .review-modal-desktop .review-modal-content .form-content form div textarea:not(textarea),
+  .product .review-modal-desktop .review-modal-content .form-content form div select:not(textarea) {
+    height: 2rem;
+  }
+  .product .review-modal-desktop .review-modal-content .form-content form .form-submit {
+    display: flex;
+    justify-content: center;
+  }
+  .product .review-modal-desktop .review-modal-content .form-content form .form-submit button {
+    width: 60%;
+    font-weight: 700;
+    font-family: "poppinsregular", sans-serif;
+    background-color: #FC7804;
+    transition: 0.5s ease;
+    border: none;
+    padding: 1rem;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .product .review-modal-desktop .review-modal-content .form-content form .form-submit button:hover {
+    background-color: #027F9A;
+    cursor: pointer;
+  }
+}
+.services__banner-container {
+  background-color: #01509D;
+}
+.services__banner-container .services__main-container {
+  color: #FFFFFF;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.services__banner-container .services__main-container p {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+}
+.services__banner-container .services__main-container h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  border-bottom: 1.5px solid #FDC504;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+.services__banner-container .services__main-container h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.services__banner-container .services__main-container h4 {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.services__banner-container .services__main-container p.sub-text {
+  font-size: 0.625rem;
+  border-bottom: 2.5px solid #FFFFFF;
+}
+.services__banner-container .services__main-container .content-container {
+  padding: 1rem;
+  width: 55%;
+}
+.services__banner-container .services__main-container .content-container .cost-container p {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.services__banner-container .services__main-container .img-container {
+  padding: 1rem 1rem 4rem 1rem;
+  background-color: #013562;
+  width: 45%;
+}
+.services__banner-container .services__bottom-banner-container {
+  background-color: #01509D;
+  color: #FFFFFF;
+  max-width: 1440px;
+  margin: 0 auto;
+  flex-flow: column-reverse;
+  margin-bottom: 0;
+  padding-top: 5.25rem;
+  padding-bottom: 5.25rem;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(2) {
+  padding: 1rem;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(2) > div {
+  margin-bottom: 0.2rem;
+  border-bottom: 3px solid #FC7804;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(2) > div + p {
+  margin-bottom: 1rem;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(2) > div > div:nth-child(1) {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(1) figure {
+  margin: 0;
+  width: 80%;
+}
+.services__banner-container .services__bottom-banner-container > div:nth-child(1) figure img {
+  border-top-right-radius: 90px;
+}
+.services__banner-container .services__bottom-banner-container ul {
+  margin-left: 0;
+  padding-left: 1rem;
+}
+
+.services {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.services p {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.services .services__container:nth-of-type(1), .services .services__container:nth-of-type(2) {
+  font-weight: 500;
+}
+.services .services__container:nth-of-type(1) > div, .services .services__container:nth-of-type(2) > div {
+  padding: 1rem;
+}
+.services .services__container:nth-of-type(1) > div div, .services .services__container:nth-of-type(2) > div div {
+  margin: 0.2rem 0 0 0;
+}
+.services .services__container:nth-of-type(1) > div div + p, .services .services__container:nth-of-type(2) > div div + p {
+  margin-top: 0.2rem;
+}
+.services .services__container:nth-of-type(1) h4, .services .services__container:nth-of-type(2) h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+.services .services__container:nth-of-type(1) p.sub-text, .services .services__container:nth-of-type(2) p.sub-text {
+  font-size: 0.625rem;
+  border-bottom: 3px solid #01509D;
+  margin-bottom: 0.2rem;
+}
+.services .services__container:nth-of-type(1) p br, .services .services__container:nth-of-type(2) p br {
+  display: none;
+}
+.services .services__container:nth-of-type(2) {
+  margin-bottom: 0;
+}
+.services .services__container:nth-of-type(2) .hidden-container {
+  display: none;
+}
+.services .services__designed-container {
+  background-color: #FC7804;
+}
+.services .services__designed-container .services__designed-container {
+  font-weight: 500;
+}
+.services .services__designed-container .services__designed-container > div {
+  padding: 0 1rem 0 1rem;
+}
+.services .services__designed-container .services__designed-container h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+.services .services__designed-container .services__designed-container p.sub-text {
+  font-size: 0.625rem;
+  border-bottom: 3px solid #01509D;
+  margin-bottom: 0.2rem;
+}
+.services .services__designed-container .services__designed-container:nth-of-type(2) {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+.services .services__designed-container .services__designed-container:nth-of-type(2) h5 {
+  font-weight: 500;
+  text-decoration: underline;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 0;
+}
+.services .services__container:nth-of-type(4), .services .services__container:nth-of-type(5) {
+  font-weight: 500;
+}
+.services .services__container:nth-of-type(4) > div, .services .services__container:nth-of-type(5) > div {
+  padding: 1rem;
+}
+.services .services__container:nth-of-type(4) > div div, .services .services__container:nth-of-type(5) > div div {
+  margin: 0.2rem 0 0 0;
+}
+.services .services__container:nth-of-type(4) > div div + p, .services .services__container:nth-of-type(5) > div div + p {
+  margin-top: 0.2rem;
+}
+.services .services__container:nth-of-type(4) h4, .services .services__container:nth-of-type(5) h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  border-bottom: 3px solid #01509D;
+}
+.services .services__container:nth-of-type(4) p.sub-text, .services .services__container:nth-of-type(5) p.sub-text {
+  font-size: 0.625rem;
+  margin-bottom: 0.2rem;
+}
+.services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2), .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+  text-align: center;
+  font-weight: 600;
+}
+.services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(3) + p {
+  margin-top: 1rem;
+}
+.services .services__container:nth-of-type(5) > div:nth-child(2) p {
+  margin-bottom: 0.5rem;
+}
+.services .services__container:nth-of-type(5) > div:nth-child(2) div:nth-child(1) {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 781px) {
+  .services__banner-container .services__main-container p,
+  .services__banner-container .services__main-container li {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  .services__banner-container .services__main-container h1 {
+    font-size: 4rem;
+    border-bottom: 4px solid #FDC504;
+    width: 75%;
+    margin-bottom: 2rem;
+  }
+  .services__banner-container .services__main-container h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .services__banner-container .services__main-container h4 {
+    font-size: 2.25rem;
+  }
+  .services__banner-container .services__main-container p.sub-text {
+    width: 90%;
+    font-size: 1.125rem;
+    border-bottom: 4px solid #FFFFFF;
+  }
+  .services__banner-container .services__main-container .content-container {
+    padding: 1rem;
+  }
+  .services__banner-container .services__main-container .content-container .cost-container p {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .services__banner-container .services__main-container .img-container {
+    padding: 7rem 1rem 1rem 1rem;
+  }
+  .services__banner-container .services__main-container .img-container h3,
+  .services__banner-container .services__main-container .img-container p {
+    width: 70%;
+    margin-left: 4rem;
+  }
+  .services__banner-container .services__bottom-banner-container {
+    flex-flow: row;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(2) p + p {
+    font-size: 1.75rem;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(2) > div > div:nth-child(1) {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(2) > div > div:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(1) figure {
+    margin: 0;
+    width: auto;
+    padding: 2rem;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(1) figure img {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+  }
+  .services__banner-container .services__bottom-banner-container ul li {
+    margin-bottom: 0.5rem;
+  }
+  .services p {
+    font-size: 1.25rem;
+  }
+  .services .services__container:nth-of-type(1) {
+    margin-bottom: 0;
+  }
+  .services .services__container:nth-of-type(1) > div div + p, .services .services__container:nth-of-type(2) > div div + p {
+    margin-top: 0.5rem;
+  }
+  .services .services__container:nth-of-type(1) h4, .services .services__container:nth-of-type(2) h4 {
+    font-size: 2rem;
+  }
+  .services .services__container:nth-of-type(1) p.sub-text, .services .services__container:nth-of-type(2) p.sub-text {
+    font-size: 1rem;
+    border-bottom: 4px solid #01509D;
+  }
+  .services .services__container:nth-of-type(1) p.sub-text + p, .services .services__container:nth-of-type(2) p.sub-text + p {
+    margin-top: 0.5rem;
+  }
+  .services .services__container:nth-of-type(1) p br, .services .services__container:nth-of-type(2) p br {
+    display: none;
+  }
+  .services .services__container:nth-of-type(1) .hidden-container, .services .services__container:nth-of-type(2) .hidden-container {
+    display: unset;
+  }
+  .services .services__designed-container .services__designed-container > div {
+    padding: 0 1rem 0 1rem;
+  }
+  .services .services__designed-container .services__designed-container h4 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .services .services__designed-container .services__designed-container p.sub-text {
+    font-size: 1rem;
+    border-bottom: 4px solid #01509D;
+  }
+  .services .services__designed-container .services__designed-container p.sub-text + p {
+    margin-top: 0.5rem;
+  }
+  .services .services__designed-container .services__designed-container:nth-of-type(2) {
+    width: 70%;
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  .services .services__designed-container .services__designed-container:nth-of-type(2) h5 {
+    font-size: 2.625rem;
+  }
+  .services .services__designed-container .services__designed-container:nth-of-type(2) p:not(div + p) {
+    font-size: 1.5rem;
+  }
+  .services .services__container:nth-of-type(4) h4, .services .services__container:nth-of-type(5) h4 {
+    font-size: 2rem;
+    border-bottom: 4px solid #01509D;
+  }
+  .services .services__container:nth-of-type(4) h4 + p, .services .services__container:nth-of-type(5) h4 + p {
+    margin-top: 0.5rem;
+  }
+  .services .services__container:nth-of-type(4) p.sub-text, .services .services__container:nth-of-type(5) p.sub-text {
+    font-size: 1rem;
+  }
+  .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2), .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+    text-align: left;
+    padding-left: 4rem;
+  }
+  .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(3) + p {
+    margin-top: 1rem;
+  }
+  .services .services__container:nth-of-type(5) > div:nth-child(2) p {
+    margin-bottom: 0.5rem;
+  }
+  .services .services__container:nth-of-type(5) > div:nth-child(2) div:nth-child(1) {
+    font-weight: 600;
+  }
+}
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem);
+}
+
+.front-page .banner h2 {
+  font-family: "Racing Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Racing Sans One", sans-serif;
+  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
+}
+
+h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
+}
+
+a {
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
 }
 
 /*! Generated by Font Squirrel (https://www.fontsquirrel.com) on March 14, 2024 */
@@ -1399,6 +2579,156 @@ a {
   src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
   font-style: normal;
 }
+.review-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.review-section .review_slider {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+.review-section .review_slider .carousel-inner .review_slide {
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  transition: all 0.5s;
+}
+.review-section .review_slider .carousel-inner .review_slide .review_slide-content {
+  max-width: 70%;
+  margin: 0 auto;
+}
+.review-section .review_slider .carousel-inner .review_slide .review_slide-content .feedback {
+  margin-bottom: 1.5rem;
+}
+.review-section .review_slider .carousel-inner .review_slide .review_slide-content .customer-name {
+  text-align: right;
+}
+.review-section .review_slider .carousel-inner .review_btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+  color: #FC7804;
+}
+.review-section .review_slider .carousel-inner .review_btn svg {
+  fill: #FC7804;
+  max-width: 20px;
+  max-height: 20px;
+}
+.review-section .review_slider .carousel-inner .review_btn .svg-flip {
+  transform: rotate(180deg);
+}
+.review-section .review_slider .carousel-inner .review_btn:active {
+  transform: scale(1.1);
+}
+.review-section .review_slider .carousel-inner .review_btn-prev {
+  top: 18%;
+  left: -1%;
+}
+.review-section .review_slider .carousel-inner .review_btn-next {
+  top: 18%;
+  right: -1%;
+}
+
+@media screen and (min-width: 420px) {
+  .review-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .review-section .review_slider {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+  }
+  .review-section .review_slider .carousel-inner .review_btn-prev {
+    top: 18%;
+    left: 1%;
+  }
+  .review-section .review_slider .carousel-inner .review_btn-next {
+    top: 18%;
+    right: 1%;
+  }
+}
+@media screen and (min-width: 500px) {
+  .review-section .review_slider .carousel-inner .review_btn-prev {
+    top: 15%;
+    left: 3%;
+  }
+  .review-section .review_slider .carousel-inner .review_btn-next {
+    top: 15%;
+    right: 3%;
+  }
+}
+@media screen and (min-width: 500px) {
+  .review-section .review_slider .carousel-inner .review_btn {
+    width: 50px;
+    height: 50px;
+    padding: 12px 10px 10px 10px;
+    align-items: center;
+  }
+  .review-section .review_slider .carousel-inner .review_btn svg {
+    fill: #FC7804;
+    max-width: 25px;
+    max-height: 25px;
+  }
+}
+/*! Generated by Font Squirrel (https://www.fontsquirrel.com) on March 14, 2024 */
+@font-face {
+  font-family: "racing_sans_oneregular";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/racingsansone-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/montserrat-variablefont_wght-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_italic";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/montserrat-italic-variablefont_wght-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsbold";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-bold-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsregular";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinssemibold";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-semibold-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsmedium";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-medium-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinslight";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
+  font-style: normal;
+}
+.banner-text {
+  color: #FFFFFF;
 .common-questions-section {
   height: 100vh;
   overflow-y: scroll;

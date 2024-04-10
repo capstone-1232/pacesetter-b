@@ -40,17 +40,27 @@ Template Name: Products Category Page Template
         <?php get_template_part('template-parts/breadcrumbs'); ?>
         <div id="filters"></div>
         <div id="removeFilterList"></div>
+        <div>
+        <select name="sort_by" id="sort_by">
+            <option value="default">Sort by</option>
+            <option value="price_low_to_high">Price: Low to High</option>
+            <option value="price_high_to_low">Price: High to Low</option>
+            <option value="newest">Newest Arrivals</option>
+            <option value="oldest">Oldest Arrivals</option>
+        </select>
+        </div>
         <div id="products">
         </div>
     </main>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        offset = 12;
-        currentSlug = "<?php echo $current_slug?>";
+        let offset = 12;
+        let currentSlug = "<?php echo $current_slug?>";
+        let sortBy = '';
 
         // Array to store selected filters
-        var selectedFilters = [];
+        let selectedFilters = [];
 
         function updateProducts() {
             var xhr = new XMLHttpRequest();
@@ -67,7 +77,7 @@ Template Name: Products Category Page Template
             };
             xhr.open('POST', ajax_object.ajax_url, true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-            xhr.send('action=fetch_products&offset=' + offset + '&current_slug=' + currentSlug + '&filters=' + encodeURIComponent(filtersJSON));
+            xhr.send('action=fetch_products&offset=' + offset + '&sort_by=' + sortBy + '&current_slug=' + currentSlug + '&filters=' + encodeURIComponent(filtersJSON));
         }
         updateProducts();
         
@@ -110,9 +120,14 @@ Template Name: Products Category Page Template
             xhr.send('action=remove_product_filter_list_function&filters=' + encodeURIComponent(filtersJSON));
         }
 
+        // Sort by change function
+        function handleSortChange() {
+            sortBy = document.getElementById("sort_by").value;
+            updateProducts(); // Call updateProducts() whenever sortBy changes
+        }
+
         // Event handler for filter buttons (using event delegation)
         document.addEventListener('click', function(event) {
-            // Check if the clicked element has the class '.events-filter'
             if (event.target && event.target.classList.contains('products-filter')) {
                 event.preventDefault(); // Prevent default link behavior
 
@@ -141,8 +156,7 @@ Template Name: Products Category Page Template
 
         // Attach event listener to document for event delegation
         document.addEventListener('click', function(event) {
-            // Check if the clicked element has the class '.events-filter-remove'
-            if (event.target && event.target.classList.contains('product-filter-remove')) {
+            if (event.target && event.target.classList.contains('products-filter-remove')) {
                 event.preventDefault(); // Prevent default link behavior
 
                 // Access data attributes
@@ -162,7 +176,6 @@ Template Name: Products Category Page Template
 
         // Event handler for filter buttons (using event delegation)
         document.addEventListener('click', function(event) {
-            // Check if the clicked element has the class '.events-filter'
             if (event.target && event.target.classList.contains('view-more-btn')) {
                 event.preventDefault();
 
@@ -173,6 +186,8 @@ Template Name: Products Category Page Template
                 updateProducts()
             }
         });
+
+        document.getElementById("sort_by").addEventListener("change", handleSortChange);
     });
 </script>
 <?php get_footer(); ?>
