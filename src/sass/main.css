@@ -714,6 +714,9 @@ p {
 .site-footer .store-info h3 {
   margin: 0;
 }
+.site-footer .store-info a:first-of-type svg {
+  padding: 0;
+}
 .site-footer .store-info a svg {
   fill: #FFFFFF;
   min-height: 36px;
@@ -727,10 +730,12 @@ p {
   transition: 0.5s ease;
 }
 .site-footer .store-info div:first-of-type svg path {
+  width: 100%;
   transition: 0.5s ease;
 }
 .site-footer .store-info div:first-of-type svg:hover {
   fill: #FDC504;
+  transform: translateY(-3px);
 }
 .site-footer .store-info div:first-of-type svg:hover path {
   fill: #FDC504;

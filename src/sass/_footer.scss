@@ -18,6 +18,9 @@
     h3 {
       margin: 0;
     }
+    a:first-of-type svg {
+      padding: 0;
+    }
     a svg {
       fill: $white;
       min-height: 36px;
@@ -30,11 +33,13 @@
       svg {
         transition: 0.5s ease;
         path {
+          width: 100%;
           transition: 0.5s ease;
         }
       }
       svg:hover {
         fill: $secondary-yellow;
+        transform: translateY(-3px);
         path {
           fill: $secondary-yellow;
         }
