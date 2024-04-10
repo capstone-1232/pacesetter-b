@@ -5,7 +5,7 @@ Template Post Type: hero-banner
 */
 ?>
 
-<div id="hero-carousel" class="slider">
+<section id="hero-carousel" class="slider">
   <div class="carousel-inner">
 
     <?php
@@ -35,10 +35,12 @@ Template Post Type: hero-banner
           <div class="slide-content">
             <h2><?php echo $title; ?></h2>
             <p><?php echo $tag_line; ?></p>
-            <a href="<?php echo esc_url($call_to_action_url); ?>"><?php echo esc_html($call_to_action); ?></a>
-            <?php if ($call_to_action_2):?>
-              <a href="<?php echo esc_url($call_to_action_url_2); ?>"><?php echo esc_html($call_to_action_2); ?></a>
-              <?php endif;?>
+            <div class="call-to-action">
+              <a href="<?php echo esc_url($call_to_action_url); ?>"><?php echo esc_html($call_to_action); ?></a>
+              <?php if ($call_to_action_2):?>
+                <a href="<?php echo esc_url($call_to_action_url_2); ?>"><?php echo esc_html($call_to_action_2); ?></a>
+                <?php endif;?>
+            </div>
           </div>
         </div>
 
@@ -49,8 +51,24 @@ Template Post Type: hero-banner
       // Check the number of posts before outputting navigation buttons
       if ($hero_banner_query->post_count > 1) :
       ?>
-        <button class="btn btn-next">></button>
-        <button class="btn btn-prev"><</button>
+        <button class="btn btn-next">
+          <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+              viewBox="0 0 491.1 491.1" xml:space="preserve">
+              <g>
+                <path d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5
+                  c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"/>
+              </g>
+            </svg>
+        </button>
+        <button class="btn btn-prev">
+        <svg class="svg-flip" fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+              viewBox="0 0 491.1 491.1" xml:space="preserve">
+              <g>
+                <path d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5
+                  c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"/>
+              </g>
+            </svg>
+        </button>
 
         <!-- Navigation dots -->
         <div class="carousel-dots">
@@ -65,7 +83,7 @@ Template Post Type: hero-banner
     ?>
 
   </div>
-</div>
+</section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -135,53 +153,7 @@ Template Post Type: hero-banner
 </script>
 
 <style>
-.slider {
-  width: 100%;
-  height: 350px;
-  position: relative;
-  overflow: hidden;
-}
 
-.slide {
-  width: 100%;
-  height: 350px;
-  position: absolute;
-  transition: all 0.5s;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.btn {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  border: none;
-  border-radius: 50%;
-  z-index: 10;
-  cursor: pointer;
-  background-color: #013652;
-  color: #fff;
-  font-size: 18px;
-}
-
-.btn:active {
-  transform: scale(1.1);
-}
-
-.btn-prev {
-  top: 45%;
-  left: 2%;
-}
-
-.btn-next {
-  top: 45%;
-  right: 2%;
-}
 
 .carousel-dots {
   position: absolute;

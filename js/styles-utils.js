@@ -2,49 +2,176 @@ console.log("js connected"); // sanity check, remove in final
 
 var $j = jQuery.noConflict();
 
-$j(document).ready(function(){
-    console.log("JQUERY connected")
+$j(document).ready(function () {
+    console.log("JQUERY connected") // sanity check, remove in final
 
-    $j("#show-search").click(function(){
-        $j("#main-search").toggle({
-            done: function() {
-                $j(".search-submit").hide();
-                $j(".cart-link").toggle();
-                $j(".operation-hours").toggle();
-                $j(".nav-utils").toggleClass("full-width");
-            },
+    // on load behaviours
+    $j(".search-submit").hide();
+    $j(".category-select a").on("click", function (evt) {
+        evt.preventDefault();
+    });
+    $j(".dropdown-menu").toggle();
+    $j(".rsvp-toggle").button();
+    $j(".rsvp-panel>button").button();
+    $j('#backToTopBtn').hide();
+
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+        $j(".rsvp-panel").hide();
+    }
+
+    // $j(".event-filters").hide();
+
+
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        $j("#show-search").click(function () {
+            $j("#main-search").toggle({
+                start: function () {
+                    $j(".cart-link").hide("fold");
+                    $j(".operation-hours").hide("fold");
+                },
+            });
+        });
+    }
+
+    // Toggle mobile dropdown menu
+    $j(".main-nav-toggle").on("click", function () {
+        $j(".toggle-menu").slideToggle();
+        $j(".main-nav-toggle .open").toggleClass("hidden");
+        $j(".main-nav-toggle .close").toggleClass("hidden");
+        $j(".right-column").hide("fold");
+        $j(".column-container").removeClass("flex-container");
+        $j(".left-column").removeClass("squished");
+        $j(".category-select").removeClass("selected");
+
+        // Makes document unscrollable if menu dropdown visible.
+        $j("body").toggleClass("overflow-hidden");
+    });
+
+    // check if user clicks outside of search bar to close it
+    // Might refactor later to have a close button on left side of search bar as well
+    $j(document).on("click", function (evt) {
+        let targetElement = $j(".search-section");
+        if (!targetElement.is(evt.target) && targetElement.has(evt.target).length === 0) {
+
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                $j("#main-search").hide({
+                    start: function () {
+                        $j(".cart-link").show("fold");
+                        $j(".operation-hours").show("fold");
+                    }
+                });
+            } else {
+                $j(".nav-utils").removeClass("full-width", 500);
+            }
+        }
+    });
+
+    // Toggles open subcategory menu and double column layout switch on tap
+    $j(".category-select").on("click", function () {
+
+
+        $j(".column-container").addClass("flex-container");
+
+        $j(".left-column").addClass("squished", {
+            duration: "200",
+            easing: "easeInOutExpo",
+        });
+
+        $j(".right-column").show("fold");
+
+        let queryStr = ".subcategories." + $j(this).text();
+
+        if (!$j(this).hasClass("selected")) {
+            $j(".category-select").removeClass("selected");
+
+            $j(".subcategories").hide("fold");
+            $j(queryStr).toggle("slide");
+        }
+
+        $j($j(this)).addClass("selected");
+    })
+
+    // closes right column on button click
+    $j(".right-column button").on("click", function () {
+        $j(".category-select").removeClass("selected");
+
+        $j(".right-column").hide({
+            done: function () {
+                $j(".left-column").removeClass("squished");
+                $j(".column-container").removeClass("flex-container");
+            }
         });
     });
 
-    // Toggle mobile dropdown menu
-    $j(".main-nav-toggle").click(function(){
-        $j(".toggle-menu").toggle("fold");
-        $j(".main-nav-toggle .open").toggleClass("hidden");
-        $j(".main-nav-toggle .close").toggleClass("hidden");
 
-        // Makes document unscrollable if menu dropdown visible.
-        $j("html").toggleClass("overflow-hidden");
+    // toggles dropdown menu
+    $j(".dropdown-toggle").on("click", function (evt) {
+        evt.preventDefault();
+        $j(".dropdown-menu").slideToggle();
+
+        // rotates chevron svg on click
+        var transformValue = $j(".dropdown-toggle svg").attr("transform");
+        if (transformValue === "rotate(180)") {
+            $j(".dropdown-toggle svg").attr("transform", "rotate(0)");
+        } else {
+            $j(".dropdown-toggle svg").attr("transform", "rotate(180)");
+        }
     });
 
-});
+    // expand search bar when activated in desktop
+    $j(".search-field").on("click", function () {
+        $j(".nav-utils").addClass("full-width", 500);
+    });
 
-let searchBtn = document.getElementById("show-search");
-let searchField = document.getElementById("main-search");
-let submitBtn = document.querySelector(".search-submit");
-let searchForm = document.querySelector(".search-form");
-let mainNavToggle = document.querySelector(".main-nav-toggle");
+    // toggles slideover filter menu
+    $j(".filter-toggle").on("click", function () {
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            console.log("filters clicked mobile");
+            $j(".event-filters").animate({
+                width: "toggle",
+            }, 200);
+        } else {
+            console.log("filters clicked desktop");
+        }
+    });
 
-// toggles search bar closed if user clicks outsidse of it
-document.addEventListener('click', (evt) => {
-    const searchSection = document.querySelector('.search-section');
-    const clickedInside = searchSection.contains(evt.target);
-
-    if (!clickedInside && !searchField.classList.contains("hidden")) {
-        console.log("user clicked outside search");
-        searchField.classList.toggle("hidden");
-        document.querySelector(".search-section").classList.remove("absolute");
-        document.querySelector(".cart-link").classList.remove("hidden");
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+        $j(".rsvp-toggle").on("click", function() {
+            console.log("rsvp toggle clicked");
+    
+            if ($j(".rsvp-panel").is(":visible")) {
+                $j(".rsvp-panel#myForm").submit();
+            } else {
+                $j(".rsvp-panel").show("slide");
+            }
+        });
+    
     }
-});
 
+    // set ups accordions
+    $j(".accordion").accordion({
+        collapsible: true,
+        active: false,
+        heightStyle: "auto",
+    });
+
+    $j(window).scroll(function() {
+        var scrollPoint = 200; // replace with the point you're interested in
+        if ($j(this).scrollTop() > scrollPoint) {
+            $j('#backToTopBtn').show("fade");
+        } else {
+            $j('#backToTopBtn').hide("fade");
+        }
+    });
+
+    $j('#backToTopBtn').click(function() {
+        $j('html, body').animate({scrollTop: 0}, 'fast');
+        return false;
+    });
+
+    $j(".ui-accordion-header").on("click", function(evt){
+        $j(".ui-accordion-header .plus-icon").toggleClass("hidden");
+        $j(".ui-accordion-header .minus-icon").toggleClass("hidden");
+    });
+});
 

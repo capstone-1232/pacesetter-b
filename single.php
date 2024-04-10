@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main blog-display">
 
 	<div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
@@ -27,16 +27,21 @@ get_header();
             get_template_part( 'content', get_post_format() );?>
 			<article>
 				<h2><?php echo the_title(); ?></h2>
-                <img src="<?php echo esc_html(get_field('blog_image'));?>" alt="">
-				<p><?php echo esc_html(get_field('blog_author'));?></p>
+                <div class="image-container">
+                    <img src="<?php echo esc_html(get_field('blog_image'));?>" alt="">
+                    
+                    <div class="byline">
+                        
+                            <p>Posted by:<?php echo esc_html(get_field('blog_author'));?></p>
+                            <p>Posted on: <?php the_date();?></p>
+                       
+                    </div>
+                </div>
+                <p><?php echo esc_html(get_field('blog_entry')); ?></p>
 			</article>
-			<p><?php echo esc_html(get_field('blog_entry')); ?></p>
 			<?php
  
-            // If comments are open or we have at least one comment, load up the comment template.
-            if ( comments_open() || get_comments_number() ) :
-                comments_template();
-			endif;
+            
  
         // End the loop.
         endwhile;
@@ -44,21 +49,32 @@ get_header();
 
         </main><!-- .site-main -->
     </div><!-- .content-area -->
-	<div>
-	<?php
+	<section class="related">
+        <h3>Related Blogs</h3>
+        <div class="card-container">
 
-$related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 5, 'post__not_in' => array($post->ID) ) );
-if( $related ) foreach( $related as $post ) {
-setup_postdata($post); ?>
- <ul> 
-        <li>
-        <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-        <img src="<?php echo esc_html(get_field('blog_image'))?>" alt="">
-            <?php the_excerpt('read more'); ?>
-        </li>
-    </ul>   
-<?php }
-wp_reset_postdata(); ?>
-	</div>
+            <div class="outer-wrapper">
+                <div class="inner-wrapper">
+    
+        <?php
+    
+    $related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 5, 'post__not_in' => array($post->ID) ) );
+    if( $related ) foreach( $related as $post ) {
+    setup_postdata($post); ?>
+     <div class="blog-card">
+         <img src="<?php echo esc_html(get_field('blog_image'))?>" alt="">
+         <h4><?php the_title()?></h4>
+         <p><?php echo substr(get_field('blog_entry'),0,100) ?> ...</p>
+         <div>
+             <a  class="read-more-button" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>">Read More</a>
+         </div>
+        
+     </div>
+    <?php }
+    wp_reset_postdata(); ?>
+                </div> <!--end of inner wrapper-->
+            </div> <!-- end of outer wrapper -->           
+        </div>
+	</section>
  
 <?php get_footer(); ?>

@@ -102,4 +102,5 @@ $search_query = get_search_query();
 	})
 	</script>
 <?php
+
 get_footer();
