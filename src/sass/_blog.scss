@@ -4,7 +4,7 @@
 .blog {
    max-width: 1700px;
    .intro{
-      background-image: url("../img/snow-background-texture.webp");
+
       border-bottom: 8px solid $primary-blue;
       box-shadow: 0px 0px 10px rgba(1, 53, 98, 0.5);
       margin: 0 auto;
@@ -72,7 +72,7 @@
             gap: 1rem;
             justify-content: center;
             .read-more-button {
-               padding: 1rem;
+               padding:  1rem;
                font-weight: bold;
                background-color: $secondary-yellow ;
                border: 5px solid $secondary-yellow;
@@ -109,11 +109,13 @@
    .blog{
       .intro{
          .filter-button{
-            width: calc(25% - 2rem)
+            width: calc(25% - 2rem);
          }
       }
       .blog-post{
             flex-direction: row;
+            justify-content: flex-start;
+            width: 90%; 
                img{
                   width: 30%;
                   aspect-ratio: 1/0.5;
@@ -123,6 +125,7 @@
       article:nth-of-type(even){
          div{
          order:-1;
+         justify-content: flex-end;
         }
       }
    }
@@ -130,6 +133,7 @@
 
 .blog-display{
 max-width: 1700px;
+background-color: red;
    h2{
       font-family: $racing;
       font-size: 2rem;
