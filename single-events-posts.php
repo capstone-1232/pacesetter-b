@@ -393,12 +393,17 @@ if ($current_timestamp > $next_day) {
                                 </g>
                             </g>
                         </svg></span>
-                    <p>You have successfully RSVPd to:</p>
-                    <p>
-                        <?php echo the_title(); ?>
-                    </p>
-                    <p>You will receive an email containing more details about your reservation!</p>
-                    <p>We are looking forward to seeing you in October 2, 2023, at 7:00 pm!</p>
+                    <div class="text-content">
+                        <p>You have successfully RSVPd to:</p>
+                        <div class="arrow-background">
+                            <p>
+                                <?php echo the_title(); ?>
+                            </p>
+                        </div>
+                        <p>You will receive an email containing more details about your reservation!</p>
+                        <p>We are looking forward to seeing you in October 2, 2023, at 7:00 pm!</p>
+                        <p>See you on the slopes!</p>
+                    </div>
                     <div>
                         <a href="">Back to Events</a>
                         <a href="">Back to Home</a>

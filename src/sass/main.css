@@ -843,9 +843,70 @@ p {
   src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
   font-style: normal;
 }
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem);
+  font-weight: 600;
+}
+
+.front-page .banner h2 {
+  font-family: "Racing Sans One", sans-serif;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Racing Sans One", sans-serif;
+  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
+}
+
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
+}
+
+a {
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
+}
+
+#hero-carousel.slider .carousel-inner .slide .slide-content h2 {
+  font-family: "Racing Sans One", sans-serif;
+  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+}
+
+#hero-carousel.slider .carousel-inner .slide .slide-content p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+}
+
+#hero-carousel.slider .carousel-inner .slide .slide-content a {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem);
+  font-weight: 600;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    font-weight: 500;
+  }
+}
 #eventModal {
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;
@@ -864,17 +925,56 @@ p {
   visibility: hidden;
 }
 #eventModal .event-modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
+  background-color: #F9D70F;
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  height: 100svh;
+  width: 100svw;
+  font-size: 0.875rem;
+}
+#eventModal .event-modal-content p {
+  margin: 1rem 0;
+}
+#eventModal .event-modal-content .text-content {
+  text-align: center;
+}
+#eventModal .event-modal-content .text-content > p:last-of-type {
+  font-family: "racing_sans_oneregular", sans-serif;
+  font-size: 1.25rem;
+}
+#eventModal .event-modal-content .text-content .arrow-background > p {
+  font-size: 2rem;
+  font-family: "poppinsbold", sans-serif;
+}
+#eventModal .event-modal-content div:last-of-type {
+  display: flex;
+  justify-content: space-between;
+}
+#eventModal .event-modal-content div:last-of-type a {
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 1rem 0.5rem;
+}
+#eventModal .event-modal-content div:last-of-type a:first-of-type {
+  background-color: #013562;
+  color: #ffffff;
+}
+#eventModal .event-modal-content div:last-of-type a:last-of-type {
+  background-color: #ffffff;
+  color: #000000;
 }
 #eventModal .event-modal-content .event-modal-close {
   color: #aaa;
-  float: right;
   font-size: 1.25rem;
   font-weight: bold;
+  float: unset;
+  text-align: right;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  display: block;
 }
 #eventModal .event-modal-content .event-modal-close svg {
   width: 42px;
@@ -976,6 +1076,7 @@ p {
   position: fixed;
   bottom: 2%;
   left: 50%;
+  width: 60%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 2px 10px rgba(1, 53, 98, 0.25);
 }
@@ -1022,12 +1123,21 @@ p {
   }
   .rsvp-toggle {
     display: none;
+    box-shadow: 0px 4px 4px rgba(1, 53, 98, 0.25);
   }
   .rsvp-toggle + a {
     display: block;
     width: 95%;
     margin: 1rem auto 0 auto;
     color: #027F9A;
+  }
+  .rsvp-toggle:hover {
+    box-shadow: 0px 4px 4px rgba(1, 53, 98, 0.7);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  .rsvp-toggle:active {
+    background-color: #F9D70F;
+    color: #000000;
   }
   .rsvp-panel {
     position: sticky;
