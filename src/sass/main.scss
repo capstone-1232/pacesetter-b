@@ -3,10 +3,10 @@
 @import 'typography.scss';
 @import 'utilities.scss';
 @import 'animations.scss';
+@import 'mixins.scss';
 
 @import 'header.scss';
 @import 'footer.scss';
-@import 'events.scss';
 @import 'single-events.scss';
 @import 'single-products.scss';
 @import 'faq.scss';
@@ -15,6 +15,7 @@
 @import 'products';
 @import 'product-categories.scss';
 @import 'product-taxonomy.scss';
+@import 'events.scss';
 @import 'hosted-events.scss';
 @import 'about-content.scss';
 @import 'customer-reviews.scss';

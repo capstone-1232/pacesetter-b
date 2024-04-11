@@ -167,14 +167,18 @@ function update_active_list_function()
         $active_filters = json_decode(stripslashes($_POST['filters']), true);
 
         // Generate the filter buttons
-        echo "<button type=\"button\" class=\"close\">Close</button>";
+        echo "<div>";
+        echo "<p>Filters</p>";
+        echo "<button type=\"button\" class=\"close\"><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 18 18 6M6 6l12 12\" /></svg></button>";
+        echo "</div>";
         foreach ($filters as $filter => $options) {
             // Replace underscores or dashes with spaces and capitalize the words for the heading
             $heading = ucwords(str_replace(["_", "-"], " ", $filter));
             // Add a heading before each button group
+            echo "<div class=\"accordion-group\">";
             echo "<h4 class=\"accordion-header\">" .
                 htmlspecialchars($heading) .
-                "</h4>";
+                "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m19.5 8.25-7.5 7.5-7.5-7.5\" /></svg></h4>";
 
             echo '<div class="accordion-content" role="group" aria-label="' .
                 htmlspecialchars($filter) .
@@ -202,12 +206,16 @@ function update_active_list_function()
                 echo '<a href="#" class="events-filter ' .
                     ($is_active ? "filter-active" : "") .
                     '" data-filter="' . htmlspecialchars($filter) . '" data-value="' . htmlspecialchars($value) . '">' .
-                    htmlspecialchars($label) .
+                    htmlspecialchars($label) .  
                     "</a>";
-                }
-                echo "</div>";
+            }
+            echo "</div>";
+            echo "</div>";
         }
+
         echo "</div>";
+
+        echo "<button type=\"button\" class=\"close\">Show Results</button>";
         exit;
     } else {
         // Handle other cases or provide a default response

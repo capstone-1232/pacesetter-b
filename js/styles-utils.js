@@ -206,6 +206,12 @@ $j(document).ready(function () {
         });
     }
 
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+        $j(".show-filters, .product-filters div:first-of-type>button, .product-filters>button").on("click", function () {
+            $j(".product-filters").toggle("slide");
+        })
+    }
+
     // Toggles style of filter items back to unchecked when filter is removed
     $j(".removeFilterList").on("click", ".products-filter-remove", function () {
         let filterText = $j(this).attr("data-value");
@@ -261,11 +267,19 @@ $j(document).ready(function () {
 
     $j(".event-filters").on("click", ".accordion-header", function () {
         $j(this).next().slideToggle();
+        $j(this).toggleClass("active");
+        $j(this).next().toggleClass("active");
+        $j(this).next().css({
+            "display": "flex",
+            "flexFlow": "row wrap",
+            "gap": "0.4rem",
+        });
     });
 
-    $j(".event-filters").on("click", ".close", function () {
+    $j(".event-filters").on("click", ".close", function () {    
         $j(".event-filters").toggle("slide");
     });
+
 
 });
 

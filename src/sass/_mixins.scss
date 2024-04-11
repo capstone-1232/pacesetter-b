@@ -1,0 +1,44 @@
+@use 'colors';
+
+@mixin mobile-filter-accordion-header {
+    color: $black;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+@mixin rotate-0 {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+@mixin show-filtered-button{
+    position: fixed;
+    background-color: $primary-yellow;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.8rem 2.5rem;
+    border: none;
+    box-shadow: 0 4px 4px rgba($primary-blue, 0.5);
+    font-family: $poppins_bold;
+    font-size: 1rem;
+    white-space: nowrap;
+
+    &:hover{
+        box-shadow: 0 4px 8px rgba($primary-blue, 0.8);
+        transition: box-shadow 0.2s ease-in-out;
+    }
+
+    &:active{
+        background-color: $turqoise;
+        color: $white;
+    }
+}
+

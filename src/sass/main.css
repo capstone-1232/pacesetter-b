@@ -71,7 +71,8 @@ h2 {
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
 }
 
-h3 {
+h3,
+h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
@@ -251,7 +252,8 @@ h2 {
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
 }
 
-h3 {
+h3,
+h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
@@ -791,222 +793,6 @@ p {
   }
   .site-footer .store-info .footer-nav .main-navigation .menu-main-menu-container #primary-menu {
     gap: 2rem 4rem;
-  }
-}
-body {
-  font-size: 100%;
-  line-height: 1.5;
-  font-family: "Montserrat", sans-serif;
-  font-style: normal;
-  font-size: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem);
-  font-weight: 600;
-}
-
-.front-page .banner h2 {
-  font-family: "Racing Sans One", sans-serif;
-  font-style: normal;
-}
-
-h1 {
-  font-family: "Racing Sans One", sans-serif;
-  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
-}
-
-h2 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
-}
-
-h3 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
-}
-
-a {
-  line-height: 1.5;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
-}
-
-#hero-carousel.slider .carousel-inner .slide .slide-content h2 {
-  font-family: "Racing Sans One", sans-serif;
-  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
-}
-#hero-carousel.slider .carousel-inner .slide .slide-content p {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
-}
-#hero-carousel.slider .carousel-inner .slide .slide-content a {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem);
-  font-weight: 600;
-}
-
-@media screen and (min-width: 700px) {
-  body {
-    font-weight: 500;
-  }
-}
-.event-menu {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 0;
-  border-bottom: 4px solid #F9D70F;
-  padding-bottom: 1rem;
-}
-.event-menu div {
-  display: flex;
-  width: 100%;
-  border: 2px solid #fc7804;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 0.5rem;
-}
-.event-menu svg {
-  width: 30px;
-  height: 30px;
-}
-
-.event-filters {
-  background-color: white;
-  position: fixed;
-  left: 0;
-  width: 100svw;
-  height: 100svh;
-  top: 0;
-}
-.event-filters .accordion-header {
-  width: 100%;
-  padding: 2rem 1rem;
-  background-color: #F9D70F;
-}
-.event-filters .accordion-content {
-  display: none;
-}
-
-.related-events__wrapper {
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-}
-.related-events__wrapper img {
-  border-radius: 5px;
-  height: 140px;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.related-events__wrapper h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 0.5rem 0;
-}
-.related-events__wrapper > div {
-  margin-bottom: 1rem;
-  padding-bottom: 2rem;
-  border-bottom: 4px solid #F9D70F;
-}
-.related-events__wrapper .text-content {
-  display: flex;
-  flex-direction: column;
-}
-.related-events__wrapper .text-content div:first-of-type {
-  display: flex;
-  justify-content: space-between;
-}
-.related-events__wrapper .text-content .flip div:first-of-type {
-  display: block;
-  margin: 1rem 0;
-}
-.related-events__wrapper .text-content .flip > p {
-  display: none;
-}
-.related-events__wrapper ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  border-top: 2px solid #013562;
-}
-.related-events__wrapper li {
-  margin-left: 1.5rem;
-  font-style: italic;
-}
-.related-events__wrapper a {
-  display: block;
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
-  text-decoration: none;
-  color: #ffffff;
-  padding: 0.5rem 0;
-  background-color: #fc7804;
-  border-radius: 5px;
-}
-
-@media screen and (min-width: 1024px) {
-  .event-menu div {
-    border: none;
-  }
-  .event-menu div > p {
-    font-family: "racing_sans_oneregular", sans-serif;
-  }
-  .event-menu div > svg {
-    display: none;
-  }
-  .event-filters {
-    position: inherit;
-  }
-  .related-events__wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin-top: 4rem;
-  }
-  .related-events__wrapper img {
-    height: 284px;
-  }
-  .related-events__wrapper > div {
-    width: 49%;
-    box-shadow: 0px 0px 10px rgba(1, 53, 98, 0.5);
-    border: none;
-    margin-top: 1rem;
-  }
-  .related-events__wrapper .text-content {
-    display: flex;
-    padding: 0 1rem;
-  }
-  .related-events__wrapper .text-content > div:first-of-type p {
-    font-size: 1.5rem;
-    font-weight: 500;
-  }
-  .related-events__wrapper .flip {
-    display: flex;
-  }
-  .related-events__wrapper .flip > div {
-    width: 70%;
-  }
-  .related-events__wrapper ul {
-    margin-top: 1rem;
-    padding: 1rem 0;
-    justify-content: center;
-    border-top: 3px solid #fc7804;
-  }
-  .related-events__wrapper a {
-    background-color: #F9D70F;
-    color: #013562;
-    margin: 0 auto;
-    margin-top: 1rem;
-    width: 25%;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  .related-events__wrapper a:hover {
-    background-color: #fc7804;
-    color: #ffffff;
   }
 }
 /*! Generated by Font Squirrel (https://www.fontsquirrel.com) on March 14, 2024 */
@@ -1578,7 +1364,8 @@ h2 {
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
 }
 
-h3 {
+h3,
+h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
@@ -2352,7 +2139,8 @@ h2 {
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
 }
 
-h3 {
+h3,
+h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
@@ -2484,6 +2272,14 @@ a {
   font-family: "poppinsbold", sans-serif;
   font-size: 1rem;
   white-space: nowrap;
+}
+.taxonomy-product .product-filters > button:hover {
+  box-shadow: 0 4px 8px rgba(1, 53, 98, 0.8);
+  transition: box-shadow 0.2s ease-in-out;
+}
+.taxonomy-product .product-filters > button:active {
+  background-color: #027F9A;
+  color: #ffffff;
 }
 .taxonomy-product .removeFilterList {
   display: flex;
@@ -2724,7 +2520,364 @@ h2 {
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
 }
 
-h3 {
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
+}
+
+a {
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
+}
+
+#hero-carousel.slider .carousel-inner .slide .slide-content h2 {
+  font-family: "Racing Sans One", sans-serif;
+  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+}
+
+#hero-carousel.slider .carousel-inner .slide .slide-content p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+}
+
+#hero-carousel.slider .carousel-inner .slide .slide-content a {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem);
+  font-weight: 600;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    font-weight: 500;
+  }
+}
+/*! Generated by Font Squirrel (https://www.fontsquirrel.com) on March 14, 2024 */
+@font-face {
+  font-family: "racing_sans_oneregular";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/racingsansone-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/montserrat-variablefont_wght-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_italic";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/montserrat-italic-variablefont_wght-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsbold";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-bold-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsregular";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinssemibold";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-semibold-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinsmedium";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-medium-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppinslight";
+  src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
+  font-style: normal;
+}
+.event-menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  border-bottom: 4px solid #F9D70F;
+  padding-bottom: 1rem;
+}
+.event-menu div {
+  display: flex;
+  width: 100%;
+  border: 2px solid #FC7803;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+}
+.event-menu div:active {
+  background-color: #013562;
+  color: #ffffff;
+  border: 2px solid transparent;
+}
+.event-menu svg {
+  width: 30px;
+  height: 30px;
+}
+
+.event-filters {
+  background-color: white;
+  position: fixed;
+  left: 0;
+  width: 100svw;
+  height: 100svh;
+  top: 0;
+  z-index: 9999;
+  padding: 1rem;
+}
+.event-filters > div:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.event-filters > div:first-of-type p {
+  font-family: "poppinsbold", sans-serif;
+  font-size: clamp(1.5rem, 1.5rem + 1svw, 2rem);
+}
+.event-filters > div:first-of-type svg {
+  width: 40px;
+  height: auto;
+}
+.event-filters > div:first-of-type button {
+  padding: 0.4rem;
+  background: none;
+  border: none;
+}
+.event-filters > div:first-of-type button:hover {
+  background-color: #F7F7F7;
+}
+.event-filters > div:first-of-type button:active {
+  background-color: #027F9A;
+  color: white;
+}
+.event-filters > button {
+  position: fixed;
+  background-color: #F9D70F;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.8rem 2.5rem;
+  border: none;
+  box-shadow: 0 4px 4px rgba(1, 53, 98, 0.5);
+  font-family: "poppinsbold", sans-serif;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.event-filters > button:hover {
+  box-shadow: 0 4px 8px rgba(1, 53, 98, 0.8);
+  transition: box-shadow 0.2s ease-in-out;
+}
+.event-filters > button:active {
+  background-color: #027F9A;
+  color: #ffffff;
+}
+.event-filters .accordion-group {
+  border-bottom: 1px solid #013562;
+}
+.event-filters .accordion-header {
+  width: 100%;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.event-filters .accordion-header svg {
+  width: 25px;
+  height: auto;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+.event-filters .accordion-header.active svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}
+.event-filters .accordion-content {
+  display: none;
+  margin-bottom: 1rem;
+}
+.event-filters .accordion-content.active {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.4rem;
+}
+.event-filters .accordion-content > a {
+  display: inline-block;
+  text-decoration: none;
+  color: #000000;
+  border: 1px solid #FC7803;
+  border-radius: 5px;
+  padding: 0.4rem;
+}
+.event-filters .accordion-content > a:hover {
+  background-color: #027F9A;
+  color: #ffffff;
+  border: 1px solid #013562;
+}
+
+.related-events__wrapper {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.related-events__wrapper img {
+  border-radius: 5px;
+  height: 140px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.related-events__wrapper h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+.related-events__wrapper > div {
+  margin-bottom: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 4px solid #F9D70F;
+}
+.related-events__wrapper .text-content {
+  display: flex;
+  flex-direction: column;
+}
+.related-events__wrapper .text-content div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+}
+.related-events__wrapper .text-content .flip div:first-of-type {
+  display: block;
+  margin: 1rem 0;
+}
+.related-events__wrapper .text-content .flip > p {
+  display: none;
+}
+.related-events__wrapper ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  border-top: 2px solid #013562;
+}
+.related-events__wrapper li {
+  margin-left: 1.5rem;
+  font-style: italic;
+}
+.related-events__wrapper a {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  background-color: #fc7804;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 1024px) {
+  .event-menu div {
+    border: none;
+  }
+  .event-menu div > p {
+    font-family: "racing_sans_oneregular", sans-serif;
+  }
+  .event-menu div > svg {
+    display: none;
+  }
+  .event-filters {
+    position: inherit;
+  }
+  .related-events__wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 4rem;
+  }
+  .related-events__wrapper img {
+    height: 284px;
+  }
+  .related-events__wrapper > div {
+    width: 49%;
+    box-shadow: 0px 0px 10px rgba(1, 53, 98, 0.5);
+    border: none;
+    margin-top: 1rem;
+  }
+  .related-events__wrapper .text-content {
+    display: flex;
+    padding: 0 1rem;
+  }
+  .related-events__wrapper .text-content > div:first-of-type p {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .related-events__wrapper .flip {
+    display: flex;
+  }
+  .related-events__wrapper .flip > div {
+    width: 70%;
+  }
+  .related-events__wrapper ul {
+    margin-top: 1rem;
+    padding: 1rem 0;
+    justify-content: center;
+    border-top: 3px solid #fc7804;
+  }
+  .related-events__wrapper a {
+    background-color: #F9D70F;
+    color: #013562;
+    margin: 0 auto;
+    margin-top: 1rem;
+    width: 25%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .related-events__wrapper a:hover {
+    background-color: #fc7804;
+    color: #ffffff;
+  }
+}
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem);
+  font-weight: 600;
+}
+
+.front-page .banner h2 {
+  font-family: "Racing Sans One", sans-serif;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Racing Sans One", sans-serif;
+  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
+}
+
+h3,
+h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
@@ -2975,7 +3128,8 @@ h2 {
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
 }
 
-h3 {
+h3,
+h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
@@ -3300,7 +3454,8 @@ h2 {
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
 }
 
-h3 {
+h3,
+h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
@@ -3675,7 +3830,8 @@ h2 {
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
 }
 
-h3 {
+h3,
+h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
