@@ -117,8 +117,6 @@
     .accordion-content{
         display: none;
         margin-bottom: 1rem;
-        padding: 1rem;
-        box-shadow: 0px 5px 5px rgba($primary-blue, 0.5);
 
         &.active{
             display: flex !important;
@@ -275,6 +273,8 @@
                 flex-flow: column nowrap;
                 background-color: $white;
                 border-radius: 5px;
+                padding: 1rem;
+                box-shadow: 0px 5px 5px rgba($primary-blue, 0.5);
 
                 &>.events-filter{
                     width: 100%;
