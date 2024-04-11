@@ -26,6 +26,7 @@ $j(document).ready(function () {
     if (window.matchMedia("(max-width: 1024px)").matches) {
         $j(".rsvp-panel").hide();
         $j(".product-filters").hide();
+        $j(".event-filters").hide();
     }
 
     if (window.matchMedia("(max-width: 768px)").matches) {
@@ -133,12 +134,14 @@ $j(document).ready(function () {
     $j(".filter-toggle").on("click", function () {
         if (window.matchMedia("(max-width: 768px)").matches) {
             console.log("filters clicked mobile");
-            $j(".event-filters").animate({
-                width: "toggle",
-            }, 200);
+            $j(".event-filters").toggle("slide", 200);
         } else {
             console.log("filters clicked desktop");
         }
+    });
+
+    $j(".event-filters>button").on("click", function () {
+        $j(".event-filters").toggle("slide", 200);
     });
 
     if (window.matchMedia("(max-width: 1024px)").matches) {
@@ -164,27 +167,6 @@ $j(document).ready(function () {
         heightStyle: "content",
     });
 
-    // set ups jQuery UI accordion for ajax event filter
-    var targetNode = $j('.events-filters')[0];
-    var config = { childList: true, characterData: true, subtree: true };
-
-
-    var callback = function (mutationsList, observer) {
-        for (var mutation of mutationsList) {
-            if (mutation.type === 'childList' || mutation.type === 'characterData') {
-                // Initialize the accordion on any new .accordion elements
-                $j(mutation.target).find('.accordion').accordion({
-                    collapsible: true,
-                    active: false,
-                    heightStyle: "content",
-                });
-            }
-        }
-    };
-
-    var observer = new MutationObserver(callback);
-    observer.observe(targetNode, config);
-
     // Shows back to top button when user scrolls past a certain point
     $j(window).scroll(function () {
         var scrollPoint = 200; // replace with the point you're interested in
@@ -206,13 +188,6 @@ $j(document).ready(function () {
         $j(".ui-accordion-header .plus-icon").toggleClass("hidden");
         $j(".ui-accordion-header .minus-icon").toggleClass("hidden");
     });
-
-    // Toggles products filter menu on mobile
-    if (window.matchMedia("(max-width: 1024px)").matches) {
-        $j(".show-filters, .product-filters div:first-of-type>button, .product-filters>button").on("click", function () {
-            $j(".product-filters").toggle("slide");
-        })
-    }
 
     // Toggles style of filter option to show it is applied
     if (window.matchMedia("(max-width: 1024px)").matches) {
@@ -283,5 +258,14 @@ $j(document).ready(function () {
             }
         });
     }
+
+    $j(".event-filters").on("click", ".accordion-header", function () {
+        $j(this).next().slideToggle();
+    });
+
+    $j(".event-filters").on("click", ".close", function () {
+        $j(".event-filters").toggle("slide");
+    });
+
 });
 

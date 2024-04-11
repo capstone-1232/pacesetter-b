@@ -874,10 +874,19 @@ a {
 
 .event-filters {
   background-color: white;
-  display: none;
   position: fixed;
-  bottom: 0;
   left: 0;
+  width: 100svw;
+  height: 100svh;
+  top: 0;
+}
+.event-filters .accordion-header {
+  width: 100%;
+  padding: 2rem 1rem;
+  background-color: #F9D70F;
+}
+.event-filters .accordion-content {
+  display: none;
 }
 
 .related-events__wrapper {

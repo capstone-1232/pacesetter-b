@@ -37,7 +37,9 @@ get_header();
                 </div>
             </div>
             <div id="removeFilterList"></div>
-            <div id="filteredContent"></div>
+            <div id="filteredContent">
+                <div class="loader"></div>
+            </div>
         </section>
     </main>
 </div>

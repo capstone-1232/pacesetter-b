@@ -27,10 +27,21 @@
 
 .event-filters{
     background-color: white;
-    display: none;
     position: fixed;
-    bottom: 0;
     left: 0;
+    width: 100svw;
+    height: 100svh;
+    top: 0;
+
+    .accordion-header{
+        width: 100%;
+        padding: 2rem 1rem;
+        background-color: $primary-yellow;
+    }
+
+    .accordion-content{
+        display: none;
+    }
 }
 
 .related-events__wrapper {

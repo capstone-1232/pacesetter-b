@@ -1,6 +1,7 @@
 <?php
 // Events filter function
-function event_filter_function() {
+function event_filter_function()
+{
     if (isset($_POST['filters'])) {
         $filters = json_decode(stripslashes($_POST['filters']), true);
 
@@ -9,21 +10,21 @@ function event_filter_function() {
         // Build tax queries based on selected filters
         foreach ($filters as $filter) {
             if (!empty($filter['filterType'])) {
-                    $meta_queries[] = array(
-                        'key'     => 'tags_' . $filter['filterType'],
-                        'value'   => $filter['filterValue'],
-                        'compare' => 'LIKE',
-                    );
+                $meta_queries[] = array(
+                    'key' => 'tags_' . $filter['filterType'],
+                    'value' => $filter['filterValue'],
+                    'compare' => 'LIKE',
+                );
             }
         }
 
         // Initialize your $args array here
         $args = array(
-            'post_type'      => 'events-posts',
-            'post_status'    => 'publish',
-            'meta_key'       => 'date_and_time_start',
-            'orderby'        => 'meta_value',
-            'order'          => 'ASC',
+            'post_type' => 'events-posts',
+            'post_status' => 'publish',
+            'meta_key' => 'date_and_time_start',
+            'orderby' => 'meta_value',
+            'order' => 'ASC',
         );
 
         // Add meta_queries to $args if it's not empty
@@ -73,27 +74,27 @@ function event_filter_function() {
                 <div class="">
                     <img src="<?php echo $post_img; ?>" alt="">
                     <div class="text-content">
-                    <h2><?php echo $event_title; ?></h2>
-                    <div>
-                        <p><?php echo $formatted_date_start ?></p>
-                        <p><?php echo $time_of_day; ?></p>
-                    </div>
-                    <?php
-                    $tags = get_the_tags();
+                        <h2><?php echo $event_title; ?></h2>
+                        <div>
+                            <p><?php echo $formatted_date_start ?></p>
+                            <p><?php echo $time_of_day; ?></p>
+                        </div>
+                        <?php
+                        $tags = get_the_tags();
                         echo '<ul>';
-                            echo '<li class="event-tag">'.$location_tag_label.'</li>';
-                            echo '<li class="event-tag">'.$time_range_label.'</li>';
+                        echo '<li class="event-tag">' . $location_tag_label . '</li>';
+                        echo '<li class="event-tag">' . $time_range_label . '</li>';
                         echo '</ul>';
-                    ?>
-                    <div class="flip">
-                    <div>
-                        <p><?php echo substr($description, 0, 250); ?>...</p>
-                    </div>
-                    <p><?php echo ($fee == 0 || !$fee) ? "FREE" : "$" . $fee; ?></p>
-                    <p><?php echo $capacity ?></p>
-                    <a href="<?php echo $post_url ?>">View Event
-                    </a>
-                    </div>
+                        ?>
+                        <div class="flip">
+                            <div>
+                                <p><?php echo substr($description, 0, 250); ?>...</p>
+                            </div>
+                            <p><?php echo ($fee == 0 || !$fee) ? "FREE" : "$" . $fee; ?></p>
+                            <p><?php echo $capacity ?></p>
+                            <a href="<?php echo $post_url ?>">View Event
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <?php
@@ -116,17 +117,19 @@ function event_filter_function() {
 add_action('wp_ajax_event_filter_function', 'event_filter_function');
 add_action('wp_ajax_nopriv_event_filter_function', 'event_filter_function');
 
-function remove_filter_list_function() {
+function remove_filter_list_function()
+{
     if (isset($_POST['filters'])) {
         $filters = json_decode(stripslashes($_POST['filters']), true);
 
         // Build tax queries based on selected filters
         foreach ($filters as $filter) {
-            if (!empty($filter['filterType']) && !empty($filter['filterValue'])) :?>
-            <a href="#" class="events-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>"><?php echo ucfirst($filter['filterValue']); ?> X</a>
-        <?php
-        endif;
-    }
+            if (!empty($filter['filterType']) && !empty($filter['filterValue'])): ?>
+                <a href="#" class="events-filter-remove" data-filter="<?php echo $filter['filterType']; ?>"
+                    data-value="<?php echo $filter['filterValue']; ?>"><?php echo ucfirst($filter['filterValue']); ?> X</a>
+                <?php
+            endif;
+        }
         exit;
     } else {
         // Handle other cases or provide a default response
@@ -138,7 +141,8 @@ function remove_filter_list_function() {
 add_action('wp_ajax_remove_filter_list_function', 'remove_filter_list_function');
 add_action('wp_ajax_nopriv_remove_filter_list_function', 'remove_filter_list_function');
 
-function update_active_list_function() {
+function update_active_list_function()
+{
     $filters = [
         "location_tag" => [
             "edmonton" => "Edmonton",
@@ -163,17 +167,16 @@ function update_active_list_function() {
         $active_filters = json_decode(stripslashes($_POST['filters']), true);
 
         // Generate the filter buttons
-        echo "<div class=\"accordion\">";
         echo "<button type=\"button\" class=\"close\">Close</button>";
         foreach ($filters as $filter => $options) {
             // Replace underscores or dashes with spaces and capitalize the words for the heading
             $heading = ucwords(str_replace(["_", "-"], " ", $filter));
             // Add a heading before each button group
-            echo "<h4 class=\"\">" .
+            echo "<h4 class=\"accordion-header\">" .
                 htmlspecialchars($heading) .
-                "ADASDSADADA</h4>";
+                "</h4>";
 
-            echo '<div class="" role="group" aria-label="' .
+            echo '<div class="accordion-content" role="group" aria-label="' .
                 htmlspecialchars($filter) .
                 ' Filter Group">';
             foreach ($options as $value => $label) {
@@ -188,7 +191,7 @@ function update_active_list_function() {
                 $updated_filters = $active_filters;
 
                 if ($is_active) {
-                    $updated_filters = array_filter($updated_filters, function($item) use ($filter, $value) {
+                    $updated_filters = array_filter($updated_filters, function ($item) use ($filter, $value) {
                         return !($item['filterType'] === $filter && $item['filterValue'] === $value);
                     });
                 } else {
@@ -201,8 +204,8 @@ function update_active_list_function() {
                     '" data-filter="' . htmlspecialchars($filter) . '" data-value="' . htmlspecialchars($value) . '">' .
                     htmlspecialchars($label) .
                     "</a>";
-            }
-            echo "</div>";
+                }
+                echo "</div>";
         }
         echo "</div>";
         exit;
