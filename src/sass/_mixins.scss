@@ -42,3 +42,18 @@
     }
 }
 
+@mixin remove-filter-list {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 5px;
+}
+
+@mixin remove-filter-item {
+    text-decoration: none;
+    display: block;
+    border: 1px solid $strong-orange;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: $black;
+}

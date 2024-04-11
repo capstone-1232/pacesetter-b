@@ -111,18 +111,10 @@
     }
 
     .removeFilterList {
-        display: flex;
-        flex-flow: row wrap;
-        align-items: center;
-        gap: 5px;
+        @include remove-filter-list;
 
         .products-filter-remove {
-            text-decoration: none;
-            display: block;
-            border: 1px solid $strong-orange;
-            padding: 5px 10px;
-            border-radius: 5px;
-            color: $black;
+            @include remove-filter-item;
 
             & > span {
                 color: $strong-orange;

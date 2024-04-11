@@ -36,8 +36,8 @@ get_header();
                 <div class="sort">
                 </div>
             </div>
-            <div id="removeFilterList"></div>
-            <div id="filteredContent">
+            <div id="removeFilterList" class="removeFilterList"></div>
+            <div id="filteredContent" class="filteredContent">
                 <div class="loader"></div>
             </div>
         </section>

@@ -271,19 +271,16 @@ $j(document).ready(function () {
         $j(this).next().slideToggle();
         $j(this).toggleClass("active");
         $j(this).next().toggleClass("active");
-        $j(this).next().css({
-            "display": "flex",
-            "flexFlow": "row wrap",
-            "gap": "0.4rem",
-        });
     });
 
     // closes mobile event filters drawer menu
-    $j(".event-filters").on("click", ".close", function () {    
+    $j(".event-filters").on("click", ".close", function () {
         $j(".event-filters").toggle("slide");
     });
 
-    // reloads the page if user resizes window so javascript keeps working
+
+    // temporary measure so site functionailities doesn't break when user resizes page
+    // reloads the page if user resizes window to reload javascript
     $j(window).on("resize", function () {
         location.reload();
     });

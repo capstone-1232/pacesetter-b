@@ -1095,7 +1095,6 @@ p {
 }
 .review-modal-content {
   background-color: #fefefe;
-  margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
@@ -2630,6 +2629,24 @@ a {
   height: 30px;
 }
 
+.events .removeFilterList {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 5px;
+}
+.events .removeFilterList .events-filter-remove {
+  text-decoration: none;
+  display: block;
+  border: 1px solid #FC7803;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #000000;
+}
+.events .removeFilterList .events-filter-remove > span {
+  color: #FC7803;
+}
+
 .event-filters {
   background-color: white;
   position: fixed;
@@ -2711,11 +2728,12 @@ a {
 .event-filters .accordion-content {
   display: none;
   margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0px 5px 5px rgba(1, 53, 98, 0.5);
 }
 .event-filters .accordion-content.active {
-  display: flex;
+  display: flex !important;
   flex-flow: row wrap;
-  gap: 0.4rem;
 }
 .event-filters .accordion-content > a {
   display: inline-block;
@@ -2724,11 +2742,17 @@ a {
   border: 1px solid #FC7803;
   border-radius: 5px;
   padding: 0.4rem;
+  margin: 0 0.4rem 0.4rem 0;
 }
 .event-filters .accordion-content > a:hover {
   background-color: #027F9A;
   color: #ffffff;
   border: 1px solid #013562;
+}
+.event-filters .accordion-content > a svg {
+  display: none;
+  width: 30px;
+  height: auto;
 }
 
 .related-events__wrapper {
@@ -2801,6 +2825,52 @@ a {
   }
   .event-filters {
     position: inherit;
+    width: unset;
+    height: unset;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .event-filters > button:last-of-type {
+    display: none;
+  }
+  .event-filters > div:first-of-type {
+    display: none;
+  }
+  .event-filters .accordion-group {
+    border: 0;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .event-filters .accordion-group > .accordion-header {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background-color: #027F9A;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  .event-filters .accordion-group > .accordion-header:active {
+    background-color: #FC7803;
+  }
+  .event-filters .accordion-group > .accordion-content {
+    position: absolute;
+    width: 20%;
+    flex-flow: column nowrap;
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
+  .event-filters .accordion-group > .accordion-content > .events-filter {
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+  }
+  .event-filters .accordion-group > .accordion-content > .events-filter svg {
+    display: block;
+  }
+  .event-filters .accordion-group > .accordion-content > .events-filter:active {
+    background-color: #FC7803;
   }
   .related-events__wrapper {
     display: flex;

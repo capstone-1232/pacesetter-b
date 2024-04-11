@@ -126,7 +126,7 @@ function remove_filter_list_function()
         foreach ($filters as $filter) {
             if (!empty($filter['filterType']) && !empty($filter['filterValue'])): ?>
                 <a href="#" class="events-filter-remove" data-filter="<?php echo $filter['filterType']; ?>"
-                    data-value="<?php echo $filter['filterValue']; ?>"><?php echo ucfirst($filter['filterValue']); ?> X</a>
+                    data-value="<?php echo $filter['filterValue']; ?>"><?php echo ucfirst($filter['filterValue']); ?> <span>X</span></a>
                 <?php
             endif;
         }
