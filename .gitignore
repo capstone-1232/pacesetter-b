@@ -1,6 +1,7 @@
 # ignore the .css.map file
 # it's causing so much pointless headache when merging, since it'll just get overwritten by the SASSWATCH anyway
 *.css.map
+src/sass/main.css
 
 # node_modules
 node_modules/
