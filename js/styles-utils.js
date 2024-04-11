@@ -206,6 +206,7 @@ $j(document).ready(function () {
         });
     }
 
+    // Toggles mobile products filter menu
     if (window.matchMedia("(max-width: 1024px)").matches) {
         $j(".show-filters, .product-filters div:first-of-type>button, .product-filters>button").on("click", function () {
             $j(".product-filters").toggle("slide");
@@ -265,6 +266,7 @@ $j(document).ready(function () {
         });
     }
 
+    // Event filter accordion togglers
     $j(".event-filters").on("click", ".accordion-header", function () {
         $j(this).next().slideToggle();
         $j(this).toggleClass("active");
@@ -276,10 +278,14 @@ $j(document).ready(function () {
         });
     });
 
+    // closes mobile event filters drawer menu
     $j(".event-filters").on("click", ".close", function () {    
         $j(".event-filters").toggle("slide");
     });
 
-
+    // reloads the page if user resizes window so javascript keeps working
+    $j(window).on("resize", function () {
+        location.reload();
+    });
 });
 
