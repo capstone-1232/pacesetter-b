@@ -252,12 +252,6 @@ require get_template_directory() . '/inc/more-review.php';
  * Enqueue products.
  */
 require get_template_directory() . '/inc/products.php';
-
-/**
- * Enqueue functions for mobile navbar.
- */
-require get_template_directory() . '/inc/mobile-nav.php';
-
 /**
  * Enqueue draft event.
  */
@@ -267,6 +261,13 @@ require get_template_directory() . '/inc/draft-event.php';
  * Enqueue search results.
  */
 require get_template_directory() . '/inc/search-results.php';
+=======
+// require get_template_directory() . '/inc/products.php';
+
+/**
+ * Enqueue functions for mobile navbar.
+ */
+require get_template_directory() . '/inc/mobile-nav.php';
 
 /**
  * Load Jetpack compatibility file.
