@@ -24,7 +24,7 @@
             ?>
             <!-- Render product cards -->
                 <div class="product-card">
-                    <img src="<?php echo esc_url($product_image_url) ?>" alt="<?php echo $short_description ?>" aria-label="<?php echo "An image of a" . $short_description ?>">
+                    <img src="<?php echo esc_url($product_image_url ? $product_image_url : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp") ?>" alt="<?php echo $short_description ?>" aria-label="<?php echo "An image of a" . $short_description ?>">
                     <h3><?php echo $product_title ?></h3>
                     <p><?php echo $short_description ?></p>
                     <div class="product-status">

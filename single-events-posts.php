@@ -151,7 +151,7 @@ get_header();
                             ?>
                     </div>
                     <!-- Event image -->
-                    <img src="<?php echo $event_image_url?>" alt="Image of the event">
+                    <img src="<?php echo esc_url($event_image_url ? $event_image_url : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp")?>" alt="Image of the event">
                     <!-- Event tags -->
                     <div>
                         <?php
@@ -284,8 +284,9 @@ get_header();
                         // Your code for each related event goes here
                         ?>
                         <div class="">
+                        
                             <a href="<?php echo $related_post_url ?>">
-                                <img src="<?php echo $related_post_img; ?>" alt="">
+                                <img src="<?php echo esc_url($related_post_img ? $related_post_img : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp"); ?>" alt="">
                             </a>
                             <h3><?php echo $related_event_title ;?></h3>
                             <p><?php echo $related_formatted_date_start;?></p>

@@ -102,7 +102,7 @@ switch ($sort_by) {
             ?>
             <a href="<?php echo $product_url?>">
                 <div>
-                    <img src="<?php echo $product_image_url?>" alt="">
+                    <img src="<?php echo esc_url($product_image_url ? $product_image_url : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp")?>" alt="">
                     <h3><?php the_title();?></h3>
                     <?php echo $in_stock?>
                     <p>$<?php echo $product_price?></p>

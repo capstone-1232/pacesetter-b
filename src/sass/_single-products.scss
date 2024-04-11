@@ -328,6 +328,11 @@
           justify-content: space-between;
           border-bottom: 3px solid $secondary-yellow;
           margin-bottom: 1rem;
+          .not-reviewed {
+            margin-bottom: 1rem;
+            text-align: center;
+            flex-grow: 1;
+          }
           .review-rating {
             width: 100%;
           }
@@ -383,11 +388,11 @@
       overflow: auto;
       background-color: rgba(0, 0, 0, 0.4);
       box-shadow: 4px 0 4px rgba(0, 0, 0, 0.25);
-      z-index: 1000;
+      z-index: 9999;
       /* Modal content */
       .review-modal-content {
         position: relative;
-        z-index: 1000;
+        z-index: 9999;
         background-color: #fefefe;
         padding: 20px;
         width: 100%;

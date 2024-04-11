@@ -71,7 +71,7 @@ function event_filter_function() {
 
                 ?>
                 <div class="">
-                    <img src="<?php echo $post_img; ?>" alt="">
+                    <img src="<?php echo esc_url($post_img ? $post_img : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp") ?>" alt="">
                     <div class="text-content">
                     <h2><?php echo $event_title; ?></h2>
                     <div>

@@ -35,6 +35,7 @@
       }
       svg:hover {
         fill: $secondary-yellow;
+        transform: translateY(-3px);
         path {
           fill: $secondary-yellow;
         }
