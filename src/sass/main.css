@@ -4338,7 +4338,7 @@ a {
 }
 .blog .post-filter-buttons {
   display: flex;
-  flex: 0 0 1;
+  flex: 1 0 1;
   gap: 1rem;
   justify-content: center;
 }
@@ -4392,7 +4392,6 @@ a {
 }
 .blog-display {
   max-width: 1700px;
-  background-color: red;
 }
 .blog-display h2 {
   font-family: "racing_sans_oneregular", sans-serif;

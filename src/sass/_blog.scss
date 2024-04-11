@@ -68,7 +68,7 @@
         
          .post-filter-buttons{
             display: flex;
-            flex: 0 0 1;
+            flex: 1 0 1;
             gap: 1rem;
             justify-content: center;
             .read-more-button {
@@ -133,7 +133,6 @@
 
 .blog-display{
 max-width: 1700px;
-background-color: red;
    h2{
       font-family: $racing;
       font-size: 2rem;
@@ -227,7 +226,6 @@ background-color: red;
             display: flex;
             flex-direction: column;
             gap: 1rem;
-        
             margin-right: 2rem;
             background-color: $white;
             border-radius: 8px;
@@ -242,7 +240,7 @@ background-color: red;
             }
             div{
                a{
-                  padding: 1rem;
+               padding: 1rem;
                font-weight: bold;
                background-color: $secondary-yellow ;
                border-radius: 5px;
@@ -250,7 +248,6 @@ background-color: red;
                text-decoration: none;
                width: 30%;
                text-align: center;
-
                }
             }
             
