@@ -2710,9 +2710,11 @@ a {
 }
 .banner-text .banner-text-1 {
   background-color: #01509D;
+  text-shadow: #FFFFFF 1px 0 10px;
 }
 .banner-text .banner-text-2 {
   background-color: #0C67C0;
+  text-shadow: #FFFFFF 1px 0 10px;
 }
 .banner-text .banner-text-1, .banner-text .banner-text-2 {
   display: grid;
