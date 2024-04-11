@@ -91,7 +91,6 @@
             echo '<p>'. $in_stock . '</p>';
             echo '<p>C' . $product_price . '</p>';
 			echo '<p>' . $product_description . '</p>';
-            echo '<p>AAYOYOOO</p>';
 			echo '</div>';
         }
         ?>

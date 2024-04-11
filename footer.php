@@ -33,7 +33,30 @@ if ($page) {
 	$hours_sun = get_post_meta($post_id, 'hours_sun', true);
 }
 ?>
-<button id="backToTopBtn">Back to Top</button>
+<button id="backToTopBtn">
+	<svg viewBox="0 0 138 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<g filter="url(#filter0_d_383_972)">
+		</g>
+		<path fill-rule="evenodd" clip-rule="evenodd"
+			d="M64.8727 49.4924C65.6113 49.0557 67.01 48.4285 68.0539 48.4285C69.0978 48.4285 70.3245 49.0557 71.0632 49.4924C71.8018 49.9291 111.276 78.4381 111.276 78.4381C111.972 78.8801 112.35 79.4648 112.332 80.0689C112.314 80.6731 111.901 81.2495 111.179 81.6767C110.457 82.104 109.484 82.3487 108.463 82.3594C107.443 82.37 106.455 82.1458 105.708 81.7339L68.0539 68.6442L32.4879 81.7339C32.1272 81.963 31.6923 82.1467 31.2091 82.2742C30.7258 82.4016 30.2042 82.4702 29.6752 82.4757C29.1463 82.4812 28.6209 82.4236 28.1304 82.3063C27.6398 82.1891 27.1942 82.0145 26.8202 81.7931C26.4461 81.5716 26.1512 81.3079 25.9531 81.0175C25.7549 80.7271 25.6576 80.4161 25.667 80.103C25.6763 79.7899 25.7921 79.4811 26.0074 79.1951C26.2227 78.909 26.5331 78.6516 26.9202 78.4381L64.8727 49.4924Z"
+			fill="#01296B" />
+		<defs>
+			<filter id="filter0_d_383_972" x="0" y="0" width="138" height="138" filterUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB">
+				<feFlood flood-opacity="0" result="BackgroundImageFix" />
+				<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+					result="hardAlpha" />
+				<feOffset dy="2" />
+				<feGaussianBlur stdDeviation="2" />
+				<feComposite in2="hardAlpha" operator="out" />
+				<feColorMatrix type="matrix"
+					values="0 0 0 0 0.00392157 0 0 0 0 0.160784 0 0 0 0 0.419608 0 0 0 0.5 0" />
+				<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_383_972" />
+				<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_383_972" result="shape" />
+			</filter>
+		</defs>
+	</svg>
+</button>
 <footer id="colophon" class="site-footer">
 	<div class="store-info">
 		<div>

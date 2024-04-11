@@ -4,7 +4,7 @@
   background-color: $secondary-blue;
   .services__main-container {
     color: $white;
-    max-width: 1440px;
+    max-width: 1920px;
     margin: 0 auto;
     p {
       margin-bottom: 0.5rem;
@@ -12,27 +12,28 @@
     }
 
     h2 {
-        font-family: "Racing Sans One", sans-serif;
-        font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
-        margin-top: 0;
-        border-bottom: 1.5px solid $primary-yellow;
-        width: 50%;
-        margin-bottom: 2rem;
+      font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+      margin-top: 0;
+      border-bottom: 1.5px solid $secondary-yellow;
+      width: 50%;
+      margin-bottom: 2rem;
+      font-family: "Racing Sans One", sans-serif;
+      margin-bottom: 2rem;
     }
     h3 {
-      font-size: 1rem;
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
       text-decoration: underline;
       font-weight: 500;
     }
     h4 {
-      font-size: 1rem;
+      font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
       margin-bottom: 0;
     }
 
     p.sub-text {
       font-size: 0.625rem;
-      border-bottom: 2.5px solid $white;
+      border-bottom: 2px solid $white;
     }
 
     .content-container {
@@ -46,6 +47,9 @@
       }
     }
     .img-container {
+      padding: 1rem 1rem 4rem 1rem;
+      background-color: $primary-blue;
+      width: 45%;
         padding: 1rem 1rem 4rem 1rem;
         background-color: $primary-blue;
         background-image: linear-gradient(90deg, rgba(1,1,1,0.75) 11%, rgba(1,1,1,0.54) 48%, rgba(255,255,255,0) 69%), url('https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/shop-services-bench.jpg');
@@ -62,10 +66,9 @@
     margin: 0 auto;
     flex-flow: column-reverse;
     margin-bottom: 0;
-    padding-top: 5.25rem;
-    padding-bottom: 5.25rem;
+    padding-top: 3rem;
     & > div:nth-child(2) {
-      padding: 1rem;
+      padding: 1.5rem;
       & > div {
         margin-bottom: 0.2rem;
         border-bottom: 3px solid $orange;
@@ -79,11 +82,13 @@
       }
     }
     & > div:nth-child(1) {
+      max-height: 500px;
       figure {
         margin: 0;
         width: 80%;
         img {
-          border-top-right-radius: 90px;
+          object-fit: cover;
+          border-top-right-radius: 5.5rem;
         }
       }
     }
@@ -95,7 +100,7 @@
 }
 
 .services {
-  max-width: 1440px;
+  max-width: 1920px;
   margin: 0 auto;
   p {
     margin-bottom: 0.5rem;
@@ -107,7 +112,9 @@
     &container:nth-of-type(2) {
       font-weight: 500;
       > div {
-        padding: 1rem;
+        max-width: 550px;
+        margin: 0 auto;
+        padding: 3rem 1rem 1rem 1rem;
         div {
           margin: 0.2rem 0 0 0;
           & + p {
@@ -116,7 +123,7 @@
         }
       }
       h4 {
-        font-size: 1rem;
+        font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
         font-weight: 600;
         margin: 0;
       }
@@ -136,14 +143,19 @@
       }
     }
     &designed-container {
+      background-color: $orange;
       background-color: $light-yellow;
       .services__designed-container {
         font-weight: 500;
+        margin: 0;
+        figure.wp-block-image img{
+          min-width: 100% !important;
+        }
         > div {
           padding: 0 1rem 0 1rem;
         }
         h4 {
-          font-size: 1rem;
+          font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
           font-weight: 600;
           margin: 0;
         }
@@ -169,7 +181,9 @@
     &container:nth-of-type(5) {
       font-weight: 500;
       > div {
-        padding: 1rem;
+        max-width: 550px;
+        margin: 0 auto;
+        padding: 3rem 1rem 1rem 1rem;
         div {
           margin: 0.2rem 0 0 0;
           & + p {
@@ -178,7 +192,7 @@
         }
       }
       h4 {
-        font-size: 1rem;
+        font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
         font-weight: 600;
         margin: 0;
         border-bottom: 3px solid $secondary-blue;
@@ -189,6 +203,7 @@
       }
     }
     &container:nth-of-type(5) {
+      padding: 0 0 2rem 0;
       > div:nth-child(1) {
         & > div:nth-child(3) > div:nth-child(2),
         & > div:nth-child(2) > div:nth-child(2) {
@@ -211,8 +226,7 @@
     }
   }
 }
-
-@media screen and (min-width: 781px) {
+@media screen and (min-width: 815px) {
   .services__banner-container {
     .services__main-container {
       p,
@@ -222,16 +236,10 @@
       }
       h1 {
         font-size: 4rem;
+        border-bottom: 4px solid $secondary-yellow;
         border-bottom: 4px solid $primary-yellow;
         width: 75%;
         margin-bottom: 2rem;
-      }
-      h3 {
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-      h4 {
-        font-size: 2.25rem;
       }
 
       p.sub-text {
@@ -260,7 +268,10 @@
     }
     .services__bottom-banner-container {
       flex-flow: row;
+      padding-top: 5.25rem;
+      padding-bottom: 5.25rem;
       & > div:nth-child(2) {
+        padding: 1rem 2.5rem;
         p + p {
           font-size: 1.75rem;
         }
@@ -269,17 +280,18 @@
             font-weight: 600;
             font-size: 2rem;
           }
-          & > div:nth-child(2) {
-            font-size: 1.5rem;
+          & > div:nth-child(2), .has-text-align-left {
+            font-size: 1rem;
             font-weight: 500;
+            text-align: right !important;
           }
         }
       }
       & > div:nth-child(1) {
         figure {
-          margin: 0;
+          margin: unset;
           width: auto;
-          padding: 2rem;
+          padding: 0.5rem 0 0 1rem;
           img {
             border-top-right-radius: 0px;
             border-top-left-radius: 90px;
@@ -306,14 +318,12 @@
       &container:nth-of-type(1),
       &container:nth-of-type(2) {
         > div {
+          
           div {
             & + p {
               margin-top: 0.5rem;
             }
           }
-        }
-        h4 {
-          font-size: 2rem;
         }
         p.sub-text {
           font-size: 1rem;
@@ -332,10 +342,10 @@
       &designed-container {
         .services__designed-container {
           > div {
-            padding: 0 1rem 0 1rem;
+            padding: 0 3rem 0 3rem;
           }
           h4 {
-            font-size: 2rem;
+            font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
             font-weight: 600;
             margin: 0;
           }
@@ -363,7 +373,7 @@
       &container:nth-of-type(4),
       &container:nth-of-type(5) {
         h4 {
-          font-size: 2rem;
+          font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
           border-bottom: 4px solid $secondary-blue;
           & + p {
             margin-top: 0.5rem;
@@ -396,4 +406,43 @@
       }
     }
   }
+}
+
+@media screen and (min-width: 1300px) {
+  .services__banner-container {
+    .services__main-container {
+      .content-container {
+        padding: 3rem;
+      }
+    }
+  }
+  .services {
+    .services__ {
+      &container:nth-of-type(1),
+      &container:nth-of-type(2) {
+        > div {
+          max-width: unset;
+          padding: 4rem 3rem 1rem 3rem;
+        }
+      }
+      .services__designed-container {
+        > div {
+          max-width: unset;
+          padding: 0 6rem 0 6rem;
+        }
+      }
+      &container:nth-of-type(4) {
+        > div {
+          max-width: unset;
+          padding: 1rem 4rem 1rem 4rem;
+        }
+      }
+      &container:nth-of-type(5) {
+        > div {
+          max-width: unset;
+          padding: 1rem 4rem 1rem 4rem;
+        }
+      }
+  }
+}
 }

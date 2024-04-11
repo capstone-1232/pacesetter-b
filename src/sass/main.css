@@ -94,6 +94,10 @@ a {
   font-weight: 600;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
 }
+#hero-carousel.slider .carousel-inner .slide .slide-content li {
+  text-decoration: none;
+  list-style-type: none;
+}
 #hero-carousel.slider .carousel-inner .slide .slide-content a {
   font-family: "Poppins", sans-serif;
   font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem);
@@ -275,6 +279,10 @@ a {
   font-weight: 600;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
 }
+#hero-carousel.slider .carousel-inner .slide .slide-content li {
+  text-decoration: none;
+  list-style-type: none;
+}
 #hero-carousel.slider .carousel-inner .slide .slide-content a {
   font-family: "Poppins", sans-serif;
   font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem);
@@ -443,6 +451,7 @@ p {
   margin: 0.5rem auto 0 auto;
 }
 .navlinks li {
+  list-style-type: none;
   width: 100%;
 }
 .navlinks a {
@@ -674,6 +683,9 @@ p {
 .site-footer .store-info h3 {
   margin: 0;
 }
+.site-footer .store-info a:first-of-type svg {
+  padding: 0;
+}
 .site-footer .store-info a svg {
   fill: #ffffff;
   min-height: 36px;
@@ -682,6 +694,20 @@ p {
 .site-footer .store-info div:first-of-type {
   grid-column: 1/-1;
   grid-row: 1/2;
+}
+.site-footer .store-info div:first-of-type svg {
+  transition: 0.5s ease;
+}
+.site-footer .store-info div:first-of-type svg path {
+  width: 100%;
+  transition: 0.5s ease;
+}
+.site-footer .store-info div:first-of-type svg:hover {
+  fill: #FDC504;
+  transform: translateY(-3px);
+}
+.site-footer .store-info div:first-of-type svg:hover path {
+  fill: #FDC504;
 }
 .site-footer .store-info .hours {
   margin-bottom: 1.5rem;
@@ -774,6 +800,42 @@ p {
     min-width: 60px;
     margin: 0 0.5rem;
   }
+}
+
+button#backToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001;
+  background-color: #F9D70F;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  max-width: 100px;
+  max-height: 100px;
+  min-height: 50px;
+  min-width: 50px;
+  height: 5rem;
+  width: 5rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+button#backToTopBtn svg {
+  width: 100%;
+  height: auto;
+}
+button#backToTopBtn svg path {
+  transition: 0.5s ease;
+}
+button#backToTopBtn:hover {
+  background-color: #016ad0;
+}
+button#backToTopBtn:hover svg path {
+  fill: #F9D70F;
+}
+button#backToTopBtn:focus {
+  outline: none;
 }
 
 @media screen and (min-width: 750px) {
@@ -1193,32 +1255,100 @@ a {
 }
 .review-modal {
   display: none;
+}
+.product .review-modal-mobile {
+  transition: left 0.3s ease;
+  left: -110%;
+}
+.product .review-modal-mobile, .product .review-modal-desktop {
   position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
   width: 100%;
+  top: 0;
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 0 4px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
   /* Modal content */
-}
-.review-modal-content {
-  background-color: #fefefe;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
   /* Close button */
 }
-.review-modal-content .close {
+.product .review-modal-mobile .review-modal-content, .product .review-modal-desktop .review-modal-content {
+  position: relative;
+  z-index: 1000;
+  background-color: #fefefe;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #F9D70F;
+}
+.product .review-modal-mobile .review-modal-content .form-content, .product .review-modal-desktop .review-modal-content .form-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+.product .review-modal-mobile .review-modal-content .form-content h2, .product .review-modal-desktop .review-modal-content .form-content h2 {
+  font-family: "racing_sans_oneregular", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%;
+}
+.product .review-modal-mobile .review-modal-content .form-content form#reviewForm div.custom-form-comment textarea#comment, .product .review-modal-desktop .review-modal-content .form-content form#reviewForm div.custom-form-comment textarea#comment {
+  height: 150px;
+}
+.product .review-modal-mobile .review-modal-content .form-content form div, .product .review-modal-desktop .review-modal-content .form-content form div {
+  margin-bottom: 1rem;
+}
+.product .review-modal-mobile .review-modal-content .form-content form div label, .product .review-modal-desktop .review-modal-content .form-content form div label {
+  font-family: "poppinsregular", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+}
+.product .review-modal-mobile .review-modal-content .form-content form div input,
+.product .review-modal-mobile .review-modal-content .form-content form div textarea,
+.product .review-modal-mobile .review-modal-content .form-content form div select, .product .review-modal-desktop .review-modal-content .form-content form div input,
+.product .review-modal-desktop .review-modal-content .form-content form div textarea,
+.product .review-modal-desktop .review-modal-content .form-content form div select {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.2);
+}
+.product .review-modal-mobile .review-modal-content .form-content form div input:not(textarea),
+.product .review-modal-mobile .review-modal-content .form-content form div textarea:not(textarea),
+.product .review-modal-mobile .review-modal-content .form-content form div select:not(textarea), .product .review-modal-desktop .review-modal-content .form-content form div input:not(textarea),
+.product .review-modal-desktop .review-modal-content .form-content form div textarea:not(textarea),
+.product .review-modal-desktop .review-modal-content .form-content form div select:not(textarea) {
+  height: 2rem;
+}
+.product .review-modal-mobile .review-modal-content .form-content form .form-submit, .product .review-modal-desktop .review-modal-content .form-content form .form-submit {
+  display: flex;
+  justify-content: center;
+}
+.product .review-modal-mobile .review-modal-content .form-content form .form-submit button, .product .review-modal-desktop .review-modal-content .form-content form .form-submit button {
+  width: 60%;
+  font-weight: 700;
+  font-family: "poppinsregular", sans-serif;
+  background-color: #FC7804;
+  transition: 0.5s ease;
+  border: none;
+  padding: 1rem;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.product .review-modal-mobile .review-modal-content .form-content form .form-submit button:hover, .product .review-modal-desktop .review-modal-content .form-content form .form-submit button:hover {
+  background-color: #027F9A;
+  cursor: pointer;
+}
+.product .review-modal-mobile .close, .product .review-modal-desktop .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
-  font-weight: bold;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
 }
-.review-modal-content .close:hover, .review-modal-content .close:focus {
-  color: black;
-  text-decoration: none;
+.product .review-modal-mobile .close path, .product .review-modal-desktop .close path {
+  transition: 0.5s ease;
+}
+.product .review-modal-mobile .close:hover, .product .review-modal-mobile .close:active, .product .review-modal-desktop .close:hover, .product .review-modal-desktop .close:active {
   cursor: pointer;
 }
 
@@ -1495,6 +1625,10 @@ a {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+}
+#hero-carousel.slider .carousel-inner .slide .slide-content li {
+  text-decoration: none;
+  list-style-type: none;
 }
 #hero-carousel.slider .carousel-inner .slide .slide-content a {
   font-family: "Poppins", sans-serif;
@@ -3074,6 +3208,7 @@ a {
   font-family: "Racing Sans One", sans-serif;
   font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
 }
+
 #hero-carousel.slider .carousel-inner .slide .slide-content p {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -3331,6 +3466,10 @@ a {
   font-weight: 600;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
 }
+#hero-carousel.slider .carousel-inner .slide .slide-content li {
+  text-decoration: none;
+  list-style-type: none;
+}
 #hero-carousel.slider .carousel-inner .slide .slide-content a {
   font-family: "Poppins", sans-serif;
   font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem);
@@ -3459,7 +3598,7 @@ a {
   color: #000000;
 }
 .front-page-about .links a.white-btn:hover {
-  background-color: #FFDD6D;
+  background-color: #FFDB57;
 }
 .front-page-about p {
   position: relative;
@@ -3657,6 +3796,10 @@ a {
   font-weight: 600;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
 }
+#hero-carousel.slider .carousel-inner .slide .slide-content li {
+  text-decoration: none;
+  list-style-type: none;
+}
 #hero-carousel.slider .carousel-inner .slide .slide-content a {
   font-family: "Poppins", sans-serif;
   font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem);
@@ -3754,6 +3897,8 @@ a {
   border-radius: 50%;
   z-index: 10;
   cursor: pointer;
+  background-color: #FFDB57;
+  color: #FC7804;
   background-color: #FFDD6D;
   color: #fc7804;
 }
@@ -3880,7 +4025,7 @@ a {
 }
 .landing-page-blog .yellow-bg {
   position: relative;
-  background-color: #FFDD6D;
+  background-color: #FFDB57;
   -webkit-clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
           clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
   padding-bottom: 35vh;
@@ -4032,6 +4177,10 @@ a {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+}
+#hero-carousel.slider .carousel-inner .slide .slide-content li {
+  text-decoration: none;
+  list-style-type: none;
 }
 #hero-carousel.slider .carousel-inner .slide .slide-content a {
   font-family: "Poppins", sans-serif;
@@ -4190,6 +4339,7 @@ a {
   }
 }
 /*! Generated by Font Squirrel (https://www.fontsquirrel.com) on March 14, 2024 */
+/*! Generated by Font Squirrel (https://www.fontsquirrel.com) on March 14, 2024 */
 @font-face {
   font-family: "racing_sans_oneregular";
   src: url("/wp-content/themes/pacesetter-b/src/fonts/racingsansone-regular-webfont.woff2") format("woff2");
@@ -4241,7 +4391,6 @@ a {
   max-width: 1700px;
 }
 .blog .intro {
-  background-image: url("../img/snow-background-texture.webp");
   border-bottom: 8px solid #013562;
   box-shadow: 0px 0px 10px rgba(1, 53, 98, 0.5);
   margin: 0 auto;
@@ -4264,6 +4413,7 @@ a {
 }
 .blog .intro .filter-button {
   background-color: #01509D;
+  border: 3px solid #01509D;
   font-weight: bold;
   color: #ffffff;
   padding: 0.5rem;
@@ -4273,6 +4423,7 @@ a {
 .blog .intro .filter-button:hover {
   background-color: #ffffff;
   color: #01509D;
+  border: 3px solid #01509D;
   cursor: pointer;
 }
 .blog .intro .filter-button:active {
@@ -4300,7 +4451,7 @@ a {
 }
 .blog .post-filter-buttons {
   display: flex;
-  flex: 0 0 1;
+  flex: 1 0 1;
   gap: 1rem;
   justify-content: center;
 }
@@ -4308,6 +4459,7 @@ a {
   padding: 1rem;
   font-weight: bold;
   background-color: #FDC504;
+  border: 5px solid #FDC504;
   border-radius: 5px;
   color: #000000;
   text-decoration: none;
@@ -4339,6 +4491,8 @@ a {
   }
   .blog .blog-post {
     flex-direction: row;
+    justify-content: flex-start;
+    width: 90%;
   }
   .blog .blog-post img {
     width: 30%;
@@ -4346,6 +4500,7 @@ a {
   }
   .blog article:nth-of-type(even) div {
     order: -1;
+    justify-content: flex-end;
   }
 }
 .blog-display {
@@ -4396,10 +4551,8 @@ a {
 .blog-display .related .card-container .outer-wrapper {
   max-width: 100vw;
   overflow-x: auto;
-  white-space: nowrap;
   position: relative;
   scrollbar-color: #013562;
-  scrollbar-width: thin;
   -ms-overflow-style: none;
 }
 .blog-display .related .card-container .pseduo-track {
@@ -4445,7 +4598,7 @@ a {
   padding: 1rem;
   text-align: left;
   flex-shrink: 0;
-  width: 40%;
+  width: 60%;
 }
 .blog-display .related .card-container .blog-card img {
   border-radius: 8px;
@@ -4463,10 +4616,14 @@ a {
   text-align: center;
 }
 @media screen and (min-width: 700px) {
-  .blog-display img {
-    width: 80%;
+  .blog-display .image-contatiner {
     margin: 0 auto;
   }
+  .blog-display .image-contatiner img {
+    width: 80%;
+  }
+}
+
 }
 
 .services__banner-container {
@@ -4474,7 +4631,7 @@ a {
 }
 .services__banner-container .services__main-container {
   color: #ffffff;
-  max-width: 1440px;
+  max-width: 1920px;
   margin: 0 auto;
 }
 .services__banner-container .services__main-container p {
@@ -4482,26 +4639,27 @@ a {
   font-size: 0.75rem;
 }
 .services__banner-container .services__main-container h2 {
-  font-family: "Racing Sans One", sans-serif;
   font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
   margin-top: 0;
-  border-bottom: 1.5px solid #F9D70F;
+  border-bottom: 1.5px solid #FDC504;
   width: 50%;
+  margin-bottom: 2rem;
+  font-family: "Racing Sans One", sans-serif;
   margin-bottom: 2rem;
 }
 .services__banner-container .services__main-container h3 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
   text-decoration: underline;
   font-weight: 500;
 }
 .services__banner-container .services__main-container h4 {
-  font-size: 1rem;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
   margin-bottom: 0;
 }
 .services__banner-container .services__main-container p.sub-text {
   font-size: 0.625rem;
-  border-bottom: 2.5px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
 }
 .services__banner-container .services__main-container .content-container {
   padding: 1rem;
@@ -4512,6 +4670,9 @@ a {
   font-weight: 600;
 }
 .services__banner-container .services__main-container .img-container {
+  padding: 1rem 1rem 4rem 1rem;
+  background-color: #013562;
+  width: 45%;
   padding: 1rem 1rem 4rem 1rem;
   background-color: #013562;
   background-image: linear-gradient(90deg, rgba(1, 1, 1, 0.75) 11%, rgba(1, 1, 1, 0.54) 48%, rgba(255, 255, 255, 0) 69%), url("https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/shop-services-bench.jpg");
@@ -4527,11 +4688,10 @@ a {
   margin: 0 auto;
   flex-flow: column-reverse;
   margin-bottom: 0;
-  padding-top: 5.25rem;
-  padding-bottom: 5.25rem;
+  padding-top: 3rem;
 }
 .services__banner-container .services__bottom-banner-container > div:nth-child(2) {
-  padding: 1rem;
+  padding: 1.5rem;
 }
 .services__banner-container .services__bottom-banner-container > div:nth-child(2) > div {
   margin-bottom: 0.2rem;
@@ -4544,12 +4704,17 @@ a {
   font-weight: 600;
   font-size: 1rem;
 }
+.services__banner-container .services__bottom-banner-container > div:nth-child(1) {
+  max-height: 500px;
+}
 .services__banner-container .services__bottom-banner-container > div:nth-child(1) figure {
   margin: 0;
   width: 80%;
 }
 .services__banner-container .services__bottom-banner-container > div:nth-child(1) figure img {
-  border-top-right-radius: 90px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-right-radius: 5.5rem;
 }
 .services__banner-container .services__bottom-banner-container ul {
   margin-left: 0;
@@ -4557,7 +4722,7 @@ a {
 }
 
 .services {
-  max-width: 1440px;
+  max-width: 1920px;
   margin: 0 auto;
 }
 .services p {
@@ -4569,7 +4734,9 @@ a {
   font-weight: 500;
 }
 .services .services__container:nth-of-type(1) > div, .services .services__container:nth-of-type(2) > div {
-  padding: 1rem;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 3rem 1rem 1rem 1rem;
 }
 .services .services__container:nth-of-type(1) > div div, .services .services__container:nth-of-type(2) > div div {
   margin: 0.2rem 0 0 0;
@@ -4578,7 +4745,7 @@ a {
   margin-top: 0.2rem;
 }
 .services .services__container:nth-of-type(1) h4, .services .services__container:nth-of-type(2) h4 {
-  font-size: 1rem;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
   font-weight: 600;
   margin: 0;
 }
@@ -4597,16 +4764,21 @@ a {
   display: none;
 }
 .services .services__designed-container {
-  background-color: #FFDD6D;
+  background-color: #FC7804;
+  background-color: #FFDB57;
 }
 .services .services__designed-container .services__designed-container {
   font-weight: 500;
+  margin: 0;
+}
+.services .services__designed-container .services__designed-container figure.wp-block-image img {
+  min-width: 100% !important;
 }
 .services .services__designed-container .services__designed-container > div {
   padding: 0 1rem 0 1rem;
 }
 .services .services__designed-container .services__designed-container h4 {
-  font-size: 1rem;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
   font-weight: 600;
   margin: 0;
 }
@@ -4630,7 +4802,9 @@ a {
   font-weight: 500;
 }
 .services .services__container:nth-of-type(4) > div, .services .services__container:nth-of-type(5) > div {
-  padding: 1rem;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 3rem 1rem 1rem 1rem;
 }
 .services .services__container:nth-of-type(4) > div div, .services .services__container:nth-of-type(5) > div div {
   margin: 0.2rem 0 0 0;
@@ -4639,7 +4813,7 @@ a {
   margin-top: 0.2rem;
 }
 .services .services__container:nth-of-type(4) h4, .services .services__container:nth-of-type(5) h4 {
-  font-size: 1rem;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
   font-weight: 600;
   margin: 0;
   border-bottom: 3px solid #01509D;
@@ -4647,6 +4821,9 @@ a {
 .services .services__container:nth-of-type(4) p.sub-text, .services .services__container:nth-of-type(5) p.sub-text {
   font-size: 0.625rem;
   margin-bottom: 0.2rem;
+}
+.services .services__container:nth-of-type(5) {
+  padding: 0 0 2rem 0;
 }
 .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2), .services .services__container:nth-of-type(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
   text-align: center;
@@ -4662,7 +4839,7 @@ a {
   font-weight: 600;
 }
 
-@media screen and (min-width: 781px) {
+@media screen and (min-width: 815px) {
   .services__banner-container .services__main-container p,
   .services__banner-container .services__main-container li {
     margin-bottom: 0.5rem;
@@ -4670,16 +4847,10 @@ a {
   }
   .services__banner-container .services__main-container h1 {
     font-size: 4rem;
+    border-bottom: 4px solid #FDC504;
     border-bottom: 4px solid #F9D70F;
     width: 75%;
     margin-bottom: 2rem;
-  }
-  .services__banner-container .services__main-container h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  .services__banner-container .services__main-container h4 {
-    font-size: 2.25rem;
   }
   .services__banner-container .services__main-container p.sub-text {
     width: 90%;
@@ -4703,6 +4874,11 @@ a {
   }
   .services__banner-container .services__bottom-banner-container {
     flex-flow: row;
+    padding-top: 5.25rem;
+    padding-bottom: 5.25rem;
+  }
+  .services__banner-container .services__bottom-banner-container > div:nth-child(2) {
+    padding: 1rem 2.5rem;
   }
   .services__banner-container .services__bottom-banner-container > div:nth-child(2) p + p {
     font-size: 1.75rem;
@@ -4711,14 +4887,15 @@ a {
     font-weight: 600;
     font-size: 2rem;
   }
-  .services__banner-container .services__bottom-banner-container > div:nth-child(2) > div > div:nth-child(2) {
-    font-size: 1.5rem;
+  .services__banner-container .services__bottom-banner-container > div:nth-child(2) > div > div:nth-child(2), .services__banner-container .services__bottom-banner-container > div:nth-child(2) > div .has-text-align-left {
+    font-size: 1rem;
     font-weight: 500;
+    text-align: right !important;
   }
   .services__banner-container .services__bottom-banner-container > div:nth-child(1) figure {
-    margin: 0;
+    margin: unset;
     width: auto;
-    padding: 2rem;
+    padding: 0.5rem 0 0 1rem;
   }
   .services__banner-container .services__bottom-banner-container > div:nth-child(1) figure img {
     border-top-right-radius: 0px;
@@ -4737,9 +4914,6 @@ a {
   .services .services__container:nth-of-type(1) > div div + p, .services .services__container:nth-of-type(2) > div div + p {
     margin-top: 0.5rem;
   }
-  .services .services__container:nth-of-type(1) h4, .services .services__container:nth-of-type(2) h4 {
-    font-size: 2rem;
-  }
   .services .services__container:nth-of-type(1) p.sub-text, .services .services__container:nth-of-type(2) p.sub-text {
     font-size: 1rem;
     border-bottom: 4px solid #01509D;
@@ -4754,10 +4928,10 @@ a {
     display: unset;
   }
   .services .services__designed-container .services__designed-container > div {
-    padding: 0 1rem 0 1rem;
+    padding: 0 3rem 0 3rem;
   }
   .services .services__designed-container .services__designed-container h4 {
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
     font-weight: 600;
     margin: 0;
   }
@@ -4781,7 +4955,7 @@ a {
     font-size: 1.5rem;
   }
   .services .services__container:nth-of-type(4) h4, .services .services__container:nth-of-type(5) h4 {
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
     border-bottom: 4px solid #01509D;
   }
   .services .services__container:nth-of-type(4) h4 + p, .services .services__container:nth-of-type(5) h4 + p {

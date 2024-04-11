@@ -5,6 +5,7 @@ function fetch_products() {
     $category_slug = $_POST['current_slug'];
     $filters = $_POST['filters'] ? json_decode(stripslashes($_POST['filters']), true) :'';
     $sort_by = $_POST['sort_by'] ? $_POST['sort_by'] :'';
+    $sort_by = $_POST['sort_by'] ? $_POST['sort_by'] :'';
 
     $args = array(
         'post_type' => 'product',
@@ -202,6 +203,21 @@ function remove_product_filter_list_function() {
                 <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>"><?php echo ucfirst($filter['filterValue']); ?>cm <span>X</span></a>
             <?php elseif (!empty($filter['filterType']) && !empty($filter['filterValue'])): ?>
                 <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>"><?php echo ucfirst($filter['filterValue']); ?> <span>X</span></a>
+            <?php endif; ?>
+        <?php endforeach;
+        foreach ($filters as $filter): ?>
+            <?php if ($filter['filterType'] == "price_range"): ?>
+                <?php if ($filter['filterValue'] == '1000-99999'): ?>
+                    <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>">$1000 & above X</a>
+                <?php elseif ($filter['filterValue'] == '0-200'): ?>
+                    <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>">Under $200 X</a>
+                <?php else: ?>
+                    <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>">$<?php echo ucfirst($filter['filterValue']); ?> X</a>
+                <?php endif; ?>
+            <?php elseif ($filter['filterType'] == "length"): ?>
+                <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>"><?php echo ucfirst($filter['filterValue']); ?>cm X</a>
+            <?php elseif (!empty($filter['filterType']) && !empty($filter['filterValue'])): ?>
+                <a href="#" class="products-filter-remove" data-filter="<?php echo $filter['filterType'];?>" data-value="<?php echo $filter['filterValue'];?>"><?php echo ucfirst($filter['filterValue']); ?> X</a>
             <?php endif; ?>
         <?php endforeach;
         exit;

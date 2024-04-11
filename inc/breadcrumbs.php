@@ -52,7 +52,7 @@ function custom_product_breadcrumbs() {
             }
         }
 
-        echo ' / ' . get_the_title(); // Product title
+        echo '<span> / ' . get_the_title() . '</span>'; // Product title
         echo '</div>';
     }
 }

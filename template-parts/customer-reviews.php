@@ -79,59 +79,48 @@ Template Post Type: customer-reviews
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // select next review_slide button
-    const nextreview_slide = document.querySelector(".review_btn-next");
+    const nextReviewSlide = document.querySelector(".review_btn-next");
 
     // select prev review_slide button
-    const prevreview_slide = document.querySelector(".review_btn-prev");
+    const prevReviewSlide = document.querySelector(".review_btn-prev");
 
     // current review_slide counter
-    let curreview_slide = 0;
+    let currentReviewSlide = 0;
     // maximum number of review_slides
-    let maxreview_slide = document.querySelectorAll('.review_slide').length - 1;
+    let maxReviewSlide = document.querySelectorAll('.review_slide').length - 1;
     // select all review_slides
-    const review_slides = document.querySelectorAll('.review_slide');
+    const reviewSlides = document.querySelectorAll('.review_slide');
 
     // add event listener and navigation functionality for next button
-    nextreview_slide.addEventListener("click", function () {
-      changeReviewSlide(curreview_slide + 1);
+    nextReviewSlide.addEventListener("click", function () {
+        changeReviewSlide(currentReviewSlide + 1);
     });
 
     // add event listener and navigation functionality for prev button
-    prevreview_slide.addEventListener("click", function () {
-      changeReviewSlide(curreview_slide - 1);
+    prevReviewSlide.addEventListener("click", function () {
+        changeReviewSlide(currentReviewSlide - 1);
     });
 
     // Automatic review_slide change every 15 seconds
     setInterval(function () {
-      changeReviewSlide(curreview_slide + 1);
+        changeReviewSlide(currentReviewSlide + 1);
     }, 5000);
-    changeReviewSlide(curreview_slide - 1);
+    changeReviewSlide(currentReviewSlide + 1);
 
     // Function to change the review_slide
-    function changeReviewSlide(newreview_slide) {
-      // Ensure the new review_slide is within bounds
-      if (newreview_slide < 0) {
-        newreview_slide = maxreview_slide;
-      } else if (newreview_slide > maxreview_slide) {
-        newreview_slide = 0;
-      }
+    function changeReviewSlide(newReviewSlide) {
+        // Ensure the new review_slide is within bounds
+        if (newReviewSlide < 0) {
+            newReviewSlide = maxReviewSlide;
+        } else if (newReviewSlide > maxReviewSlide) {
+            newReviewSlide = 0;
+        }
 
-      // Move review_slides
-      curreview_slide = newreview_slide;
-      review_slides.forEach((review_slide, indx) => {
-        review_slide.style.transform = `translateX(${100 * (indx - curreview_slide)}%)`;
-      });
+        // Move review_slides
+        currentReviewSlide = newReviewSlide;
+        reviewSlides.forEach((reviewSlide, index) => {
+            reviewSlide.style.transform = `translateX(${100 * (index - currentReviewSlide)}%)`;
+        });
     }
-  });
+});
 </script>
-
-<style>
-
-
-  .review_slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-</style>
