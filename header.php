@@ -149,10 +149,7 @@
 									<div>
 										<?php
 
-										// $menu = wp_get_nav_menu_items('18');
-										$menu_object = wp_get_nav_menu_object('main-menu');
-										$menu = wp_get_nav_menu_items($menu_object->term_id);
-
+										$menu = wp_get_nav_menu_items('18');
 										echo "<ul class=\"navlinks\">";
 										foreach ($menu as $link) {
 											if ($link->title != "Products") {
