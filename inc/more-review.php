@@ -17,13 +17,19 @@ function fetch_reviews() {
                 'compare' => '>',
             ),
         ),
+        'post__in'       => array($product_id),
     );
-    $reviews_count = get_post_meta($product_id, '_wc_rating_count', true);
-    $total_review_count = array_sum($reviews_count);
 
+    $reviews_count = get_post_meta($product_id, '_wc_rating_count', true);
+    if($reviews_count) {
+    $total_review_count = array_sum($reviews_count);
+    } else {
+        $total_review_count = 0;
+    }
     $reviews = get_comments($args);
+
     // render reviews
-    if ($reviews) {
+    if (!empty($reviews)) {
         foreach ($reviews as $review) {
             $rating   = intval(get_comment_meta($review->comment_ID, 'rating', true));
             $comment  = $review->comment_content;
@@ -42,7 +48,9 @@ function fetch_reviews() {
             <?php
         }
     } else {
-        echo '<p>No reviews found for this product.</p>';
+        echo "<div>";
+        echo '<p class="not-reviewed">This product has not been reviewed.</p>';
+        echo "</div>";
     }
     echo ($reviews && $offset < $total_review_count) ? "<button id=\"view-more-btn\" class=\"view-more-btn\">View More Reviews</button>" : "";
     exit;
