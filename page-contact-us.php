@@ -64,22 +64,28 @@ get_header();
             <div class="contact-form">
                 <?php echo do_shortcode('[forminator_form id="139"]'); ?>
             </div>
+            <p class="or">or</p>
         </section>
-        <p class="or">or</p>
         <section class="faq-section">
-            <h3>FAQs</h3>
-            <p>Check out our FAQ page to find common questions</p>
             <div>
+                <h3>FAQs</h3>
+                <p>Check out our FAQ page to find common questions about our shoppe, products, services and more.</p>
                 <a class="faq-button" href="<?php echo home_url('/faq');?>"> FAQs</a>
             </div>
         </section>
     </div>
-    <div>
-            <iframe
+    <div class="map" style="background-image: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent), url('<?php echo esc_url(get_template_directory_uri() . '/img/inside-store.jpg'); ?>');">
+        <div class="location">
+            <h4>Location</h4>
+            <p>10054 167 St NW</p>
+            <p>Edmonton, AB T5P 3W4</p>
+        </div>
+        <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d151740.59956275974!2d-113.8983764132812!3d53.54086290000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a02103230e0325%3A0xdb9361d3d0c6e002!2sPacesetter%20Ski%20Shoppe!5e0!3m2!1sen!2sca!4v1708037539783!5m2!1sen!2sca"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+</main>
     <?php
 get_footer()
     ?>
