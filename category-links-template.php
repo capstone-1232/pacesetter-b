@@ -20,7 +20,7 @@ Template Name: Products Category Template
         get_template_part('template-parts/category-banner');
         get_template_part('template-parts/breadcrumbs');
         if ($category) {
-            echo '<div class="category-links">';
+            echo '<div class="category-links container">';
 
             // Get child categories of the current category
             $child_categories_ids = get_term_children($category->term_id, 'product_cat');

@@ -27,7 +27,7 @@
                     <img src="<?php echo esc_url($product_image_url ? $product_image_url : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp") ?>" alt="<?php echo $short_description ?>" aria-label="<?php echo "An image of a" . $short_description ?>">
                     <h3><?php echo $product_title ?></h3>
                     <p><?php echo $short_description ?></p>
-                    <div class="product-status">
+                    <div>
                         <p>$<?php echo $product_price ?></p>
                         <p><?php echo $in_stock ?></p>
                     </div>

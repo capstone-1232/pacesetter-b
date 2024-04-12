@@ -1,5 +1,7 @@
-@import 'typography';
-@import 'colors';
+@use 'typography';
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
 
 
 .event-menu{
@@ -12,11 +14,17 @@
     div{
         display: flex;
         width: 100%;
-        border: 2px solid $orange;
+        border: 2px solid $strong-orange;
         border-radius: 5px;
         align-items: center;
         justify-content: space-between;
         padding: 0 0.5rem;
+
+        &:active{
+            background-color: $primary-blue;
+            color: $white;
+            border: 2px solid transparent;
+        }
     }
 
     svg {
@@ -25,9 +33,118 @@
     }
 }
 
+.events{
+    .removeFilterList {
+        @include remove-filter-list;
+
+        .events-filter-remove {
+            @include remove-filter-item;
+
+            & > span {
+                color: $strong-orange;
+            }
+        }
+    }
+}
+
 .event-filters{
     background-color: white;
-    display: none;
+    position: fixed;
+    left: 0;
+    width: 100svw;
+    height: 100svh;
+    top: 0;
+    z-index: 9999;
+    padding: 1rem;
+
+    &>div:first-of-type{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        p{
+            font-family: $poppins_bold;
+            font-size: clamp(1.5rem, 1.5rem + 1svw, 2rem);
+        }
+
+        svg{
+            width: 40px;
+            height: auto;
+        }
+
+        button{
+            padding: 0.4rem;
+            background: none;
+            border: none;
+
+            &:hover{
+                background-color: $offwhite;
+            }
+
+            &:active{
+                background-color: $turqoise;
+                color: white;
+            }
+        }
+    }
+
+    &>button{
+        @include show-filtered-button;
+    }
+
+    .accordion-group{
+        border-bottom: 1px solid $primary-blue;
+    }
+
+    .accordion-header{
+        width: 100%;
+        @include mobile-filter-accordion-header;
+        padding: 1rem 0;
+
+        svg {
+            width: 25px;
+            height: auto;
+            @include rotate-0;
+        }
+
+        &.active{
+            svg{
+                @include rotate-180;
+            }
+        }
+    }
+
+    .accordion-content{
+        display: none;
+        margin-bottom: 1rem;
+
+        &.active{
+            display: flex !important;
+            flex-flow: row wrap;
+        }
+
+        &>a{
+            display: inline-block;
+            text-decoration: none;
+            color: $black;
+            border: 1px solid $strong-orange;
+            border-radius: 5px;
+            padding: 0.4rem;
+            margin: 0 0.4rem 0.4rem 0;
+
+            &:hover{
+                background-color: $turqoise;
+                color: $white;
+                border: 1px solid $primary-blue;
+            }
+
+            svg{
+                display: none;
+                width: 30px;
+                height: auto;
+            }
+        }
+    }
 }
 
 .related-events__wrapper {
@@ -118,6 +235,63 @@
 
     .event-filters {
         position: inherit;
+        width: unset;
+        height: unset;
+        padding: 0;
+        display: flex;
+        gap: 1rem;
+        margin: 1rem 0;
+
+        &>button:last-of-type{
+            display: none;
+        }
+
+        &>div:first-of-type{
+            display: none;
+        }
+
+        .accordion-group{
+            border: 0;
+            width: fit-content;
+
+            &>.accordion-header{
+                margin: 0;
+                padding: 0.5rem 1rem;
+                background-color: $turqoise;
+                color: $white;
+                border-radius: 5px;
+                font-size: 1rem;
+
+                &:active{
+                    background-color: $strong-orange;
+                }
+            }
+    
+            &>.accordion-content{
+                position: absolute;
+                width: 20%;
+                flex-flow: column nowrap;
+                background-color: $white;
+                border-radius: 5px;
+                padding: 1rem;
+                box-shadow: 0px 5px 5px rgba($primary-blue, 0.5);
+
+                &>.events-filter{
+                    width: 100%;
+                    border: none;
+                    font-size: 1rem;
+
+                    svg{
+                        display: block;
+                    }
+
+                    &:active{
+                        background-color: $strong-orange;
+                    }
+                }
+            }
+        }
+
     }
 
     .related-events__wrapper{

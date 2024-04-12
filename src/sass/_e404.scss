@@ -1,0 +1,137 @@
+@use "colors";
+@use "fonts";
+
+.e404 {
+    h1 {
+        margin: 0;
+        font-size: 3rem;
+    }
+
+    .error-404 {
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+    }
+
+    .page-content {
+        margin: 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+
+        p:nth-of-type(3) {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0.5rem 0;
+            padding: 0;
+            justify-content: center;
+            gap: 5px;
+            width: 100%;
+
+            li{
+                transition: background-color 0.2s ease-in-out;
+
+                &:hover{
+                    background-color: $primary-yellow;
+                    cursor: pointer;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: $black;
+                font-size: 1rem;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .background {
+        background: linear-gradient(to bottom, $skyblue, $horizonblue);
+        height: 80svh;
+        position: relative;
+        z-index: -10;
+    }
+
+    .graphics-canvas {
+        position: absolute;
+        height: 100svh;
+        width: 100svw;
+        bottom: 0;
+        left: 0;
+
+        .skier{
+            position: absolute;
+            bottom: 0;
+            left: -60px;
+            width: clamp(25rem, 60%, 50rem);
+            height: auto;
+            z-index: 3;
+        }
+
+        .mountains{
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: max(55rem, 100%);
+            height: auto;
+        }
+
+        .sunclouds{
+            position: absolute;
+            width: clamp(6.125rem, 30%, 10rem);
+            height: auto;
+            bottom: 30%;
+            right: 10%;
+        }
+
+    }
+}
+
+@media screen and (min-width: 768px){
+
+    .e404{
+        .error-404{
+
+            h1{
+                font-size: 6rem;
+            }
+
+            p:nth-of-type(3) {
+                margin: 3rem 0;
+            }
+
+            width: 40%;
+            margin: unset;
+            margin: 0 1rem 0 auto;
+            padding-top: 3rem;
+        }
+
+        .graphics-canvas{
+            .skier{
+                left: 0;
+            }
+    
+            .mountains{
+                left: 0;
+                bottom: 0;
+            }
+
+            .sunclouds{
+                right: unset;
+                left: 30%;
+                bottom: 50%;
+            }
+        }
+
+    }
+}

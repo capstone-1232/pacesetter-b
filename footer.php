@@ -112,7 +112,8 @@ if ($page) {
 								<path
 									d="M113,446c24.8,0,45.1-20.2,45.1-45.1c0-9.8-3.2-18.9-8.5-26.3c-8.2-11.3-21.5-18.8-36.5-18.8s-28.3,7.4-36.5,18.8 c-5.3,7.4-8.5,16.5-8.5,26.3C68,425.8,88.2,446,113,446z">
 								</path>
-								<polygon points="211.4,345.9 211.4,308.1 211.4,302.5 205.8,302.5 168,302.6 168.2,346 ">
+								<polygon
+									points="211.4,345.9 211.4,308.1 211.4,302.5 205.8,302.5 168,302.6 168.2,346 ">
 								</polygon>
 								<path
 									d="M183,401c0,38.6-31.4,70-70,70c-38.6,0-70-31.4-70-70c0-9.3,1.9-18.2,5.2-26.3H10v104.8C10,493,21,504,34.5,504h157 c13.5,0,24.5-11,24.5-24.5V374.7h-38.2C181.2,382.8,183,391.7,183,401z">
@@ -140,7 +141,7 @@ if ($page) {
 		<div class="footer-nav">
 			<nav id="site-navigation" class="main-navigation">
 				<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<?php //esc_html_e('Primary Menu', 'pacesetter');   ?>
+					<?php //esc_html_e('Primary Menu', 'pacesetter'); ?>
 				</button> -->
 				<?php
 				wp_nav_menu(
