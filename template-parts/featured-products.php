@@ -1,4 +1,4 @@
-<section class="container products">
+<section class="container products featured">
     <div class="products-flex">
         <h2>Featured Products</h2>
         <?php
