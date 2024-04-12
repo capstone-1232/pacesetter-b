@@ -2585,11 +2585,13 @@ a {
   max-width: 82%;
   color: #051B47;
   margin: 2.5rem 0;
+  text-shadow: #FFFFFF 1px 0 10px;
 }
 #hero-carousel.slider .carousel-inner .slide .slide-content p {
   max-width: 82%;
   color: #013562;
   margin: 3rem 0;
+  text-shadow: #FFFFFF 1px 0 10px;
 }
 #hero-carousel.slider .carousel-inner .slide .slide-content .call-to-action {
   display: flex;
@@ -2715,11 +2717,9 @@ a {
 }
 .banner-text .banner-text-1 {
   background-color: #01509D;
-  text-shadow: #FFFFFF 1px 0 10px;
 }
 .banner-text .banner-text-2 {
   background-color: #0C67C0;
-  text-shadow: #FFFFFF 1px 0 10px;
 }
 .banner-text .banner-text-1, .banner-text .banner-text-2 {
   display: grid;
