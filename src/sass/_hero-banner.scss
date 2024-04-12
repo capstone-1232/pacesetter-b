@@ -128,10 +128,12 @@
                 h2 {
                     max-width: 70%;
                     margin: 1.25rem 0;
+                    text-shadow: $white 1px 0 8px;
                 }
                 p {
                     max-width: 70%;
                     margin: 1.25rem 0;
+                    text-shadow: $white 1px 0 8px;
                 }
 
                 .call-to-action {
@@ -164,4 +166,20 @@
             }
         }
     }
+}
+@media screen and (min-width: 1200px) {
+    #hero-carousel.slider {
+        height: 500px;
+    
+        .carousel-inner {
+            .slide {
+                height: 500px;
+    
+                img {
+                    height: 500px;
+                }
+            }
+        }
+    }
+            
 }
