@@ -16,56 +16,62 @@ get_header();
 ?>
 <main class="contact">
     <section class="contact-section">
-        <h2>Contact us</h2>
-        <span class="offset-underline"></span>
-        <p>Give us a call, fill out our contact form, or come in person if you have any questions.
-            We’re happy to help and have our expert staff available during hours of operation. </p>
-            <div>
+        <h2>Contact us <span class="offset-underline"></span></h2>
+        <div class="contact-details">
+            <p>Give us a call, fill out our contact form, or come in person if you have any questions.
+                We’re happy to help and have our expert staff available during hours of operation. </p>
+        
+                <div class="loop-flex">
+                    <?php $args = array(
+                        'post_type' => 'business',
+                        'post_status' => 'publish'
+                    );
+                    $loop = new WP_Query($args);
+                    while ($loop->have_posts()) {
+                        $loop->the_post();
+                        ?>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>
+                            <?php echo esc_html(get_field('phone_number')); ?>
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Hours of Operation</h3>
+                        <p>Mon-Fri:
+                            <?php echo esc_html(get_field('hours_mon-fri')) ?>
+                        </p>
+                        <p>Sat:
+                            <?php echo esc_html(get_field('hours_sat')) ?>
+                        </p>
+                        <p>Sun:
+                            <?php echo esc_html(get_field('hours_sun')) ?>
+                        </p>
+        
+                    </div>
 
-        <?php $args = array(
-            'post_type' => 'business',
-            'post_status' => 'publish'
-        );
-        $loop = new WP_Query($args);
-        while ($loop->have_posts()) {
-            $loop->the_post();
-            ?>
-            <div>
-                <h3>Phone</h3>
-                <p>
-                    <?php echo esc_html(get_field('phone_number')); ?>
-                </p>
-            </div>
-            <div>
-                <h3>Hours of Operation</h3>
-                <p>Mon-Fri:
-                    <?php echo esc_html(get_field('hours_mon-fri')) ?>
-                </p>
-                <p>Sat:
-                    <?php echo esc_html(get_field('hours_sat')) ?>
-                </p>
-                <p>Sun:
-                    <?php echo esc_html(get_field('hours_sun')) ?>
-                </p>
-
-            </div>
+                </div>
             <?php
         }
         ?>
-            </div>
         <p>Have questions about our store, gear, prices and anything in between?</p>
+        </div>
     </section>
-    <div>
-        <section>
-            <h2>Send us an email!</h2>
+    <div class="section-flex">
+        <section class="email">
+            <h3>Send us an email</h3>
             
-            <?php  echo do_shortcode('[forminator_form id="139"]'); ?>
+            <div class="contact-form">
+                <?php echo do_shortcode('[forminator_form id="139"]'); ?>
+            </div>
         </section>
-        <section>
-            <h2>FAQs</h2>
+        <p class="or">or</p>
+        <section class="faq-section">
+            <h3>FAQs</h3>
             <p>Check out our FAQ page to find common questions</p>
-            
-            <a href="<?php echo home_url('/faq');?>"> FAQs</a>
+            <div>
+                <a class="faq-button" href="<?php echo home_url('/faq');?>"> FAQs</a>
+            </div>
         </section>
     </div>
     <div>
