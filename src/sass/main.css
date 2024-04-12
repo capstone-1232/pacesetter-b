@@ -4295,112 +4295,161 @@ a {
   src: url("/wp-content/themes/pacesetter-b/src/fonts/poppins-light-webfont.woff2") format("woff2");
   font-style: normal;
 }
-.blog {
-  max-width: 1700px;
-}
-.blog .intro {
-  border-bottom: 8px solid #013562;
-  box-shadow: 0px 0px 10px rgba(1, 53, 98, 0.5);
+.blog-container {
+  max-width: 1920px;
   margin: 0 auto;
+}
+.blog-container .intro {
   padding: 0.5rem 1rem;
+  width: 100%;
+  border-bottom: 5px solid #013562;
+  box-shadow: 0px 15px 10px -15px rgba(1, 53, 98, 0.5);
 }
-.blog .intro h2 {
-  font-family: "racing_sans_oneregular", sans-serif;
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
+.blog-container .intro .intro-container h2 {
+  font-family: "Racing Sans One", sans-serif;
+  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+  font-style: normal;
+  max-width: 90%;
+  color: #002B50;
 }
-.blog .intro p {
+.blog-container .intro .intro-container h2 span {
+  max-width: 400px;
+}
+.blog-container .intro .intro-container p {
   font-weight: 100;
   font-family: "poppinsregular", sans-serif;
 }
-.blog .intro .intro-buttons {
+.blog-container .intro .intro-container .intro-buttons {
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem 3rem;
+  justify-content: center;
+  padding: 2rem 1rem;
   gap: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
-.blog .intro .filter-button {
+.blog-container .intro .intro-container .intro-buttons .filter-button {
   background-color: #01509D;
   border: 3px solid #01509D;
   font-weight: bold;
   color: #FFFFFF;
   padding: 0.5rem;
-  border-radius: 5px;
+  border-radius: 0.25rem;
   width: calc(50% - 1rem);
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1.25rem);
+  max-width: 12rem;
 }
-.blog .intro .filter-button:hover {
+.blog-container .intro .intro-container .intro-buttons .filter-button:hover {
   background-color: #FFFFFF;
   color: #01509D;
   border: 3px solid #01509D;
   cursor: pointer;
 }
-.blog .intro .filter-button:active {
+.blog-container .intro .intro-container .intro-buttons .filter-button:active {
   background-color: #FFFFFF;
   color: #01509D;
 }
-.blog .blog-post {
-  padding: 1.5rem;
-  border-bottom: 3px solid black;
+.blog-container .blog-post {
+  margin: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 2px solid black;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.blog p {
+.blog-container .blog-post div h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
+}
+.blog-container .blog-post div p:first-of-type {
+  margin-bottom: 0.5rem;
+}
+.blog-container .blog-post div p {
   font-family: "poppinsregular", sans-serif;
 }
-.blog h3 {
-  font-size: 3rem;
-  margin: 0.5rem;
-}
-.blog img {
+.blog-container .blog-post img {
   border-radius: 10px;
   width: 100%;
   aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.blog .post-filter-buttons {
+.blog-container .post-filter-buttons {
   display: flex;
-  flex: 1 0 1;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   justify-content: center;
+  padding: 2rem 0 1.5rem 0;
 }
-.blog .post-filter-buttons .read-more-button {
-  padding: 1rem;
-  font-weight: bold;
+.blog-container .post-filter-buttons .read-more-button {
+  flex: 0 0 calc(50% - 1.5rem);
+  padding: 0.5rem 1rem;
   background-color: #FDC504;
-  border: 5px solid #FDC504;
-  border-radius: 5px;
+  border: 3px solid #FDC504;
+  border-radius: 0.25rem;
   color: #000000;
   text-decoration: none;
-  width: calc(25% - 1rem);
   text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1rem);
 }
-.blog .post-filter-buttons .read-more-button:hover {
+.blog-container .post-filter-buttons .read-more-button:hover {
   background-color: #FFFFFF;
-  border: 5px solid #FDC504;
+  border: 3px solid #FDC504;
   cursor: pointer;
 }
-.blog .post-filter-buttons .filter-button {
-  padding: 1rem;
-  font-weight: bold;
+.blog-container .post-filter-buttons .filter-button {
+  flex: 0 0 calc(50% - 1.5rem);
+  padding: 0.5rem 1rem;
   background-color: #FFFFFF;
-  border: 5px solid #FDC504;
+  border: 3px solid #FDC504;
   color: #000000;
-  border-radius: 5px;
-  width: calc(25% - 1rem);
+  border-radius: 0.25rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.75rem, 0.6rem + 0.75vw, 1rem);
 }
-.blog .post-filter-buttons .filter-button:hover {
+.blog-container .post-filter-buttons .filter-button:hover {
   background-color: #FDC504;
   cursor: pointer;
 }
 
 @media screen and (min-width: 700px) {
-  .blog .intro .filter-button {
+  .blog .intro .intro-container {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .blog .intro .intro-container .intro-buttons {
+    margin: 0 auto;
+  }
+  .blog .intro .intro-container .intro-buttons .filter-button {
     width: calc(25% - 2rem);
   }
   .blog .blog-post {
     flex-direction: row;
     justify-content: flex-start;
-    width: 90%;
+    padding: 3rem 2rem;
+  }
+  .blog .blog-post > div {
+    padding: 0 1.5rem;
+  }
+  .blog .blog-post > div h3 {
+    margin-top: 0;
+  }
+  .blog .blog-post > div p:nth-of-type(2) {
+    margin-bottom: 1.5rem;
+  }
+  .blog .blog-post > div .post-filter-buttons {
+    justify-content: left;
+    padding: 0;
+  }
+  .blog .blog-post > div .post-filter-buttons .read-more-button, .blog .blog-post > div .post-filter-buttons .filter-button {
+    flex: unset;
   }
   .blog .blog-post img {
     width: 30%;
@@ -4412,43 +4461,61 @@ a {
   }
 }
 .blog-display {
-  max-width: 1700px;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 .blog-display h2 {
-  font-family: "racing_sans_oneregular", sans-serif;
-  font-size: 2rem;
-  padding: 0.5rem;
+  font-family: "Racing Sans One", sans-serif;
+  font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+  font-style: normal;
+  max-width: 90%;
+  color: #002B50;
+  margin-left: 1rem;
 }
 .blog-display p {
   font-weight: 100;
   font-family: "poppinsregular", sans-serif;
   padding: 1rem;
 }
-.blog-display img {
-  width: 100%;
-  aspect-ratio: 1/0.5;
+.blog-display article {
+  margin-bottom: 2rem;
 }
-.blog-display .image-container {
+.blog-display article .image-container {
+  margin-bottom: 2rem;
   position: relative;
 }
-.blog-display .image-container .byline {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
+.blog-display article .image-container img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 1/0.5;
 }
-.blog-display .image-container .byline p {
-  margin: 0.25rem;
+.blog-display article .image-container .byline {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: calc(100% - 0.25rem);
+  width: 60%;
+  color: #FFFFFF;
+  padding: 0.5rem 0.5rem 0 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+}
+.blog-display article .image-container .byline p {
+  text-align: right;
+  margin: 0;
+  padding: 0.5rem;
   color: #FFFFFF;
 }
 .blog-display .related {
   background-color: #01509D;
-  margin-bottom: 1.5rem;
   overflow: hidden;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 .blog-display .related h3 {
   color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
 }
 .blog-display .related .card-container {
   display: flex;
@@ -4462,8 +4529,9 @@ a {
   position: relative;
   scrollbar-color: #013562;
   -ms-overflow-style: none;
+  padding: 10px;
 }
-.blog-display .related .card-container .pseduo-track {
+.blog-display .related .card-container .pseudo-track {
   background-color: #FFFFFF;
   height: 8px;
   width: 100%;
@@ -4472,22 +4540,17 @@ a {
   z-index: -10;
 }
 @media (any-hover: none) {
-  .blog-display .related .card-container .pseduo-track {
+  .blog-display .related .card-container .pseudo-track {
     display: none;
   }
 }
 .blog-display .related .card-container .outer-wrapper::-webkit-scrollbar {
-  height: 5px;
-}
-.blog-display .related .card-container .outer-wrapper::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+  width: 8px;
+  border-radius: 8px;
 }
 .blog-display .related .card-container .outer-wrapper::-webkit-scrollbar-thumb {
-  height: 5px;
   background-color: #013562;
-}
-.blog-display .related .card-container .outer-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: #013562;
+  border-radius: 8px;
 }
 .blog-display .related .card-container .outer-wrapper::-webkit-scrollbar:vertical {
   display: none;
@@ -4497,6 +4560,7 @@ a {
   padding-bottom: 10px;
 }
 .blog-display .related .card-container .blog-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -4506,32 +4570,105 @@ a {
   padding: 1rem;
   text-align: left;
   flex-shrink: 0;
-  width: 60%;
+  width: 75%;
 }
 .blog-display .related .card-container .blog-card img {
   border-radius: 8px;
-  width: 80%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   aspect-ratio: 1/0.5;
 }
+.blog-display .related .card-container .blog-card h4 {
+  font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+.blog-display .related .card-container .blog-card p {
+  padding: 0;
+}
+.blog-display .related .card-container .blog-card div {
+  margin-top: 3rem;
+}
 .blog-display .related .card-container .blog-card div a {
-  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 1rem 1rem;
+  padding: 0.5rem 1rem;
   font-weight: bold;
   background-color: #FDC504;
+  border: 3px solid #FDC504;
   border-radius: 5px;
   color: #000000;
   text-decoration: none;
-  width: 30%;
   text-align: center;
 }
+.blog-display .related .card-container .blog-card div a:hover {
+  background-color: #FFFFFF;
+}
 @media screen and (min-width: 700px) {
-  .blog-display .image-contatiner {
+  .blog-display .image-container {
     margin: 0 auto;
-  }
-  .blog-display .image-contatiner img {
-    width: 80%;
   }
 }
 
+@media screen and (min-width: 700px) {
+  .blog-display h2 {
+    margin-left: 2rem;
+  }
+  .blog-display article {
+    margin: 0 auto;
+  }
+  .blog-display article .image-container {
+    max-width: 1920px;
+    margin: 0 2rem;
+  }
+  .blog-display article .image-container img {
+    border-radius: 2rem;
+    max-height: 400px;
+    max-width: 1920px;
+  }
+  .blog-display article .image-container .byline {
+    max-width: 1920px;
+    border-radius: 2rem;
+    bottom: 0;
+    width: 30%;
+  }
+  .blog-display article p {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .blog-display .related {
+    padding: 3rem 2rem;
+  }
+  .blog-display .related .card-container .blog-card {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .blog-display .related {
+    padding: 3rem 3rem 6rem 3rem;
+  }
+  .blog-display .related .card-container .blog-card {
+    width: 35%;
+  }
+  .blog-display .related .card-container .blog-card div {
+    margin-top: 4rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .blog-display .related {
+    padding: 3rem 3rem 6rem 3rem;
+  }
+  .blog-display .related .card-container .blog-card {
+    width: 35%;
+  }
+  .blog-display .related .card-container .blog-card div {
+    margin-top: 5rem;
+  }
+}
 .services__banner-container {
   background-color: #01509D;
 }
