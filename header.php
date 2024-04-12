@@ -55,21 +55,6 @@
 						</p>
 					</div>
 					<div class="nav-utils">
-						<a class="cart-link" href="<?php echo wc_get_cart_url(); ?>">
-							<svg width="33px" height="33px" viewBox="0 0 24 24" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<title>This is an image of a cart</title>
-								<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-								<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-								<g id="SVGRepo_iconCarrier">
-									<path
-										d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-										stroke="#ffffff" stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round">
-									</path>
-								</g>
-							</svg>
-						</a>
 						<div class="search-section">
 							<div id="main-search" class="hidden">
 								<?php get_search_form(); ?>
@@ -124,7 +109,7 @@
 						<div class="toggle-menu hidden full-width">
 							<div class="column-container full-width container relative">
 								<div class="left-column">
-									<h2>Product</h2>
+									<h2>Products</h2>
 									<div class="categories billboard">
 										<?php
 
@@ -169,6 +154,11 @@
 								<div class="right-column hidden">
 									<button type="button">
 										Close
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+											stroke-width="1.5" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round"
+												d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+										</svg>
 									</button>
 
 									<?php
@@ -183,7 +173,7 @@
 										);
 
 										if ($category->parent == 0 && $category->slug != "uncategorized") {
-											echo "<div class=\"subcategories " . $category->name . " hidden\">";
+											echo "<div class=\"subcategories " . $category->name . "\">";
 											echo "<ul class=\"subcategory-list\">";
 
 											foreach ($subcategories as $subcat) {
@@ -206,7 +196,7 @@
 							<?php
 							// $menu = wp_get_nav_menu_items('18');
 							foreach ($menu as $link) {
-								if ($link->title == "Products"){
+								if ($link->title == "Products") {
 									echo "<a href=\"$link->url\" class=\"dropdown-toggle\"><p>$link->title</p><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path fill-rule=\"evenodd\" d=\"M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z\" clip-rule=\"evenodd\" /></svg></a>";
 								} else {
 									echo "<a href=\"$link->url\">$link->title</a>";
@@ -216,28 +206,28 @@
 						</div>
 						<div class="dropdown-menu absolute">
 							<?php
-								foreach ($product_categories as $category) {
-									if ($category->parent == 0 && $category->slug != "uncategorized") {
-										$subcategories = get_terms(
-											array(
-												'taxonomy' => 'product_cat',
-												'hide_empty' => false,
-												'parent' => $category->term_id,
-											)
-										);
-	
-										echo "<div>";
-										echo "<h3><a href=\"" . get_term_link($category) . "\">" . $category->name . "</a><span class=\"underline\"><span></h3>";
-										echo "<ul>";
-										foreach ($subcategories as $subcat) {
-											$link = get_term_link($subcat);
-											$name = $subcat->name;
-											echo "<li><a href=\"$link\">$name</a></li>";
-										}
-										echo "</ul>";
-										echo "</div>";
-									}		
+							foreach ($product_categories as $category) {
+								if ($category->parent == 0 && $category->slug != "uncategorized") {
+									$subcategories = get_terms(
+										array(
+											'taxonomy' => 'product_cat',
+											'hide_empty' => false,
+											'parent' => $category->term_id,
+										)
+									);
+
+									echo "<div>";
+									echo "<h3><a href=\"" . get_term_link($category) . "\">" . $category->name . "</a><span class=\"underline\"><span></h3>";
+									echo "<ul>";
+									foreach ($subcategories as $subcat) {
+										$link = get_term_link($subcat);
+										$name = $subcat->name;
+										echo "<li><a href=\"$link\">$name</a></li>";
+									}
+									echo "</ul>";
+									echo "</div>";
 								}
+							}
 							?>
 						</div>
 					</nav>

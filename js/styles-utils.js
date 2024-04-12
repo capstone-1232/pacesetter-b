@@ -31,9 +31,8 @@ $j(document).ready(function () {
 
     if (window.matchMedia("(max-width: 768px)").matches) {
         $j("#show-search").click(function () {
-            $j("#main-search").toggle({
+            $j("#main-search").show({
                 start: function () {
-                    $j(".cart-link").hide("fold");
                     $j(".operation-hours").hide("fold");
                 },
             });
@@ -59,11 +58,9 @@ $j(document).ready(function () {
     $j(document).on("click", function (evt) {
         let targetElement = $j(".search-section");
         if (!targetElement.is(evt.target) && targetElement.has(evt.target).length === 0) {
-
             if (window.matchMedia("(max-width: 768px)").matches) {
                 $j("#main-search").hide({
                     start: function () {
-                        $j(".cart-link").show("fold");
                         $j(".operation-hours").show("fold");
                     }
                 });
@@ -75,8 +72,6 @@ $j(document).ready(function () {
 
     // Toggles open subcategory menu and double column layout switch on tap
     $j(".category-select").on("click", function () {
-
-
         $j(".column-container").addClass("flex-container");
 
         $j(".left-column").addClass("squished", {
@@ -86,16 +81,28 @@ $j(document).ready(function () {
 
         $j(".right-column").show("fold");
 
-        let queryStr = ".subcategories." + $j(this).text();
+        let queryStr = ".subcategories." + $j(this).text().split(" ")[0];
+        let clickedCat = $j(this).text();
 
         if (!$j(this).hasClass("selected")) {
             $j(".category-select").removeClass("selected");
 
-            $j(".subcategories").hide("fold");
-            $j(queryStr).toggle("slide");
-        }
+            $j(".subcategories").each(function(){
+                $j(this).not(queryStr).hide("fold");
+            });
 
-        $j($j(this)).addClass("selected");
+            $j(queryStr).show("fold");
+
+            if ($j(queryStr).find(".subcategory-list").is(":empty")){
+                console.log("empty list");
+
+                let href = $j(this).find("a").attr("href");
+                
+                $j(queryStr).find(".subcategory-list").append("<li><a href='" + href + "'>" + clickedCat +"</a></li>");
+            }
+
+            $j(this).addClass("selected");
+        }
     })
 
     // closes right column on button click

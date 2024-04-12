@@ -274,15 +274,18 @@ a {
   font-family: "Racing Sans One", sans-serif;
   font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
 }
+
 #hero-carousel.slider .carousel-inner .slide .slide-content p {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
 }
+
 #hero-carousel.slider .carousel-inner .slide .slide-content li {
   text-decoration: none;
   list-style-type: none;
 }
+
 #hero-carousel.slider .carousel-inner .slide .slide-content a {
   font-family: "Poppins", sans-serif;
   font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem);
@@ -314,8 +317,9 @@ a {
 }
 .info-nav div:last-of-type {
   display: flex;
+  justify-content: end;
   align-items: center;
-  margin-left: auto;
+  flex-grow: 1;
 }
 
 .operation-hours {
@@ -344,6 +348,10 @@ a {
 
 .show-search {
   z-index: 9;
+}
+.show-search:active {
+  background-color: #027F9A;
+  transition: background-color 0.1s ease-in-out;
 }
 .show-search svg {
   color: #ffffff;
@@ -396,6 +404,10 @@ p {
   background: none;
   border: none;
 }
+.toggle-nav button:active {
+  background-color: rgba(1, 80, 157, 0.5);
+  transition: background-color 0.1s ease-in-out;
+}
 .toggle-nav svg {
   width: 35px;
   height: 35px;
@@ -426,17 +438,45 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 126px;
+  height: 8rem;
+  padding-bottom: 0.125rem;
   overflow-x: scroll;
+}
+.billboard::-webkit-scrollbar {
+  margin-top: 0.2rem;
+  height: 0.2rem;
+  width: 0.2rem;
+}
+.billboard::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+.billboard::-webkit-scrollbar-thumb {
+  background-color: #013562;
+  border-radius: 1rem;
 }
 .billboard .category-select {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 52px;
-  background-color: yellow;
+  background-color: #F9D70F;
   width: 49%;
   margin-right: 16px;
+}
+.billboard .category-select.selected {
+  background-color: #013562;
+  transition: background-color 0.15s ease-in-out;
+}
+.billboard .category-select.selected a {
+  color: #ffffff;
+  transition: color 0.15s ease-in-out;
+}
+.billboard .category-select:active {
+  background-color: #FB7803;
+  transition: background-color 0.1s ease-in-out;
+}
+.billboard .category-select:active a {
+  color: #ffffff;
 }
 .billboard a {
   font-family: "racing_sans_oneregular", sans-serif;
@@ -535,6 +575,8 @@ p {
   }
   .info-nav div:last-of-type {
     justify-content: right;
+    flex-grow: unset;
+    width: 60%;
   }
   .info-nav #main-search,
   .info-nav #main-search.hidden {
@@ -544,6 +586,12 @@ p {
     justify-content: space-between;
     position: relative;
     z-index: 9999;
+  }
+  .main-nav a {
+    width: 100%;
+    display: block;
+    padding: 0.5rem 0;
+    margin-left: 1rem;
   }
   .navlinks {
     width: unset;
@@ -559,6 +607,7 @@ p {
   }
   .navlinks a:hover {
     background-color: #ffffff;
+    transition: background-color 0.1s ease-in-out;
   }
   .navlinks a.dropdown-toggle {
     display: flex;
@@ -568,6 +617,7 @@ p {
   .navlinks a.dropdown-toggle svg {
     width: 30px;
     height: 30px;
+    transition: transform 0.3s ease-in-out;
   }
   .nav-utils {
     flex-direction: row-reverse;
@@ -590,8 +640,15 @@ p {
     justify-content: space-around;
   }
   .dropdown-menu > div {
-    padding: 1rem;
+    padding: 1rem 2rem;
     width: 25%;
+  }
+  .dropdown-menu > div > h3 {
+    border-radius: 5px;
+  }
+  .dropdown-menu > div > h3:hover {
+    background-color: #F9D70F;
+    transition: background-color 0.1s ease-in-out;
   }
   .dropdown-menu .underline {
     display: block;
@@ -611,6 +668,7 @@ p {
   }
   .dropdown-menu li:hover {
     background-color: #F9D70F;
+    transition: background-color 0.1s ease-in-out;
   }
   .dropdown-menu li a {
     padding: 0.5rem 2rem 0.5rem 3rem;

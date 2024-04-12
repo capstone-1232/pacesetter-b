@@ -1,6 +1,6 @@
-@import "colors";
-@import "fonts";
-@import "typography";
+@use "colors";
+@use "fonts";
+@use "typography";
 
 
 .desktop-nav {
@@ -24,9 +24,12 @@
 
     div:last-of-type {
         display: flex;
+        justify-content: end;
         align-items: center;
-        margin-left: auto;
+        flex-grow: 1;
     }
+
+
 }
 
 .operation-hours {
@@ -55,6 +58,11 @@
 
 .show-search {
     z-index: 9;
+
+    &:active{
+        background-color: $turqoise;
+        transition: background-color 0.1s ease-in-out;
+    }
 
     svg {
         color: $white;
@@ -111,6 +119,11 @@ p {
     button {
         background: none;
         border: none;
+
+        &:active{
+            background-color: rgba($secondary-blue, 0.5);
+            transition: background-color 0.1s ease-in-out;
+        }
     }
 
     svg {
@@ -147,17 +160,52 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 126px;
+    height: 8rem;
+    padding-bottom: 0.125rem;
     overflow-x: scroll;
+
+    &::-webkit-scrollbar{
+        margin-top: 0.2rem;
+        height: 0.2rem;
+        width: 0.2rem;
+    }
+
+    &::-webkit-scrollbar-track{
+        background-color: $white;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: $primary-blue;
+        border-radius: 1rem;
+    }
 
     .category-select {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 52px;
-        background-color: yellow;
+        background-color: $primary-yellow;
         width: 49%;
-        margin-right: 16px
+        margin-right: 16px;
+
+        &.selected{
+            background-color: $primary-blue;
+            transition: background-color 0.15s ease-in-out;
+
+            & a{
+                color: $white;
+                transition: color 0.15s ease-in-out;
+            }
+        }
+
+        &:active{
+            background-color: $strong-orange;
+            transition: background-color 0.1s ease-in-out;
+
+            & a{
+                color: $white;
+            }
+        }
     }
 
     a {
@@ -274,6 +322,8 @@ p {
 
         div:last-of-type {
             justify-content: right;
+            flex-grow: unset;
+            width: 60%;
         }
 
         #main-search,
@@ -286,6 +336,13 @@ p {
         justify-content: space-between;
         position: relative;
         z-index: 9999;
+
+        a{
+            width: 100%;
+            display: block;
+            padding: 0.5rem 0;
+            margin-left: 1rem;
+        }
     }
 
     .navlinks{
@@ -302,6 +359,7 @@ p {
 
             &:hover{
                 background-color: $white;
+                transition: background-color 0.1s ease-in-out;
             }
 
             &.dropdown-toggle{
@@ -312,6 +370,7 @@ p {
                 svg{
                     width: 30px;
                     height: 30px;
+                    transition: transform 0.3s ease-in-out;
                 }
             }
         }
@@ -340,9 +399,20 @@ p {
         flex-wrap: wrap;
         justify-content: space-around;
 
+
+
         &>div{
-            padding: 1rem;
+            padding: 1rem 2rem;
             width: 25%;
+
+            &>h3{
+                border-radius: 5px;
+
+                &:hover{
+                    background-color: $primary-yellow;
+                    transition: background-color 0.1s ease-in-out;
+                }
+            }
         }
 
         .underline{
@@ -365,6 +435,7 @@ p {
 
             &:hover{
                 background-color: $primary-yellow;
+                transition: background-color 0.1s ease-in-out;
             }
 
             a{
