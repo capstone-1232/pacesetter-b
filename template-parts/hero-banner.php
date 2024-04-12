@@ -25,7 +25,7 @@ Template Post Type: hero-banner
         $call_to_action = get_field( 'call_to_action');
         $call_to_action_url = get_field( 'call_to_action_url');
         $call_to_action_2 = get_field( 'call_to_action_2');
-        $call_to_action_url_2 = get_field( 'call_to_action_url_2');
+        $call_to_action_2_url = get_field( 'call_to_action_2_url');
         $background_image = get_field('background_image');
         
 
@@ -36,9 +36,9 @@ Template Post Type: hero-banner
             <h2><?php echo $title; ?></h2>
             <p><?php echo $tag_line; ?></p>
             <div class="call-to-action">
-              <a href="<?php echo esc_url($call_to_action_url); ?>"><?php echo esc_html($call_to_action); ?></a>
-              <?php if ($call_to_action_2):?>
-                <a href="<?php echo esc_url($call_to_action_url_2); ?>"><?php echo esc_html($call_to_action_2); ?></a>
+                <a href="<?php echo esc_url($call_to_action_url); ?>"><?php echo esc_html($call_to_action); ?></a>
+                <?php if ($call_to_action_2):?>
+                <a href="<?php echo esc_url($call_to_action_2_url); ?>"><?php echo esc_html($call_to_action_2); ?></a>
                 <?php endif;?>
             </div>
           </div>
