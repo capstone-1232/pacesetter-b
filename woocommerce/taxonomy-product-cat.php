@@ -69,7 +69,7 @@ global $post
 					</h1>
 					<?php echo $category_description ?>
 				</div>
-				<img src="<?php echo esc_url($banner_image); ?>" alt="">
+				<img class="banner-background-image" src="<?php echo esc_url($banner_image); ?>" alt="">
 			</div>
 		<?php } else {
 			get_template_part('template-parts/category-banner');
@@ -79,7 +79,7 @@ global $post
 		echo "</div>";
 
 		if ($child_categories && !is_wp_error($child_categories)) {
-			echo "<div>";
+			echo "<div class=\"category-links\">";
 			foreach ($child_categories as $child_category) {
 				$child_category_slug = $child_category->slug;
 				$child_category_name = $child_category->name;
