@@ -81,8 +81,8 @@
 
         svg {
             margin-left: 0.3rem;
-            width: 1rem;
-            height: 1rem;
+            width: 1rem !important;
+            height: 1rem !important;
         }
     }
     a.yellow-btn:hover {
@@ -125,10 +125,10 @@
                 }
             }
         }
-    }
-    svg {
-        width: 1.2rem;
-        height: 1.2rem;
+        svg {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
     }
 }
 

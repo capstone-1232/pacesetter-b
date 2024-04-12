@@ -2747,7 +2747,7 @@ a {
   display: block;
   margin: 0 auto;
   align-items: center;
-  width: 64px;
+  width: 64px !important;
   grid-row: 2/3;
 }
 .banner-text .banner-text-1 h3, .banner-text .banner-text-2 h3 {
@@ -2970,8 +2970,8 @@ a {
 }
 .products a.yellow-btn svg {
   margin-left: 0.3rem;
-  width: 1rem;
-  height: 1rem;
+  width: 1rem !important;
+  height: 1rem !important;
 }
 .products a.yellow-btn:hover {
   background-color: #FC7804;
@@ -3008,7 +3008,7 @@ a {
     position: relative;
     margin-bottom: 1rem;
   }
-  svg {
+  .products svg {
     width: 1.2rem;
     height: 1.2rem;
   }
