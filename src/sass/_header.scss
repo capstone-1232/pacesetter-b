@@ -331,6 +331,10 @@ p {
             display: block;
         }
     }
+    .operation-hours {
+        display: flex;
+        gap: 2rem;
+    }
 
     .main-nav{
         justify-content: space-between;

@@ -69,15 +69,6 @@ get_header();
                 <a class="faq-button" href="<?php echo home_url('/faq');?>"> FAQs</a>
             </div>
         </section>
-        <section class="faq-section">
-            <div>
-
-                <h3>FAQs</h3>
-                <p>Check out our FAQ page to find common questions</p>
-                
-                <a class="faq-button" href="<?php echo home_url('/faq');?>"> FAQs</a>
-            </div>
-            </section>
     </div>
     <section class="map" style="background-image: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent), url('<?php echo esc_url(get_template_directory_uri() . '/img/inside-store.jpg'); ?>');">
         <div class="location">
@@ -92,7 +83,6 @@ get_header();
     </section>
 </main>
     <?php
-        }
 get_footer()
     ?>
 

@@ -7,7 +7,7 @@ get_header();
 
 <main class="blog-container">
     <section>
-        <div class="intro">
+        <div class="intro" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/img/snow-background-texture.webp'); ?>');">
             <div class="intro-container">
                 <h2> Pacesetter Blog <span class="offset-underline"></span></h2>
                 <p>Welcome to the blog! From gear reviews and expert tips, to destination spotlights and community stories, our blog is your go-to resource for all things powder. View all our blogs from the most recent, or filter by the blog type category.</p>
