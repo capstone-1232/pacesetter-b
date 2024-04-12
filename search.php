@@ -12,45 +12,25 @@ get_header();
 $search_query = get_search_query();
 ?>
 
-	<main id="primary" class="site-main">
-		<div>
-			<h1>Showing Results for: <?php echo $search_query ?></h1>
+	<main id="primary" class="search">
+		<div class="banner" style="background: url(<?php echo home_url(); ?>/wp-content/themes/pacesetter-b/img/snow-texture.jpg)">
+		<div class="container">
+			<p>Showing Results for: </p>
+			<h1>"<?php echo $search_query ?>"</h1>
 		</div>
-		<div>
-			<p>Show only:</p>
-			<label class="radio-label">
-				<input type="radio" name="post_type" value="product">
-				Products
-			</label>
-
-			<label class="radio-label">
-				<input type="radio" name="post_type" value="events-posts">
-				Events
-			</label>
-
-			<label class="radio-label">
-				<input type="radio" name="post_type" value="post">
-				Blogs
-			</label>
-
-			<label class="radio-label">
-				<input type="radio" name="post_type" value="other">
-				Other
-			</label>
 		</div>
-
 
 		<div id="searchResults">
 			
     <?php if ( have_posts() ) : ?>
         <!-- Display search results -->
         <?php while ( have_posts() ) : the_post(); ?>
-		<?php
-			get_template_part('template-parts/search-content', 'search');?>
-        <?php endwhile; ?>
+		<?php get_template_part('template-parts/search-content', 'search');?>
+	<?php endwhile; ?>
     <?php else : ?>
-        <!-- Display message if no search results found -->
-        <p>No results found for this search.</p>
+        <div class="no-results">
+        	<p>No results found for this search.</p>
+		</div>
     <?php endif; ?>
 </div>
 
@@ -102,5 +82,4 @@ $search_query = get_search_query();
 	})
 	</script>
 <?php
-
 get_footer();

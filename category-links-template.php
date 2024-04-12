@@ -31,6 +31,9 @@ Template Name: Products Category Template
                 $child_category_name = $child_category->name;
                 $child_category_img = get_category_image_url($child_category->term_id);
                 ?>
+
+
+
                 <a href="<?php echo esc_url($current_url . $child_category_slug);?>" class="category-link">
                     <div style="background-image: url('<?php echo $child_category_img ?>');">
                         <h2><?php echo $child_category_name ?></h2>

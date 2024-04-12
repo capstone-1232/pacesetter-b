@@ -14,7 +14,7 @@
                     </svg>
                 </a>
             </div> 
-            <img src="https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/landing-page-blog-section.png" alt="Close up view of a ski boot and ski, the person is lifting their foot from the ski binding.">
+            <img src="<?php echo home_url() . "/wp-content/themes/pacesetter-b/img/landing-page-blog-section.png"?>" alt="Close up view of a ski boot and ski, the person is lifting their foot from the ski binding.">
         </div>
     </div>
 </section>

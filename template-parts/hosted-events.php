@@ -1,5 +1,5 @@
 <section class="landing-page-events">
-    <img src="https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/pacesetter-event.jpg" alt="People having a good time at an event, seated around three people standing and talking.">
+    <img src="<?php echo home_url() . "/wp-content/themes/pacesetter-b/img/pacesetter-event.jpg"?>" alt="People having a good time at an event, seated around three people standing and talking.">
     <div class="landing-page-events-text">
         <h2>Store Hosted Events</h2>
         <p>Discover the latest events at our ski and snowboard store, guaranteed to ignite your winter excitement!  Plus, don't miss out on our Freestyle Skiing Workshop, where expert instructors will teach you the art of tricks and jumps. For those craving adventure, join us for our Backcountry Adventure Weekend, filled with guided tours, safety courses and many more exciting events.</p>

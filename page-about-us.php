@@ -32,7 +32,8 @@ get_header();
                         <?php echo esc_html(get_field('about_us_text')); ?>
                     </p>
                 </div>
-                <img src="<?php echo esc_html(get_field("section_image")); ?>" />
+                
+                <img src="<?php echo esc_url(get_field("section_image") ? get_field("section_image") : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp"); ?>" />
             </div>
         </div>
 
