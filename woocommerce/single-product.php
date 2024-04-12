@@ -20,68 +20,62 @@
     $name = isset($_POST["name"]) ? sanitize_text_field($_POST["name"]) : '';
     $rating = $_POST["rating"];
     $comment = $_POST["comment"];
-    $product_id = $_POST["product_id"];
+    $product_id = isset($_POST["product_id"]) ? intval($_POST["product_id"]) : 0;
 
-    // Add the review using WooCommerce function
-    $review_data = array(
-        'comment_post_ID' => $product_id,
-        'comment_author' => $name,
-        'comment_content' => $comment,
-        'user_id' => $name, // Assuming the user is logged in
-        'comment_approved' => 1,
-        'rating' => $rating,
-    );
+    if ($product_id > 0) { // Check if product ID is valid
+        // Add the review using WooCommerce function
+        $review_data = array(
+            'comment_post_ID' => $product_id,
+            'comment_author' => $name,
+            'comment_content' => $comment,
+            'user_id' => $name, // Assuming the user is logged in
+            'comment_approved' => 1,
+            'rating' => $rating,
+        );
 
-    // Insert the review as a comment
-    $commentdata = array(
-        'comment_post_ID'      => $product_id,
-        'comment_author'       => $name,
-        'comment_content'      => $comment,
-        'user_id'              => 0,
-        'comment_approved'     => 1, // Auto-approve the comment
-        'comment_author_IP'    => $_SERVER['REMOTE_ADDR'],
-        'comment_agent'        => $_SERVER['HTTP_USER_AGENT'],
-        'comment_date'         => current_time('mysql'),
-        'comment_date_gmt'     => current_time('mysql', 1),
-        'rating'               => $rating // Add the rating to comment meta
-    );
+        // Insert the comment into the database
+        $comment_id = wp_insert_comment($review_data);
+        print_r($comment_id);
 
-    // Insert the comment into the database
-    $comment_id = wp_insert_comment($commentdata);
-
-    if ($comment_id) {
-        // Add the rating to the comment meta
-        add_comment_meta($comment_id, 'rating', $rating);
-    
-        // Increment the review count for the corresponding rating
-        $ratings_count = get_post_meta($product_id, '_wc_rating_count', true);
-        if (isset($ratings_count[$rating])) {
-            $ratings_count[$rating]++;
+        if ($comment_id) {
+            // Add the rating to the comment meta
+            add_comment_meta($comment_id, 'rating', $rating);
+        
+            // Increment the review count for the corresponding rating
+            $ratings_count = get_post_meta($product_id, '_wc_rating_count', true);
+        if (!is_array($ratings_count)) {
+            // If $ratings_count is not an array, initialize it as an empty array
+            $ratings_count = array();
+        }
+            if (isset($ratings_count[$rating])) {
+                $ratings_count[$rating]++;
+            } else {
+                $ratings_count[$rating] = 1;
+            }
+        
+            // Update the '_wc_rating_count' meta with the modified ratings count array
+            update_post_meta($product_id, '_wc_rating_count', $ratings_count);
+        
+            // Calculate the new average rating
+            $total_ratings_count = array_sum($ratings_count);
+            $total_score = 0;
+            foreach ($ratings_count as $rating_value => $count) {
+                $total_score += $rating_value * $count;
+            }
+            $new_average_rating = $total_score / $total_ratings_count;
+        
+            // Update the '_wc_average_rating' meta with the new average rating
+            update_post_meta($product_id, '_wc_average_rating', $new_average_rating);
+        
+            // Redirect back to the product page after submission
+            wp_redirect(get_permalink($product_id) . '#reviews');
+            exit;
         } else {
-            // If the rating is not found, initialize it with count 1
-            $ratings_count[$rating] = 1;
+            // Handle error if the review couldn't be added
+            echo 'Failed to submit review. Please try again.';
         }
-    
-        // Update the '_wc_rating_count' meta with the modified ratings count array
-        update_post_meta($product_id, '_wc_rating_count', $ratings_count);
-    
-        // Calculate the new average rating
-        $total_ratings_count = array_sum($ratings_count);
-        $total_score = 0;
-        foreach ($ratings_count as $rating_value => $count) {
-            $total_score += $rating_value * $count;
-        }
-        $new_average_rating = $total_score / $total_ratings_count;
-    
-        // Update the '_wc_average_rating' meta with the new average rating
-        update_post_meta($product_id, '_wc_average_rating', $new_average_rating);
-    
-        // Redirect back to the product page after submission
-        wp_redirect(get_the_permalink($product_id) . '#reviews');
-        exit;
     } else {
-        // Handle error if the review couldn't be added
-        echo 'Failed to submit review. Please try again.';
+        echo 'Invalid product ID. Please try again.';
     }
 }
 
@@ -134,9 +128,11 @@ get_header();
                 //     }
                 // }
                 ?>
-            <img src="<?php echo $product_image_url?>" alt="">
-            <p class="slogan"><?php echo $brand_slogan?></p>
-            <img class="brand" src="<?php echo $brand_logo_url; ?>" alt="Product logo for <?php echo $brand_name; ?>">
+            <img src="<?php echo esc_url($product_image_url ? $product_image_url : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp")?>" alt="">
+            <p class="slogan"><?php echo isset($brand_slogan) ? $brand_slogan : '';?></p>
+            <?php if (isset($brand_logo_url)) : ?>
+                <img class="brand" src="<?php echo $brand_logo_url; ?>" alt="Product logo for <?php echo $brand_name; ?>">
+            <?php endif; ?>
             <!-- Call product rating function -->
             <?php render_product_rating_stars($product_id); ?>
             <div class="stock-check">
@@ -178,13 +174,13 @@ get_header();
             ?>
             <p class="description"><?php echo $short_description;?></p>
             <div class="questions">
-                <a href="">Ask us a Question</a>
-                <a href="">Product Care Guides</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact-us'))); ?>">Ask us a Question</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('faq'))); ?>">Product Care Guides</a>
             </div>
         </div>
             </div>
     </section>
-    <div class="container snow-texture" style="background: url(<?php echo home_url(); ?>/wp-content/themes/pacesetter-b/img/snow-texture.jpg)">
+    <div class="container snow-texture" style="background: url(<?php echo home_url(); ?>/wp-content/themes/pacesetter-b/img/snow-background-texture.webp)">
         <div class="background-overlay"></div>    
     <section id="productFeatures">
         <div class="heading">

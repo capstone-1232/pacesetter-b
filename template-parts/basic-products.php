@@ -43,7 +43,7 @@
     
                 <!-- Render product cards -->
                 <div class="product-card">
-                    <img src="<?php echo esc_url($product_image_url) ?>" alt="<?php echo $short_description ?>">
+                    <img src="<?php echo esc_url($product_image_url ? $product_image_url : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp") ?>" alt="<?php echo $short_description ?>">
                     <h3>
                         <?php echo $product_title ?>
                     </h3>

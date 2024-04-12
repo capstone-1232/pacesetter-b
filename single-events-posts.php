@@ -155,7 +155,7 @@ if ($current_timestamp > $next_day) {
                             ?>
                     </div>
                     <!-- Event image -->
-                    <img src="<?php echo $event_image_url ?>" alt="Image of the event">
+                    <img src="<?php echo esc_url($event_image_url ? $event_image_url : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp")?>" alt="Image of the event">
                     <!-- Event tags -->
                     <div>
                         <?php
@@ -340,21 +340,18 @@ if ($current_timestamp > $next_day) {
                                 $related_date_start = DateTime::createFromFormat('m/d/Y h:i a', $date_time_start);
                                 $related_formatted_date_start = $date_start->format('l, F d Y');
 
-                                // Your code for each related event goes here
-                                ?>
-                                <div class="">
-                                    <a href="<?php echo $related_post_url ?>">
-                                        <img src="<?php echo $related_post_img; ?>" alt="">
-                                    </a>
-                                    <h3>
-                                        <?php echo $related_event_title; ?>
-                                    </h3>
-                                    <p>
-                                        <?php echo $related_formatted_date_start; ?>
-                                    </p>
-                                </div>
-                                <?php
-                            }
+                        // Your code for each related event goes here
+                        ?>
+                        <div class="">
+                        
+                            <a href="<?php echo $related_post_url ?>">
+                                <img src="<?php echo esc_url($related_post_img ? $related_post_img : home_url() . "/wp-content/themes/pacesetter-b/img/placeholder.webp"); ?>" alt="">
+                            </a>
+                            <h3><?php echo $related_event_title ;?></h3>
+                            <p><?php echo $related_formatted_date_start;?></p>
+                        </div>
+                        <?php
+                    }
 
                             // Restore global post data
                             wp_reset_postdata();
