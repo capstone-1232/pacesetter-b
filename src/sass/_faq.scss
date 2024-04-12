@@ -45,9 +45,15 @@
         padding: 0.5rem 1rem;
         border-radius: 6px;
         align-self: center;
+        transition: background-color 0.1s ease-in-out;
 
         &:hover {
             background-color: $primary-blue;
+        }
+
+        &:active {
+            background-color: $turqoise;
+            transition: background-color 0.05s ease-in-out;
         }
     }
 }
@@ -62,7 +68,7 @@
     .accordion {
         .ui-accordion-header,
         .ui-accordion-content {
-            box-shadow: 2px 4px 4px rgba($black, 0.25);
+            box-shadow: 0px 4px 4px rgba($black, 0.25);
         }
 
         h4 {
@@ -73,6 +79,23 @@
             background: $lightblue;
             color: $white;
             padding: 0.5rem 1rem;
+            transition: background-color 0.2s ease-in-out;
+            transition: box-shadow 0.2s ease-in-out;
+
+            &:hover{
+                background-color: $secondary-blue;
+                cursor: pointer;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+            }
+
+            &:active{
+                background-color: $turqoise;
+                transition: background-color 0.05s ease-in-out;
+            } 
+            
+            &.ui-accordion-header-active {
+                box-shadow: 0 -1px 4px rgba($black, 0.25);
+            }
         }
 
         .ui-accordion-content {
@@ -114,9 +137,15 @@
         margin: 0 auto;
         margin-top: 1rem;
         border-radius: 6px;
+        transition: background-color 0.1s ease-in-out;
 
         &:hover {
-            $background-color: $primary-blue;
+            background-color: $primary-blue;
+        }
+
+        &:active {
+            background-color: $turqoise;
+            transition: background-color 0.05s ease-in-out;
         }
     }
 }
@@ -184,10 +213,11 @@
             width: 85%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            column-gap: 2rem;
+            column-gap: 4rem;
 
             h4 {
                 margin-top: 1rem;
+                font-size: 1rem;
             }
 
             .faq-question {
