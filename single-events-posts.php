@@ -5,6 +5,7 @@ session_start();
  *
  * @package pacesetter
  */
+get_header();
 
 // Retrieve information from custom fields.
 $event_id = get_the_id();
@@ -16,46 +17,6 @@ $date_time_end = get_field('date_and_time_end');
 $fee = get_field('fee');
 $capacity = get_field('rsvp');
 $event_image_url = get_field('event_image');
-
-// Format Start date
-$date_start = DateTime::createFromFormat('m/d/Y h:i a', $date_time_start);
-$formatted_date_start = $date_start->format('l, F d Y');
-
-// Get Start time
-$time_start = $date_start->format('h:i a');
-
-// Get current time stamp
-$current_timestamp = time();
-
-// Get end date information if event has an end date
-if($date_time_end) {
-    //Format End date
-    $date_end = DateTime::createFromFormat('m/d/Y h:i a', $date_time_end);
-    $formatted_date_end = $date_end->format('l, F d Y');
-
-    // Get End time
-    $time_end = $date_end->format('h:i a');
-
-    // Convert end date to timestamp and calculate next day.
-    $next_day = strtotime('tomorrow', strtotime($date_time_end));
-} else {
-    // Convert end date to timestamp and calculate next day if date and time end is empty.
-    $next_day = strtotime('tomorrow', strtotime($date_time_start));
-
-}
-
-// Draft event and redirect user if event is past due.
-if ($current_timestamp > $next_day) {
-    $post_data = array(
-        'ID' => $event_id,
-        'post_status' => 'draft',
-    );
-    wp_update_post($post_data);
-    wp_redirect(home_url('/events-ended'));
-    exit;
-}
-
-get_header();
 
 // Initialize Form error message
 $full_name_message = '';
@@ -122,12 +83,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                 echo "Error: Unable to send email.";
             }
 
-            } else {
-                // Handle errors or display error messages to the user
-                echo 'There are errors in your form. Please correct them and try again.';
-            }
+        } else {
+            // Handle errors or display error messages to the user
+            echo 'There are errors in your form. Please correct them and try again.';
         }
     }
+}
+
+// Format Start date
+$date_start = DateTime::createFromFormat('m/d/Y h:i a', $date_time_start);
+$formatted_date_start = $date_start->format('l, F d Y');
+
+// Get Start time
+$time_start = $date_start->format('h:i a');
+
+// Get current time stamp
+$current_timestamp = time();
+
+// Get end date information if event has an end date
+if ($date_time_end) {
+    //Format End date
+    $date_end = DateTime::createFromFormat('m/d/Y h:i a', $date_time_end);
+    $formatted_date_end = $date_end->format('l, F d Y');
+
+    // Get End time
+    $time_end = $date_end->format('h:i a');
+
+    // Convert end date to timestamp and calculate next day.
+    $next_day = strtotime('tomorrow', strtotime($date_time_end));
+} else {
+    // Convert end date to timestamp and calculate next day if date and time end is empty.
+    $next_day = strtotime('tomorrow', strtotime($date_time_start));
+
+}
+
+// Draft event and redirect user if event is past due.
+if ($current_timestamp > $next_day) {
+    $post_data = array(
+        'ID' => $event_id,
+        'post_status' => 'draft',
+    );
+    wp_update_post($post_data);
+    wp_redirect(home_url('/'));
+    exit;
+}
 ?>
 
 <main id="primary" class="site-main">
@@ -235,8 +234,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                             </form>
                             <!-- If SESSION form has been submitted -->
                         <?php else: ?>
-                            <h3>Thank you for RSVPing</h3>
-                            <p>See you at the event!</p>
+                            <div class="submitted-form">
+                                <h3>Thank you for RSVPing</h3>
+                                <p>See you at the event!</p>
+                            </div>
                         <?php endif; ?>
                         <div class="rsvp-share-event">
                             <div>

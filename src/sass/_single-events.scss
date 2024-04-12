@@ -46,6 +46,7 @@
             .arrow-background{
                 background: linear-gradient(to right, rgba($primary-yellow, 0.3), rgba($strong-orange, 0.3));
                 justify-content: center;
+                border-radius: 0 10px 100px 0;
 
                 &>p{
                     font-size: 2rem;
@@ -78,11 +79,29 @@
             a:first-of-type{
                 background-color: $primary-blue;
                 color: $white;
+                transition: background-color 0.1s ease-in-out;  
+
+                &:hover{
+                    background-color: $turqoise;
+                }
+
+                &:active{
+                    background-color: $primary-blue;
+                }
             }
 
             a:last-of-type{
                 background-color: $white;
                 color: $black;
+                transition: background-color 0.1s ease-in-out;
+
+                &:hover{
+                    background-color: $strong-orange;
+                }
+
+                &:active{
+                    background-color: $white;
+                }
             }
         }
 
@@ -175,6 +194,13 @@
     left: 0;
     background-color: $primary-yellow;
 
+    .submitted-form{
+        text-align: center;
+        &>p{
+            text-align: center;
+        }
+    }
+
     h2 {
         font-family: $racing;
         text-align: center;
@@ -241,7 +267,18 @@
         .event-modal-content{
             height: unset;
             width: 80svw;
+
+            div:last-of-type{
+                justify-content: center;
+                gap: 2rem;
+
+                a{
+                    padding: 1rem 6rem;
+                    font-size: clamp(1rem, 1rem + 5%, 2rem);
+                }
+            }
         }
+
     }
 
 
