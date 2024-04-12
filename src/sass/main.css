@@ -2588,11 +2588,13 @@ a {
   max-width: 82%;
   color: #051B47;
   margin: 2.5rem 0;
+  text-shadow: #FFFFFF 1px 0 10px;
 }
 #hero-carousel.slider .carousel-inner .slide .slide-content p {
   max-width: 82%;
   color: #013562;
   margin: 3rem 0;
+  text-shadow: #FFFFFF 1px 0 10px;
 }
 #hero-carousel.slider .carousel-inner .slide .slide-content .call-to-action {
   display: flex;
