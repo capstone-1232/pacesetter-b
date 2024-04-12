@@ -91,14 +91,14 @@
 
         .banner-text-1 {
             width: 50%;
-            padding: 1rem 3rem 1rem 1rem;
+            padding: 2.5rem 1.5rem;
             h3 {
                 max-width: unset;
             }
         }
         .banner-text-2 {
             width: 50%;
-            padding: 1rem 3rem 1rem 1rem;
+            padding: 2.5rem 2rem 2.5rem 2rem;
             h3 {
                 max-width: unset;
             }
@@ -108,12 +108,38 @@
 
 @media screen and (min-width: 1000px) {
     .banner-text {
-        max-width: 1920px;
-        margin: 0 auto;
-        .banner-text-1 svg, .banner-text .banner-text-2 svg {
-            width: 80px;
-            height: 80px;
-        }
+        .banner-text-1{
+            svg {
+                width: 80px;
+                height: 80px;
+            }
+        } 
+        .banner-text-2{
+            svg {
+                width: 80px;
+                height: 80px;
+            }
+        } 
+    }
+    
+}
+
+@media screen and (min-width: 1920px) {
+    .banner-text {
+        .banner-text-1{
+            padding: 2.5rem 2rem 2.5rem 15%;
+            svg {
+                width: 100px;
+                height: 100px;
+            }
+        } 
+        .banner-text-2{
+            padding: 2.5rem 15% 2.5rem 2rem;
+            svg {
+                width: 100px;
+                height: 100px;
+            }
+        } 
     }
     
 }
