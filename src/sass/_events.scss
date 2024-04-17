@@ -44,6 +44,16 @@
             }
         }
     }
+    .banner h2 {
+        font-family: "Racing Sans One", sans-serif;
+        font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+        font-style: normal;
+        max-width: 90%;
+        color: $header-blue;
+        span {
+            max-width: 350px;
+        }
+    }
 }
 
 .event-filters{
