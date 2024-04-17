@@ -57,6 +57,7 @@
             text-decoration: none;
             padding: 0.45rem 0.75rem;
             border-radius: 0.25rem;
+            transition: 0.5s ease;
         }
         a.orange-btn {
             background-color: $orange;
@@ -79,12 +80,14 @@
     p {
         position: relative;
         z-index: 0;
-        background-image: radial-gradient(circle, rgba(0,0,0,0.90) 0%, rgba(52,52,52,0.30) 100%), url('https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/inside-store.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         background-color: $secondary-blue;
         padding: 4rem 2rem;
+    }
+    .about-image {
+        background: hidden;
     }
 }
 
@@ -156,6 +159,7 @@
                     transform: skewY(5deg);
                     background-image: unset;
                     padding: 2rem 0;
+                    background: none !important;
                 }
                 .links {
                     transform: skewY(5deg);
@@ -167,15 +171,13 @@
             .about-image {
                 position: absolute;
                 overflow: visible;
-                // top: -3.5rem;
                 right: 0;
                 width: 50%;
                 height: 100%;
-                background-image: url('https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/inside-store.jpg');
+                background: visible;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                // padding: 3rem 0 10rem 0;
                 z-index: 10;
             }
         } 

@@ -56,4 +56,8 @@
     padding: 5px 10px;
     border-radius: 5px;
     color: $black;
+    span {
+        z-index: -1;
+        position: relative;
+    }
 }
