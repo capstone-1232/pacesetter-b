@@ -1,5 +1,6 @@
-@import "colors";
-@import "fonts";
+@use "colors";
+@use "fonts";
+
 .contact{
     max-width: 1700px;
     font-family: $montserrat;
