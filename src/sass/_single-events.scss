@@ -1,6 +1,5 @@
 @use "colors";
 @use "fonts";
-@use "typography";
 
 #eventModal {
   position: fixed;
@@ -63,11 +62,12 @@
       display: flex;
       justify-content: space-between;
 
-      a {
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        padding: 1rem 0.5rem;
+            a{
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                padding: 1rem 0.5rem;
+                transition: 0.5s ease;
 
         &:hover {
           opacity: 0.9;

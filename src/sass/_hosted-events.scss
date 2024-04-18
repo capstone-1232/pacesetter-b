@@ -1,6 +1,5 @@
-@import 'colors';
-@import 'typography';
-@import 'fonts';
+@use 'colors';
+@use 'fonts';
 
 .landing-page-events {
     padding: 6rem 0 10rem 0;
@@ -54,6 +53,7 @@
             margin-left: auto;
             margin-right: 0;
             cursor: pointer;
+            transition: 0.5s ease;
 
             svg {
                 margin-left: 0.3rem;

@@ -90,7 +90,7 @@ if ($page) {
 				</p>
 			</section>
 			<div class="social-media">
-				<a href=""><svg fill="#000000" width="36px" height="36px" viewBox="0 0 24 24"
+				<a href="https://www.facebook.com/PacesetterSkiSnowboard/" target="_blank"><svg fill="#000000" width="36px" height="36px" viewBox="0 0 24 24"
 						xmlns="http://www.w3.org/2000/svg">
 						<title>Facebook Logo</title>
 						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -101,7 +101,7 @@ if ($page) {
 							</path>
 						</g>
 					</svg></a>
-				<a href=""><svg fill="#000000" height="36px" width="36px" version="1.1"
+				<a href="https://www.instagram.com/pacesetter_ski_shoppe/" target="_blank"><svg fill="#000000" height="36px" width="36px" version="1.1"
 						xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 						viewBox="-143 145 512 512" xml:space="preserve">
 						<title>Instagram Logo</title>
@@ -124,7 +124,7 @@ if ($page) {
 							</g>
 						</g>
 					</svg></a>
-				<a href=""><svg fill="#000000" height="36px" width="36px" version="1.1" id="Layer_1"
+				<a href="https://twitter.com/pacesetterski" target="_blank"><svg fill="#000000" height="36px" width="36px" version="1.1" id="Layer_1"
 						xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 						viewBox="-143 145 512 512" xml:space="preserve">
 						<title>Twitter Logo</title>
