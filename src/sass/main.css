@@ -372,6 +372,24 @@ a {
   height: 30px;
 }
 
+.site-branding {
+  height: 100%;
+  margin-left: 2.5%;
+}
+.site-branding .site-title {
+  height: 100%;
+}
+.site-branding .site-title a {
+  display: block;
+  height: 100%;
+  width: 6rem;
+  padding-left: 0;
+}
+.site-branding .site-title a img {
+  height: 100%;
+  width: auto;
+}
+
 #main-search {
   width: 100%;
   height: 37px;
@@ -403,11 +421,6 @@ p {
 .main-nav a {
   text-decoration: none;
   color: #000000;
-}
-.main-nav .site-title a {
-  font-size: 24px;
-  font-family: "racing_sans_oneregular", sans-serif;
-  padding-left: 10px;
 }
 
 .toggle-nav {
@@ -603,12 +616,18 @@ p {
     justify-content: space-between;
     position: relative;
     z-index: 9999;
+    height: -moz-fit-content;
+    height: fit-content;
   }
-  .main-nav a {
-    width: 100%;
-    display: block;
+  .main-nav .site-branding {
+    margin-left: 1%;
+  }
+  .main-nav .site-branding .site-title a {
+    width: 10rem;
+    display: flex;
     padding: 0.5rem 0;
-    margin-left: 1rem;
+    height: 100%;
+    align-items: center;
   }
   .navlinks {
     width: unset;
@@ -647,7 +666,7 @@ p {
     z-index: 9;
   }
   .dropdown-menu {
-    top: 50px;
+    top: 100%;
     left: 0;
     z-index: 9;
     background-color: #ffffff;
