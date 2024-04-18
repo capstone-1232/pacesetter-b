@@ -48,7 +48,13 @@ get_template_part('template-parts/woocommerce-header'); ?>
                 foreach ($categories as $category) :
 					$category_url = get_category_link($category->term_id);
                     $category_image_id = get_term_meta($category->term_id, 'thumbnail_id', true);
+
                     $category_image = wp_get_attachment_url($category_image_id);
+
+                    if ($category_image == ""){
+                        $category_image = get_template_directory_uri() . '/img/faq-banner.jpg';
+                    }
+
                     ?>
                     <a href="<?php echo esc_html($category_url); ?>" class="category-link">
                         <div style="background-image: url('<?php echo $category_image?>');">

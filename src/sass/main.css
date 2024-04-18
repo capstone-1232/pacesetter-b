@@ -1572,6 +1572,11 @@ button#backToTopBtn:focus {
   border-bottom: 3px solid #FDC504;
   margin-bottom: 1rem;
 }
+.product #reviews .grid-container .reviews-container > div .not-reviewed {
+  margin-bottom: 1rem;
+  text-align: center;
+  flex-grow: 1;
+}
 .product #reviews .grid-container .reviews-container > div .review-rating {
   width: 100%;
 }
@@ -1618,13 +1623,13 @@ button#backToTopBtn:focus {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
   box-shadow: 4px 0 4px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
+  z-index: 9999;
   /* Modal content */
   /* Close button */
 }
 .product .review-modal-mobile .review-modal-content, .product .review-modal-desktop .review-modal-content {
   position: relative;
-  z-index: 1000;
+  z-index: 9999;
   background-color: #fefefe;
   padding: 20px;
   width: 100%;
@@ -4278,6 +4283,63 @@ button#backToTopBtn:focus {
   top: 18%;
   right: -1%;
 }
+.review-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.review-section .review_slider {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+.review-section .review_slider .carousel-inner .review_slide {
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  transition: all 0.5s;
+}
+.review-section .review_slider .carousel-inner .review_slide .review_slide-content {
+  max-width: 70%;
+  margin: 0 auto;
+}
+.review-section .review_slider .carousel-inner .review_slide .review_slide-content .feedback {
+  margin-bottom: 1.5rem;
+}
+.review-section .review_slider .carousel-inner .review_slide .review_slide-content .customer-name {
+  text-align: right;
+}
+.review-section .review_slider .carousel-inner .review_btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+  background-color: #FFDB57;
+  color: #FC7804;
+}
+.review-section .review_slider .carousel-inner .review_btn svg {
+  fill: #FC7804;
+  max-width: 20px;
+  max-height: 20px;
+}
+.review-section .review_slider .carousel-inner .review_btn .svg-flip {
+  transform: rotate(180deg);
+}
+.review-section .review_slider .carousel-inner .review_btn:active {
+  transform: scale(1.1);
+}
+.review-section .review_slider .carousel-inner .review_btn-prev {
+  top: 18%;
+  left: -1%;
+}
+.review-section .review_slider .carousel-inner .review_btn-next {
+  top: 18%;
+  right: -1%;
+}
 
 @media screen and (min-width: 420px) {
   .review-section h2 {
@@ -4310,6 +4372,17 @@ button#backToTopBtn:focus {
   }
 }
 @media screen and (min-width: 500px) {
+  .review-section .review_slider .carousel-inner .review_btn {
+    width: 50px;
+    height: 50px;
+    padding: 12px 10px 10px 10px;
+    align-items: center;
+  }
+  .review-section .review_slider .carousel-inner .review_btn svg {
+    fill: #FC7804;
+    max-width: 25px;
+    max-height: 25px;
+  }
   .review-section {
     max-width: 1920px;
     margin: 0 auto;
