@@ -80,13 +80,15 @@
 						if (is_front_page() && is_home()):
 							?>
 							<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-									<?php bloginfo('name'); ?>
+									<img src="<?php echo home_url() ?>/wp-content/themes/pacesetter-b/img/pacesetter-logo.svg"
+										alt="">
 								</a></h1>
 							<?php
 						else:
 							?>
 							<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-									<?php bloginfo('name'); ?>
+									<img src="<?php echo home_url() ?>/wp-content/themes/pacesetter-b/img/pacesetter-logo.svg"
+										alt="">
 								</a></p>
 							<?php
 						endif;
@@ -133,6 +135,10 @@
 									</div>
 									<div>
 										<?php
+
+										// $menu = wp_get_nav_menu_items('18');
+										$menu_object = wp_get_nav_menu_object('main-menu');
+										$menu = wp_get_nav_menu_items($menu_object->term_id);
 
 										echo "<ul class=\"navlinks\">";
 										foreach ($menu as $link) {
@@ -190,10 +196,7 @@
 					<nav class="desktop-nav">
 						<div class="navlinks">
 							<?php
-                $menu_object = wp_get_nav_menu_object('main-menu');
-							$menu = wp_get_nav_menu_items($menu_object->term_id);
-							echo "<ul>";
-              
+							// $menu = wp_get_nav_menu_items('18');
 							foreach ($menu as $link) {
 								if ($link->title == "Products") {
 									echo "<a href=\"$link->url\" class=\"dropdown-toggle\"><p>$link->title</p><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path fill-rule=\"evenodd\" d=\"M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z\" clip-rule=\"evenodd\" /></svg></a>";

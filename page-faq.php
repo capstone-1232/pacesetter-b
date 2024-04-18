@@ -18,11 +18,12 @@ get_header();
 <main class="faq">
     <section>
         <section class="faq-section">
-            <div class="container">
+            <div class="container banner">
                 <h2 class="h1">Frequently Asked Questions <span class="offset-half-underline"></span></h2>
                 <p>Our FAQ page provides answers to common inquiries regarding ski equipment, maintenance, events, and
                     more,
                     ensuring you have a smooth and enjoyable skiing and snowboarding experience.</p>
+                <img src="<?php echo home_url(); ?>/wp-content/themes/pacesetter-b/img/faq-banner.jpg" alt="">
             </div>
         </section>
         <section>

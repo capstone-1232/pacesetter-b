@@ -17,7 +17,9 @@
 <head>
 	<title>
 		<?php
-		echo the_title($before = '', $after = ' | ') . get_bloginfo("name") . ' - ' . get_bloginfo("description");
+		$category = get_queried_object();
+
+		echo ucfirst($category->name) . ' | ' . get_bloginfo("name") . ' - ' . get_bloginfo("description");
 		?>
 	</title>
 	<meta name="description" content="<?php bloginfo("description"); ?>">
@@ -80,13 +82,15 @@
 						if (is_front_page() && is_home()):
 							?>
 							<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-									<?php bloginfo('name'); ?>
+									<img src="<?php echo home_url() ?>/wp-content/themes/pacesetter-b/img/pacesetter-logo.svg"
+										alt="">
 								</a></h1>
 							<?php
 						else:
 							?>
 							<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-									<?php bloginfo('name'); ?>
+									<img src="<?php echo home_url() ?>/wp-content/themes/pacesetter-b/img/pacesetter-logo.svg"
+										alt="">
 								</a></p>
 							<?php
 						endif;

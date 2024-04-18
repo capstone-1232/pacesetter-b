@@ -31,11 +31,19 @@ $j(document).ready(function () {
 
     if (window.matchMedia("(max-width: 768px)").matches) {
         $j("#show-search").click(function () {
-            $j("#main-search").show({
-                start: function () {
-                    $j(".operation-hours").hide("fold");
-                },
-            });
+            if (!$j("#main-search").is(":visible")) {
+                $j("#main-search").show({
+                    start: function () {
+                        $j(".operation-hours").hide("fold");
+                    },
+                });
+            } else {
+                $j(".search-form").submit();
+            }
+        });
+    } else {
+        $j("#show-search").click(function () {
+            $j(".search-form").submit();
         });
     }
 
@@ -87,18 +95,18 @@ $j(document).ready(function () {
         if (!$j(this).hasClass("selected")) {
             $j(".category-select").removeClass("selected");
 
-            $j(".subcategories").each(function(){
+            $j(".subcategories").each(function () {
                 $j(this).not(queryStr).hide("fold");
             });
 
             $j(queryStr).show("fold");
 
-            if ($j(queryStr).find(".subcategory-list").is(":empty")){
+            if ($j(queryStr).find(".subcategory-list").is(":empty")) {
                 console.log("empty list");
 
                 let href = $j(this).find("a").attr("href");
-                
-                $j(queryStr).find(".subcategory-list").append("<li><a href='" + href + "'>" + clickedCat +"</a></li>");
+
+                $j(queryStr).find(".subcategory-list").append("<li><a href='" + href + "'>" + clickedCat + "</a></li>");
             }
 
             $j(this).addClass("selected");
@@ -150,6 +158,7 @@ $j(document).ready(function () {
     $j(".event-filters>button").on("click", function () {
         $j(".event-filters").toggle("slide", 200);
     });
+
 
     if (window.matchMedia("(max-width: 1024px)").matches) {
         $j(".rsvp-toggle").on("click", function () {
@@ -278,13 +287,36 @@ $j(document).ready(function () {
         $j(this).next().slideToggle();
         $j(this).toggleClass("active");
         $j(this).next().toggleClass("active");
+
+        if (window.matchMedia("(min-width: 1024px)").matches) {
+            // Toggles other accordions closed when one is clicked in desktop view 
+            let currentAccordion = $j(this).next();
+            $j(".event-filters .accordion-header").each(function () {
+                if ($j(this).next().not(currentAccordion).is(":visible")) {
+                    $j(this).next().slideUp();
+                    $j(this).removeClass("active");
+                    $j(this).next().removeClass("active");
+                }
+            });
+        }
     });
+
+    if (window.matchMedia("(min-width: 1024px)").matches) {
+        $j(document).on("click", function (evt) {
+            let targetElement = $j(".event-filters .accordion-group");
+            if (!targetElement.is(evt.target) && targetElement.has(evt.target).length === 0) {
+                $j(".event-filters .accordion-content").slideUp();
+                $j(".event-filters .accordion-header").removeClass("active");
+                $j(".event-filters .accordion-content").removeClass("active");
+            }
+        });
+    }
+
 
     // closes mobile event filters drawer menu
     $j(".event-filters").on("click", ".close", function () {
         $j(".event-filters").toggle("slide");
     });
-
 
     // temporary measure so site functionailities doesn't break when user resizes page
     // reloads the page if user resizes window to reload javascript
