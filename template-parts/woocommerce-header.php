@@ -17,7 +17,9 @@
 <head>
 	<title>
 		<?php
-		echo the_title($before = '', $after = ' | ') . get_bloginfo("name") . ' - ' . get_bloginfo("description");
+		$category = get_queried_object();
+
+		echo ucfirst($category->name) . ' | ' . get_bloginfo("name") . ' - ' . get_bloginfo("description");
 		?>
 	</title>
 	<meta name="description" content="<?php bloginfo("description"); ?>">
