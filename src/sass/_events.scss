@@ -34,6 +34,30 @@
 }
 
 .events{
+    .banner{
+        width: 100svw;
+        padding: 2rem 0;
+        position: relative;
+
+        h2{
+            margin-top: 0;
+            font-family: $racing;
+            font-size: clamp(1.5rem, 1.5rem + 1svw, 3rem);
+        }
+
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+
+    }
+    
     .removeFilterList {
         @include remove-filter-list;
 
@@ -219,6 +243,29 @@
 
 @media screen and (min-width: 1024px){
 
+    .events{
+        .banner{
+            h2,
+            p{
+                position: relative;
+                z-index: 1;
+                text-shadow: 0px 1px 0 rgba($black, 0.2)
+            }
+
+            h2{
+                width: 50%;
+            }
+
+            img{
+                width: 75%;
+                z-index: 0;
+                right: 0;
+                left: unset;
+                filter: blur(1px);
+            }
+        }
+    }
+
     .event-menu{
         div{
             border: none;
@@ -261,6 +308,10 @@
                 color: $white;
                 border-radius: 5px;
                 font-size: 1rem;
+
+                &:hover{
+                    cursor: pointer;
+                }
 
                 &:active{
                     background-color: $strong-orange;

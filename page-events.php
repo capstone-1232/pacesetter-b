@@ -12,12 +12,16 @@ get_header();
 ?>
 
 <div id="primary" class="content-area events">
-    <main id="main" class="site-main container" role="main">
-        <section class="banner">
-            <h2>Events <span class="offset-underline"></span></h2>
-            <p>All our events are free!</p>
+    <main id="main" class="site-main" role="main">
+        <section class="banner"
+            style="background: url('<?php echo home_url(); ?>/wp-content/themes/pacesetter-b/img/snow-background-texture.webp')">
+            <div class="container">
+                <h2>Events <span class="offset-underline"></span></h2>
+                <p>All our events are free!</p>
+                <img src="<?php echo home_url(); ?>/wp-content/themes/pacesetter-b/img/pacesetter-event.jpg" alt="Picture of event happening at pacesetter ski shoppe in edmonton alberta canada local">
+            </div>
         </section>
-        <section>
+        <section class="container">
             <div>
                 <h3 class="sr-only">Filters</h3>
                 <div class="event-menu">

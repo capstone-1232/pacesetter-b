@@ -77,3 +77,12 @@ html {
     height: 3px;
     background-color: $primary-yellow;
 }
+
+.offset-half-underline{
+    display: block;
+    width: 50%;
+    height: 2px;
+    position: relative;
+    left: 10%;
+    background-color: $primary-yellow;
+}
