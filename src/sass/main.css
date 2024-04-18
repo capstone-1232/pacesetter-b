@@ -2250,6 +2250,9 @@ button#backToTopBtn:focus {
   .faq-section p {
     width: 60%;
   }
+  .faq-section + section {
+    overflow-x: hidden;
+  }
   .common-questions-section {
     height: -moz-fit-content;
     height: fit-content;
