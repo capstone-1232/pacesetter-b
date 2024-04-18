@@ -1,0 +1,28 @@
+**** INFO ****
+
+This was a custom theme built for NAIT capstone project. The theme is being used exclusively for Pacesetter Ski Shoppe in Edmonton, Alberta.
+
+**** TEAM ****
+D Vo
+Northern Alberta, Canada
+Contact:davie.vo@live.com
+K Howell
+Northern Alberta, Canada
+Contact:kirstyn.nhowell@gmail.com
+N Neitling
+Northern Alberta, Canada
+Contact:nicklausneitling@gmail.com
+
+T Cabillo
+Northern Alberta, Canada
+Contact:terrencejcab@gmail.com
+
+**** THANKS ****
+
+
+**** SITE ****
+
+Last Update: October 13th,2023
+Language: English
+Doctype: PHP with Dart Sass and JavaScript. JQuery and AJAX were used.
+IDE: Visual Studio Code, Github, Wordpress, Adobe Photoshop, Squoosh, Google Analytics, Duplicator, Forminator, ACF, CPT
