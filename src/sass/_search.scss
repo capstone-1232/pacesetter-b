@@ -50,9 +50,11 @@
             }
           }
           &:last-child {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
             width: 70%;
+            &.product {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+            }
             h3 {
               font-size: 1rem;
               font-size: 400;
@@ -118,9 +120,6 @@
               width: 30%;
             }
             &:last-child {
-              display: grid;
-              grid-template-columns: repeat(2, 1fr);
-              width: 70%;
               h3 {
                 font-size: 2rem;
               }

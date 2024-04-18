@@ -184,7 +184,7 @@ get_header();
         </div>
             </div>
     </section>
-    <div class="container snow-texture" style="background: url(<?php echo home_url(); ?>/wp-content/themes/pacesetter-b/img/snow-texture.jpg)">
+    <div class="container snow-texture" style="background: url(<?php echo home_url(); ?>/wp-content/themes/pacesetter-b/img/snow-background-texture.webp)">
         <div class="background-overlay"></div>    
     <section id="productFeatures">
         <div class="heading">

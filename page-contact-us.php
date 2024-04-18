@@ -70,7 +70,7 @@ get_header();
             </div>
         </section>
     </div>
-    <section class="map" style="background-image: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent), url('<?php echo esc_url(get_template_directory_uri() . '/img/inside-store.jpg'); ?>');">
+    <section class="map" style="background-image: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent), url('<?php echo esc_url(get_template_directory_uri() . '/img/inside-store.webp'); ?>');">
         <div class="location">
             <h4>Location</h4>
             <p><?php echo get_field('address'); ?></p>

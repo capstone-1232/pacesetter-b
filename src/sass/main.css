@@ -5943,9 +5943,11 @@ a {
   border-radius: 10px;
 }
 .search #searchResults article .search-content div:last-child {
+  width: 70%;
+}
+.search #searchResults article .search-content div:last-child.product {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 70%;
 }
 .search #searchResults article .search-content div:last-child h3 {
   font-size: 1rem;
@@ -6003,11 +6005,6 @@ a {
   }
   .search #searchResults article .search-content div:first-child {
     width: 30%;
-  }
-  .search #searchResults article .search-content div:last-child {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 70%;
   }
   .search #searchResults article .search-content div:last-child h3 {
     font-size: 2rem;
