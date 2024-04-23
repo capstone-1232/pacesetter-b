@@ -3896,7 +3896,7 @@ button#backToTopBtn:focus {
   position: relative;
   width: 100%;
   height: 600px;
-  background-image: url("https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/landing-page-events-smbg.png");
+  background-image: url("https://pacesetterski.com/wp-content/themes/pacesetter-b/img/landing-page-events-smbg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -3961,7 +3961,7 @@ button#backToTopBtn:focus {
 @media screen and (min-width: 440px) {
   .landing-page-events {
     height: 700px;
-    background-image: url("https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/landing-page-events-bg.png");
+    background-image: url("https://pacesetterski.com/wp-content/themes/pacesetter-b/img/landing-page-events-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -4011,7 +4011,7 @@ button#backToTopBtn:focus {
 @media screen and (min-width: 1000px) {
   .landing-page-events {
     height: 800px;
-    background-image: url("https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/landing-page-events-lgbg.png");
+    background-image: url("https://pacesetterski.com/wp-content/themes/pacesetter-b/img/landing-page-events-lgbg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -5265,7 +5265,7 @@ button#backToTopBtn:focus {
   width: 45%;
   padding: 1rem 1rem 4rem 1rem;
   background-color: #013562;
-  background-image: linear-gradient(90deg, rgba(1, 1, 1, 0.75) 11%, rgba(1, 1, 1, 0.54) 48%, rgba(255, 255, 255, 0) 69%), url("https://pacesetter-b.web.dmitcapstone.ca/wp-content/themes/pacesetter-b/img/shop-services-bench.jpg");
+  background-image: linear-gradient(90deg, rgba(1, 1, 1, 0.75) 11%, rgba(1, 1, 1, 0.54) 48%, rgba(255, 255, 255, 0) 69%), url("https://pacesetterski.com/wp-content/themes/pacesetter-b/img/shop-services-bench.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
