@@ -7,7 +7,6 @@ Template Post Type: customer-reviews
 
 <section class="review-section">
   <h2>Customer Reviews</h2>
-  <h2>Customer Reviews</h2>
   <div id="review-carousel" class="review_slider">
     <div class="carousel-inner">
 
@@ -34,10 +33,8 @@ Template Post Type: customer-reviews
           <div class="review_slide <?php echo $active_class; ?>">
             <div class="review_slide-content">
               <p class="feedback">
-              <p class="feedback">
                 <?php echo $feedback ?>
               </p>
-              <p class="customer-name">-
               <p class="customer-name">-
                 <?php echo $customer_name ?>
               </p>
@@ -60,24 +57,7 @@ Template Post Type: customer-reviews
               </g>
             </svg>
           </button>
-          <button class="review_btn review_btn-next">
-            <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                viewBox="0 0 491.1 491.1" xml:space="preserve">
-              <g>
-                <path d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5
-                  c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"/>
-              </g>
-            </svg>
-          </button>
           <button class="review_btn review_btn-prev">
-            <svg class="svg-flip" fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-              viewBox="0 0 491.1 491.1" xml:space="preserve">
-              <g>
-                <path d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5
-                  c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"/>
-              </g>
-            </svg>
-          </button>
             <svg class="svg-flip" fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
               viewBox="0 0 491.1 491.1" xml:space="preserve">
               <g>
